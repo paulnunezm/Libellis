@@ -13,6 +13,7 @@ interface LoginContract {
 
     interface Presenter {
         fun loginButtonClicked()
+        fun setLoginInteractor(interactor: LoginContract.Interactor)
     }
 
     interface Interactor {

@@ -13,7 +13,7 @@ class LoginPresenter(
     : LoginContract.Presenter, Authenticator.AuthenticatorListener, AuthDialog.RequestListener {
 
     lateinit var authenticator: Authenticator
-    lateinit var interactor: LoginInteractor
+    lateinit var interactor: LoginContract.Interactor
 
     override fun loginButtonClicked() {
         view.showProgress()
@@ -40,5 +40,9 @@ class LoginPresenter(
     override fun onUserSecretRecieved(userKey: String?, userSecret: String?) {
         interactor.saveUserKeys(userKey, userSecret)
         view.goToUpdatesActivity()
+    }
+
+    override fun setLoginInteractor(interactor: LoginContract.Interactor) {
+        this.interactor = interactor
     }
 }

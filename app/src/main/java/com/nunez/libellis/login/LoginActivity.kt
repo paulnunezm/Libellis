@@ -20,6 +20,7 @@ import kotlinx.android.synthetic.main.login_activity.*
 class LoginActivity : AppCompatActivity(), LoginContract.View {
 
     lateinit var presenter: LoginContract.Presenter
+    lateinit var interactor: LoginContract.Interactor
     val loginButton by lazy { findViewById(R.id.loginButton) as Button }
     val progress by lazy { findViewById(R.id.progressBar) as ProgressBar }
 
@@ -28,6 +29,7 @@ class LoginActivity : AppCompatActivity(), LoginContract.View {
         setContentView(R.layout.login_activity)
 
         presenter = LoginPresenter(this)
+        interactor = LoginInteractor(this)
 
         val authenticator = Authenticator.Builder()
                 .consumerKey(BuildConfig.GOODREADS_API_KEY)
@@ -40,6 +42,7 @@ class LoginActivity : AppCompatActivity(), LoginContract.View {
                 .build()
 
         (presenter as LoginPresenter).authenticator = authenticator
+        presenter.setLoginInteractor(interactor)
 
         loginButton.setOnClickListener { presenter.loginButtonClicked() }
 

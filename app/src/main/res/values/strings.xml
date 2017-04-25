@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Libellis</string>
+    <string name="login_activity_log_in_button">Log in</string>
+
+    <string name="user_prefs" translatable="false">user_prefs</string>
+    <string name="user_prefs_logged_in" translatable="false">logged_in</string>
+    <string name="user_prefs_user_key">user_key</string>
+    <string name="user_prefs_user_secret">user_secret</string>
 </resources>

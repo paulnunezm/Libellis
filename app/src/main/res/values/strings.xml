@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Libellis</string>
+    <string name="login_activity_log_in_button">Log in</string>
 </resources>

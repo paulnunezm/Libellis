@@ -10,9 +10,11 @@ import android.widget.ProgressBar
 import com.nunez.libellis.BuildConfig
 import com.nunez.libellis.R
 import com.nunez.libellis.repository.GoodreadsService
+import com.nunez.libellis.showSnackbar
 import com.nunez.libellis.updates.UpdatesActivity
 import com.nunez.oauthathenticator.AuthDialog
 import com.nunez.oauthathenticator.Authenticator
+import kotlinx.android.synthetic.main.login_activity.*
 
 
 class LoginActivity : AppCompatActivity(), LoginContract.View {
@@ -62,7 +64,10 @@ class LoginActivity : AppCompatActivity(), LoginContract.View {
     }
 
     override fun showError() {
-        // TODO: handle errors gracefully
+        loginButton.visibility = VISIBLE
+        progress.visibility = GONE
+
+        loginContainer.showSnackbar("Snap! something was wrong...")
     }
 
     override fun goToUpdatesActivity() {

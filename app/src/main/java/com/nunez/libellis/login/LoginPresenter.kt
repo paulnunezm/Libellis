@@ -1,7 +1,6 @@
 package com.nunez.libellis.login
 
 import android.net.Uri
-import android.util.Log
 import com.nunez.oauthathenticator.AuthDialog
 import com.nunez.oauthathenticator.Authenticator
 import java.util.concurrent.ExecutionException
@@ -13,8 +12,8 @@ class LoginPresenter(
         val view: LoginContract.View)
     : LoginContract.Presenter, Authenticator.AuthenticatorListener, AuthDialog.RequestListener {
 
-
     lateinit var authenticator: Authenticator
+    lateinit var interactor: LoginInteractor
 
     override fun loginButtonClicked() {
         view.showProgress()
@@ -39,8 +38,7 @@ class LoginPresenter(
     }
 
     override fun onUserSecretRecieved(userKey: String?, userSecret: String?) {
-        // TODO: store values in shared preferences
-        Log.d(this::class.java.simpleName, "userKey = $userKey, userSecret = $userSecret")
+        interactor.saveUserKeys(userKey, userSecret)
         view.goToUpdatesActivity()
     }
 }

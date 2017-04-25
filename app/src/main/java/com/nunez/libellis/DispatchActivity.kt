@@ -23,7 +23,7 @@ class DispatchActivity : AppCompatActivity() {
         startActivity(nextActivityIntent)
     }
 
-    fun userLoggedIn() = this.getSharedPreferences("user_prefs", 0)
-            .getBoolean("logged_in", false)
+    fun userLoggedIn() = this.getSharedPreferences(getString(com.nunez.libellis.R.string.user_prefs), 0)
+            .getBoolean(getString(R.string.user_prefs_logged_in), false)
 
 }

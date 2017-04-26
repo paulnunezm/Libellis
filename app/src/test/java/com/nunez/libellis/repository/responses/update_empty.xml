@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GoodreadsResponse>
+  <Request>
+    <authentication>true</authentication>
+      <key><![CDATA[9kdgMNGvbCA4Odn3u9f72g]]></key>
+    <method><![CDATA[home_friend_updates]]></method>
+  </Request>
+
+  <updates type="array"></updates>
+
+</GoodreadsResponse>

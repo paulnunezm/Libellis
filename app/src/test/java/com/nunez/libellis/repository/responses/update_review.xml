@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GoodreadsResponse>
+    <Request>
+        <authentication>true</authentication>
+        <key>
+            <![CDATA[9kdgMNGvbCA4Odn3u9f72g]]>
+        </key>
+        <method>
+            <![CDATA[home_friend_updates]]>
+        </method>
+    </Request>
+
+    <updates type="array">
+        <update type="review">
+            <action_text>
+                <![CDATA[gave 3 stars to <a href="https://www.goodreads.com/book/show/1.Harry_Potter_and_the_Half_Blood_Prince">Harry Potter and the Half-Blood Prince (Harry Potter, #6)</a> by <a href="https://www.goodreads.com/author/show/1077326.J_K_Rowling">J.K. Rowling</a>]]>
+            </action_text>
+            <link>https://www.goodreads.com/review/show/1418129520</link>
+            <image_url>https://images.gr-assets.com/books/1361039191s/1.jpg</image_url>
+            <actor>
+                <id type="integer">22360802</id>
+                <name>Emelin</name>
+                <image_url>https://images.gr-assets.com/users/1415927931p2/22360802.jpg</image_url>
+                <link>https://www.goodreads.com/user/show/22360802-emelin</link>
+            </actor>
+            <updated_at>Tue, 25 Apr 2017 04:43:27 -0700</updated_at>
+            <action type="rating">
+                <rating>3</rating>
+            </action>
+            <object>
+                <book>
+                    <id>1</id>
+                    <title>
+                        <![CDATA[Harry Potter and the Half-Blood Prince (Harry Potter, #6)]]>
+                    </title>
+                    <link>https://www.goodreads.com/book/show/1.Harry_Potter_and_the_Half_Blood_Prince</link>
+                    <authors>
+                        <author>
+                            <id>1077326</id>
+                            <name>J.K. Rowling</name>
+                            <role></role>
+                            <image_url nophoto='false'>
+                                <![CDATA[https://images.gr-assets.com/authors/1415945171p5/1077326.jpg]]>
+                            </image_url>
+                            <small_image_url nophoto='false'>
+                                <![CDATA[https://images.gr-assets.com/authors/1415945171p2/1077326.jpg]]>
+                            </small_image_url>
+                            <link>
+                                <![CDATA[https://www.goodreads.com/author/show/1077326.J_K_Rowling]]>
+                            </link>
+                            <average_rating>4.42</average_rating>
+                            <ratings_count>17623028</ratings_count>
+                            <text_reviews_count>436947</text_reviews_count>
+                        </author>
+                    </authors>
+                </book>
+            </object>
+        </update>
+    </updates>
+
+</GoodreadsResponse>

@@ -24,6 +24,24 @@ android {
         it.buildConfigField 'String', 'GOODREADS_API_SECRET', project.API_SECRET
         it.buildConfigField 'String', 'CALLBACK_URL', project.CALLBACK_URL
     }
+    sourceSets {
+        test {
+            resources.srcDirs += ['src/test/resources']
+        }
+        androidTest {
+            resources.srcDirs += ['src/androidTest/resources']
+        }
+    }
+    testOptions {
+        unitTests.all {
+            // All the usual Gradle options.
+            testLogging {
+                events "passed", "skipped", "failed", "standardOut", "standardError"
+                outputs.upToDateWhen {false}
+                showStandardStreams = true
+            }
+        }
+    }
 }
 
 dependencies {

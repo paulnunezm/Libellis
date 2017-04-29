@@ -6,7 +6,7 @@ import com.nunez.libellis.entities.User
 import org.w3c.dom.Node
 
 /**
- * Created by paulnunez on 4/29/17.
+ * Created by paulnunez on 4/29/17
  */
 open class FriendUpdateParser(val friendNode: Node) : BaseUpdatesParser() {
 

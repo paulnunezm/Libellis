@@ -1,5 +1,6 @@
 package com.nunez.libellis.repository.parsers
 
+import com.nunez.libellis.entities.CommentUpdate
 import com.nunez.libellis.entities.FriendUpdate
 import com.nunez.libellis.entities.Update
 import org.junit.Assert.assertEquals
@@ -35,6 +36,7 @@ class UpdatesParserTest {
     }
 
     @Test
+    @Throws (Exception::class)
     fun shouldHandleEmptyFileAndReturnEmptyList() {
         // when
         updates = UpdatesParser("").parse()
@@ -44,6 +46,7 @@ class UpdatesParserTest {
     }
 
     @Test
+    @Throws (Exception::class)
     fun shouldHandleEmptyUpdates(){
         // given
         response = getFileFromPath(this, "update_empty.xml")
@@ -51,6 +54,20 @@ class UpdatesParserTest {
         // when
         parser = UpdatesParser(response.readText())
         updates = parser.parse()
+    }
+
+    @Test
+    fun shouldParseCommentUpdate() {
+        // given
+        response = getFileFromPath(this, "update_comment.xml")
+
+        // when
+        parser = UpdatesParser(response.readText())
+        updates = parser.parse()
+
+        // Then
+        assertEquals("updates size", 1, updates.size)
+        assertTrue("Update is a Comment Update", updates.get(0) is CommentUpdate)
     }
 
 }

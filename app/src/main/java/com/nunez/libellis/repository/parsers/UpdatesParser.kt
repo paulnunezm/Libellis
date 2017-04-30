@@ -44,6 +44,7 @@ class UpdatesParser(
                 val update = when{
                     type.contains(Update.TYPE.FRIEND) -> FriendUpdateParser(node).parse()
                     type.contains(Update.TYPE.COMMENT) -> CommentUpdaterParser(node).parse()
+                    type.contains(Update.TYPE.REVIEW) -> ReviewsUpdateParser(node).parse()
                     else -> false
                 }
 

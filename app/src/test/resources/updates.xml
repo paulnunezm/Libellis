@@ -1,0 +1,1338 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GoodreadsResponse>
+    <Request>
+        <authentication>true</authentication>
+        <key><![CDATA[9kdgMNGvbCA4Odn3u9f72g]]></key>
+        <method><![CDATA[home_friend_updates]]></method>
+    </Request>
+    <updates type="array">
+        <update type="readstatus">
+            <action_text>
+                <![CDATA[is currently reading <a only_path="false" href="https://www.goodreads.com/review/show/1982119542">The Arrangement 15: The Ferro Family (The Arrangement, #15)</a>]]></action_text>
+            <link>https://www.goodreads.com/read_statuses/1815838630</link>
+            <image_url>
+                https://s.gr-assets.com/assets/nophoto/user/f_50x66-6a03a5c12233c941481992b82eea8d23.png
+            </image_url>
+            <actor>
+                <id type="integer">31273409</id>
+                <name>Elianna</name>
+                <image_url>
+                    https://s.gr-assets.com/assets/nophoto/user/f_50x66-6a03a5c12233c941481992b82eea8d23.png
+                </image_url>
+                <link>https://www.goodreads.com/user/show/31273409-elianna</link>
+            </actor>
+            <updated_at>Tue, 25 Apr 2017 12:52:20 -0700</updated_at>
+            <object>
+                <read_status>
+                    <id type="integer">1815838630</id>
+                    <review_id type="integer">1982119542</review_id>
+                    <user_id type="integer">31273409</user_id>
+                    <old_status nil="true"/>
+                    <status>currently-reading</status>
+                    <updated_at type="datetime">2017-04-25T19:52:20+00:00</updated_at>
+                    <review>
+                        <id type="integer">1982119542</id>
+                        <user_id type="integer">31273409</user_id>
+                        <book_id type="integer">22469811</book_id>
+                        <rating type="integer">0</rating>
+                        <read_status>currently-reading</read_status>
+                        <sell_flag type="boolean">false</sell_flag>
+                        <review nil="true"/>
+                        <recommendation nil="true"/>
+                        <read_at nil="true" type="datetime"/>
+                        <updated_at type="datetime">2017-04-25T19:52:20+00:00</updated_at>
+                        <created_at type="datetime">2017-04-25T19:52:19+00:00</created_at>
+                        <comments_count type="integer">0</comments_count>
+                        <weight type="integer">0</weight>
+                        <ratings_sum type="integer">0</ratings_sum>
+                        <ratings_count type="integer">0</ratings_count>
+                        <notes nil="true"/>
+                        <spoiler_flag type="boolean">false</spoiler_flag>
+                        <recommender_user_id1 type="integer">0</recommender_user_id1>
+                        <recommender_user_name1 nil="true"/>
+                        <work_id type="integer">41910101</work_id>
+                        <read_count>0</read_count>
+                        <last_comment_at nil="true" type="datetime"/>
+                        <started_at type="datetime">2017-04-25T19:52:20+00:00</started_at>
+                        <hidden_flag type="boolean">false</hidden_flag>
+                        <language_code nil="true" type="integer"/>
+                        <last_revision_at type="datetime">2017-04-25T19:52:20+00:00
+                        </last_revision_at>
+                        <non_friends_rating_count type="integer">0</non_friends_rating_count>
+                        <book>
+                            <id type="integer">22469811</id>
+                            <work_id type="integer">41910101</work_id>
+                            <isbn nil="true"/>
+                            <isbn13>9781630350284</isbn13>
+                            <title>The Arrangement 15: The Ferro Family (The Arrangement, #15)
+                            </title>
+                            <sort_by_title>arrangement 15: the ferro family (the arrangement, #15),
+                                the
+                            </sort_by_title>
+                            <author_id type="integer">4330590</author_id>
+                            <author_role nil="true"/>
+                            <asin nil="true"/>
+                            <description nil="true"/>
+                            <format>Kindle Edition</format>
+                            <publication_year type="integer">2014</publication_year>
+                            <publication_month type="integer">6</publication_month>
+                            <publication_day type="integer">16</publication_day>
+                            <num_pages type="integer">124</num_pages>
+                            <publisher>H.M. WARD PRESS</publisher>
+                            <language_code>eng</language_code>
+                            <edition_information nil="true"/>
+                            <url nil="true"/>
+                            <source_url nil="true"/>
+                            <image_uploaded_at type="datetime">2014-06-14T21:18:04+00:00
+                            </image_uploaded_at>
+                            <s3_image_at type="datetime">2015-06-16T07:34:47+00:00</s3_image_at>
+                            <reviews_count type="integer">4755</reviews_count>
+                            <ratings_sum type="integer">12327</ratings_sum>
+                            <ratings_count type="integer">2928</ratings_count>
+                            <text_reviews_count type="integer">309</text_reviews_count>
+                            <book_authors_count type="integer">0</book_authors_count>
+                            <updated_at type="datetime">2015-06-16T07:34:47+00:00</updated_at>
+                            <created_at type="datetime">2014-06-14T21:18:04+00:00</created_at>
+                            <author_id_updater_user_id type="integer">4439318
+                            </author_id_updater_user_id>
+                            <author_role_updater_user_id nil="true" type="integer"/>
+                            <description_updater_user_id type="integer">4439318
+                            </description_updater_user_id>
+                            <edition_information_updater_user_id nil="true" type="integer"/>
+                            <format_updater_user_id type="integer">4439318</format_updater_user_id>
+                            <image_updater_user_id type="integer">4439318</image_updater_user_id>
+                            <isbn_updater_user_id nil="true" type="integer"/>
+                            <isbn13_updater_user_id type="integer">4439318</isbn13_updater_user_id>
+                            <language_updater_user_id type="integer">4439318
+                            </language_updater_user_id>
+                            <num_pages_updater_user_id type="integer">4439318
+                            </num_pages_updater_user_id>
+                            <publication_date_updater_user_id type="integer">4439318
+                            </publication_date_updater_user_id>
+                            <publisher_updater_user_id type="integer">4439318
+                            </publisher_updater_user_id>
+                            <title_updater_user_id type="integer">20051183</title_updater_user_id>
+                            <url_updater_user_id nil="true" type="integer"/>
+                            <title_language_code nil="true"/>
+                            <publisher_language_code nil="true"/>
+                            <description_language_code nil="true"/>
+                            <asin_updater_user_id nil="true" type="integer"/>
+                            <author>
+                                <id type="integer">4330590</id>
+                                <name>H.M. Ward</name>
+                                <updated_at type="datetime">2017-04-24T01:56:02+00:00</updated_at>
+                                <created_at type="datetime">2010-09-05T17:08:38+00:00</created_at>
+                                <searched_for_at type="datetime">2010-09-05T17:31:19+00:00
+                                </searched_for_at>
+                                <image_uploaded_at type="datetime">2014-06-21T17:45:59+00:00
+                                </image_uploaded_at>
+                                <user_id type="integer">4439318</user_id>
+                                <gender>F</gender>
+                                <country_code>US</country_code>
+                                <born_at nil="true" type="datetime"/>
+                                <died_at nil="true" type="datetime"/>
+                                <about>H.M. Ward continues to reign as a NEW YORK TIMES bestselling
+                                    author who is swiftly approaching 13 million copies sold,
+                                    placing her among the literary titans. Ward has been featured in
+                                    articles in the NEW YORK TIMES, FORBES, and USA TODAY to name a
+                                    few.
+
+                                    You can interact with this bestselling author at:
+                                    www.facebook.com/AuthorHMWard. Text HMWARD to 24587 and get a
+                                    text reminder on release &amp; sale days.
+                                </about>
+                                <uploader_user_id type="integer">4439318</uploader_user_id>
+                                <image_copyright>i took it</image_copyright>
+                                <influences></influences>
+                                <url>http://www.HMWard.com</url>
+                                <genre1>New Adult</genre1>
+                                <genre2>Romance</genre2>
+                                <genre3>Paranormal</genre3>
+                                <books_count type="integer">313</books_count>
+                                <reviews_count type="integer">536193</reviews_count>
+                                <ratings_sum type="integer">1234819</ratings_sum>
+                                <works_count type="integer">103</works_count>
+                                <hometown></hometown>
+                                <rating_dist>5:11|4:1|total:12</rating_dist>
+                                <s3_image_at type="datetime">2015-05-15T06:25:37+00:00</s3_image_at>
+                                <ratings_count type="integer">297731</ratings_count>
+                                <text_reviews_count type="integer">17537</text_reviews_count>
+                                <author_program_at type="datetime">2010-11-29T20:00:56+00:00
+                                </author_program_at>
+                                <postal_code nil="true"/>
+                                <fanships_count type="integer">5132</fanships_count>
+                                <best_book_id type="integer">17231976</best_book_id>
+                                <name_language_code nil="true"/>
+                                <sort_by_name>ward, h.m.</sort_by_name>
+                                <shelf_display_name>Ward, H.M.</shelf_display_name>
+                                <gender_custom nil="true"/>
+                                <gender_pronoun nil="true"/>
+                            </author>
+                        </book>
+                    </review>
+                </read_status>
+
+            </object>
+        </update>
+        <update type="comment">
+            <action_text>
+                <![CDATA[<a href="https://www.goodreads.com/user/show/22360802-emelin">Emelin</a> commented on Hector Jean Carlos Cordero Gonzalez's review]]></action_text>
+            <link>https://www.goodreads.com/review/show/1978930891</link>
+            <image_url>https://images.gr-assets.com/books/1492617076s/28139880.jpg</image_url>
+            <actor>
+                <id type="integer">22360802</id>
+                <name>Emelin</name>
+                <image_url>https://images.gr-assets.com/users/1415927931p2/22360802.jpg</image_url>
+                <link>https://www.goodreads.com/user/show/22360802-emelin</link>
+            </actor>
+            <updated_at>Tue, 25 Apr 2017 06:03:53 -0700</updated_at>
+            <body>ohhhhhhh</body>
+        </update>
+        <update type="readstatus">
+            <action_text>
+                <![CDATA[wants to read <a only_path="false" href="https://www.goodreads.com/review/show/1981790643">The Clay Girl</a>]]></action_text>
+            <link>https://www.goodreads.com/read_statuses/1815409896</link>
+            <image_url>https://images.gr-assets.com/users/1425606646p2/15563730.jpg</image_url>
+            <actor>
+                <id type="integer">15563730</id>
+                <name>Nicole</name>
+                <image_url>https://images.gr-assets.com/users/1425606646p2/15563730.jpg</image_url>
+                <link>https://www.goodreads.com/user/show/15563730-nicole</link>
+            </actor>
+            <updated_at>Tue, 25 Apr 2017 06:01:34 -0700</updated_at>
+            <object>
+                <read_status>
+                    <id type="integer">1815409896</id>
+                    <review_id type="integer">1981790643</review_id>
+                    <user_id type="integer">15563730</user_id>
+                    <old_status nil="true"/>
+                    <status>to-read</status>
+                    <updated_at type="datetime">2017-04-25T13:01:34+00:00</updated_at>
+                    <review>
+                        <id type="integer">1981790643</id>
+                        <user_id type="integer">15563730</user_id>
+                        <book_id type="integer">28691857</book_id>
+                        <rating type="integer">0</rating>
+                        <read_status>to-read</read_status>
+                        <sell_flag type="boolean">false</sell_flag>
+                        <review nil="true"/>
+                        <recommendation nil="true"/>
+                        <read_at nil="true" type="datetime"/>
+                        <updated_at type="datetime">2017-04-25T13:01:33+00:00</updated_at>
+                        <created_at type="datetime">2017-04-25T13:01:33+00:00</created_at>
+                        <comments_count type="integer">0</comments_count>
+                        <weight type="integer">0</weight>
+                        <ratings_sum type="integer">0</ratings_sum>
+                        <ratings_count type="integer">0</ratings_count>
+                        <notes nil="true"/>
+                        <spoiler_flag type="boolean">false</spoiler_flag>
+                        <recommender_user_id1 type="integer">0</recommender_user_id1>
+                        <recommender_user_name1 nil="true"/>
+                        <work_id type="integer">48888628</work_id>
+                        <read_count>0</read_count>
+                        <last_comment_at nil="true" type="datetime"/>
+                        <started_at nil="true" type="datetime"/>
+                        <hidden_flag type="boolean">false</hidden_flag>
+                        <language_code nil="true" type="integer"/>
+                        <last_revision_at type="datetime">2017-04-25T13:01:33+00:00
+                        </last_revision_at>
+                        <non_friends_rating_count type="integer">0</non_friends_rating_count>
+                        <book>
+                            <id type="integer">28691857</id>
+                            <work_id type="integer">48888628</work_id>
+                            <isbn>1770413030</isbn>
+                            <isbn13>9781770413030</isbn13>
+                            <title>The Clay Girl</title>
+                            <sort_by_title>clay girl, the</sort_by_title>
+                            <author_id type="integer">8038581</author_id>
+                            <author_role nil="true"/>
+                            <asin nil="true"/>
+                            <description nil="true"/>
+                            <format>Paperback</format>
+                            <publication_year type="integer">2016</publication_year>
+                            <publication_month type="integer">10</publication_month>
+                            <publication_day type="integer">11</publication_day>
+                            <num_pages type="integer">352</num_pages>
+                            <publisher>ECW000</publisher>
+                            <language_code>eng</language_code>
+                            <edition_information nil="true"/>
+                            <url>http://ecwpress.com/products/clay-girl</url>
+                            <source_url nil="true"/>
+                            <image_uploaded_at type="datetime">2016-02-11T06:43:25+00:00
+                            </image_uploaded_at>
+                            <s3_image_at type="datetime">2016-02-15T02:30:33+00:00</s3_image_at>
+                            <reviews_count type="integer">2265</reviews_count>
+                            <ratings_sum type="integer">1313</ratings_sum>
+                            <ratings_count type="integer">294</ratings_count>
+                            <text_reviews_count type="integer">95</text_reviews_count>
+                            <book_authors_count type="integer">0</book_authors_count>
+                            <updated_at type="datetime">2017-01-12T14:07:39+00:00</updated_at>
+                            <created_at type="datetime">2016-01-25T02:35:54+00:00</created_at>
+                            <author_id_updater_user_id type="integer">-9</author_id_updater_user_id>
+                            <author_role_updater_user_id type="integer">-9
+                            </author_role_updater_user_id>
+                            <description_updater_user_id type="integer">37116441
+                            </description_updater_user_id>
+                            <edition_information_updater_user_id nil="true" type="integer"/>
+                            <format_updater_user_id type="integer">-9</format_updater_user_id>
+                            <image_updater_user_id type="integer">-44</image_updater_user_id>
+                            <isbn_updater_user_id type="integer">-9</isbn_updater_user_id>
+                            <isbn13_updater_user_id type="integer">-9</isbn13_updater_user_id>
+                            <language_updater_user_id type="integer">9575639
+                            </language_updater_user_id>
+                            <num_pages_updater_user_id type="integer">-9</num_pages_updater_user_id>
+                            <publication_date_updater_user_id type="integer">-9
+                            </publication_date_updater_user_id>
+                            <publisher_updater_user_id type="integer">-9</publisher_updater_user_id>
+                            <title_updater_user_id type="integer">9575639</title_updater_user_id>
+                            <url_updater_user_id type="integer">37116441</url_updater_user_id>
+                            <title_language_code nil="true"/>
+                            <publisher_language_code nil="true"/>
+                            <description_language_code nil="true"/>
+                            <asin_updater_user_id nil="true" type="integer"/>
+                            <author>
+                                <id type="integer">8038581</id>
+                                <name>Heather Tucker</name>
+                                <updated_at type="datetime">2017-04-12T00:36:24+00:00</updated_at>
+                                <created_at type="datetime">2014-03-11T02:19:21+00:00</created_at>
+                                <searched_for_at nil="true" type="datetime"/>
+                                <image_uploaded_at nil="true" type="datetime"/>
+                                <user_id nil="true" type="integer"/>
+                                <gender nil="true"/>
+                                <country_code nil="true"/>
+                                <born_at nil="true" type="datetime"/>
+                                <died_at nil="true" type="datetime"/>
+                                <about nil="true"/>
+                                <uploader_user_id type="integer">0</uploader_user_id>
+                                <image_copyright nil="true"/>
+                                <influences nil="true"/>
+                                <url nil="true"/>
+                                <genre1 nil="true"/>
+                                <genre2 nil="true"/>
+                                <genre3 nil="true"/>
+                                <books_count type="integer">7</books_count>
+                                <reviews_count type="integer">2341</reviews_count>
+                                <ratings_sum type="integer">1430</ratings_sum>
+                                <works_count type="integer">2</works_count>
+                                <hometown nil="true"/>
+                                <rating_dist nil="true"/>
+                                <s3_image_at nil="true" type="datetime"/>
+                                <ratings_count type="integer">319</ratings_count>
+                                <text_reviews_count type="integer">103</text_reviews_count>
+                                <author_program_at nil="true" type="datetime"/>
+                                <postal_code nil="true"/>
+                                <fanships_count type="integer">0</fanships_count>
+                                <best_book_id type="integer">28691857</best_book_id>
+                                <name_language_code nil="true"/>
+                                <sort_by_name>tucker, heather</sort_by_name>
+                                <shelf_display_name>Tucker, Heather</shelf_display_name>
+                                <gender_custom nil="true"/>
+                                <gender_pronoun nil="true"/>
+                            </author>
+                        </book>
+                    </review>
+                </read_status>
+
+            </object>
+        </update>
+        <update type="userstatus">
+            <action_text>
+                <![CDATA[is on page 228 of 299 of <a href="https://www.goodreads.com/book/show/9783994-en-nombre-del-amor">En Nombre del Amor</a>]]></action_text>
+            <link>https://www.goodreads.com/user_status/show/129627581</link>
+            <image_url>
+                https://s.gr-assets.com/assets/nophoto/user/f_50x66-6a03a5c12233c941481992b82eea8d23.png
+            </image_url>
+            <actor>
+                <id type="integer">31273409</id>
+                <name>Elianna</name>
+                <image_url>
+                    https://s.gr-assets.com/assets/nophoto/user/f_50x66-6a03a5c12233c941481992b82eea8d23.png
+                </image_url>
+                <link>https://www.goodreads.com/user/show/31273409-elianna</link>
+            </actor>
+            <updated_at>Tue, 25 Apr 2017 05:00:55 -0700</updated_at>
+            <object>
+                <user_status>
+                    <id type="integer">129627581</id>
+                    <user_id type="integer">31273409</user_id>
+                    <book_id type="integer">9783994</book_id>
+                    <page type="integer">228</page>
+                    <chapter nil="true" type="integer"/>
+                    <comments_count type="integer">0</comments_count>
+                    <body></body>
+                    <created_at type="datetime">2017-04-25T12:00:55+00:00</created_at>
+                    <updated_at type="datetime">2017-04-25T12:00:55+00:00</updated_at>
+                    <last_comment_at nil="true" type="datetime"/>
+                    <ratings_count type="integer">0</ratings_count>
+                    <percent type="integer">76</percent>
+                    <work_id type="integer">2416287</work_id>
+                    <note_uri nil="true"/>
+                    <note_updated_at nil="true" type="datetime"/>
+                    <review_id type="integer">1980787207</review_id>
+                    <book>
+                        <id type="integer">9783994</id>
+                        <work_id type="integer">2416287</work_id>
+                        <isbn nil="true"/>
+                        <isbn13>9788499182377</isbn13>
+                        <title>En Nombre del Amor</title>
+                        <sort_by_title>en nombre del amor</sort_by_title>
+                        <author_id type="integer">2345</author_id>
+                        <author_role nil="true"/>
+                        <asin nil="true"/>
+                        <description>Travis Parker tiene todo lo que un hombre pueda desearpero hay
+                            algo que se resiste a probar: enamorarse. Semejante proposito desparece
+                            por completo en el momento que aparece en su vida Gabby Holland, una
+                            asistente pediatrica que se acaba de mudar al barrio. El ha intentado
+                            ser un buen vecino, invitarla a sus barbacoas y a pasar el dia con sus
+                            amigos en su lancha, pero ella ha resistido cada uno de los intentos de
+                            su guapisimo y encantador vecino, en parte porque le seria demasiado
+                            facil sentirse atraida por el. Y eso seria un problema, porque Gabby
+                            tiene novio. Con el estilo al que este autor nos tiene acostumbrados,
+                            Sparks nos sumerge en el proceso de enamoramiento de dos personas que,
+                            en principio, se oponen a ello y tambien nos hace una pregunta que
+                            todos, en algun momento, nos hemos visto forzados a hacernos: hasta
+                            donde estas dispuesto a llegar por amor?
+                        </description>
+                        <format>Paperback</format>
+                        <publication_year type="integer">2010</publication_year>
+                        <publication_month type="integer">10</publication_month>
+                        <publication_day type="integer">29</publication_day>
+                        <num_pages type="integer">299</num_pages>
+                        <publisher>Roca Editorial</publisher>
+                        <language_code>spa</language_code>
+                        <edition_information nil="true"/>
+                        <url nil="true"/>
+                        <source_url nil="true"/>
+                        <image_uploaded_at type="datetime">2011-01-06T17:10:40+00:00
+                        </image_uploaded_at>
+                        <s3_image_at type="datetime">2015-06-16T00:20:51+00:00</s3_image_at>
+                        <reviews_count type="integer">444</reviews_count>
+                        <ratings_sum type="integer">911</ratings_sum>
+                        <ratings_count type="integer">244</ratings_count>
+                        <text_reviews_count type="integer">33</text_reviews_count>
+                        <book_authors_count type="integer">0</book_authors_count>
+                        <updated_at type="datetime">2015-06-16T00:20:51+00:00</updated_at>
+                        <created_at type="datetime">2010-11-28T17:07:58+00:00</created_at>
+                        <author_id_updater_user_id type="integer">-101</author_id_updater_user_id>
+                        <author_role_updater_user_id type="integer">2942657
+                        </author_role_updater_user_id>
+                        <description_updater_user_id type="integer">2942657
+                        </description_updater_user_id>
+                        <edition_information_updater_user_id nil="true" type="integer"/>
+                        <format_updater_user_id type="integer">-110</format_updater_user_id>
+                        <image_updater_user_id type="integer">2932240</image_updater_user_id>
+                        <isbn_updater_user_id type="integer">4239049</isbn_updater_user_id>
+                        <isbn13_updater_user_id type="integer">4239049</isbn13_updater_user_id>
+                        <language_updater_user_id type="integer">1</language_updater_user_id>
+                        <num_pages_updater_user_id type="integer">-110</num_pages_updater_user_id>
+                        <publication_date_updater_user_id type="integer">4239049
+                        </publication_date_updater_user_id>
+                        <publisher_updater_user_id type="integer">4239049
+                        </publisher_updater_user_id>
+                        <title_updater_user_id type="integer">8154506</title_updater_user_id>
+                        <url_updater_user_id nil="true" type="integer"/>
+                        <title_language_code nil="true"/>
+                        <publisher_language_code nil="true"/>
+                        <description_language_code nil="true"/>
+                        <asin_updater_user_id nil="true" type="integer"/>
+                        <author>
+                            <id type="integer">2345</id>
+                            <name>Nicholas Sparks</name>
+                            <updated_at type="datetime">2017-04-25T23:34:36+00:00</updated_at>
+                            <created_at type="datetime">2006-11-17T18:44:41+00:00</created_at>
+                            <searched_for_at type="datetime">2007-01-27T04:37:11+00:00
+                            </searched_for_at>
+                            <image_uploaded_at type="datetime">2016-07-11T14:29:56+00:00
+                            </image_uploaded_at>
+                            <user_id type="integer">8721294</user_id>
+                            <gender>M</gender>
+                            <country_code>US</country_code>
+                            <born_at type="date">1965-12-31</born_at>
+                            <died_at nil="true" type="datetime"/>
+                            <about>&lt;p&gt;Nicholas Sparks is one of the world’s most beloved
+                                storytellers. All of his books have been &lt;em&gt;New York Times&lt;/em&gt;
+                                bestsellers, with over 105 million copies sold worldwide, in more
+                                than 50 languages, including over 75 million copies in the United
+                                States alone.&lt;/p&gt;&lt;p&gt;Sparks wrote one of his best-known
+                                stories, &lt;em&gt;The Notebook&lt;/em&gt;, over a period of six
+                                months at age 28. It was published in 1996 and he followed with the
+                                novels &lt;em&gt;Message in a Bottle&lt;/em&gt; (1998), &lt;em&gt;A
+                                Walk to Remember&lt;/em&gt; (1999), &lt;em&gt;The Rescue&lt;/em&gt;
+                                (2000), &lt;em&gt;A Bend in the Road&lt;/em&gt; (2001), &lt;em&gt;Nights
+                                in Rodanthe&lt;/em&gt; (2002), &lt;em&gt;The Guardian&lt;/em&gt;
+                                (2003), &lt;em&gt;The Wedding&lt;/em&gt; (2003), &lt;em&gt;True
+                                Believer&lt;/em&gt; (2005) and its sequel, &lt;em&gt;At First Sight&lt;/em&gt;
+                                (2005), &lt;em&gt;Dear John&lt;/em&gt; (2006), &lt;em&gt;The Choice&lt;/em&gt;
+                                (2007), &lt;em&gt;The Lucky One&lt;/em&gt; (2008), &lt;em&gt;The
+                                Last Song&lt;/em&gt; (2009), &lt;em&gt;Safe Haven&lt;/em&gt;
+                                (2010), &lt;em&gt;The Best of Me&lt;/em&gt; (2011), and &lt;em&gt;The
+                                Longest Ride&lt;/em&gt; (2013) as well as the 2004 non-fiction
+                                memoir &lt;em&gt;Three Weeks With My Brother&lt;/em&gt;, co-written
+                                with his brother Micah. His eighteenth novel, &lt;em&gt;See Me&lt;/em&gt;,
+                                published on October 12, 2015. His newest book, &lt;em&gt;Two by Two&lt;/em&gt;,
+                                will be published on October 4, 2016.&lt;/p&gt;&lt;p&gt;Film
+                                adaptations of Nicholas Sparks novels, including &lt;em&gt;The
+                                Choice&lt;/em&gt;, &lt;em&gt;The Longest Ride&lt;/em&gt;, &lt;em&gt;The
+                                Best of Me&lt;/em&gt;, &lt;em&gt;Safe Haven&lt;/em&gt; (on all of
+                                which he served as a producer), &lt;em&gt;The Lucky One&lt;/em&gt;,
+                                &lt;em&gt;Message in a Bottle&lt;/em&gt;, &lt;em&gt;A Walk to
+                                Remember&lt;/em&gt;,&lt;em&gt; The Notebook&lt;/em&gt;, &lt;em&gt;Nights
+                                in Rodanthe&lt;/em&gt;, &lt;em&gt;Dear John&lt;/em&gt; and &lt;em&gt;The
+                                Last Song&lt;/em&gt;, have had a cumulative worldwide gross of over
+                                three-quarters of a billion dollars.&lt;/p&gt;&lt;p&gt;In 2012,
+                                Sparks and his publishing agent and creative partner Theresa Park,
+                                launched Nicholas Sparks Productions, with Park as President of
+                                Production.  A film version of &lt;em&gt;The Guardian&lt;/em&gt;
+                                is currently in development, as is a film based on Football Hall of
+                                Famer Gale Sayers’s friendship with Chicago Bears teammate Brian
+                                Piccolo.&lt;/p&gt;&lt;p&gt;Sparks lives in North Carolina. He
+                                contributes to a variety of local and national charities, and is a
+                                major contributor to the Creative Writing Program (MFA) at the
+                                University of Notre Dame, where he provides scholarships,
+                                internships, and a fellowship annually. He co-founded The Epiphany
+                                School in New Bern, North Carolina in 2006. As a former full
+                                scholarship athlete (he still holds a track and field record at the
+                                University of Notre Dame) he also spent four years coaching track
+                                and field athletes at the local public high school. In 2009, the
+                                team he coached at New Bern High School set a World Junior Indoor
+                                Record in the 4 x400 meter, in New York. The record still stands.
+                                &lt;a
+                                href="http://www.runnersworld.com/runners-stories/philanthropist-nicholas-sparks"
+                                target="_blank"&gt;&lt;strong&gt;Click to watch&lt;/strong&gt; the
+                                Runner’s World video with Nicholas&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;The
+                                &lt;a title="The Nicholas Sparks Foundation"
+                                href="http://nsparksfoundation.org/" target="_blank"&gt;Nicholas
+                                Sparks Foundation&lt;/a&gt;, a 501(c)(3) nonprofit committed to
+                                improving cultural and international understanding through global
+                                education experiences for students of all ages was launched in 2011.
+                                Between the foundation, and the personal gifts of the Sparks family,
+                                more than $15 million dollars have been distributed to deserving
+                                charities, scholarship programs, and projects. Because the Sparks
+                                family covers all operational expenses of the foundation, 100% of
+                                donations are devoted to programs.&lt;/p&gt;</about>
+                            <uploader_user_id type="integer">8721294</uploader_user_id>
+                            <image_copyright>photo credit: Brad Styron Photography</image_copyright>
+                            <influences></influences>
+                            <url>http://www.nicholassparks.com/</url>
+                            <genre1>Literature &amp; Fiction</genre1>
+                            <genre2>Romance</genre2>
+                            <genre3></genre3>
+                            <books_count type="integer">2158</books_count>
+                            <reviews_count type="integer">6769156</reviews_count>
+                            <ratings_sum type="integer">18012898</ratings_sum>
+                            <works_count type="integer">89</works_count>
+                            <hometown>Omaha, Nebraska</hometown>
+                            <rating_dist>5:211924|4:189713|3:147856|2:49890|1:24985|total:624368
+                            </rating_dist>
+                            <s3_image_at nil="true" type="datetime"/>
+                            <ratings_count type="integer">4437894</ratings_count>
+                            <text_reviews_count type="integer">134116</text_reviews_count>
+                            <author_program_at type="datetime">2012-04-11T17:24:11+00:00
+                            </author_program_at>
+                            <postal_code nil="true"/>
+                            <fanships_count type="integer">38921</fanships_count>
+                            <best_book_id type="integer">15931</best_book_id>
+                            <name_language_code nil="true"/>
+                            <sort_by_name>sparks, nicholas</sort_by_name>
+                            <shelf_display_name>Sparks, Nicholas</shelf_display_name>
+                            <gender_custom nil="true"/>
+                            <gender_pronoun nil="true"/>
+                        </author>
+                    </book>
+                </user_status>
+            </object>
+        </update>
+        <update type="readstatus">
+            <action_text>
+                <![CDATA[finished reading <a only_path="false" href="https://www.goodreads.com/review/show/1980822139">The Arrangement 13: The Ferro Family (The Arrangement, #13)</a>]]></action_text>
+            <link>https://www.goodreads.com/read_statuses/1815361054</link>
+            <image_url>
+                https://s.gr-assets.com/assets/nophoto/user/f_50x66-6a03a5c12233c941481992b82eea8d23.png
+            </image_url>
+            <actor>
+                <id type="integer">31273409</id>
+                <name>Elianna</name>
+                <image_url>
+                    https://s.gr-assets.com/assets/nophoto/user/f_50x66-6a03a5c12233c941481992b82eea8d23.png
+                </image_url>
+                <link>https://www.goodreads.com/user/show/31273409-elianna</link>
+            </actor>
+            <updated_at>Tue, 25 Apr 2017 05:00:35 -0700</updated_at>
+            <object>
+                <read_status>
+                    <id type="integer">1815361054</id>
+                    <review_id type="integer">1980822139</review_id>
+                    <user_id type="integer">31273409</user_id>
+                    <old_status>currently-reading</old_status>
+                    <status>read</status>
+                    <updated_at type="datetime">2017-04-25T12:00:27+00:00</updated_at>
+                    <review>
+                        <id type="integer">1980822139</id>
+                        <user_id type="integer">31273409</user_id>
+                        <book_id type="integer">20535657</book_id>
+                        <rating type="integer">0</rating>
+                        <read_status>read</read_status>
+                        <sell_flag type="boolean">false</sell_flag>
+                        <review></review>
+                        <recommendation></recommendation>
+                        <read_at type="datetime">2017-04-25T12:00:35+00:00</read_at>
+                        <updated_at type="datetime">2017-04-25T12:00:35+00:00</updated_at>
+                        <created_at type="datetime">2017-04-24T14:05:03+00:00</created_at>
+                        <comments_count type="integer">0</comments_count>
+                        <weight type="integer">0</weight>
+                        <ratings_sum type="integer">0</ratings_sum>
+                        <ratings_count type="integer">0</ratings_count>
+                        <notes></notes>
+                        <spoiler_flag type="boolean">false</spoiler_flag>
+                        <recommender_user_id1 type="integer">0</recommender_user_id1>
+                        <recommender_user_name1></recommender_user_name1>
+                        <work_id type="integer">37765943</work_id>
+                        <read_count>2</read_count>
+                        <last_comment_at nil="true" type="datetime"/>
+                        <started_at type="datetime">2017-04-24T14:05:11+00:00</started_at>
+                        <hidden_flag type="boolean">false</hidden_flag>
+                        <language_code nil="true" type="integer"/>
+                        <last_revision_at type="datetime">2017-04-25T12:00:35+00:00
+                        </last_revision_at>
+                        <non_friends_rating_count type="integer">0</non_friends_rating_count>
+                        <book>
+                            <id type="integer">20535657</id>
+                            <work_id type="integer">37765943</work_id>
+                            <isbn nil="true"/>
+                            <isbn13>9781630350147</isbn13>
+                            <title>The Arrangement 13: The Ferro Family (The Arrangement, #13)
+                            </title>
+                            <sort_by_title>arrangement 13: the ferro family (the arrangement, #13),
+                                the
+                            </sort_by_title>
+                            <author_id type="integer">4330590</author_id>
+                            <author_role nil="true"/>
+                            <asin nil="true"/>
+                            <description nil="true"/>
+                            <format>ebook</format>
+                            <publication_year type="integer">2014</publication_year>
+                            <publication_month type="integer">2</publication_month>
+                            <publication_day type="integer">3</publication_day>
+                            <num_pages type="integer">69</num_pages>
+                            <publisher>H,M. Ward Press</publisher>
+                            <language_code nil="true"/>
+                            <edition_information nil="true"/>
+                            <url>http://www.SexyAwesomeBooks.com</url>
+                            <source_url nil="true"/>
+                            <image_uploaded_at type="datetime">2014-01-14T13:56:14+00:00
+                            </image_uploaded_at>
+                            <s3_image_at type="datetime">2015-06-16T05:56:29+00:00</s3_image_at>
+                            <reviews_count type="integer">7548</reviews_count>
+                            <ratings_sum type="integer">19278</ratings_sum>
+                            <ratings_count type="integer">4572</ratings_count>
+                            <text_reviews_count type="integer">446</text_reviews_count>
+                            <book_authors_count type="integer">0</book_authors_count>
+                            <updated_at type="datetime">2015-06-16T05:56:29+00:00</updated_at>
+                            <created_at type="datetime">2014-01-14T13:55:25+00:00</created_at>
+                            <author_id_updater_user_id type="integer">15197363
+                            </author_id_updater_user_id>
+                            <author_role_updater_user_id nil="true" type="integer"/>
+                            <description_updater_user_id type="integer">4439318
+                            </description_updater_user_id>
+                            <edition_information_updater_user_id nil="true" type="integer"/>
+                            <format_updater_user_id type="integer">171430</format_updater_user_id>
+                            <image_updater_user_id type="integer">15197363</image_updater_user_id>
+                            <isbn_updater_user_id nil="true" type="integer"/>
+                            <isbn13_updater_user_id type="integer">4439318</isbn13_updater_user_id>
+                            <language_updater_user_id nil="true" type="integer"/>
+                            <num_pages_updater_user_id type="integer">6546227
+                            </num_pages_updater_user_id>
+                            <publication_date_updater_user_id type="integer">15197363
+                            </publication_date_updater_user_id>
+                            <publisher_updater_user_id type="integer">4439318
+                            </publisher_updater_user_id>
+                            <title_updater_user_id type="integer">20051183</title_updater_user_id>
+                            <url_updater_user_id type="integer">4439318</url_updater_user_id>
+                            <title_language_code nil="true"/>
+                            <publisher_language_code nil="true"/>
+                            <description_language_code nil="true"/>
+                            <asin_updater_user_id nil="true" type="integer"/>
+                            <author>
+                                <id type="integer">4330590</id>
+                                <name>H.M. Ward</name>
+                                <updated_at type="datetime">2017-04-24T01:56:02+00:00</updated_at>
+                                <created_at type="datetime">2010-09-05T17:08:38+00:00</created_at>
+                                <searched_for_at type="datetime">2010-09-05T17:31:19+00:00
+                                </searched_for_at>
+                                <image_uploaded_at type="datetime">2014-06-21T17:45:59+00:00
+                                </image_uploaded_at>
+                                <user_id type="integer">4439318</user_id>
+                                <gender>F</gender>
+                                <country_code>US</country_code>
+                                <born_at nil="true" type="datetime"/>
+                                <died_at nil="true" type="datetime"/>
+                                <about>H.M. Ward continues to reign as a NEW YORK TIMES bestselling
+                                    author who is swiftly approaching 13 million copies sold,
+                                    placing her among the literary titans. Ward has been featured in
+                                    articles in the NEW YORK TIMES, FORBES, and USA TODAY to name a
+                                    few.
+
+                                    You can interact with this bestselling author at:
+                                    www.facebook.com/AuthorHMWard. Text HMWARD to 24587 and get a
+                                    text reminder on release &amp; sale days.
+                                </about>
+                                <uploader_user_id type="integer">4439318</uploader_user_id>
+                                <image_copyright>i took it</image_copyright>
+                                <influences></influences>
+                                <url>http://www.HMWard.com</url>
+                                <genre1>New Adult</genre1>
+                                <genre2>Romance</genre2>
+                                <genre3>Paranormal</genre3>
+                                <books_count type="integer">313</books_count>
+                                <reviews_count type="integer">536193</reviews_count>
+                                <ratings_sum type="integer">1234819</ratings_sum>
+                                <works_count type="integer">103</works_count>
+                                <hometown></hometown>
+                                <rating_dist>5:11|4:1|total:12</rating_dist>
+                                <s3_image_at type="datetime">2015-05-15T06:25:37+00:00</s3_image_at>
+                                <ratings_count type="integer">297731</ratings_count>
+                                <text_reviews_count type="integer">17537</text_reviews_count>
+                                <author_program_at type="datetime">2010-11-29T20:00:56+00:00
+                                </author_program_at>
+                                <postal_code nil="true"/>
+                                <fanships_count type="integer">5132</fanships_count>
+                                <best_book_id type="integer">17231976</best_book_id>
+                                <name_language_code nil="true"/>
+                                <sort_by_name>ward, h.m.</sort_by_name>
+                                <shelf_display_name>Ward, H.M.</shelf_display_name>
+                                <gender_custom nil="true"/>
+                                <gender_pronoun nil="true"/>
+                            </author>
+                        </book>
+                    </review>
+                </read_status>
+
+            </object>
+        </update>
+        <update type="review">
+            <action_text>
+                <![CDATA[gave 3 stars to <a href="https://www.goodreads.com/book/show/1.Harry_Potter_and_the_Half_Blood_Prince">Harry Potter and the Half-Blood Prince (Harry Potter, #6)</a> by <a href="https://www.goodreads.com/author/show/1077326.J_K_Rowling">J.K. Rowling</a>]]></action_text>
+            <link>https://www.goodreads.com/review/show/1418129520</link>
+            <image_url>https://images.gr-assets.com/books/1361039191s/1.jpg</image_url>
+            <actor>
+                <id type="integer">22360802</id>
+                <name>Emelin</name>
+                <image_url>https://images.gr-assets.com/users/1415927931p2/22360802.jpg</image_url>
+                <link>https://www.goodreads.com/user/show/22360802-emelin</link>
+            </actor>
+            <updated_at>Tue, 25 Apr 2017 04:43:27 -0700</updated_at>
+            <action type="rating">
+                <rating>3</rating>
+            </action>
+            <object>
+                <book>
+                    <id>1</id>
+                    <title>
+                        <![CDATA[Harry Potter and the Half-Blood Prince (Harry Potter, #6)]]></title>
+                    <link>
+                        https://www.goodreads.com/book/show/1.Harry_Potter_and_the_Half_Blood_Prince
+                    </link>
+                    <authors>
+                        <author>
+                            <id>1077326</id>
+                            <name>J.K. Rowling</name>
+                            <role></role>
+                            <image_url nophoto='false'>
+                                <![CDATA[https://images.gr-assets.com/authors/1415945171p5/1077326.jpg]]>
+                            </image_url>
+                            <small_image_url nophoto='false'>
+                                <![CDATA[https://images.gr-assets.com/authors/1415945171p2/1077326.jpg]]>
+                            </small_image_url>
+                            <link>
+                                <![CDATA[https://www.goodreads.com/author/show/1077326.J_K_Rowling]]></link>
+                            <average_rating>4.42</average_rating>
+                            <ratings_count>17623028</ratings_count>
+                            <text_reviews_count>436947</text_reviews_count>
+                        </author>
+                    </authors>
+                </book>
+            </object>
+        </update>
+        <update type="userstatus">
+            <action_text>
+                <![CDATA[is 49% done with <a href="https://www.goodreads.com/book/show/14497.Neverwhere">Neverwhere</a>]]></action_text>
+            <link>https://www.goodreads.com/user_status/show/129595158</link>
+            <image_url>https://images.gr-assets.com/users/1373121991p2/21959297.jpg</image_url>
+            <actor>
+                <id type="integer">21959297</id>
+                <name>Mario Doñé</name>
+                <image_url>https://images.gr-assets.com/users/1373121991p2/21959297.jpg</image_url>
+                <link>https://www.goodreads.com/user/show/21959297-mario-do</link>
+            </actor>
+            <updated_at>Mon, 24 Apr 2017 19:48:20 -0700</updated_at>
+            <object>
+                <user_status>
+                    <id type="integer">129595158</id>
+                    <user_id type="integer">21959297</user_id>
+                    <book_id type="integer">14497</book_id>
+                    <page nil="true" type="integer"/>
+                    <chapter nil="true" type="integer"/>
+                    <comments_count type="integer">0</comments_count>
+                    <body></body>
+                    <created_at type="datetime">2017-04-25T02:48:20+00:00</created_at>
+                    <updated_at type="datetime">2017-04-25T02:48:20+00:00</updated_at>
+                    <last_comment_at nil="true" type="datetime"/>
+                    <ratings_count type="integer">0</ratings_count>
+                    <percent type="integer">49</percent>
+                    <work_id type="integer">16534</work_id>
+                    <note_uri nil="true"/>
+                    <note_updated_at nil="true" type="datetime"/>
+                    <review_id type="integer">847234479</review_id>
+                    <book>
+                        <id type="integer">14497</id>
+                        <work_id type="integer">16534</work_id>
+                        <isbn>0060557818</isbn>
+                        <isbn13>9780060557812</isbn13>
+                        <title>Neverwhere</title>
+                        <sort_by_title>neverwhere</sort_by_title>
+                        <author_id type="integer">1221698</author_id>
+                        <author_role nil="true"/>
+                        <asin nil="true"/>
+                        <description>Under the streets of London there's a place most people could
+                            never even dream of. A city of monsters and saints, murderers and
+                            angels, knights in armour and pale girls in black velvet. This is the
+                            city of the people who have fallen between the cracks.
+
+                            Richard Mayhew, a young businessman, is going to find out more than
+                            enough about this other London. A single act of kindness catapults him
+                            out of his workday existence and into a world that is at once eerily
+                            familiar and utterly bizarre. And a strange destiny awaits him down
+                            here, beneath his native city: Neverwhere.
+                        </description>
+                        <format>Paperback</format>
+                        <publication_year type="integer">2003</publication_year>
+                        <publication_month type="integer">9</publication_month>
+                        <publication_day type="integer">2</publication_day>
+                        <num_pages type="integer">370</num_pages>
+                        <publisher>William Morrow Paperbacks</publisher>
+                        <language_code>eng</language_code>
+                        <edition_information nil="true"/>
+                        <url nil="true"/>
+                        <source_url nil="true"/>
+                        <image_uploaded_at type="datetime">2012-09-27T12:12:23+00:00
+                        </image_uploaded_at>
+                        <s3_image_at type="datetime">2015-05-16T14:53:11+00:00</s3_image_at>
+                        <reviews_count type="integer">473076</reviews_count>
+                        <ratings_sum type="integer">1075590</ratings_sum>
+                        <ratings_count type="integer">257598</ratings_count>
+                        <text_reviews_count type="integer">11386</text_reviews_count>
+                        <book_authors_count type="integer">0</book_authors_count>
+                        <updated_at type="datetime">2015-05-16T14:53:11+00:00</updated_at>
+                        <created_at type="datetime">2006-12-20T18:26:33+00:00</created_at>
+                        <author_id_updater_user_id type="integer">1548099
+                        </author_id_updater_user_id>
+                        <author_role_updater_user_id type="integer">1548099
+                        </author_role_updater_user_id>
+                        <description_updater_user_id type="integer">5851967
+                        </description_updater_user_id>
+                        <edition_information_updater_user_id nil="true" type="integer"/>
+                        <format_updater_user_id type="integer">-47</format_updater_user_id>
+                        <image_updater_user_id type="integer">9371994</image_updater_user_id>
+                        <isbn_updater_user_id type="integer">-47</isbn_updater_user_id>
+                        <isbn13_updater_user_id type="integer">-47</isbn13_updater_user_id>
+                        <language_updater_user_id type="integer">1581880</language_updater_user_id>
+                        <num_pages_updater_user_id type="integer">1376766
+                        </num_pages_updater_user_id>
+                        <publication_date_updater_user_id type="integer">-47
+                        </publication_date_updater_user_id>
+                        <publisher_updater_user_id type="integer">-47</publisher_updater_user_id>
+                        <title_updater_user_id type="integer">1548099</title_updater_user_id>
+                        <url_updater_user_id nil="true" type="integer"/>
+                        <title_language_code nil="true"/>
+                        <publisher_language_code nil="true"/>
+                        <description_language_code nil="true"/>
+                        <asin_updater_user_id nil="true" type="integer"/>
+                        <author>
+                            <id type="integer">1221698</id>
+                            <name>Neil Gaiman</name>
+                            <updated_at type="datetime">2017-04-25T21:37:12+00:00</updated_at>
+                            <created_at type="datetime">2008-02-12T13:46:44+00:00</created_at>
+                            <searched_for_at type="datetime">2008-02-29T03:25:58+00:00
+                            </searched_for_at>
+                            <image_uploaded_at type="datetime">2009-02-09T03:29:23+00:00
+                            </image_uploaded_at>
+                            <user_id type="integer">1239026</user_id>
+                            <gender>M</gender>
+                            <country_code></country_code>
+                            <born_at type="date">1960-11-10</born_at>
+                            <died_at nil="true" type="datetime"/>
+                            <about></about>
+                            <uploader_user_id type="integer">1239026</uploader_user_id>
+                            <image_copyright>Photo by Kyle Cassidy</image_copyright>
+                            <influences></influences>
+                            <url></url>
+                            <genre1></genre1>
+                            <genre2></genre2>
+                            <genre3></genre3>
+                            <books_count type="integer">3873</books_count>
+                            <reviews_count type="integer">7458749</reviews_count>
+                            <ratings_sum type="integer">16833168</ratings_sum>
+                            <works_count type="integer">1074</works_count>
+                            <hometown></hometown>
+                            <rating_dist>5:186403|4:176858|3:88476|2:17881|1:3892|total:473510
+                            </rating_dist>
+                            <s3_image_at type="datetime">2015-05-15T01:12:17+00:00</s3_image_at>
+                            <ratings_count type="integer">4076096</ratings_count>
+                            <text_reviews_count type="integer">232388</text_reviews_count>
+                            <author_program_at nil="true" type="datetime"/>
+                            <postal_code nil="true"/>
+                            <fanships_count type="integer">64986</fanships_count>
+                            <best_book_id type="integer">4407</best_book_id>
+                            <name_language_code nil="true"/>
+                            <sort_by_name>gaiman, neil</sort_by_name>
+                            <shelf_display_name>Gaiman, Neil</shelf_display_name>
+                            <gender_custom nil="true"/>
+                            <gender_pronoun nil="true"/>
+                        </author>
+                    </book>
+                </user_status>
+            </object>
+        </update>
+        <update type="comment">
+            <action_text>
+                <![CDATA[<a href="https://www.goodreads.com/user/show/22360802-emelin">Emelin</a> commented on Paul's review]]></action_text>
+            <link>https://www.goodreads.com/review/show/1941781762</link>
+            <image_url>https://images.gr-assets.com/books/1487389574s/5129.jpg</image_url>
+            <actor>
+                <id type="integer">22360802</id>
+                <name>Emelin</name>
+                <image_url>https://images.gr-assets.com/users/1415927931p2/22360802.jpg</image_url>
+                <link>https://www.goodreads.com/user/show/22360802-emelin</link>
+            </actor>
+            <updated_at>Mon, 24 Apr 2017 08:57:05 -0700</updated_at>
+            <body>told you!</body>
+        </update>
+        <update type="friend">
+            <action_text><![CDATA[is now friends with Keting Chen]]></action_text>
+            <link>https://www.goodreads.com/user/show/67197011-keting-chen</link>
+            <image_url>https://images.gr-assets.com/users/1493047825p2/67197011.jpg</image_url>
+            <actor>
+                <id type="integer">25118570</id>
+                <name>Nelson Nuñez</name>
+                <image_url>https://images.gr-assets.com/users/1382963227p2/25118570.jpg</image_url>
+                <link>https://www.goodreads.com/user/show/25118570-nelson-nu-ez</link>
+            </actor>
+            <updated_at>Mon, 24 Apr 2017 08:30:37 -0700</updated_at>
+        </update>
+        <update type="readstatus">
+            <action_text>
+                <![CDATA[is currently reading <a only_path="false" href="https://www.goodreads.com/review/show/1980787207">En Nombre del Amor</a>]]></action_text>
+            <link>https://www.goodreads.com/read_statuses/1814036828</link>
+            <image_url>
+                https://s.gr-assets.com/assets/nophoto/user/f_50x66-6a03a5c12233c941481992b82eea8d23.png
+            </image_url>
+            <actor>
+                <id type="integer">31273409</id>
+                <name>Elianna</name>
+                <image_url>
+                    https://s.gr-assets.com/assets/nophoto/user/f_50x66-6a03a5c12233c941481992b82eea8d23.png
+                </image_url>
+                <link>https://www.goodreads.com/user/show/31273409-elianna</link>
+            </actor>
+            <updated_at>Mon, 24 Apr 2017 06:16:04 -0700</updated_at>
+            <object>
+                <read_status>
+                    <id type="integer">1814036828</id>
+                    <review_id type="integer">1980787207</review_id>
+                    <user_id type="integer">31273409</user_id>
+                    <old_status nil="true"/>
+                    <status>currently-reading</status>
+                    <updated_at type="datetime">2017-04-24T13:16:04+00:00</updated_at>
+                    <review>
+                        <id type="integer">1980787207</id>
+                        <user_id type="integer">31273409</user_id>
+                        <book_id type="integer">9783994</book_id>
+                        <rating type="integer">0</rating>
+                        <read_status>currently-reading</read_status>
+                        <sell_flag type="boolean">false</sell_flag>
+                        <review nil="true"/>
+                        <recommendation nil="true"/>
+                        <read_at nil="true" type="datetime"/>
+                        <updated_at type="datetime">2017-04-24T13:16:04+00:00</updated_at>
+                        <created_at type="datetime">2017-04-24T13:16:03+00:00</created_at>
+                        <comments_count type="integer">0</comments_count>
+                        <weight type="integer">0</weight>
+                        <ratings_sum type="integer">0</ratings_sum>
+                        <ratings_count type="integer">0</ratings_count>
+                        <notes nil="true"/>
+                        <spoiler_flag type="boolean">false</spoiler_flag>
+                        <recommender_user_id1 type="integer">0</recommender_user_id1>
+                        <recommender_user_name1 nil="true"/>
+                        <work_id type="integer">2416287</work_id>
+                        <read_count>0</read_count>
+                        <last_comment_at nil="true" type="datetime"/>
+                        <started_at type="datetime">2017-04-24T13:16:04+00:00</started_at>
+                        <hidden_flag type="boolean">false</hidden_flag>
+                        <language_code nil="true" type="integer"/>
+                        <last_revision_at type="datetime">2017-04-24T13:16:04+00:00
+                        </last_revision_at>
+                        <non_friends_rating_count type="integer">0</non_friends_rating_count>
+                        <book>
+                            <id type="integer">9783994</id>
+                            <work_id type="integer">2416287</work_id>
+                            <isbn nil="true"/>
+                            <isbn13>9788499182377</isbn13>
+                            <title>En Nombre del Amor</title>
+                            <sort_by_title>en nombre del amor</sort_by_title>
+                            <author_id type="integer">2345</author_id>
+                            <author_role nil="true"/>
+                            <asin nil="true"/>
+                            <description>Travis Parker tiene todo lo que un hombre pueda desearpero
+                                hay algo que se resiste a probar: enamorarse. Semejante proposito
+                                desparece por completo en el momento que aparece en su vida Gabby
+                                Holland, una asistente pediatrica que se acaba de mudar al barrio.
+                                El ha intentado ser un buen vecino, invitarla a sus barbacoas y a
+                                pasar el dia con sus amigos en su lancha, pero ella ha resistido
+                                cada uno de los intentos de su guapisimo y encantador vecino, en
+                                parte porque le seria demasiado facil sentirse atraida por el. Y eso
+                                seria un problema, porque Gabby tiene novio. Con el estilo al que
+                                este autor nos tiene acostumbrados, Sparks nos sumerge en el proceso
+                                de enamoramiento de dos personas que, en principio, se oponen a ello
+                                y tambien nos hace una pregunta que todos, en algun momento, nos
+                                hemos visto forzados a hacernos: hasta donde estas dispuesto a
+                                llegar por amor?
+                            </description>
+                            <format>Paperback</format>
+                            <publication_year type="integer">2010</publication_year>
+                            <publication_month type="integer">10</publication_month>
+                            <publication_day type="integer">29</publication_day>
+                            <num_pages type="integer">299</num_pages>
+                            <publisher>Roca Editorial</publisher>
+                            <language_code>spa</language_code>
+                            <edition_information nil="true"/>
+                            <url nil="true"/>
+                            <source_url nil="true"/>
+                            <image_uploaded_at type="datetime">2011-01-06T17:10:40+00:00
+                            </image_uploaded_at>
+                            <s3_image_at type="datetime">2015-06-16T00:20:51+00:00</s3_image_at>
+                            <reviews_count type="integer">444</reviews_count>
+                            <ratings_sum type="integer">911</ratings_sum>
+                            <ratings_count type="integer">244</ratings_count>
+                            <text_reviews_count type="integer">33</text_reviews_count>
+                            <book_authors_count type="integer">0</book_authors_count>
+                            <updated_at type="datetime">2015-06-16T00:20:51+00:00</updated_at>
+                            <created_at type="datetime">2010-11-28T17:07:58+00:00</created_at>
+                            <author_id_updater_user_id type="integer">-101
+                            </author_id_updater_user_id>
+                            <author_role_updater_user_id type="integer">2942657
+                            </author_role_updater_user_id>
+                            <description_updater_user_id type="integer">2942657
+                            </description_updater_user_id>
+                            <edition_information_updater_user_id nil="true" type="integer"/>
+                            <format_updater_user_id type="integer">-110</format_updater_user_id>
+                            <image_updater_user_id type="integer">2932240</image_updater_user_id>
+                            <isbn_updater_user_id type="integer">4239049</isbn_updater_user_id>
+                            <isbn13_updater_user_id type="integer">4239049</isbn13_updater_user_id>
+                            <language_updater_user_id type="integer">1</language_updater_user_id>
+                            <num_pages_updater_user_id type="integer">-110
+                            </num_pages_updater_user_id>
+                            <publication_date_updater_user_id type="integer">4239049
+                            </publication_date_updater_user_id>
+                            <publisher_updater_user_id type="integer">4239049
+                            </publisher_updater_user_id>
+                            <title_updater_user_id type="integer">8154506</title_updater_user_id>
+                            <url_updater_user_id nil="true" type="integer"/>
+                            <title_language_code nil="true"/>
+                            <publisher_language_code nil="true"/>
+                            <description_language_code nil="true"/>
+                            <asin_updater_user_id nil="true" type="integer"/>
+                            <author>
+                                <id type="integer">2345</id>
+                                <name>Nicholas Sparks</name>
+                                <updated_at type="datetime">2017-04-25T23:34:36+00:00</updated_at>
+                                <created_at type="datetime">2006-11-17T18:44:41+00:00</created_at>
+                                <searched_for_at type="datetime">2007-01-27T04:37:11+00:00
+                                </searched_for_at>
+                                <image_uploaded_at type="datetime">2016-07-11T14:29:56+00:00
+                                </image_uploaded_at>
+                                <user_id type="integer">8721294</user_id>
+                                <gender>M</gender>
+                                <country_code>US</country_code>
+                                <born_at type="date">1965-12-31</born_at>
+                                <died_at nil="true" type="datetime"/>
+                                <about>&lt;p&gt;Nicholas Sparks is one of the world’s most beloved
+                                    storytellers. All of his books have been &lt;em&gt;New York
+                                    Times&lt;/em&gt; bestsellers, with over 105 million copies sold
+                                    worldwide, in more than 50 languages, including over 75 million
+                                    copies in the United States alone.&lt;/p&gt;&lt;p&gt;Sparks
+                                    wrote one of his best-known stories, &lt;em&gt;The Notebook&lt;/em&gt;,
+                                    over a period of six months at age 28. It was published in 1996
+                                    and he followed with the novels &lt;em&gt;Message in a Bottle&lt;/em&gt;
+                                    (1998), &lt;em&gt;A Walk to Remember&lt;/em&gt; (1999), &lt;em&gt;The
+                                    Rescue&lt;/em&gt; (2000), &lt;em&gt;A Bend in the Road&lt;/em&gt;
+                                    (2001), &lt;em&gt;Nights in Rodanthe&lt;/em&gt; (2002), &lt;em&gt;The
+                                    Guardian&lt;/em&gt; (2003), &lt;em&gt;The Wedding&lt;/em&gt;
+                                    (2003), &lt;em&gt;True Believer&lt;/em&gt; (2005) and its
+                                    sequel, &lt;em&gt;At First Sight&lt;/em&gt; (2005), &lt;em&gt;Dear
+                                    John&lt;/em&gt; (2006), &lt;em&gt;The Choice&lt;/em&gt; (2007),
+                                    &lt;em&gt;The Lucky One&lt;/em&gt; (2008), &lt;em&gt;The Last
+                                    Song&lt;/em&gt; (2009), &lt;em&gt;Safe Haven&lt;/em&gt; (2010), &lt;em&gt;The
+                                    Best of Me&lt;/em&gt; (2011), and &lt;em&gt;The Longest Ride&lt;/em&gt;
+                                    (2013) as well as the 2004 non-fiction memoir &lt;em&gt;Three
+                                    Weeks With My Brother&lt;/em&gt;, co-written with his brother
+                                    Micah. His eighteenth novel, &lt;em&gt;See Me&lt;/em&gt;,
+                                    published on October 12, 2015. His newest book, &lt;em&gt;Two by
+                                    Two&lt;/em&gt;, will be published on October 4, 2016.&lt;/p&gt;&lt;p&gt;Film
+                                    adaptations of Nicholas Sparks novels, including &lt;em&gt;The
+                                    Choice&lt;/em&gt;, &lt;em&gt;The Longest Ride&lt;/em&gt;, &lt;em&gt;The
+                                    Best of Me&lt;/em&gt;, &lt;em&gt;Safe Haven&lt;/em&gt; (on all
+                                    of which he served as a producer), &lt;em&gt;The Lucky One&lt;/em&gt;,
+                                    &lt;em&gt;Message in a Bottle&lt;/em&gt;, &lt;em&gt;A Walk to
+                                    Remember&lt;/em&gt;,&lt;em&gt; The Notebook&lt;/em&gt;, &lt;em&gt;Nights
+                                    in Rodanthe&lt;/em&gt;, &lt;em&gt;Dear John&lt;/em&gt; and &lt;em&gt;The
+                                    Last Song&lt;/em&gt;, have had a cumulative worldwide gross of
+                                    over three-quarters of a billion dollars.&lt;/p&gt;&lt;p&gt;In
+                                    2012, Sparks and his publishing agent and creative partner
+                                    Theresa Park, launched Nicholas Sparks Productions, with Park as
+                                    President of Production.  A film version of &lt;em&gt;The
+                                    Guardian&lt;/em&gt; is currently in development, as is a film
+                                    based on Football Hall of Famer Gale Sayers’s friendship with
+                                    Chicago Bears teammate Brian Piccolo.&lt;/p&gt;&lt;p&gt;Sparks
+                                    lives in North Carolina. He contributes to a variety of local
+                                    and national charities, and is a major contributor to the
+                                    Creative Writing Program (MFA) at the University of Notre Dame,
+                                    where he provides scholarships, internships, and a fellowship
+                                    annually. He co-founded The Epiphany School in New Bern, North
+                                    Carolina in 2006. As a former full scholarship athlete (he still
+                                    holds a track and field record at the University of Notre Dame)
+                                    he also spent four years coaching track and field athletes at
+                                    the local public high school. In 2009, the team he coached at
+                                    New Bern High School set a World Junior Indoor Record in the 4
+                                    x400 meter, in New York. The record still stands. &lt;a
+                                    href="http://www.runnersworld.com/runners-stories/philanthropist-nicholas-sparks"
+                                    target="_blank"&gt;&lt;strong&gt;Click to watch&lt;/strong&gt;
+                                    the Runner’s World video with Nicholas&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;The
+                                    &lt;a title="The Nicholas Sparks Foundation"
+                                    href="http://nsparksfoundation.org/" target="_blank"&gt;Nicholas
+                                    Sparks Foundation&lt;/a&gt;, a 501(c)(3) nonprofit committed to
+                                    improving cultural and international understanding through
+                                    global education experiences for students of all ages was
+                                    launched in 2011. Between the foundation, and the personal gifts
+                                    of the Sparks family, more than $15 million dollars have been
+                                    distributed to deserving charities, scholarship programs, and
+                                    projects. Because the Sparks family covers all operational
+                                    expenses of the foundation, 100% of donations are devoted to
+                                    programs.&lt;/p&gt;</about>
+                                <uploader_user_id type="integer">8721294</uploader_user_id>
+                                <image_copyright>photo credit: Brad Styron Photography
+                                </image_copyright>
+                                <influences></influences>
+                                <url>http://www.nicholassparks.com/</url>
+                                <genre1>Literature &amp; Fiction</genre1>
+                                <genre2>Romance</genre2>
+                                <genre3></genre3>
+                                <books_count type="integer">2158</books_count>
+                                <reviews_count type="integer">6769156</reviews_count>
+                                <ratings_sum type="integer">18012898</ratings_sum>
+                                <works_count type="integer">89</works_count>
+                                <hometown>Omaha, Nebraska</hometown>
+                                <rating_dist>
+                                    5:211924|4:189713|3:147856|2:49890|1:24985|total:624368
+                                </rating_dist>
+                                <s3_image_at nil="true" type="datetime"/>
+                                <ratings_count type="integer">4437894</ratings_count>
+                                <text_reviews_count type="integer">134116</text_reviews_count>
+                                <author_program_at type="datetime">2012-04-11T17:24:11+00:00
+                                </author_program_at>
+                                <postal_code nil="true"/>
+                                <fanships_count type="integer">38921</fanships_count>
+                                <best_book_id type="integer">15931</best_book_id>
+                                <name_language_code nil="true"/>
+                                <sort_by_name>sparks, nicholas</sort_by_name>
+                                <shelf_display_name>Sparks, Nicholas</shelf_display_name>
+                                <gender_custom nil="true"/>
+                                <gender_pronoun nil="true"/>
+                            </author>
+                        </book>
+                    </review>
+                </read_status>
+
+            </object>
+        </update>
+        <update type="readstatus">
+            <action_text>
+                <![CDATA[wants to read <a only_path="false" href="https://www.goodreads.com/review/show/1980396996">Los Artistas De La Memoria/ the Memory Artists (Littera)</a>]]></action_text>
+            <link>https://www.goodreads.com/read_statuses/1813440559</link>
+            <image_url>https://images.gr-assets.com/users/1358999139p2/10778433.jpg</image_url>
+            <actor>
+                <id type="integer">10778433</id>
+                <name>Walkelia</name>
+                <image_url>https://images.gr-assets.com/users/1358999139p2/10778433.jpg</image_url>
+                <link>https://www.goodreads.com/user/show/10778433-walkelia</link>
+            </actor>
+            <updated_at>Sun, 23 Apr 2017 18:38:08 -0700</updated_at>
+            <object>
+                <read_status>
+                    <id type="integer">1813440559</id>
+                    <review_id type="integer">1980396996</review_id>
+                    <user_id type="integer">10778433</user_id>
+                    <old_status nil="true"/>
+                    <status>to-read</status>
+                    <updated_at type="datetime">2017-04-24T01:38:08+00:00</updated_at>
+                    <review>
+                        <id type="integer">1980396996</id>
+                        <user_id type="integer">10778433</user_id>
+                        <book_id type="integer">369441</book_id>
+                        <rating type="integer">0</rating>
+                        <read_status>to-read</read_status>
+                        <sell_flag type="boolean">false</sell_flag>
+                        <review nil="true"/>
+                        <recommendation nil="true"/>
+                        <read_at nil="true" type="datetime"/>
+                        <updated_at type="datetime">2017-04-24T01:38:08+00:00</updated_at>
+                        <created_at type="datetime">2017-04-24T01:38:07+00:00</created_at>
+                        <comments_count type="integer">0</comments_count>
+                        <weight type="integer">0</weight>
+                        <ratings_sum type="integer">0</ratings_sum>
+                        <ratings_count type="integer">0</ratings_count>
+                        <notes nil="true"/>
+                        <spoiler_flag type="boolean">false</spoiler_flag>
+                        <recommender_user_id1 type="integer">0</recommender_user_id1>
+                        <recommender_user_name1 nil="true"/>
+                        <work_id type="integer">359419</work_id>
+                        <read_count>0</read_count>
+                        <last_comment_at nil="true" type="datetime"/>
+                        <started_at nil="true" type="datetime"/>
+                        <hidden_flag type="boolean">false</hidden_flag>
+                        <language_code nil="true" type="integer"/>
+                        <last_revision_at type="datetime">2017-04-24T01:38:08+00:00
+                        </last_revision_at>
+                        <non_friends_rating_count type="integer">0</non_friends_rating_count>
+                        <book>
+                            <id type="integer">369441</id>
+                            <work_id type="integer">359419</work_id>
+                            <isbn>8496231801</isbn>
+                            <isbn13>9788496231801</isbn13>
+                            <title>Los Artistas De La Memoria/ the Memory Artists (Littera)</title>
+                            <sort_by_title>artistas de la memoria/ the memory artists (littera),
+                                los
+                            </sort_by_title>
+                            <author_id type="integer">210868</author_id>
+                            <author_role nil="true"/>
+                            <asin nil="true"/>
+                            <description nil="true"/>
+                            <format>Paperback</format>
+                            <publication_year type="integer">2006</publication_year>
+                            <publication_month type="integer">9</publication_month>
+                            <publication_day type="integer">7</publication_day>
+                            <num_pages type="integer">368</num_pages>
+                            <publisher>Grupo Oceano</publisher>
+                            <language_code>spa</language_code>
+                            <edition_information nil="true"/>
+                            <url nil="true"/>
+                            <source_url nil="true"/>
+                            <image_uploaded_at type="datetime">2013-07-21T16:15:06+00:00
+                            </image_uploaded_at>
+                            <s3_image_at type="datetime">2015-05-16T15:43:01+00:00</s3_image_at>
+                            <reviews_count type="integer">10</reviews_count>
+                            <ratings_sum type="integer">28</ratings_sum>
+                            <ratings_count type="integer">7</ratings_count>
+                            <text_reviews_count type="integer">0</text_reviews_count>
+                            <book_authors_count type="integer">0</book_authors_count>
+                            <updated_at type="datetime">2015-05-16T15:43:01+00:00</updated_at>
+                            <created_at type="datetime">2007-03-18T04:22:23+00:00</created_at>
+                            <author_id_updater_user_id type="integer">-30
+                            </author_id_updater_user_id>
+                            <author_role_updater_user_id nil="true" type="integer"/>
+                            <description_updater_user_id type="integer">-30
+                            </description_updater_user_id>
+                            <edition_information_updater_user_id nil="true" type="integer"/>
+                            <format_updater_user_id type="integer">-51</format_updater_user_id>
+                            <image_updater_user_id type="integer">7726253</image_updater_user_id>
+                            <isbn_updater_user_id type="integer">-51</isbn_updater_user_id>
+                            <isbn13_updater_user_id type="integer">-51</isbn13_updater_user_id>
+                            <language_updater_user_id type="integer">7726253
+                            </language_updater_user_id>
+                            <num_pages_updater_user_id type="integer">-30
+                            </num_pages_updater_user_id>
+                            <publication_date_updater_user_id type="integer">-51
+                            </publication_date_updater_user_id>
+                            <publisher_updater_user_id type="integer">-110
+                            </publisher_updater_user_id>
+                            <title_updater_user_id type="integer">7726253</title_updater_user_id>
+                            <url_updater_user_id nil="true" type="integer"/>
+                            <title_language_code nil="true"/>
+                            <publisher_language_code nil="true"/>
+                            <description_language_code nil="true"/>
+                            <asin_updater_user_id nil="true" type="integer"/>
+                            <author>
+                                <id type="integer">210868</id>
+                                <name>Jeffrey Moore</name>
+                                <updated_at type="datetime">2017-04-05T11:48:14+00:00</updated_at>
+                                <created_at type="datetime">2007-03-18T04:22:22+00:00</created_at>
+                                <searched_for_at type="datetime">2007-07-26T12:06:36+00:00
+                                </searched_for_at>
+                                <image_uploaded_at type="datetime">2009-04-20T21:01:10+00:00
+                                </image_uploaded_at>
+                                <user_id nil="true" type="integer"/>
+                                <gender>M</gender>
+                                <country_code>CA</country_code>
+                                <born_at nil="true" type="datetime"/>
+                                <died_at nil="true" type="datetime"/>
+                                <about>Born in Montreal, Jeffrey Moore was educated at the
+                                    University of Toronto, the Sorbonne (Paris) and the University
+                                    of Ottawa. He is currently a freelance translator and Lecturer
+                                    in Translation at the Université de Montréal. He works for
+                                    museums, theatres, dance companies and film festivals around the
+                                    world, and has an extensive list of published translations to
+                                    his credit, including Magritte, Century of Splendour and Lost
+                                    Paradise-Symbolist Europe.
+
+                                    Prisoner in a Red-Rose Chain, his first novel written over
+                                    several years in Canada, Scotland, England, Hungary and Bali,
+                                    was a finalist for the QSPELL Literary Awards and winner of both
+                                    the regional and international Commonwealth Writers Prize 2000.
+                                    The Memory Artists (2004) won the Canadian Authors Association
+                                    Award (Best Novel), and was shortlisted for the Rogers' Writers
+                                    Trust Award, Sunburst Award, Hugh MacLennan Prize and
+                                    Wordsworthy Award. Both novels have been published in some 20
+                                    countries and optioned for film. His third novel, The Extinction
+                                    Club, was published by Penguin Canada and Quercus (UK) in 2010
+                                    and by Arcade (U.S.) in 2013. It was shortlisted for the Hugh
+                                    MacLennan Prize (Best Novel) and Arthur Ellis Award (Best
+                                    Mystery) and longlisted for the Dublin IMPAC Award.
+
+                                    He currently divides his time between Montreal and Val Morin,
+                                    Quebec.
+                                </about>
+                                <uploader_user_id type="integer">1167787</uploader_user_id>
+                                <image_copyright>http://www.jeffreymoore.org/biography.html
+                                </image_copyright>
+                                <influences></influences>
+                                <url>http://www.jeffreymoore.org/</url>
+                                <genre1>Literature &amp; Fiction</genre1>
+                                <genre2></genre2>
+                                <genre3></genre3>
+                                <books_count type="integer">53</books_count>
+                                <reviews_count type="integer">2381</reviews_count>
+                                <ratings_sum type="integer">3964</ratings_sum>
+                                <works_count type="integer">17</works_count>
+                                <hometown>Montreal</hometown>
+                                <rating_dist>5:27|4:85|3:46|2:18|1:3|total:179</rating_dist>
+                                <s3_image_at type="datetime">2015-05-14T23:28:30+00:00</s3_image_at>
+                                <ratings_count type="integer">1090</ratings_count>
+                                <text_reviews_count type="integer">107</text_reviews_count>
+                                <author_program_at nil="true" type="datetime"/>
+                                <postal_code nil="true"/>
+                                <fanships_count type="integer">10</fanships_count>
+                                <best_book_id type="integer">369439</best_book_id>
+                                <name_language_code nil="true"/>
+                                <sort_by_name>moore, jeffrey</sort_by_name>
+                                <shelf_display_name>Moore, Jeffrey</shelf_display_name>
+                                <gender_custom nil="true"/>
+                                <gender_pronoun nil="true"/>
+                            </author>
+                        </book>
+                    </review>
+                </read_status>
+
+            </object>
+        </update>
+    </updates>
+
+</GoodreadsResponse>

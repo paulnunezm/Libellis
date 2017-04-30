@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GoodreadsResponse>
+    <Request>
+        <authentication>true</authentication>
+        <key>
+            <![CDATA[9kdgMNGvbCA4Odn3u9f72g]]>
+        </key>
+        <method>
+            <![CDATA[home_friend_updates]]>
+        </method>
+    </Request>
+
+    <updates type="array">
+        <update type="friend">
+            <action_text>
+                <![CDATA[is now friends with Keting Chen]]>
+            </action_text>
+            <link>https://www.goodreads.com/user/show/67197011-keting-chen</link>
+            <image_url>https://images.gr-assets.com/users/1493047825p2/67197011.jpg</image_url>
+            <actor>
+                <id type="integer">25118570</id>
+                <name>Nelson Nuñez</name>
+                <image_url>https://images.gr-assets.com/users/1382963227p2/25118570.jpg</image_url>
+                <link>https://www.goodreads.com/user/show/25118570-nelson-nu-ez</link>
+            </actor>
+            <updated_at>Mon, 24 Apr 2017 08:30:37 -0700</updated_at>
+        </update>
+    </updates>
+
+</GoodreadsResponse>

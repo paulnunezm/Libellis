@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GoodreadsResponse>
+    <Request>
+        <authentication>true</authentication>
+        <key>
+            <![CDATA[9kdgMNGvbCA4Odn3u9f72g]]>
+        </key>
+        <method>
+            <![CDATA[home_friend_updates]]>
+        </method>
+    </Request>
+
+    <updates type="array">
+        <update type="comment">
+            <action_text>
+                <![CDATA[<a href="https://www.goodreads.com/user/show/22360802-emelin">Emelin</a> commented on Paul's review]]>
+            </action_text>
+            <link>https://www.goodreads.com/review/show/1941781762</link>
+            <image_url>https://images.gr-assets.com/books/1487389574s/5129.jpg</image_url>
+            <actor>
+                <id type="integer">22360802</id>
+                <name>Emelin</name>
+                <image_url>https://images.gr-assets.com/users/1415927931p2/22360802.jpg</image_url>
+                <link>https://www.goodreads.com/user/show/22360802-emelin</link>
+            </actor>
+            <updated_at>Mon, 24 Apr 2017 08:57:05 -0700</updated_at>
+            <body>told you!</body>
+        </update>
+    </updates>
+
+</GoodreadsResponse>

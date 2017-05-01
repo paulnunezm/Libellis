@@ -12,7 +12,8 @@ import org.w3c.dom.NodeList
 open class BaseUpdatesParser {
 
     fun getNodeValue(node: Node): String {
-        return node.childNodes.item(0).nodeValue
+        val child : Node? = node.childNodes.item(0)
+        return child?.nodeValue ?: ""
     }
 
 
@@ -47,9 +48,27 @@ open class BaseUpdatesParser {
         iterateInChildNotes(bookNode.childNodes, {
             when (it.nodeName) {
                 "id" -> book.id = getNodeValue(it)
-                "title" -> book.title = parseDataSection(it)
-                "authors" -> {
+                "title" -> {
+                    val title = parseDataSection(it)
+
+                    // Little hack. Becasuse sometimes the book titles doesn't come with a data
+                    //section. This is due by the unorganized responses
+                    book.title =if (title.isNotEmpty()) title else getNodeValue(it)
+
+                }
+                "authors"-> {
                     val tempBook = parseAuthors(it.childNodes)
+                    with(tempBook) {
+                        book.authors = authors
+                        book.averageRating = averageRating
+                        book.ratingsCount = ratingsCount
+                    }
+                }
+                "author" -> {
+                    var authors = ArrayList<Author>()
+                    val tempBook = Book()
+                    authors.add(parseAuthor(it, tempBook ))
+
                     with(tempBook) {
                         book.authors = authors
                         book.averageRating = averageRating
@@ -78,21 +97,26 @@ open class BaseUpdatesParser {
 
         iterateInChildNotes(authorsNode, {
             if (it.nodeName == "author") {
-                val author = Author()
-                iterateInChildNotes(it.childNodes, {
-                    when (it.nodeName) {
-                        "id" -> author.id = getNodeValue(it)
-                        "name" -> author.name = getNodeValue(it)
-                        "image_url" -> author.imageUrl = parseDataSection(it)
-                        "average_rating" -> book.averageRating = getNodeValue(it)
-                        "ratings_count" -> book.ratingsCount = getNodeValue(it)
-                    }
-                })
+                val author = parseAuthor(it, book)
                 authors.add(author)
             }
         })
 
         book.authors = authors
         return book
+    }
+
+    private fun parseAuthor(node: Node, book: Book):Author {
+        val author = Author()
+        iterateInChildNotes(node.childNodes, {
+            when (it.nodeName) {
+                "id" -> author.id = getNodeValue(it)
+                "name" -> author.name = getNodeValue(it)
+                "image_url" -> author.imageUrl = parseDataSection(it)
+                "average_rating" -> book.averageRating = getNodeValue(it)
+                "ratings_count" -> book.ratingsCount = getNodeValue(it)
+            }
+        })
+        return author
     }
 }

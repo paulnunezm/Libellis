@@ -95,4 +95,18 @@ class UpdatesParserTest {
         assertEquals("updates size", 1, updates.size)
         assertTrue("Update is a ReadStatus Update", updates.get(0) is ReadStatusUpdate)
     }
+
+    @Test
+    fun shouldParseUserStatusUpdate() {
+        // given
+        response = getFileFromPath(this, "update_userstatus.xml")
+
+        // when
+        parser = UpdatesParser(response.readText())
+        updates = parser.parse()
+
+        // Then
+        assertEquals("updates size", 1, updates.size)
+        assertTrue("Update is a ReadStatus Update", updates.get(0) is UserStatusUpdate)
+    }
 }

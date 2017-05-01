@@ -45,6 +45,7 @@ class UpdatesParser(
                     type.contains(Update.TYPE.FRIEND) -> FriendUpdateParser(node).parse()
                     type.contains(Update.TYPE.COMMENT) -> CommentUpdaterParser(node).parse()
                     type.contains(Update.TYPE.REVIEW) -> ReviewsUpdateParser(node).parse()
+                    type.contains(Update.TYPE.READ_STATUS) -> ReadStatusUpdateParser(node).parse()
                     else -> false
                 }
 

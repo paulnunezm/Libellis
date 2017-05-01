@@ -1,9 +1,6 @@
 package com.nunez.libellis.repository.parsers
 
-import com.nunez.libellis.entities.CommentUpdate
-import com.nunez.libellis.entities.FriendUpdate
-import com.nunez.libellis.entities.ReviewUpdate
-import com.nunez.libellis.entities.Update
+import com.nunez.libellis.entities.*
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertTrue
 import org.junit.Test
@@ -85,4 +82,17 @@ class UpdatesParserTest {
         assertTrue("Update is a Review Update", updates.get(0) is ReviewUpdate)
     }
 
+    @Test
+    fun shouldParseReadStatusUpdate() {
+        // given
+        response = getFileFromPath(this, "update_readstatus.xml")
+
+        // when
+        parser = UpdatesParser(response.readText())
+        updates = parser.parse()
+
+        // Then
+        assertEquals("updates size", 1, updates.size)
+        assertTrue("Update is a ReadStatus Update", updates.get(0) is ReadStatusUpdate)
+    }
 }

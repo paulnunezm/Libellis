@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_TBmargin">16dp</dimen>
+    <dimen name="medium_message_text_size">18sp</dimen>
+    <dimen name="small_message_text_size">14sp</dimen>
+    <dimen name="micro_message_text_size">12sp</dimen>
+    <dimen name="book_image_border_radius">6dp</dimen>
+
+    <!-- Cards -->
+    <dimen name="card_margins">10dp</dimen>
+    <dimen name="card_parent_padding">3dp</dimen>
+    <dimen name="card_elevation">2dp</dimen>
+    <dimen name="card_corner_radius">4dp</dimen>
+    <dimen name="card_child_padding">20dp</dimen>
+    <dimen name="card_child_LR_padding">20dp</dimen>
+    <dimen name="card_child_TB_padding">15dp</dimen>
+
+
+    <!--Buttons-->
+    <dimen name="button_border_radius">4dp</dimen>
+    <dimen name="fab_size">56dp</dimen>
+    <dimen name="button_elevation">2dp</dimen>
+    <dimen name="button_press_elevation">4dp</dimen>
+
+    <!--Updates-->
+    <dimen name="update_element_margin">6dp</dimen>
+
+    <!-- Texts sizes -->
+    <dimen name="update_user_name_text_size">18sp</dimen>
+    <dimen name="update_status_info">14sp</dimen>
+    <dimen name="update_book_name_text_size">22sp</dimen>
+    <dimen name="update_book_author_text_size">14sp</dimen>
+    <dimen name="update_comment_label_text_size">14sp</dimen>
+    <dimen name="update_comment_text_size">16sp</dimen>
+
+    <!-- Images sizes-->
+    <dimen name="update_user_image_size">55dp</dimen>
+    <dimen name="update_book_image_width_size">83dp</dimen>
+    <dimen name="update_book_image_height_size">125dp</dimen>
+    <!--/Updates-->
+
+</resources>

@@ -6,4 +6,7 @@
     <string name="user_prefs_logged_in" translatable="false">logged_in</string>
     <string name="user_prefs_user_key">user_key</string>
     <string name="user_prefs_user_secret">user_secret</string>
+    <string name="like_button">Like</string>
+    <string name="btn_comment">Comment</string>
+    <string name="uodate_book_want_to_read">Want to Read</string>
 </resources>

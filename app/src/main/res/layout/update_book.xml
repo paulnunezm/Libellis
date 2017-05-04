@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:layout_editor_absoluteX="0dp"
+    tools:layout_editor_absoluteY="25dp">
+
+    <ImageView
+        android:id="@+id/bookImage"
+        android:layout_width="@dimen/update_book_image_width_size"
+        android:layout_height="@dimen/update_book_image_height_size"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:background="@color/light_blue"/>
+
+    <com.nunez.libellis.views.CustomFontTextView
+        android:id="@+id/bookName"
+        style="@style/UpdateBookTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLines="2"
+        android:textColor="@color/grey_dark"
+        android:textSize="@dimen/update_book_name_text_size"
+        app:fontFile="Raleway-Medium.ttf"
+        app:layout_constraintLeft_toLeftOf="@+id/authorName"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="The Kite Runner"/>
+
+    <com.nunez.libellis.views.CustomFontTextView
+        android:id="@+id/authorName"
+        style="@style/UpdateBookTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="4dp"
+        android:paddingTop="4dp"
+        android:textColor="@color/grey_dark"
+        android:textSize="@dimen/update_book_author_text_size"
+        app:fontFile="Raleway-Light.ttf"
+        app:layout_constraintLeft_toLeftOf="@+id/shelves_btn"
+        app:layout_constraintTop_toBottomOf="@+id/bookName"
+        tools:text="by Author Name 1, Author Name 2, Author Name 3"/>
+
+
+    <!--android:background="@drawable/libellis_ripple"-->
+    <com.nunez.libellis.views.CustomFontTextView
+        android:id="@+id/like_btn"
+        style="@style/UpdateBookTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="1dp"
+        android:paddingEnd="10dp"
+        android:paddingLeft="0dp"
+        android:paddingRight="10dp"
+        android:paddingStart="0dp"
+        android:paddingTop="10dp"
+        android:text="@string/like_button"
+        android:textAlignment="center"
+        android:textColor="@color/grey_dark"
+        android:textSize="@dimen/update_book_author_text_size"
+        app:fontFile="Raleway-Medium.ttf"
+        app:layout_constraintLeft_toLeftOf="@+id/shelves_btn"
+        app:layout_constraintTop_toBottomOf="@+id/shelves_btn"/>
+
+    <com.nunez.libellis.views.CustomFontTextView
+        android:id="@+id/separator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="0dp"
+        android:background="@android:color/transparent"
+        android:gravity="center"
+        android:paddingBottom="1dp"
+        android:paddingLeft="2dp"
+        android:paddingRight="2dp"
+        android:paddingTop="10dp"
+        android:text="|"
+        android:textAlignment="center"
+        android:textColor="@color/grey_light"
+        android:textSize="@dimen/update_book_author_text_size"
+        app:fontFile="Raleway-Medium.ttf"
+        app:layout_constraintLeft_toRightOf="@+id/like_btn"
+        app:layout_constraintTop_toTopOf="@+id/like_btn"/>
+
+    <!--android:background="@drawable/libellis_ripple"-->
+    <com.nunez.libellis.views.CustomFontTextView
+        android:id="@+id/comment_btn"
+        style="@style/UpdateBookTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="9dp"
+        android:layout_marginStart="9dp"
+        android:layout_marginTop="-12dp"
+        android:paddingBottom="1dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="10dp"
+        android:text="@string/btn_comment"
+        android:textAlignment="center"
+        android:textColor="@color/grey_dark"
+        android:textSize="@dimen/update_book_author_text_size"
+        app:fontFile="Raleway-Medium.ttf"
+        app:layout_constraintLeft_toRightOf="@+id/separator"
+        app:layout_constraintTop_toTopOf="@+id/separator"/>
+
+    <com.nunez.libellis.views.CustomFontTextView
+        android:id="@+id/shelves_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="14dp"
+        android:layout_marginLeft="14dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/shelve_btn_background"
+        android:gravity="center"
+        android:padding="10dp"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp"
+        android:text="@string/uodate_book_want_to_read"
+        android:textAlignment="center"
+        android:textColor="#fff"
+        android:textSize="@dimen/update_book_author_text_size"
+        app:fontFile="Raleway-Medium.ttf"
+        app:layout_constraintLeft_toRightOf="@+id/bookImage"
+        app:layout_constraintTop_toBottomOf="@+id/authorName"/>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="36dp"
+        android:layout_height="37dp"
+        android:layout_marginLeft="2dp"
+        android:layout_marginStart="2dp"
+        android:background="@drawable/shelve_btn_image_background"
+        app:layout_constraintLeft_toRightOf="@+id/shelves_btn"
+        app:layout_constraintTop_toTopOf="@+id/shelves_btn"/>
+
+</android.support.constraint.ConstraintLayout>

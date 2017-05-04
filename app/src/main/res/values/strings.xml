@@ -9,4 +9,5 @@
     <string name="like_button">Like</string>
     <string name="btn_comment">Comment</string>
     <string name="uodate_book_want_to_read">Want to Read</string>
+    <string name="update_reviews_comment">Comment:</string>
 </resources>

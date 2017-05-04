@@ -14,7 +14,7 @@
         android:layout_height="@dimen/update_book_image_height_size"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:background="@color/light_blue"/>
+        tools:background="@color/blue_light"/>
 
     <com.nunez.libellis.views.CustomFontTextView
         android:id="@+id/bookName"

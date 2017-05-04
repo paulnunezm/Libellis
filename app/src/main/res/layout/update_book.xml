@@ -21,19 +21,21 @@
         style="@style/UpdateBookTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:maxWidth="@dimen/update_user_text_max_width"
         android:maxLines="2"
         android:textColor="@color/grey_dark"
         android:textSize="@dimen/update_book_name_text_size"
         app:fontFile="Raleway-Medium.ttf"
         app:layout_constraintLeft_toLeftOf="@+id/authorName"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="The Kite Runner"/>
+        tools:text="The Kite Runner and the long long long long waaaay to run"/>
 
     <com.nunez.libellis.views.CustomFontTextView
         android:id="@+id/authorName"
         style="@style/UpdateBookTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:maxWidth="@dimen/update_user_text_max_width"
         android:paddingBottom="4dp"
         android:paddingTop="4dp"
         android:textColor="@color/grey_dark"

@@ -6,7 +6,7 @@ import com.nunez.oauthathenticator.Authenticator
 import java.util.concurrent.ExecutionException
 
 /**
- * Created by paulnunez on 4/25/17.
+ * Created by paulnunez on 4/25/17
  */
 class LoginPresenter(
         val view: LoginContract.View)
@@ -16,7 +16,7 @@ class LoginPresenter(
     lateinit var interactor: LoginContract.Interactor
 
     init {
-      view.showLoginButton()
+        view.showLoginButton()
     }
 
     override fun loginButtonClicked() {
@@ -24,7 +24,7 @@ class LoginPresenter(
 
         try {
             authenticator.getRequestToken()
-        }catch (e:Exception){
+        } catch (e: Exception) {
             view.showError()
         }
     }
@@ -36,7 +36,7 @@ class LoginPresenter(
     override fun onAuthorizationTokenReceived(authToken: Uri?) {
         try {
             authenticator.getUserSecretKeys(authToken)
-        }catch (e: ExecutionException){
+        } catch (e: ExecutionException) {
             view.showError()
         }
     }
@@ -48,5 +48,9 @@ class LoginPresenter(
 
     override fun setLoginInteractor(interactor: LoginContract.Interactor) {
         this.interactor = interactor
+    }
+
+    override fun onDialogCloseByUser() {
+        view.onAuthDialogClose()
     }
 }

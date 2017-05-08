@@ -2,6 +2,8 @@ package com.nunez.libellis.login
 
 import android.animation.ObjectAnimator
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.PorterDuff
 import android.os.Build
 import android.os.Bundle
 import android.support.transition.Fade
@@ -53,6 +55,7 @@ class LoginActivity : AppCompatActivity(), LoginContract.View {
         presenter.setLoginInteractor(interactor)
 
         loginButton.setOnClickListener { presenter.loginButtonClicked() }
+        progressBar.indeterminateDrawable.setColorFilter(Color.WHITE, PorterDuff.Mode.SRC_IN)
 
     }
 
@@ -109,5 +112,10 @@ class LoginActivity : AppCompatActivity(), LoginContract.View {
         animator.duration = 500
         animator.startDelay = 1000
         animator.start()
+    }
+
+    override fun onAuthDialogClose() {
+        loginButton.visibility = VISIBLE
+        progress.visibility = GONE
     }
 }

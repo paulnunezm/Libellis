@@ -15,6 +15,10 @@ class LoginPresenter(
     lateinit var authenticator: Authenticator
     lateinit var interactor: LoginContract.Interactor
 
+    init {
+      view.showLoginButton()
+    }
+
     override fun loginButtonClicked() {
         view.showProgress()
 

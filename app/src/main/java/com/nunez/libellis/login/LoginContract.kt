@@ -9,6 +9,7 @@ interface LoginContract {
         fun showProgress()
         fun showError()
         fun goToUpdatesActivity()
+        fun showLoginButton()
     }
 
     interface Presenter {

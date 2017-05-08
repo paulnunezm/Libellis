@@ -8,6 +8,11 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="AppTheme.BrandedLaunch" parent="AppTheme">
+        <!--Splash screen-->
+        <item name="android:windowBackground">@drawable/branded_launch_background</item>
+    </style>
+
     <style name="IndeterminateProgressCircle">
         <!--<item name="android:indeterminateTintMode">src_in</item>-->
         <!--<item name="android:indeterminateTint">@color/blue</item>-->
@@ -26,5 +31,24 @@
         <item name="android:ellipsize">end</item>
         <item name="android:gravity">start</item>
         <item name="android:maxLines">1</item>
+        <item name="android:maxWidth">@dimen/update_book_text_max_width</item>
+        <item name="android:textColor">@color/grey_dark</item>
+    </style>
+
+    <style name="UpdateProgressButton" parent="UpdateBookTextView">
+        <item name="android:minWidth">64dp</item>
+        <item name="android:minHeight">48dp</item>
+        <item name="android:paddingLeft">12dp</item>
+        <item name="android:paddingRight">12dp</item>
+        <item name="android:textSize">@dimen/progress_update_button_text_size</item>
+        <!--<item name="gravity">center</item>-->
+    </style>
+
+    <style name="UpdateProgressDateMessageText">
+        <item name="android:clickable">false</item>
+        <item name="android:paddingBottom">4dp</item>
+        <item name="android:paddingTop">4dp</item>
+        <item name="android:textColor">@color/grey_light</item>
+        <item name="android:textSize">@dimen/micro_text_size</item>
     </style>
 </resources>

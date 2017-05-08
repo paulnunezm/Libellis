@@ -10,4 +10,9 @@
     <string name="btn_comment">Comment</string>
     <string name="uodate_book_want_to_read">Want to Read</string>
     <string name="update_reviews_comment">Comment:</string>
+
+    <!-- Reading progress update -->
+    <string name="update_progress_cancel_button_txt">CANCEL</string>
+    <string name="update_progress_update_button_txt">UPDATE</string>
+    <string name="update_progress_last_update_txt">Last update:</string>
 </resources>

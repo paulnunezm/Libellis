@@ -27,9 +27,11 @@
     <dimen name="fab_size">56dp</dimen>
     <dimen name="button_elevation">2dp</dimen>
     <dimen name="button_press_elevation">4dp</dimen>
+    <dimen name="progress_update_button_text_size">@dimen/small_text_size</dimen>
 
     <!--Updates-->
     <dimen name="update_element_margin">6dp</dimen>
+    <dimen name="update_book_text_max_width">300dp</dimen>
     <dimen name="update_user_text_max_width">300dp</dimen>
     <dimen name="update_user_name_text_size">@dimen/medium_text_size</dimen>
     <dimen name="update_status_info">@dimen/small_text_size</dimen>

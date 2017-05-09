@@ -1,5 +1,9 @@
 package com.nunez.libellis.repository
 
+import com.nunez.libellis.entities.GoodreadsResponse
+import retrofit2.Call
+import retrofit2.http.GET
+
 /**
  * Created by paulnunez on 4/25/17.
  */
@@ -11,4 +15,7 @@ interface GoodreadsService {
         const val AUTHORIZE_URL     = BASE_URL + "/oauth/authorize?mobile=1"
         const val CALLBACK_URL      = "app://libellis"
     }
+
+    @GET("updates/friends.xml")
+    fun getUpdates(): Call<GoodreadsResponse>
 }

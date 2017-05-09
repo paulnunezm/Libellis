@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card_view"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <!--android:indeterminateTint="@color/blue"
+        android:indeterminateTintMode="src_in"-->
+    <ProgressBar
+        android:id="@+id/wait_progressBar"
+        style="@style/IndeterminateProgressCircle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:indeterminate="true"
+        android:visibility="gone"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:animateLayoutChanges="true"
+        android:orientation="vertical">
+
+       <include
+           layout="@layout/reading_progress_book"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:visibility="gone"/>
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/update_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:animateLayoutChanges="true">
+
+            <RatingBar
+                android:id="@+id/ratingBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="false"
+                android:isIndicator="false"
+                android:max="5"
+                android:numStars="5"
+                android:scaleX="0.5"
+                android:scaleY="0.5"
+                android:stepSize="1.0"
+                android:visibility="visible"
+                tools:progress="4"
+                tools:layout_editor_absoluteY="194dp"
+                android:layout_marginRight="8dp"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_marginLeft="8dp"
+                app:layout_constraintLeft_toLeftOf="parent"/>
+
+                <com.nunez.libellis.views.CustomFontTextView
+                    android:id="@+id/update_type_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="false"
+                    android:gravity="start"
+                    android:paddingBottom="4dp"
+                    android:paddingTop="4dp"
+                    android:singleLine="true"
+                    android:text="I'm on "
+                    android:textColor="@color/grey_dark"
+                    android:textSize="@dimen/small_text_size"
+                    app:fontFile="Raleway-Light.ttf"
+                    tools:layout_editor_absoluteY="144dp"
+                    tools:layout_editor_absoluteX="288dp"/>
+
+                <com.nunez.libellis.views.CustomFontTextView
+                    android:id="@+id/per_page_update_indicator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:gravity="start"
+                    android:paddingBottom="4dp"
+                    android:paddingTop="4dp"
+                    android:singleLine="true"
+                    android:text="page "
+                    android:textColor="@color/blue_dark"
+                    android:textSize="@dimen/small_text_size"
+                    app:fontFile="Raleway-Bold.ttf"
+                    tools:layout_editor_absoluteY="144dp"
+                    tools:layout_editor_absoluteX="207dp"/>
+
+                <!--android:background="@drawable/edit_text_bg"-->
+                <EditText
+                    android:id="@+id/edit_progress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/per_page_update_indicator"
+                    android:gravity="center_vertical"
+                    android:inputType="number"
+                    android:minEms="2"
+                    android:padding="2dp"
+                    android:paddingLeft="1dp"
+                    android:textColor="@color/grey_dark"
+                    android:textColorHint="@color/grey_light"
+                    android:textSize="12sp"
+                    tools:layout_editor_absoluteY="144dp"
+                    tools:layout_editor_absoluteX="126dp"/>
+
+                <com.nunez.libellis.views.CustomFontTextView
+                    android:id="@+id/per_percentage_indicator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/update_type_text"
+                    android:layout_toRightOf="@id/edit_progress"
+                    android:clickable="true"
+                    android:gravity="start"
+                    android:paddingBottom="4dp"
+                    android:paddingTop="4dp"
+                    android:singleLine="true"
+                    android:text=" % "
+                    android:textColor="@color/blue_dark"
+                    android:textSize="@dimen/small_text_size"
+                    app:fontFile="Raleway-Bold.ttf"
+                    tools:layout_editor_absoluteY="144dp"
+                    tools:layout_editor_absoluteX="351dp"/>
+
+                <com.nunez.libellis.views.CustomFontTextView
+                    android:id="@+id/update_ending_msg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/update_type_text"
+                    android:layout_toRightOf="@id/edit_progress"
+                    android:clickable="true"
+                    android:gravity="start"
+                    android:paddingBottom="4dp"
+                    android:paddingTop="4dp"
+                    android:singleLine="true"
+                    android:text="of 380."
+                    android:textColor="@color/grey_dark"
+                    android:textSize="@dimen/small_text_size"
+                    app:fontFile="Raleway-Light.ttf"
+                    tools:layout_editor_absoluteY="144dp"
+                    android:layout_marginLeft="16dp"
+                    app:layout_constraintLeft_toLeftOf="parent"/>
+
+            <!--android:background="@drawable/edit_text_bg"-->
+            <EditText
+                android:id="@+id/comment_edit_text"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:gravity="left|top"
+                android:hint="Comment"
+                android:inputType="textAutoCorrect|textMultiLine"
+                android:paddingLeft="10dp"
+                android:paddingTop="5dp"
+                android:textColor="@color/grey_dark"
+                android:textColorHint="@color/grey_light"
+                android:textSize="@dimen/small_text_size"
+                tools:layout_editor_absoluteY="38dp"
+                tools:layout_editor_absoluteX="226dp"/>
+
+        </android.support.constraint.ConstraintLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="16dp"
+            android:background="@color/grey_light"/>
+
+        <RelativeLayout
+            android:id="@+id/buttons_layout"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginBottom="8dp"
+            android:animateLayoutChanges="true"
+            tools:visibility="gone">
+
+            <!--android:background="@drawable/libellis_ripple"-->
+            <com.nunez.libellis.views.CustomFontTextView
+                android:id="@+id/update_btn"
+                style="@style/UpdateProgressButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:text="@string/update_progress_update_button_txt"
+                android:textColor="@color/blue_dark"
+                app:fontFile="Raleway-Bold.ttf"/>
+
+            <!--android:background="@drawable/libellis_ripple"-->
+            <com.nunez.libellis.views.CustomFontTextView
+                android:id="@+id/cancel_btn"
+                style="@style/UpdateProgressButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@id/update_btn"
+                android:layout_toLeftOf="@id/update_btn"
+                android:clickable="true"
+                android:gravity="center"
+                android:text="@string/update_progress_cancel_button_txt"
+                android:textColor="@color/grey_dark"
+                app:fontFile="Raleway-Medium.ttf"/>
+        </RelativeLayout>
+    </LinearLayout>
+</FrameLayout>
+

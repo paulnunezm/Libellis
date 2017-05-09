@@ -30,6 +30,8 @@ public class AuthDialog extends DialogFragment implements DialogWebClient.onAuth
      * After this you can request your user key & secret
      */
     void onAuthorizationTokenReceived(Uri authToken);
+
+    void onDialogCloseByUser();
   }
 
   private RequestListener listener;
@@ -65,6 +67,7 @@ public class AuthDialog extends DialogFragment implements DialogWebClient.onAuth
     closeBtn.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {
+        listener.onDialogCloseByUser();
         getDialog().dismiss();
       }
     });

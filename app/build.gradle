@@ -37,7 +37,7 @@ android {
             // All the usual Gradle options.
             testLogging {
                 events "passed", "skipped", "failed", "standardOut", "standardError"
-                outputs.upToDateWhen {false}
+                outputs.upToDateWhen { false }
                 showStandardStreams = true
             }
         }
@@ -52,34 +52,36 @@ dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
 
     // Android support
-    compile 'com.android.support:appcompat-v7:25.3.1'
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    compile 'com.android.support:design:25.3.1'
-    
 
     // Square
-    compile 'com.squareup.retrofit2:retrofit:2.1.0'
-    compile ('com.squareup.retrofit2:converter-simplexml:2.1.0') {
+    compile('com.squareup.retrofit2:converter-simplexml:2.1.0') {
         exclude group: 'xpp3', module: 'xpp3'
         exclude group: 'stax', module: 'stax-api'
         exclude group: 'stax', module: 'stax'
     }
 
     // Signed requests
-    compile 'se.akerfeldt:okhttp-signpost:1.1.0'
 
     // Debugging
-    debugCompile 'com.facebook.stetho:stetho:1.5.0'
-    debugCompile 'com.facebook.stetho:stetho-okhttp3:1.4.2'
 
     // Tests
-    testCompile 'junit:junit:4.12'
-    testCompile 'com.nhaarman:mockito-kotlin:1.4.0'
     testCompile "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
 
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
+
+    compile 'com.android.support:appcompat-v7:25.3.1'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile 'com.android.support:design:25.3.1'
+    compile 'com.squareup.retrofit2:retrofit:2.1.0'
+    compile 'se.akerfeldt:okhttp-signpost:1.1.0'
+    compile 'com.android.support:support-v4:25.3.1'
+    compile 'com.google.android.gms:play-services-plus:10.2.1'
+    testCompile 'junit:junit:4.12'
+    testCompile 'com.nhaarman:mockito-kotlin:1.4.0'
+    debugCompile 'com.facebook.stetho:stetho:1.5.0'
+    debugCompile 'com.facebook.stetho:stetho-okhttp3:1.4.2'
 }
 repositories {
     mavenCentral()

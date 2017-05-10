@@ -18,17 +18,22 @@
             android:theme="@style/AppTheme.BrandedLaunch">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
+
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
 
         <activity
             android:name=".login.LoginActivity"
-            android:theme="@style/AppTheme.BrandedLaunch">
-        </activity>
+            android:theme="@style/AppTheme.BrandedLaunch"/>
 
-        <activity android:name=".updates.UpdatesActivity">
-        </activity>
+        <activity android:name=".updates.UpdatesActivity"/>
+
+        <activity
+            android:name=".main.MainActivity"
+            android:label="@string/title_activity_main_activity"
+            android:theme="@style/AppTheme"/>
+
     </application>
 
 </manifest>

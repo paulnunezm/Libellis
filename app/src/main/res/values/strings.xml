@@ -15,4 +15,11 @@
     <string name="update_progress_cancel_button_txt">CANCEL</string>
     <string name="update_progress_update_button_txt">UPDATE</string>
     <string name="update_progress_last_update_txt">Last update:</string>
+    <string name="title_activity_main_activity">MainActivityActivity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="error_msg_implicit_error">An error just occured :/</string>
 </resources>

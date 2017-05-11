@@ -4,7 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.nunez.libellis.login.LoginActivity
-import com.nunez.libellis.updates.UpdatesActivity
+import com.nunez.libellis.main.MainActivity
 
 class DispatchActivity : AppCompatActivity() {
 
@@ -14,7 +14,7 @@ class DispatchActivity : AppCompatActivity() {
 
         val nextActivityIntent =
                 if (userLoggedIn())
-                    Intent(this, UpdatesActivity::class.java)
+                    Intent(this, MainActivity::class.java)
                 else
                     Intent(this, LoginActivity::class.java)
 

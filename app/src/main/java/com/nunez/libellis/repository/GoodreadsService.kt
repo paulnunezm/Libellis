@@ -5,7 +5,7 @@ import retrofit2.Call
 import retrofit2.http.GET
 
 /**
- * Created by paulnunez on 4/25/17.
+ * Created by paulnunez on 4/25/17
  */
 interface GoodreadsService {
     companion object{
@@ -14,6 +14,9 @@ interface GoodreadsService {
         const val ACCESS_TOKEN_URL  = BASE_URL + "/oauth/access_token"
         const val AUTHORIZE_URL     = BASE_URL + "/oauth/authorize?mobile=1"
         const val CALLBACK_URL      = "app://libellis"
+
+        // endpoints
+        const val UPDATES_ENDPOINT = "/updates/friends.xml"
     }
 
     @GET("updates/friends.xml")

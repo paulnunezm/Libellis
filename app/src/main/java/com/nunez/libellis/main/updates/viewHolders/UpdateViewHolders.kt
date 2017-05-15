@@ -28,7 +28,7 @@ private fun bindBook(itemView: View, book: Book, imageUrl: String, listener: Upd
 
         bookTitle.setOnClickListener { listener.onBookTitleOrImageClicked() }
         bookImage.setOnClickListener { listener.onBookTitleOrImageClicked() }
-        authorName.setOnClickListener { listener.onAuthorNameCliked() }
+        authorName.setOnClickListener { listener.onAuthorNameClicked() }
         likeBtn.setOnClickListener { listener.onLikeBtnClicked() }
         commentBtn.setOnClickListener { listener.onCommentBtnClicked() }
 //        comment.setOnClickListener { listener.onCommentClicked() }

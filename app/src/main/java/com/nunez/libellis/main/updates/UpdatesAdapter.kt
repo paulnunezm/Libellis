@@ -69,7 +69,7 @@ class UpdatesAdapter(val context: Context,
 
         fun onBookTitleOrImageClicked() // book layout
 
-        fun onAuthorNameCliked()
+        fun onAuthorNameClicked()
 
         fun onLikeBtnClicked()
 

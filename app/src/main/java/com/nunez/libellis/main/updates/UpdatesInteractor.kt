@@ -12,8 +12,10 @@ import okhttp3.Callback
 import okhttp3.Request
 import okhttp3.Response
 import java.io.IOException
+import javax.inject.Inject
 
-class UpdatesInteractor(val context: Context) : UpdatesContract.Interactor {
+class UpdatesInteractor
+@Inject constructor(val context: Context) : UpdatesContract.Interactor {
 
     lateinit var updatesPresenter: UpdatesContract.Presenter
 

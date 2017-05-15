@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent"/>
 
     <com.nunez.libellis.views.CustomFontTextView
-        android:id="@+id/bookName"
+        android:id="@+id/bookTitle"
         style="@style/UpdateBookTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -39,8 +39,8 @@
         android:textSize="@dimen/update_book_author_text_size"
         app:fontFile="Raleway-Light.ttf"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toLeftOf="@+id/bookName"
-        app:layout_constraintTop_toBottomOf="@+id/bookName"
+        app:layout_constraintLeft_toLeftOf="@+id/bookTitle"
+        app:layout_constraintTop_toBottomOf="@+id/bookTitle"
         tools:text="by Author Name 1, Author Name 2, Author Name 3"/>
 
     <com.nunez.libellis.views.CustomFontTextView

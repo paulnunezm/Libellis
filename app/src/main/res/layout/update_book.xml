@@ -17,7 +17,7 @@
         tools:background="@color/blue_light"/>
 
     <com.nunez.libellis.views.CustomFontTextView
-        android:id="@+id/bookName"
+        android:id="@+id/bookTitle"
         style="@style/UpdateBookTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -39,14 +39,14 @@
         android:paddingTop="4dp"
         android:textSize="@dimen/update_book_author_text_size"
         app:fontFile="Raleway-Light.ttf"
-        app:layout_constraintLeft_toLeftOf="@+id/shelves_btn"
-        app:layout_constraintTop_toBottomOf="@+id/bookName"
+        app:layout_constraintLeft_toLeftOf="@+id/wanToReadBtn"
+        app:layout_constraintTop_toBottomOf="@+id/bookTitle"
         tools:text="by Author Name 1, Author Name 2, Author Name 3"/>
 
 
     <!--android:background="@drawable/libellis_ripple"-->
     <com.nunez.libellis.views.CustomFontTextView
-        android:id="@+id/like_btn"
+        android:id="@+id/likeBtn"
         style="@style/UpdateBookTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -61,8 +61,8 @@
         android:textColor="@color/grey_dark"
         android:textSize="@dimen/update_book_author_text_size"
         app:fontFile="Raleway-Medium.ttf"
-        app:layout_constraintLeft_toLeftOf="@+id/shelves_btn"
-        app:layout_constraintTop_toBottomOf="@+id/shelves_btn"/>
+        app:layout_constraintLeft_toLeftOf="@+id/wanToReadBtn"
+        app:layout_constraintTop_toBottomOf="@+id/wanToReadBtn"/>
 
     <com.nunez.libellis.views.CustomFontTextView
         android:id="@+id/separator"
@@ -82,12 +82,12 @@
         android:textColor="@color/grey_light"
         android:textSize="@dimen/update_book_author_text_size"
         app:fontFile="Raleway-Medium.ttf"
-        app:layout_constraintLeft_toRightOf="@+id/like_btn"
-        app:layout_constraintTop_toTopOf="@+id/like_btn"/>
+        app:layout_constraintLeft_toRightOf="@+id/likeBtn"
+        app:layout_constraintTop_toTopOf="@+id/likeBtn"/>
 
     <!--android:background="@drawable/libellis_ripple"-->
     <com.nunez.libellis.views.CustomFontTextView
-        android:id="@+id/comment_btn"
+        android:id="@+id/commentBtn"
         style="@style/UpdateBookTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -107,7 +107,7 @@
         app:layout_constraintTop_toTopOf="@+id/separator"/>
 
     <com.nunez.libellis.views.CustomFontTextView
-        android:id="@+id/shelves_btn"
+        android:id="@+id/wanToReadBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="14dp"
@@ -127,13 +127,13 @@
         app:layout_constraintTop_toBottomOf="@+id/authorName"/>
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/addToShelveBtn"
         android:layout_width="36dp"
         android:layout_height="37dp"
         android:layout_marginLeft="2dp"
         android:layout_marginStart="2dp"
         android:background="@drawable/shelve_btn_image_background"
-        app:layout_constraintLeft_toRightOf="@+id/shelves_btn"
-        app:layout_constraintTop_toTopOf="@+id/shelves_btn"/>
+        app:layout_constraintLeft_toRightOf="@+id/wanToReadBtn"
+        app:layout_constraintTop_toTopOf="@+id/wanToReadBtn"/>
 
 </android.support.constraint.ConstraintLayout>

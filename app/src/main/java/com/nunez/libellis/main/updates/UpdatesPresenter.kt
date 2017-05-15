@@ -15,7 +15,7 @@ class UpdatesPresenter
     override fun setUpdatesInteractor(interactor: UpdatesContract.Interactor) {
         this.interactor = interactor
 
-        interactor.requestUpdatesRx()
+        interactor.requestUpdates()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(

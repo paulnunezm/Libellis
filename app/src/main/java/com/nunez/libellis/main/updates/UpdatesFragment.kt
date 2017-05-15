@@ -4,17 +4,21 @@ import android.content.Context
 import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v7.widget.GridLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.nunez.libellis.R
 import com.nunez.libellis.entities.Update
+import kotlinx.android.synthetic.main.updates_fragment.*
 
 /**
  * Use the [UpdatesFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class UpdatesFragment : Fragment(), UpdatesContract.View {
+class UpdatesFragment : Fragment(), UpdatesContract.View, UpdatesAdapter.onItemClickListener {
+
+    lateinit var adapter: UpdatesAdapter
 
     companion object {
         /**
@@ -29,6 +33,12 @@ class UpdatesFragment : Fragment(), UpdatesContract.View {
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
+        // Inflate the layout for this fragment
+        return inflater?.inflate(R.layout.updates_fragment, container, false)
+    }
+
+    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
         val presenter = UpdatesPresenter(this)
         val interactor = UpdatesInteractor(this.activity)
@@ -36,8 +46,10 @@ class UpdatesFragment : Fragment(), UpdatesContract.View {
         interactor.updatesPresenter = presenter
         presenter.setUpdatesInteractor(interactor)
 
-        // Inflate the layout for this fragment
-        return inflater?.inflate(R.layout.fragment_updates, container, false)
+        adapter = UpdatesAdapter(this.activity, this)
+
+        updatesRecycler.adapter = adapter
+        updatesRecycler.layoutManager = GridLayoutManager(this.activity, 1) // TODO: change to auto fit
     }
 
     override fun onResume() {
@@ -59,6 +71,7 @@ class UpdatesFragment : Fragment(), UpdatesContract.View {
     }
 
     override fun showUpdates(updates: List<Update>) {
+        adapter.setUpdates(updates)
     }
 
     override fun showFakeUpdates() {
@@ -69,6 +82,35 @@ class UpdatesFragment : Fragment(), UpdatesContract.View {
 
     override fun showError(message: String) {
     }
+
+    // Updates adapter listeners
+    override fun onUserNameOrImageClicked() {
+    }
+
+    override fun onBookTitleOrImageClicked() {
+    }
+
+    override fun onAuthorNameCliked() {
+    }
+
+    override fun onLikeBtnClicked() {
+    }
+
+    override fun onCommentBtnClicked() {
+    }
+
+    override fun onWantToReadClicked() {
+    }
+
+    override fun onAddToShelvesClicked() {
+    }
+
+    override fun onCommentClicked() {
+    }
+
+    override fun onFriendNameOrImageClicked() {
+    }
+    // end of updates aadapter listeners
 
     /**
      * This interface must be implemented by activities that contain this

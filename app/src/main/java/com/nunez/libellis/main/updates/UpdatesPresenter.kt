@@ -1,11 +1,12 @@
 package com.nunez.libellis.main.updates
 
 import com.nunez.libellis.entities.Update
+import javax.inject.Inject
+import javax.inject.Singleton
 
-/**
- * Created by paulnunez on 5/9/17
- */
-class UpdatesPresenter(val view: UpdatesContract.View) : UpdatesContract.Presenter {
+@Singleton
+class UpdatesPresenter
+@Inject constructor(val view: UpdatesContract.View) : UpdatesContract.Presenter {
 
     private lateinit var interactor: UpdatesContract.Interactor
 

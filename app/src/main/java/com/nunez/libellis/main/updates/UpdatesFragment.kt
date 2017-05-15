@@ -8,9 +8,14 @@ import android.support.v7.widget.GridLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.nunez.libellis.LibellisApp
 import com.nunez.libellis.R
+import com.nunez.libellis.di.AppModule
+import com.nunez.libellis.di.DaggerUpdatesComponent
+import com.nunez.libellis.di.UpdatesModule
 import com.nunez.libellis.entities.Update
 import kotlinx.android.synthetic.main.updates_fragment.*
+import javax.inject.Inject
 
 /**
  * Use the [UpdatesFragment.newInstance] factory method to
@@ -20,11 +25,11 @@ class UpdatesFragment : Fragment(), UpdatesContract.View, UpdatesAdapter.onItemC
 
     lateinit var adapter: UpdatesAdapter
 
+    @Inject lateinit var presenter:UpdatesPresenter
+    @Inject lateinit var interactor:UpdatesInteractor
+
     companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         */
+        /** Use this factory method to create a new instance of this fragment */
         fun newInstance(): UpdatesFragment {
             val fragment = UpdatesFragment()
             return fragment
@@ -33,15 +38,19 @@ class UpdatesFragment : Fragment(), UpdatesContract.View, UpdatesAdapter.onItemC
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
+
+        DaggerUpdatesComponent.builder()
+                .appModule(AppModule(activity.application as LibellisApp))
+                .updatesModule(UpdatesModule(view = this))
+                .build()
+                .inject(this)
+
         // Inflate the layout for this fragment
         return inflater?.inflate(R.layout.updates_fragment, container, false)
     }
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        val presenter = UpdatesPresenter(this)
-        val interactor = UpdatesInteractor(this.activity)
 
         interactor.updatesPresenter = presenter
         presenter.setUpdatesInteractor(interactor)
@@ -90,7 +99,7 @@ class UpdatesFragment : Fragment(), UpdatesContract.View, UpdatesAdapter.onItemC
     override fun onBookTitleOrImageClicked() {
     }
 
-    override fun onAuthorNameCliked() {
+    override fun onAuthorNameClicked() {
     }
 
     override fun onLikeBtnClicked() {

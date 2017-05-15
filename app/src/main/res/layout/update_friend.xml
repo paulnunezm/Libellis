@@ -9,9 +9,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="@dimen/card_margins"
-    android:layout_marginTop="@dimen/card_margins"
-    card_view:cardCornerRadius="@dimen/card_corner_radius"
-    card_view:cardElevation="@dimen/card_elevation">
+    android:layout_marginTop="@dimen/card_margins">
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/upperLayout"

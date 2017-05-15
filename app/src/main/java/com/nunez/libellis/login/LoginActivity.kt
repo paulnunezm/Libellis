@@ -19,9 +19,9 @@ import android.widget.Button
 import android.widget.ProgressBar
 import com.nunez.libellis.BuildConfig
 import com.nunez.libellis.R
+import com.nunez.libellis.main.MainActivity
 import com.nunez.libellis.repository.GoodreadsService
 import com.nunez.libellis.showSnackbar
-import com.nunez.libellis.updates.UpdatesActivity
 import com.nunez.oauthathenticator.AuthDialog
 import com.nunez.oauthathenticator.Authenticator
 import kotlinx.android.synthetic.main.login_activity.*
@@ -85,7 +85,7 @@ class LoginActivity : AppCompatActivity(), LoginContract.View {
     }
 
     override fun goToUpdatesActivity() {
-        val intent = Intent(this, UpdatesActivity::class.java)
+        val intent = Intent(this, MainActivity::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
         startActivity(intent)

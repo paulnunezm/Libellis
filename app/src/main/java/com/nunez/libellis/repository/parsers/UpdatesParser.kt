@@ -39,7 +39,7 @@ class UpdatesParser(
 
             for (i in 0..nodes.length - 1) {
                 val node = nodes.item(i)
-                val type:String = nodes.item(i).attributes.item(0).toString()
+                val type:String = nodes.item(i).attributes.item(0).nodeValue
 
                 val update = when{
                     type.contains(Update.TYPE.FRIEND) -> FriendUpdateParser(node).parse()

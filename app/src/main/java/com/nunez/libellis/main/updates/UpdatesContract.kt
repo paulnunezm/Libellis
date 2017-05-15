@@ -1,6 +1,7 @@
 package com.nunez.libellis.main.updates
 
 import com.nunez.libellis.entities.Update
+import io.reactivex.Observable
 
 interface UpdatesContract {
 
@@ -18,7 +19,7 @@ interface UpdatesContract {
     }
 
     interface Interactor {
-        fun requestUpdates()
+        fun requestUpdates(): Observable<List<Update>>
         fun setPresenter(presenter: Presenter?)
     }
 }

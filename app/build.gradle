@@ -44,7 +44,13 @@ android {
     }
 }
 
+kapt {
+    generateStubs = true
+}
+
+
 ext.supportVersion = "25.3.1"
+ext.daggerVersion = "2.11-rc2"
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
@@ -71,8 +77,17 @@ dependencies {
     // Signed requests
     compile 'se.akerfeldt:okhttp-signpost:1.1.0'
 
-    // Google
+    // Play services
     compile 'com.google.android.gms:play-services-plus:10.2.1'
+
+    // Dagger 2
+    compile "com.google.dagger:dagger:$daggerVersion"
+    compile ("com.google.dagger:dagger-android-support:$daggerVersion") {
+        exclude group: 'com.google.code.findbugs', module: 'jsr305'
+    }
+    kapt "com.google.dagger:dagger-compiler:$daggerVersion"
+    annotationProcessor "com.google.dagger:dagger-android-processor:$daggerVersion"
+    provided 'org.glassfish:javax.annotation:10.0-b28'
 
     // Tests
     testCompile "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"

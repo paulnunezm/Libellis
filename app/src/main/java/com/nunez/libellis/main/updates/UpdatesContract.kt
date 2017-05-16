@@ -13,13 +13,12 @@ interface UpdatesContract {
     }
 
     interface Presenter {
-        fun setUpdatesInteractor(interactor: Interactor)
+        fun requestUpdates()
         fun sendUpdates(updates: List<Update>)
         fun showError(message: String)
     }
 
     interface Interactor {
         fun requestUpdates(): Observable<List<Update>>
-        fun setPresenter(presenter: Presenter?)
     }
 }

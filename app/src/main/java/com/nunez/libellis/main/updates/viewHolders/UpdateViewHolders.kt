@@ -69,12 +69,11 @@ class ReviewViewHolder(itemView: View, val listener: UpdatesAdapter.onItemClickL
     }
 }
 
-//class CommentViewHolder(itemView: View, val listener: UpdatesAdapter.onItemClickListener)
-//    : RecyclerView.ViewHolder(itemView), UpdateViewHolder {
-//    override fun bindViews(update: Update) {
-//        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-//    }
-//}
+class CommentViewHolder(itemView: View, val listener: UpdatesAdapter.onItemClickListener)
+    : RecyclerView.ViewHolder(itemView), UpdateViewHolder {
+    override fun bindViews(update: Update) {
+    }
+}
 
 class FriendUpdateViewHolder(itemView: View, val listener: UpdatesAdapter.onItemClickListener)
     : RecyclerView.ViewHolder(itemView), UpdateViewHolder {

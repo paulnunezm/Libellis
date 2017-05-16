@@ -17,9 +17,10 @@ class UpdatesPresenterTest {
     val presenter = UpdatesPresenter(view)
 
 
+
     @Before
     fun setUp() {
-        presenter.setUpdatesInteractor(interactor)
+        presenter.requestUpdates(interactor)
     }
 
     @Test
@@ -27,7 +28,7 @@ class UpdatesPresenterTest {
         // given
 
         // when
-        presenter.setUpdatesInteractor(interactor)
+        presenter.requestUpdates(interactor)
 
         // then
         verify(interactor).requestUpdates()

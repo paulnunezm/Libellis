@@ -8,13 +8,10 @@ import javax.inject.Singleton
 
 @Singleton
 class UpdatesPresenter
-@Inject constructor(val view: UpdatesContract.View) : UpdatesContract.Presenter {
+@Inject constructor(val view: UpdatesContract.View, val interactor: UpdatesContract.Interactor) : UpdatesContract.Presenter {
 
-    private lateinit var interactor: UpdatesContract.Interactor
 
-    override fun setUpdatesInteractor(interactor: UpdatesContract.Interactor) {
-        this.interactor = interactor
-
+    override fun requestUpdates() {
         interactor.requestUpdates()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())

@@ -5,6 +5,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.GridLayoutManager
+import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -25,8 +26,8 @@ class UpdatesFragment : Fragment(), UpdatesContract.View, UpdatesAdapter.onItemC
 
     lateinit var adapter: UpdatesAdapter
 
-    @Inject lateinit var presenter:UpdatesPresenter
     @Inject lateinit var interactor:UpdatesInteractor
+    @Inject lateinit var presenter:UpdatesPresenter
 
     companion object {
         /** Use this factory method to create a new instance of this fragment */
@@ -52,13 +53,13 @@ class UpdatesFragment : Fragment(), UpdatesContract.View, UpdatesAdapter.onItemC
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        interactor.updatesPresenter = presenter
-        presenter.setUpdatesInteractor(interactor)
+
+        presenter.requestUpdates()
 
         adapter = UpdatesAdapter(this.activity, this)
 
         updatesRecycler.adapter = adapter
-        updatesRecycler.layoutManager = GridLayoutManager(this.activity, 1) // TODO: change to auto fit
+        updatesRecycler.layoutManager = GridLayoutManager(this.activity, 1) as RecyclerView.LayoutManager? // TODO: change to auto fit
     }
 
     override fun onResume() {

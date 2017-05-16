@@ -16,14 +16,6 @@ import javax.inject.Inject
 class UpdatesInteractor
 @Inject constructor(val context: Context) : UpdatesContract.Interactor {
 
-    lateinit var updatesPresenter: UpdatesContract.Presenter
-
-    override fun setPresenter(presenter: UpdatesContract.Presenter?) {
-        presenter?.let {
-            updatesPresenter = presenter
-        }
-    }
-
     override fun requestUpdates(): Observable<List<Update>> {
         // TODO: check internet connection
 

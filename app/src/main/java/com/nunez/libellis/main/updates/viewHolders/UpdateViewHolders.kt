@@ -61,7 +61,8 @@ class ReviewViewHolder(itemView: View, val listener: UpdatesAdapter.onItemClickL
         with(mUpdate) {
             itemView.ratingBar.rating = rating.toFloat()
             // TODO: Implement comment section
-            itemView.comment.setOnClickListener { listener.onCommentClicked() }
+            itemView.commentLabel.visibility = View.GONE
+            itemView.comment.visibility = View.GONE
 
             bindUser(itemView, user, updatedAt, "", listener)
             bindBook(itemView, book, bookImageUrl, listener)

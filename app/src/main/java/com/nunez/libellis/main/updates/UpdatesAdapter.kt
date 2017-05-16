@@ -31,7 +31,7 @@ class UpdatesAdapter(val context: Context,
             TYPE_FRIEND -> FriendUpdateViewHolder(parent.inflate(R.layout.update_friend), listener)
             TYPE_READ_STATUS -> ReadStatusUpdateViewHolder(parent.inflate(R.layout.update_readstatus), listener)
             TYPE_REVIEW -> ReviewViewHolder(parent.inflate(R.layout.udpate_reviews), listener)
-            TYPE_COMMENT -> CommentViewHolder(parent.inflate(R.layout.udpate_reviews), listener)
+            TYPE_COMMENT -> CommentViewHolder(parent.inflate(R.layout.update_comment), listener)
             else -> UserStatusViewHolder(parent.inflate(R.layout.update_userstatus), listener)
         }
 

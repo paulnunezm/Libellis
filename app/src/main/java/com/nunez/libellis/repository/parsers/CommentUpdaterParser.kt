@@ -26,6 +26,7 @@ class CommentUpdaterParser(val commentNode: Node) : BaseUpdatesParser() {
                         "link" -> reviewLink = getNodeValue(commentNode)
                         "body" -> comment = getNodeValue(commentNode)
                         "actor" -> user = parseActor(commentNode.childNodes)
+                        "updated_at" -> updatedAt = getNodeValue(commentNode)
                     }
                 })
         return CommentUpdate(user, status, comment, reviewLink, updatedAt)

@@ -18,10 +18,6 @@
             android:scrollbars="vertical"
             tools:listitem="@layout/update_readstatus"/>
 
-        <include
-            layout="@layout/shelve_bottom_sheet"
-            tools:visibility="gone" />
-
     </android.support.design.widget.CoordinatorLayout>
 
 </FrameLayout>

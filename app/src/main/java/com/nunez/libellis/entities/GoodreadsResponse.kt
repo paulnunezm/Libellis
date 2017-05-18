@@ -9,8 +9,10 @@ import org.simpleframework.xml.Root
 
 @Root(strict = false)
 class GoodreadsResponse(
-        @field:ElementList(name = "updates") var updates: ArrayList<Update>? = null
-
+        /** note: simpleXml needs consctructor without argumentes, hence the null initialization
+         * for each field.*/
+        @field:ElementList(name = "updates", required = false) var updates: ArrayList<Update>? = null,
+        @field:ElementList(name = "shelves", required = false) var shelves: List<Shelve>? = null
 
         /** For better understanding about why the @field go to https://kotlinlang.org/docs/reference/annotations.html#annotation-use-site-targets */
 )

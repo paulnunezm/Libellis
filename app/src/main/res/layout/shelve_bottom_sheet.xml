@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    app:layout_behavior="@string/bottom_sheet_behavior">
+
+    <com.nunez.libellis.views.CustomFontTextView
+        android:id="@+id/bottomSheetTitle"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/shelve_bottom_sheet_title"
+        android:gravity="start|center"
+        android:textColor="@color/grey_light"
+        android:textSize="@dimen/medium_text_size"
+        android:text="@string/shelve_bottom_sheet_add_to_shelve"
+        app:fontFile="Raleway-Medium.ttf"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/shelvesRecycler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:listitem="@layout/shelve_bottom_sheet_item"/>
+
+</LinearLayout>

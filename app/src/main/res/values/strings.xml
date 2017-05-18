@@ -27,4 +27,5 @@
     <string name="update_user_is_now_friend_with">Is now friend with</string>
     <string name="update_reviews_comment">Comment:</string>
     <string name="uodate_book_want_to_read">Want to Read</string>
+    <string name="shelve_bottom_sheet_add_to_shelve">Add to shelve:</string>
 </resources>

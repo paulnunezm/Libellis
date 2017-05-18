@@ -81,7 +81,7 @@ open class BaseUpdatesParser {
         return book
     }
 
-    private fun parseDataSection(dataSectionNode: Node): String {
+    fun parseDataSection(dataSectionNode: Node): String {
         var text = ""
         iterateInChildNotes(dataSectionNode.childNodes, {
             if (it.nodeName.contains("data-section")) {

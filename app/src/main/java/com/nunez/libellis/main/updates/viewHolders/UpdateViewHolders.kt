@@ -8,6 +8,7 @@ import com.nunez.libellis.loadImage
 import com.nunez.libellis.main.updates.UpdatesAdapter
 import kotlinx.android.synthetic.main.udpate_reviews.view.*
 import kotlinx.android.synthetic.main.update_book.view.*
+import kotlinx.android.synthetic.main.update_comment.view.*
 import kotlinx.android.synthetic.main.update_friend.view.*
 import kotlinx.android.synthetic.main.update_user.view.*
 import kotlinx.android.synthetic.main.update_userstatus.view.*
@@ -60,21 +61,24 @@ class ReviewViewHolder(itemView: View, val listener: UpdatesAdapter.onItemClickL
 
         with(mUpdate) {
             itemView.ratingBar.rating = rating.toFloat()
-            // TODO: Implement comment section
-            itemView.comment.setOnClickListener { listener.onCommentClicked() }
-
             bindUser(itemView, user, updatedAt, "", listener)
             bindBook(itemView, book, bookImageUrl, listener)
         }
     }
 }
 
-//class CommentViewHolder(itemView: View, val listener: UpdatesAdapter.onItemClickListener)
-//    : RecyclerView.ViewHolder(itemView), UpdateViewHolder {
-//    override fun bindViews(update: Update) {
-//        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-//    }
-//}
+class CommentViewHolder(itemView: View, val listener: UpdatesAdapter.onItemClickListener)
+    : RecyclerView.ViewHolder(itemView), UpdateViewHolder {
+
+    override fun bindViews(update: Update) {
+        val commentUpdate = update as CommentUpdate
+
+        with(commentUpdate){
+            bindUser(itemView,user, updatedAt, status, listener)
+            itemView.comment.text = commentUpdate.comment
+        }
+    }
+}
 
 class FriendUpdateViewHolder(itemView: View, val listener: UpdatesAdapter.onItemClickListener)
     : RecyclerView.ViewHolder(itemView), UpdateViewHolder {
@@ -85,7 +89,7 @@ class FriendUpdateViewHolder(itemView: View, val listener: UpdatesAdapter.onItem
 
         with(friendUpdate) {
             itemView.friendImage.loadImage(friendImageUrl)
-            // TODO: implement friend name
+            itemView.friendName.text = friendName
             itemView.friendImage.setOnClickListener { listener.onFriendNameOrImageClicked() }
             itemView.friendName.setOnClickListener { listener.onFriendNameOrImageClicked() }
             bindUser(itemView, user, updatedAt, status, listener)

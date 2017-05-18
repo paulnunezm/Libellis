@@ -17,7 +17,7 @@ class UpdatesAdapter(val context: Context,
     : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     companion object {
-        //        const val TYPE_COMMENT = 0
+        const val TYPE_COMMENT = 0
         const val TYPE_FRIEND = 1
         const val TYPE_READ_STATUS = 2
         const val TYPE_REVIEW = 3
@@ -31,6 +31,7 @@ class UpdatesAdapter(val context: Context,
             TYPE_FRIEND -> FriendUpdateViewHolder(parent.inflate(R.layout.update_friend), listener)
             TYPE_READ_STATUS -> ReadStatusUpdateViewHolder(parent.inflate(R.layout.update_readstatus), listener)
             TYPE_REVIEW -> ReviewViewHolder(parent.inflate(R.layout.udpate_reviews), listener)
+            TYPE_COMMENT -> CommentViewHolder(parent.inflate(R.layout.update_comment), listener)
             else -> UserStatusViewHolder(parent.inflate(R.layout.update_userstatus), listener)
         }
 
@@ -46,7 +47,7 @@ class UpdatesAdapter(val context: Context,
         val type = when (updatesList[position].updateType) {
             Update.TYPE.READ_STATUS -> TYPE_READ_STATUS
             Update.TYPE.REVIEW -> TYPE_REVIEW
-//            Update.TYPE.COMMENT -> TYPE_COMMENT
+            Update.TYPE.COMMENT -> TYPE_COMMENT
             Update.TYPE.FRIEND -> TYPE_FRIEND
             Update.TYPE.USER_STATUS -> TYPE_USER_STATUS
             else -> 0

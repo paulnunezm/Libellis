@@ -7,6 +7,7 @@ data class FriendUpdate(
         val type: String,
         val user: User,
         val updatedAt: String,
+        val friendName: String,
         val friendImageUrl: String,
         val friendProfileUrl: String
 

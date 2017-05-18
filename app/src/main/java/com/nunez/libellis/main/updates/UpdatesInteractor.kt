@@ -1,31 +1,22 @@
 package com.nunez.libellis.main.updates
 
-import android.app.Activity
 import android.content.Context
-import com.nunez.libellis.R
 import com.nunez.libellis.entities.Update
 import com.nunez.libellis.repository.GoodreadsService
 import com.nunez.libellis.repository.SignedHttpClient
 import com.nunez.libellis.repository.parsers.UpdatesParser
-import okhttp3.Call
-import okhttp3.Callback
+import io.reactivex.Observable
 import okhttp3.Request
 import okhttp3.Response
 import java.io.IOException
 import javax.inject.Inject
 
+
+
 class UpdatesInteractor
 @Inject constructor(val context: Context) : UpdatesContract.Interactor {
 
-    lateinit var updatesPresenter: UpdatesContract.Presenter
-
-    override fun setPresenter(presenter: UpdatesContract.Presenter?) {
-        presenter?.let {
-            updatesPresenter = presenter
-        }
-    }
-
-    override fun requestUpdates() {
+    override fun requestUpdates(): Observable<List<Update>> {
         // TODO: check internet connection
 
         val client = SignedHttpClient(context).instance
@@ -33,24 +24,21 @@ class UpdatesInteractor
                 .url(GoodreadsService.BASE_URL + GoodreadsService.UPDATES_ENDPOINT)
                 .build()
 
-        client.newCall(request).enqueue(object : Callback {
-            override fun onFailure(call: Call?, e: IOException?) {
-                updatesPresenter.showError(context.getString(R.string.error_msg_implicit_error))
-            }
+        return Observable.create<Response>( { subscriber ->
+                try {
+                    val response = client.newCall(request).execute()
+                    subscriber.onNext(response)
+                    subscriber.onComplete()
 
-            override fun onResponse(call: Call?, response: Response?) {
-                response?.let {
-                    var updates = ArrayList<Update>()
-                    if (response.isSuccessful){
-                        updates = UpdatesParser(response.body().string()).parse()
-                    }
-
-                    (context as Activity).runOnUiThread {
-                        updatesPresenter.sendUpdates(updates)
-                    }
+                    if (!response.isSuccessful) subscriber.onError(Exception("error"))
+                } catch (e: IOException) {
+                    subscriber.onError(e)
                 }
-            }
-        })
+
+        }).map {
+            UpdatesParser(it.body().string()).parse()
+        }
+//        .flatMap { it }  emits one Update item until reach the end
     }
 
 }

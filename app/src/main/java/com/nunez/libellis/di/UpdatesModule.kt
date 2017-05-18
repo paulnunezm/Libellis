@@ -10,6 +10,7 @@ import javax.inject.Singleton
 
 @Module
 class UpdatesModule(val view: UpdatesContract.View) {
+    lateinit var interactor:UpdatesInteractor
 
     @Provides
     @Singleton
@@ -20,12 +21,13 @@ class UpdatesModule(val view: UpdatesContract.View) {
     @Provides
     @Singleton
     fun providesInteractor(context: Context): UpdatesInteractor{
-        return UpdatesInteractor(context)
+        interactor = UpdatesInteractor(context)
+        return interactor
     }
 
     @Provides
     @Singleton
     fun providePresenter(): UpdatesPresenter {
-        return UpdatesPresenter(view)
+        return UpdatesPresenter(view, interactor)
     }
 }

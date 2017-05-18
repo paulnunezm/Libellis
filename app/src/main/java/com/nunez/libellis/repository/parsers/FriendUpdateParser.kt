@@ -12,6 +12,7 @@ open class FriendUpdateParser(val friendNode: Node) : BaseUpdatesParser() {
 
     fun parse(): FriendUpdate {
 
+        var friendName = ""
         var friendProfileUrl = ""
         var friendImageUrl = ""
         var updatedAt = ""
@@ -21,6 +22,11 @@ open class FriendUpdateParser(val friendNode: Node) : BaseUpdatesParser() {
             val currentNode = friendNode.childNodes.item(i)
 
             when (currentNode.nodeName) {
+                "action_text" ->{
+                    friendName = parseDataSection(currentNode)
+                    friendName = friendName.substring(friendName.lastIndexOf("with"))
+                            .replace("with", "")
+                }
                 "link" -> friendProfileUrl = getNodeValue(currentNode)
                 "image_url" -> friendImageUrl = getNodeValue(currentNode)
                 "updated_at" -> updatedAt = getNodeValue(currentNode)
@@ -28,6 +34,6 @@ open class FriendUpdateParser(val friendNode: Node) : BaseUpdatesParser() {
             }
         }
 
-        return FriendUpdate(Update.TYPE.FRIEND, user, updatedAt, friendImageUrl, friendProfileUrl)
+        return FriendUpdate(Update.TYPE.FRIEND, user, updatedAt, friendName, friendImageUrl, friendProfileUrl)
     }
 }

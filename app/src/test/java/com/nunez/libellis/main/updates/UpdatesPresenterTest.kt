@@ -29,7 +29,7 @@ class UpdatesPresenterTest {
     fun sendUpdatesToViewShouldPass() {
         // given
         val list = ArrayList<Update>()
-        list.add(FriendUpdate("", User(), "", "", ""))
+        list.add(FriendUpdate("", User(),"", "", "", ""))
         list.add(ReviewUpdate(User(), "", "", "", "", Book()))
 
         //when

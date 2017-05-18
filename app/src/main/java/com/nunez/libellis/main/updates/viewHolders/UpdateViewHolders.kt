@@ -89,7 +89,7 @@ class FriendUpdateViewHolder(itemView: View, val listener: UpdatesAdapter.onItem
 
         with(friendUpdate) {
             itemView.friendImage.loadImage(friendImageUrl)
-            // TODO: implement friend name
+            itemView.friendName.text = friendName
             itemView.friendImage.setOnClickListener { listener.onFriendNameOrImageClicked() }
             itemView.friendName.setOnClickListener { listener.onFriendNameOrImageClicked() }
             bindUser(itemView, user, updatedAt, status, listener)

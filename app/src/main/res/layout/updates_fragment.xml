@@ -15,9 +15,12 @@
             android:id="@+id/updatesRecycler"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scrollbars="vertical"/>
+            android:scrollbars="vertical"
+            tools:listitem="@layout/update_readstatus"/>
 
-        <include layout="@layout/shelve_bottom_sheet"/>
+        <include
+            layout="@layout/shelve_bottom_sheet"
+            tools:visibility="gone" />
 
     </android.support.design.widget.CoordinatorLayout>
 

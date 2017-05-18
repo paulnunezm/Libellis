@@ -3,10 +3,8 @@ package com.nunez.libellis.repository
 import com.nunez.libellis.entities.GoodreadsResponse
 import retrofit2.Call
 import retrofit2.http.GET
+import retrofit2.http.Query
 
-/**
- * Created by paulnunez on 4/25/17
- */
 interface GoodreadsService {
     companion object{
         const val BASE_URL = "https://www.goodreads.com"
@@ -15,10 +13,14 @@ interface GoodreadsService {
         const val AUTHORIZE_URL     = BASE_URL + "/oauth/authorize?mobile=1"
         const val CALLBACK_URL      = "app://libellis"
 
-        // endpoints
+        // endpoints for non retrofit calls
         const val UPDATES_ENDPOINT = "/updates/friends.xml"
     }
 
-    @GET("updates/friends.xml")
-    fun getUpdates(): Call<GoodreadsResponse>
+    @GET("/shelf/list.xml")
+    fun getShelves(
+            @Query("user_id") userId:String,
+            @Query("page") page: Int,
+            @Query("key") apiKey: String
+    ): Call<GoodreadsResponse>
 }

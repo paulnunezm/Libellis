@@ -9,23 +9,7 @@ import org.w3c.dom.NodeList
 /**
  * Created by paulnunez on 4/29/17.
  */
-open class BaseUpdatesParser {
-
-    fun getNodeValue(node: Node): String {
-        val child : Node? = node.childNodes.item(0)
-        return child?.nodeValue ?: ""
-    }
-
-
-    /**
-     * Iterates ove a childList and return a node. This is for not repeat
-     * this lines everytime we're trying to parse a response.
-     */
-    fun iterateInChildNotes(nodeList: NodeList, f: (node: Node) -> Unit) {
-        for (i in 0..nodeList.length - 1) {
-            f(nodeList.item(i))
-        }
-    }
+open class BaseUpdatesParser : BaseParser() {
 
     fun parseActor(actorNode: NodeList): User {
         val user = User()
@@ -53,10 +37,10 @@ open class BaseUpdatesParser {
 
                     // Little hack. Becasuse sometimes the book titles doesn't come with a data
                     //section. This is due by the unorganized responses
-                    book.title =if (title.isNotEmpty()) title else getNodeValue(it)
+                    book.title = if (title.isNotEmpty()) title else getNodeValue(it)
 
                 }
-                "authors"-> {
+                "authors" -> {
                     val tempBook = parseAuthors(it.childNodes)
                     with(tempBook) {
                         book.authors = authors
@@ -67,7 +51,7 @@ open class BaseUpdatesParser {
                 "author" -> {
                     var authors = ArrayList<Author>()
                     val tempBook = Book()
-                    authors.add(parseAuthor(it, tempBook ))
+                    authors.add(parseAuthor(it, tempBook))
 
                     with(tempBook) {
                         book.authors = authors
@@ -106,7 +90,7 @@ open class BaseUpdatesParser {
         return book
     }
 
-    private fun parseAuthor(node: Node, book: Book):Author {
+    private fun parseAuthor(node: Node, book: Book): Author {
         val author = Author()
         iterateInChildNotes(node.childNodes, {
             when (it.nodeName) {

@@ -1,6 +1,7 @@
 package com.nunez.libellis.login
 
 import android.net.Uri
+import android.util.Log
 import com.nunez.oauthathenticator.AuthDialog
 import com.nunez.oauthathenticator.Authenticator
 import java.util.concurrent.ExecutionException
@@ -43,7 +44,15 @@ class LoginPresenter(
 
     override fun onUserSecretRecieved(userKey: String?, userSecret: String?) {
         interactor.saveUserKeys(userKey, userSecret)
-        view.goToUpdatesActivity()
+        interactor.requestUserId()
+                .subscribe({},
+                        { t ->
+                            Log.e("loginPresenter", "onError: ${t.toString()}")
+                            // TODO: HANDLE ERROR
+                        },
+                        {
+                            view.goToUpdatesActivity()
+                        })
     }
 
     override fun setLoginInteractor(interactor: LoginContract.Interactor) {

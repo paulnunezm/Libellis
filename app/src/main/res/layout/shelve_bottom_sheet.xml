@@ -5,8 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
-    app:layout_behavior="@string/bottom_sheet_behavior">
+    android:orientation="vertical">
 
     <com.nunez.libellis.views.CustomFontTextView
         android:id="@+id/bottomSheetTitle"
@@ -14,6 +13,8 @@
         android:layout_height="@dimen/shelve_bottom_sheet_title"
         android:gravity="start|center"
         android:textColor="@color/grey_light"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
         android:textSize="@dimen/medium_text_size"
         android:text="@string/shelve_bottom_sheet_add_to_shelve"
         app:fontFile="Raleway-Medium.ttf"/>

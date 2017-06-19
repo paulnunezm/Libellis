@@ -14,7 +14,9 @@ import com.nunez.libellis.R
 import com.nunez.libellis.di.AppModule
 import com.nunez.libellis.di.DaggerUpdatesComponent
 import com.nunez.libellis.di.UpdatesModule
+import com.nunez.libellis.entities.Shelve
 import com.nunez.libellis.entities.Update
+import com.nunez.libellis.shelves.ModalShelvesBottomSheet
 import kotlinx.android.synthetic.main.updates_fragment.*
 import javax.inject.Inject
 
@@ -24,7 +26,10 @@ import javax.inject.Inject
  */
 class UpdatesFragment : Fragment(), UpdatesContract.View, UpdatesAdapter.onItemClickListener {
 
+
     lateinit var adapter: UpdatesAdapter
+
+    val shelvesBottomSheet: ModalShelvesBottomSheet by lazy { ModalShelvesBottomSheet() }
 
     @Inject lateinit var interactor:UpdatesInteractor
     @Inject lateinit var presenter:UpdatesPresenter
@@ -93,6 +98,10 @@ class UpdatesFragment : Fragment(), UpdatesContract.View, UpdatesAdapter.onItemC
     override fun showError(message: String) {
     }
 
+    override fun showShelves(shelves: List<Shelve>) {
+        shelvesBottomSheet.addShelvesToShow(shelves)
+    }
+
     // Updates adapter listeners
     override fun onUserNameOrImageClicked() {
     }
@@ -113,6 +122,8 @@ class UpdatesFragment : Fragment(), UpdatesContract.View, UpdatesAdapter.onItemC
     }
 
     override fun onAddToShelvesClicked() {
+        presenter.getShelves()
+        shelvesBottomSheet.show(activity.supportFragmentManager, "bottom_sheet")
     }
 
     override fun onCommentClicked() {

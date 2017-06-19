@@ -3,13 +3,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-     android:background="@color/blue_light"
+    android:background="@color/blue_light"
     tools:context=".main.updates.UpdatesFragment">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/updatesRecycler"
+    <android.support.design.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scrollbars="vertical"/>
+        tools:context=".main.MainActivity">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/updatesRecycler"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="vertical"
+            tools:listitem="@layout/update_readstatus"/>
+
+    </android.support.design.widget.CoordinatorLayout>
 
 </FrameLayout>

@@ -10,7 +10,6 @@ import javax.inject.Singleton
 class UpdatesPresenter
 @Inject constructor(val view: UpdatesContract.View, val interactor: UpdatesContract.Interactor) : UpdatesContract.Presenter {
 
-
     override fun requestUpdates() {
         interactor.requestUpdates()
                 .subscribeOn(Schedulers.io())
@@ -36,4 +35,12 @@ class UpdatesPresenter
         if (message.isNotEmpty())
             view.showError(message)
     }
+
+    override fun getShelves() {
+        interactor.requestUserShelves().subscribe({
+            shelves ->
+            view.showShelves(shelves)
+        })
+    }
+
 }

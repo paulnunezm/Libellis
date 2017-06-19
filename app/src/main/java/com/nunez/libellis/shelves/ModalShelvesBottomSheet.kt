@@ -28,5 +28,7 @@ class ModalShelvesBottomSheet : BottomSheetDialogFragment() {
         val adapter = ShelvesAdapter(shelves)
         shelvesRecycler.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         shelvesRecycler.adapter = adapter
+        shelvesRecycler.visibility = View.VISIBLE
+        shelvesProgress.visibility = View.GONE
     }
 }

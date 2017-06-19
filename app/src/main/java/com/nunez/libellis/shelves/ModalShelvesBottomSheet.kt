@@ -8,7 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 import com.nunez.libellis.R
 import com.nunez.libellis.entities.Shelve
-import com.nunez.libellis.inflate
 import com.nunez.libellis.views.ShelvesAdapter
 import kotlinx.android.synthetic.main.shelve_bottom_sheet.*
 
@@ -22,7 +21,7 @@ class ModalShelvesBottomSheet : BottomSheetDialogFragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return container?.inflate(R.layout.shelve_bottom_sheet)
+        return inflater?.inflate(R.layout.shelve_bottom_sheet, container, false)
     }
 
     fun addShelvesToShow(shelves: List<Shelve>) { // TODO: addCallback

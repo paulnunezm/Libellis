@@ -2,6 +2,7 @@ package com.nunez.libellis.repository
 
 import com.nunez.libellis.entities.GoodreadsResponse
 import io.reactivex.Observable
+import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query
 
@@ -15,7 +16,7 @@ interface GoodreadsService {
 
         // endpoints for non retrofit calls
         const val UPDATES_ENDPOINT = "/updates/friends.xml"
-        const val USER_ID_ENDPOINT = "/api/auth_user"
+        const val USER_ID_ENDPOINT = "/api/auth_user"  // Unsighed
     }
 
     @GET("api/auth_user")
@@ -26,5 +27,5 @@ interface GoodreadsService {
             @Query("user_id") userId:String,
             @Query("page") page: Int,
             @Query("key") apiKey: String
-    ): Observable<GoodreadsResponse> // Unsigned request
+    ): Call<GoodreadsResponse> // Unsigned request
 }

@@ -1,4 +1,4 @@
-package com.nunez.libellis.views
+package com.nunez.libellis.shelves
 
 import android.support.v7.widget.RecyclerView
 import android.view.View

@@ -1,0 +1,6 @@
+<resources>
+    <string translatable="false" name="app_name">OAuthAthenticator</string>
+    <string translatable="false" name="request_token">RequestToken</string>
+    <string name="desc_login_popup">Login popup</string>
+    <string name="close_login_popup">Close login popup</string>
+</resources>

@@ -1,0 +1,66 @@
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:layout_editor_absoluteX="0dp"
+    tools:layout_editor_absoluteY="25dp">
+
+    <ImageView
+        android:id="@+id/userImage"
+        android:layout_width="@dimen/update_user_image_size"
+        android:layout_height="@dimen/update_user_image_size"
+        android:layout_marginTop="0dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:background="@color/blue"/>
+
+    <com.nunez.libellis.views.CustomFontTextView
+        android:id="@+id/userName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:ellipsize="end"
+        android:gravity="start"
+        android:lines="1"
+        android:textColor="@color/grey_dark"
+        android:textSize="@dimen/update_user_name_text_size"
+        app:fontFile="Raleway-Medium.ttf"
+        app:layout_constraintLeft_toRightOf="@+id/userImage"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="User Name"/>
+
+    <com.nunez.libellis.views.CustomFontTextView
+        android:id="@+id/userStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="-16dp"
+        android:layout_marginStart="-16dp"
+        android:layout_marginTop="0dp"
+        android:gravity="center"
+        android:textColor="@color/grey_dark"
+        android:textSize="@dimen/update_status_info"
+        app:fontFile="Raleway-Light.ttf"
+        app:layout_constraintLeft_toLeftOf="@+id/userName"
+        app:layout_constraintTop_toBottomOf="@+id/userName"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintTop_creator="1"
+        tools:text="Started Reading"/>
+
+    <com.nunez.libellis.views.CustomFontTextView
+        android:id="@+id/updatedTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="start"
+        android:textColor="@color/grey_dark"
+        android:textSize="12sp"
+
+        app:fontFile="Raleway-Light.ttf"
+        app:layout_constraintLeft_toLeftOf="@+id/userStatus"
+        app:layout_constraintTop_toBottomOf="@+id/userStatus"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintTop_creator="1"
+        tools:text="about 18 hours ago"/>
+</android.support.constraint.ConstraintLayout>

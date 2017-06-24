@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GoodreadsResponse>
+    <Request>
+        <authentication>true</authentication>
+        <key><![CDATA[9kdgMNGvbCA4Odn3u9f72g]]></key>
+        <method><![CDATA[api_auth_user]]></method>
+    </Request>
+    <user id="28834352">
+        <name>Paul Nuñez m</name>
+        <link><![CDATA[https://www.goodreads.com/user/show/28834352-paul-nu-ez-m?utm_medium=api]]></link>
+    </user>
+</GoodreadsResponse>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bookInfoLayout"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:animateLayoutChanges="true"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/bookImage"
+        android:layout_width="83dp"
+        android:layout_height="124dp"
+        android:background="@color/blue"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <com.nunez.libellis.views.CustomFontTextView
+        android:id="@+id/bookTitle"
+        style="@style/UpdateBookTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="12dp"
+        android:layout_marginStart="12dp"
+        android:maxLines="2"
+        android:textSize="@dimen/update_book_name_text_size"
+        app:fontFile="Raleway-Medium.ttf"
+        app:layout_constraintLeft_toRightOf="@+id/bookImage"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Loooong Book Loooon to way too looong pretty awesome book name"/>
+
+    <com.nunez.libellis.views.CustomFontTextView
+        android:id="@+id/authorName"
+        style="@style/UpdateBookTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/update_book_author_text_size"
+        app:fontFile="Raleway-Light.ttf"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="@+id/bookTitle"
+        app:layout_constraintTop_toBottomOf="@+id/bookTitle"
+        tools:text="by Author Name 1, Author Name 2, Author Name 3"/>
+
+    <com.nunez.libellis.views.CustomFontTextView
+        android:id="@+id/lastUpdateLabel"
+        style="@style/UpdateProgressDateMessageText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="false"
+        android:text="@string/update_progress_last_update_txt"
+        app:fontFile="Raleway-Light.ttf"
+        app:layout_constraintLeft_toLeftOf="@+id/authorName"
+        app:layout_constraintTop_toBottomOf="@+id/authorName"/>
+
+    <com.nunez.libellis.views.CustomFontTextView
+        android:id="@+id/lastUpdateTime"
+        style="@style/UpdateProgressDateMessageText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="7dp"
+        android:layout_marginStart="7dp"
+        android:textSize="@dimen/micro_text_size"
+        app:fontFile="Raleway-Light.ttf"
+        app:layout_constraintLeft_toRightOf="@+id/lastUpdateLabel"
+        app:layout_constraintTop_toBottomOf="@+id/authorName"
+        tools:text="28/09 9pm"/>
+</android.support.constraint.ConstraintLayout>

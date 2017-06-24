@@ -1,3 +1,39 @@
 <resources>
     <string name="app_name">Libellis</string>
+
+    <!-- Preferences-->
+    <string name="user_prefs" translatable="false">user_prefs</string>
+    <string name="user_prefs_logged_in" translatable="false">logged_in</string>
+    <string name="user_prefs_user_key" translatable="false">user_key</string>
+    <string name="user_prefs_user_secret" translatable="false">user_secret</string>
+    <string name="user_prefs_user_id" translatable="false">user_id</string>
+
+    <!-- Update book -->
+    <string name="like_button">Like</string>
+    <string name="btn_comment">Comment</string>
+
+    <!-- Reading progress update -->
+    <string name="update_progress_cancel_button_txt">CANCEL</string>
+    <string name="update_progress_update_button_txt">UPDATE</string>
+    <string name="update_progress_last_update_txt">Last update:</string>
+    <string name="title_activity_main_activity">MainActivityActivity</string>
+
+    <!-- Content description -->
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="action_settings">Settings</string>
+
+    <!--Error-->
+    <string name="error_msg_implicit_error">An error just occurred :/</string>
+
+    <!--Login Activity-->
+    <string name="login_activity_log_in_button">Log in</string>
+
+    <!-- Updates fragment -->
+    <string name="update_user_is_now_friend_with">Is now friend with</string>
+    <string name="update_reviews_comment">Comment:</string>
+    <string name="uodate_book_want_to_read">Want to Read</string>
+
+    <!--Shelve bottom sheet-->
+    <string name="shelve_bottom_sheet_add_to_shelve">Add to shelve:</string>
 </resources>

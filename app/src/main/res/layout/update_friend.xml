@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/card_margins"
+    android:layout_marginTop="@dimen/card_margins">
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/upperLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/horizontal_inset">
+
+        <include
+            android:id="@+id/updateUserLayout"
+            layout="@layout/update_user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            card_view:layout_constraintLeft_toLeftOf="parent"
+            card_view:layout_constraintTop_toTopOf="parent"/>
+
+        <ImageView
+            android:id="@+id/friendImage"
+            android:layout_width="54dp"
+            android:layout_height="54dp"
+            android:layout_marginTop="16dp"
+            android:background="@color/blue_light"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/updateUserLayout"
+            app:layout_constraintVertical_bias="0.126"/>
+
+        <com.nunez.libellis.views.CustomFontTextView
+            android:id="@+id/friendName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:textColor="@color/grey_dark"
+            android:textSize="@dimen/update_user_name_text_size"
+            app:fontFile="Raleway-Light.ttf"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/friendImage"
+            tools:text="Friend name"/>
+    </android.support.constraint.ConstraintLayout>
+</android.support.v7.widget.CardView>

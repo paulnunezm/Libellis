@@ -9,13 +9,15 @@ import com.nunez.libellis.inflate
 import kotlinx.android.synthetic.main.shelve_item.view.*
 
 class ShelvesAdapter(
-        val shelves: List<Shelve>
+        val shelves: List<Shelve>,
+        val isForModal: Boolean = false
 ) : RecyclerView.Adapter<ShelvesAdapter.ShelveViewHolder>() {
 
     override fun getItemCount() = shelves.size
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ShelveViewHolder {
-        return ShelveViewHolder(parent.inflate(R.layout.shelve_item))
+        val layout = if (isForModal) R.layout.shelve_bottom_sheet_item else R.layout.shelve_item
+        return ShelveViewHolder(parent.inflate(layout))
     }
 
     override fun onBindViewHolder(holder: ShelveViewHolder?, position: Int) {

@@ -99,7 +99,9 @@ class UpdatesFragment : Fragment(), UpdatesContract.View, UpdatesAdapter.onItemC
     }
 
     override fun showShelves(shelves: List<Shelve>) {
-        shelvesBottomSheet.addShelvesToShow(shelves)
+        shelvesBottomSheet.addShelvesToShow(shelves, {
+//            TODO("implement add to shelve call")
+        })
     }
 
     // Updates adapter listeners

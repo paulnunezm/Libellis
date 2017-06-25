@@ -10,7 +10,8 @@ import kotlinx.android.synthetic.main.shelve_item.view.*
 
 class ShelvesAdapter(
         val shelves: List<Shelve>,
-        val isForModal: Boolean = false
+        val isForModal: Boolean = false,
+        val shelveListener: (String) -> (Unit)
 ) : RecyclerView.Adapter<ShelvesAdapter.ShelveViewHolder>() {
 
     override fun getItemCount() = shelves.size
@@ -21,15 +22,22 @@ class ShelvesAdapter(
     }
 
     override fun onBindViewHolder(holder: ShelveViewHolder?, position: Int) {
-        holder?.bindView(shelve = shelves[position])
+        holder?.bindView(shelves[position], {
+            shelveName ->
+            shelveListener(shelveName)
+        })
     }
 
     class ShelveViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bindView(shelve: Shelve) {
-            itemView.shelveName.text = shelve.name
+
+        val shelveName = itemView.shelveName
+
+        fun bindView(shelve: Shelve, listener: (String) -> (Unit)) {
+            shelveName.text = shelve.name
 
             // TODO: Set correct shelve image
-            // itemView.shelveImg.
+
+            itemView.setOnClickListener { listener(shelve.name) }
         }
     }
 }

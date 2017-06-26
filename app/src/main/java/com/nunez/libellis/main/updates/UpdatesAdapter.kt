@@ -24,6 +24,12 @@ class UpdatesAdapter(val context: Context,
         const val TYPE_USER_STATUS = 4
     }
 
+    enum class ListenerType {
+        USERNAME_OR_IMAGE, BOOK_TITLE_OR_IMAGE, ADD_TO_SHELVES,
+        AUTHOR_NAME, COMMENT_BUTTON, WANT_TO_READ, LIKE, COMMENT,
+        FRIEND_NAME_OR_IMAGE
+    }
+
     var updatesList = Collections.emptyList<Update>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
@@ -65,25 +71,17 @@ class UpdatesAdapter(val context: Context,
 
     interface onItemClickListener {
 
-        // user layout
-        fun onUserNameOrImageClicked()
-
-        fun onBookTitleOrImageClicked() // book layout
-
-        fun onAuthorNameClicked()
-
-        fun onLikeBtnClicked()
-
-        fun onCommentBtnClicked()
-
-        fun onWantToReadClicked()
-
-        fun onAddToShelvesClicked() // end of book layout funs
-
-        // update review
-        fun onCommentClicked()
-
-        // friend
-        fun onFriendNameOrImageClicked()
+        /** Manages the click listeners for all the views
+         * of each UpdateViewHolder.
+         *
+         * Sends the type of listener, this says which view
+         * was click so the function that it listening knows
+         * how to react.
+         *
+         * The "id" is the one needed to send to the Goodreads
+         * api in order to perform the selected operation
+         * */
+        fun onUpdateClick(view: ListenerType, id: String)
     }
+
 }

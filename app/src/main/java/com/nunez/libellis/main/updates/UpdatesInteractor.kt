@@ -97,6 +97,7 @@ class UpdatesInteractor
 
     }
 
-    override fun addToShelve(shelve: String, bookId: String) {
+    override fun addToShelve(shelve: String, bookId: String): Observable<Unit> {
+        TODO("A")
     }
 }

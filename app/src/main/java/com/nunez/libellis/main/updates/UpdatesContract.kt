@@ -25,6 +25,6 @@ interface UpdatesContract {
     interface Interactor {
         fun requestUpdates(): Observable<List<Update>>
         fun requestUserShelves(): Observable<List<Shelve>>
-        fun addToShelve(shelve: String, bookId: String)
+        fun addToShelve(shelve: String, bookId: String) : Observable<Unit>
     }
 }

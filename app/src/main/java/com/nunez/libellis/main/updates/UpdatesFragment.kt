@@ -31,8 +31,8 @@ class UpdatesFragment : Fragment(), UpdatesContract.View, UpdatesAdapter.onItemC
 
     val shelvesBottomSheet: ModalShelvesBottomSheet by lazy { ModalShelvesBottomSheet() }
 
-    @Inject lateinit var interactor:UpdatesInteractor
-    @Inject lateinit var presenter:UpdatesPresenter
+    @Inject lateinit var interactor: UpdatesInteractor
+    @Inject lateinit var presenter: UpdatesPresenter
 
     companion object {
         /** Use this factory method to create a new instance of this fragment */
@@ -100,51 +100,35 @@ class UpdatesFragment : Fragment(), UpdatesContract.View, UpdatesAdapter.onItemC
 
     override fun showShelves(shelves: List<Shelve>) {
         shelvesBottomSheet.addShelvesToShow(shelves, {
-//            TODO("implement add to shelve call")
+        // TODO("implement add to shelve call")
         })
     }
 
     // Updates adapter listeners
-    override fun onUserNameOrImageClicked() {
+    override fun onUpdateClick(view: UpdatesAdapter.ListenerType, id: String) {
+        when (view) {
+            UpdatesAdapter.ListenerType.USERNAME_OR_IMAGE -> {
+            }
+            UpdatesAdapter.ListenerType.BOOK_TITLE_OR_IMAGE -> {
+            }
+            UpdatesAdapter.ListenerType.ADD_TO_SHELVES -> {
+                // Request shelves and present a bottom sheet with a circular progress
+                presenter.getShelves()
+                shelvesBottomSheet.show(activity.supportFragmentManager, "bottom_sheet")
+            }
+        }
     }
 
-    override fun onBookTitleOrImageClicked() {
-    }
-
-    override fun onAuthorNameClicked() {
-    }
-
-    override fun onLikeBtnClicked() {
-    }
-
-    override fun onCommentBtnClicked() {
-    }
-
-    override fun onWantToReadClicked() {
-    }
-
-    override fun onAddToShelvesClicked() {
-        presenter.getShelves()
-        shelvesBottomSheet.show(activity.supportFragmentManager, "bottom_sheet")
-    }
-
-    override fun onCommentClicked() {
-    }
-
-    override fun onFriendNameOrImageClicked() {
-    }
-    // end of updates aadapter listeners
-
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * See the Android Training lesson [Communicating with Other Fragments](http://developer.android.com/training/basics/fragments/communicating.html) for more information.
-     */
-    interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
-        fun onFragmentInteraction(uri: Uri)
-    }
+/**
+ * This interface must be implemented by activities that contain this
+ * fragment to allow an interaction in this fragment to be communicated
+ * to the activity and potentially other fragments contained in that
+ * activity.
+ * See the Android Training lesson [Communicating with Other Fragments](http://developer.android.com/training/basics/fragments/communicating.html) for more information.
+ */
+interface OnFragmentInteractionListener {
+    // TODO: Update argument type and name
+    fun onFragmentInteraction(uri: Uri)
+}
 
 }// Required empty public constructor

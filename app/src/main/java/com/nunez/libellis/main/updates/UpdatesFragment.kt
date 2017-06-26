@@ -17,6 +17,7 @@ import com.nunez.libellis.di.UpdatesModule
 import com.nunez.libellis.entities.Shelve
 import com.nunez.libellis.entities.Update
 import com.nunez.libellis.shelves.ModalShelvesBottomSheet
+import com.nunez.libellis.showSnackbar
 import kotlinx.android.synthetic.main.updates_fragment.*
 import javax.inject.Inject
 
@@ -99,9 +100,11 @@ class UpdatesFragment : Fragment(), UpdatesContract.View, UpdatesAdapter.onItemC
     }
 
     override fun showShelves(shelves: List<Shelve>) {
-        shelvesBottomSheet.addShelvesToShow(shelves, {
-        // TODO("implement add to shelve call")
-        })
+        shelvesBottomSheet.addShelvesToShow(shelves,
+                { shelveName, bookId ->
+                    updatesRecycler.showSnackbar("$shelveName, $bookId")
+                    // TODO("implement add to shelve call")
+                })
     }
 
     // Updates adapter listeners
@@ -114,21 +117,22 @@ class UpdatesFragment : Fragment(), UpdatesContract.View, UpdatesAdapter.onItemC
             UpdatesAdapter.ListenerType.ADD_TO_SHELVES -> {
                 // Request shelves and present a bottom sheet with a circular progress
                 presenter.getShelves()
+                shelvesBottomSheet.bookId = id
                 shelvesBottomSheet.show(activity.supportFragmentManager, "bottom_sheet")
             }
         }
     }
 
-/**
- * This interface must be implemented by activities that contain this
- * fragment to allow an interaction in this fragment to be communicated
- * to the activity and potentially other fragments contained in that
- * activity.
- * See the Android Training lesson [Communicating with Other Fragments](http://developer.android.com/training/basics/fragments/communicating.html) for more information.
- */
-interface OnFragmentInteractionListener {
-    // TODO: Update argument type and name
-    fun onFragmentInteraction(uri: Uri)
-}
+    /**
+     * This interface must be implemented by activities that contain this
+     * fragment to allow an interaction in this fragment to be communicated
+     * to the activity and potentially other fragments contained in that
+     * activity.
+     * See the Android Training lesson [Communicating with Other Fragments](http://developer.android.com/training/basics/fragments/communicating.html) for more information.
+     */
+    interface OnFragmentInteractionListener {
+        // TODO: Update argument type and name
+        fun onFragmentInteraction(uri: Uri)
+    }
 
 }// Required empty public constructor

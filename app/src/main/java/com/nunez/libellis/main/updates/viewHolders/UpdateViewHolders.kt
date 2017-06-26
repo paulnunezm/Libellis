@@ -26,7 +26,8 @@ abstract class UpdateViewHolder(itemView: View) : RecyclerView.ViewHolder(itemVi
 
     // user layout vars
     val userName = itemView.userName
-    val status = itemView.userStatus
+    val userImage = itemView.userImage
+    val userStatus = itemView.userStatus
     val updateTime = itemView.updatedTime
 
     abstract fun bindViews(update: Update)
@@ -38,7 +39,7 @@ private fun bindBook(
         posterUrl: String,
         listener: UpdatesAdapter.onItemClickListener) {
 
-    with(viewHolder){
+    with(viewHolder) {
         bookTitle.text = book.title
         authorName.text = book.authors[0].name // TODO: add the others author names
         bookImage.loadImage(posterUrl)
@@ -52,16 +53,24 @@ private fun bindBook(
     }
 }
 
-private fun bindUser(itemView: View, user: User, updatedAt: String, status: String, listener: UpdatesAdapter.onItemClickListener) {
+private fun bindUser(
+        viewHolder: UpdateViewHolder,
+        user: User,
+        updatedAt: String,
+        status: String,
+        listener: UpdatesAdapter.onItemClickListener) {
 
-    itemView.userName.text = user.name
-    if (user.imageUrl.isNotEmpty()) itemView.userImage.loadImage(user.imageUrl)
-    itemView.updatedTime.text = updatedAt
+    with(viewHolder) {
+        userName.text = user.name
+        updateTime.text = updatedAt
 
-    if (status.isEmpty())
-        itemView.userStatus.visibility = View.GONE
-    else
-        itemView.userStatus.text = status
+        if (user.imageUrl.isNotEmpty()) userImage.loadImage(user.imageUrl)
+        if (status.isEmpty())
+            userStatus.visibility = View.GONE
+        else
+            userStatus.text = status
+    }
+
 
 //    itemView.userName.setOnClickListener { listener.onUserNameOrImageClicked() }
 //    itemView.userImage.setOnClickListener { listener.onUserNameOrImageClicked() }
@@ -75,7 +84,7 @@ class ReviewViewHolder(itemView: View, val listener: UpdatesAdapter.onItemClickL
 
         with(mUpdate) {
             itemView.ratingBar.rating = rating.toFloat()
-            bindUser(itemView, user, updatedAt, "", listener)
+            bindUser(this@ReviewViewHolder, user, updatedAt, "", listener) // Todo: add status
             bindBook(viewHolder = this@ReviewViewHolder,
                     book = book,
                     posterUrl = bookImageUrl,
@@ -91,7 +100,7 @@ class CommentViewHolder(itemView: View, val listener: UpdatesAdapter.onItemClick
         val commentUpdate = update as CommentUpdate
 
         with(commentUpdate) {
-            bindUser(itemView, user, updatedAt, status, listener)
+            bindUser(this@CommentViewHolder, user, updatedAt, status, listener)
             itemView.comment.text = commentUpdate.comment
         }
     }
@@ -108,9 +117,7 @@ class FriendUpdateViewHolder(itemView: View, val listener: UpdatesAdapter.onItem
         with(friendUpdate) {
             itemView.friendImage.loadImage(friendImageUrl)
             itemView.friendName.text = friendName
-//            itemView.friendImage.setOnClickListener { listener.onFriendNameOrImageClicked() }
-//            itemView.friendName.setOnClickListener { listener.onFriendNameOrImageClicked() }
-            bindUser(itemView, user, updatedAt, status, listener)
+            bindUser(this@FriendUpdateViewHolder, user, updatedAt, status, listener)
         }
     }
 }
@@ -120,7 +127,7 @@ class ReadStatusUpdateViewHolder(itemView: View, val listener: UpdatesAdapter.on
 
     override fun bindViews(update: Update) {
         val readStatus = update as ReadStatusUpdate
-        bindUser(itemView, update.user, update.updatedAt, update.status, listener)
+        bindUser(this, update.user, update.updatedAt, update.status, listener)
         bindBook(viewHolder = this,
                 book = readStatus.review.book,
                 posterUrl = "",
@@ -137,7 +144,7 @@ class UserStatusViewHolder(itemView: View, val listener: UpdatesAdapter.onItemCl
         val userStatus = update as UserStatusUpdate
 
         itemView.progressBar.progress = update.status.percent.toInt()
-        bindUser(itemView, update.user, update.updateAt, userStatus.status.page, listener)
+        bindUser(this, update.user, update.updateAt, userStatus.status.page, listener)
         bindBook(viewHolder = this,
                 book = userStatus.status.book,
                 posterUrl = "",

@@ -96,4 +96,7 @@ class UpdatesInteractor
                 .observeOn(AndroidSchedulers.mainThread())
 
     }
+
+    override fun addToShelve(shelve: String, bookId: String) {
+    }
 }

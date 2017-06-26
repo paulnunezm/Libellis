@@ -43,4 +43,8 @@ class UpdatesPresenter
         })
     }
 
+    override fun addToShelve(shelve: String, bookId: String) {
+
+    }
+
 }

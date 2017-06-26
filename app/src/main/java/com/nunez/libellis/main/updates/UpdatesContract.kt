@@ -19,10 +19,12 @@ interface UpdatesContract {
         fun sendUpdates(updates: List<Update>)
         fun showError(message: String)
         fun getShelves()
+        fun addToShelve(shelve: String, bookId: String)
     }
 
     interface Interactor {
         fun requestUpdates(): Observable<List<Update>>
         fun requestUserShelves(): Observable<List<Shelve>>
+        fun addToShelve(shelve: String, bookId: String)
     }
 }

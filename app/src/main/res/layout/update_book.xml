@@ -2,6 +2,7 @@
 <android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -12,17 +13,17 @@
         android:id="@+id/bookImage"
         android:layout_width="@dimen/update_book_image_width_size"
         android:layout_height="@dimen/update_book_image_height_size"
+        android:background="@color/blue_light"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:background="@color/blue_light"/>
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <com.nunez.libellis.views.CustomFontTextView
         android:id="@+id/bookTitle"
         style="@style/UpdateBookTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:maxWidth="@dimen/update_user_text_max_width"
         android:maxLines="2"
+        android:maxWidth="@dimen/update_user_text_max_width"
         android:textSize="@dimen/update_book_name_text_size"
         app:fontFile="Raleway-Medium.ttf"
         app:layout_constraintLeft_toLeftOf="@+id/authorName"
@@ -39,7 +40,7 @@
         android:paddingTop="4dp"
         android:textSize="@dimen/update_book_author_text_size"
         app:fontFile="Raleway-Light.ttf"
-        app:layout_constraintLeft_toLeftOf="@+id/wanToReadBtn"
+        app:layout_constraintLeft_toLeftOf="@+id/wantToReadBtn"
         app:layout_constraintTop_toBottomOf="@+id/bookTitle"
         tools:text="by Author Name 1, Author Name 2, Author Name 3"/>
 
@@ -61,8 +62,8 @@
         android:textColor="@color/grey_dark"
         android:textSize="@dimen/update_book_author_text_size"
         app:fontFile="Raleway-Medium.ttf"
-        app:layout_constraintLeft_toLeftOf="@+id/wanToReadBtn"
-        app:layout_constraintTop_toBottomOf="@+id/wanToReadBtn"/>
+        app:layout_constraintLeft_toLeftOf="@+id/wantToReadBtn"
+        app:layout_constraintTop_toBottomOf="@+id/wantToReadBtn"/>
 
     <com.nunez.libellis.views.CustomFontTextView
         android:id="@+id/separator"
@@ -107,11 +108,11 @@
         app:layout_constraintTop_toTopOf="@+id/separator"/>
 
     <com.nunez.libellis.views.CustomFontTextView
-        android:id="@+id/wanToReadBtn"
+        android:id="@+id/wantToReadBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="14dp"
         android:layout_marginLeft="14dp"
+        android:layout_marginStart="14dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/shelve_btn_background"
         android:gravity="center"
@@ -133,7 +134,7 @@
         android:layout_marginLeft="2dp"
         android:layout_marginStart="2dp"
         android:background="@drawable/shelve_btn_image_background"
-        app:layout_constraintLeft_toRightOf="@+id/wanToReadBtn"
-        app:layout_constraintTop_toTopOf="@+id/wanToReadBtn"/>
+        app:layout_constraintLeft_toRightOf="@+id/wantToReadBtn"
+        app:layout_constraintTop_toTopOf="@+id/wantToReadBtn"/>
 
 </android.support.constraint.ConstraintLayout>

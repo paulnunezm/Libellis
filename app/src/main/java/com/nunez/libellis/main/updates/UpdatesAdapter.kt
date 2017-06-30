@@ -24,6 +24,11 @@ class UpdatesAdapter(val context: Context,
         const val TYPE_USER_STATUS = 4
     }
 
+    sealed class Listeners {
+        class AddToShelve(val bookId: String): Listeners()
+        class WantToRead(val bookId: String): Listeners()
+    }
+
     var updatesList = Collections.emptyList<Update>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
@@ -65,25 +70,14 @@ class UpdatesAdapter(val context: Context,
 
     interface onItemClickListener {
 
-        // user layout
-        fun onUserNameOrImageClicked()
-
-        fun onBookTitleOrImageClicked() // book layout
-
-        fun onAuthorNameClicked()
-
-        fun onLikeBtnClicked()
-
-        fun onCommentBtnClicked()
-
-        fun onWantToReadClicked()
-
-        fun onAddToShelvesClicked() // end of book layout funs
-
-        // update review
-        fun onCommentClicked()
-
-        // friend
-        fun onFriendNameOrImageClicked()
+        /** Manages the click listeners for all the views
+         * of each UpdateViewHolder.
+         *
+         * Sends the type of listeners, this says which view
+         * was click so the function that it listening knows
+         * how to react.
+         * */
+        fun clicked(listeners: Listeners)
     }
+
 }

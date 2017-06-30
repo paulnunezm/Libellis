@@ -1,6 +1,7 @@
 package com.nunez.libellis.main.updates
 
 import android.content.Context
+import android.util.Log
 import com.nunez.libellis.BuildConfig
 import com.nunez.libellis.R
 import com.nunez.libellis.enqueue
@@ -9,6 +10,7 @@ import com.nunez.libellis.entities.Shelve
 import com.nunez.libellis.entities.Update
 import com.nunez.libellis.repository.GoodreadsService
 import com.nunez.libellis.repository.SignedHttpClient
+import com.nunez.libellis.repository.SignedRetrofit
 import com.nunez.libellis.repository.parsers.UpdatesParser
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -36,16 +38,22 @@ class UpdatesInteractor
         return Observable.create<Response>({ subscriber ->
             try {
                 val response = client.newCall(request).execute()
-                subscriber.onNext(response)
-                subscriber.onComplete()
 
-                if (!response.isSuccessful) subscriber.onError(Exception("error"))
+                if (response.isSuccessful) {
+                    subscriber.onNext(response)
+                    subscriber.onComplete()
+                } else {
+                    Log.d("interactor", "aquí")
+                    subscriber.onError(Exception("error"))
+                }
+
             } catch (e: IOException) {
+                Log.e("interactor", e.toString())
                 subscriber.onError(e)
             }
 
         }).map {
-            UpdatesParser(it.body().string()).parse()
+            UpdatesParser(it.body()?.string() as String).parse() as List<Update>
         }
 //        .flatMap { it }  emits one Update item until reach the end
     }
@@ -78,7 +86,7 @@ class UpdatesInteractor
                                 {
                                     response: retrofit2.Response<GoodreadsResponse> ->
                                     if (response.isSuccessful) {
-                                        subscriber.onNext(response.body().shelves)
+                                        subscriber.onNext(response.body()?.shelves as List<Shelve>)
                                         subscriber.onComplete()
                                     } else {
                                         subscriber.onError(Throwable("unsuccesfull request"))
@@ -95,5 +103,32 @@ class UpdatesInteractor
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
 
+    }
+
+    override fun addToShelve(shelve: String, bookId: String): Observable<Unit> {
+        val goodreads = SignedRetrofit(context).instance.create(GoodreadsService::class.java)
+
+        return Observable.create<Unit>(
+                { subscriber ->
+
+                    try {
+                        val response = goodreads.addToShelve(shelveName = shelve, bookId = bookId)
+                                .execute()
+
+                        if (response.isSuccessful) {
+                            subscriber.onNext(Unit)
+                            subscriber.onComplete()
+                        } else {
+
+                            subscriber.onError(Throwable("Response error"))
+                        }
+
+                    } catch (e: Exception) {
+                        RuntimeException(e)
+                        subscriber.onError(e)
+                    }
+                })
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
     }
 }

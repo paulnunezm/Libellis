@@ -24,7 +24,7 @@ fun ViewGroup.inflate(resource: Int): View {
 
 
 fun ImageView.loadImage(url: String){
-    Picasso.with(this.context).load(url).fit().into(this)
+    if(url.isNotEmpty()) Picasso.with(this.context).load(url).fit().into(this)
 }
 
 

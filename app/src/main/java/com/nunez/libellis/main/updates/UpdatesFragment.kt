@@ -16,7 +16,9 @@ import com.nunez.libellis.di.DaggerUpdatesComponent
 import com.nunez.libellis.di.UpdatesModule
 import com.nunez.libellis.entities.Shelve
 import com.nunez.libellis.entities.Update
+import com.nunez.libellis.main.updates.UpdatesAdapter.Listeners
 import com.nunez.libellis.shelves.ModalShelvesBottomSheet
+import com.nunez.libellis.showSnackbar
 import kotlinx.android.synthetic.main.updates_fragment.*
 import javax.inject.Inject
 
@@ -26,13 +28,12 @@ import javax.inject.Inject
  */
 class UpdatesFragment : Fragment(), UpdatesContract.View, UpdatesAdapter.onItemClickListener {
 
-
     lateinit var adapter: UpdatesAdapter
 
     val shelvesBottomSheet: ModalShelvesBottomSheet by lazy { ModalShelvesBottomSheet() }
 
-    @Inject lateinit var interactor:UpdatesInteractor
-    @Inject lateinit var presenter:UpdatesPresenter
+    @Inject lateinit var interactor: UpdatesInteractor
+    @Inject lateinit var presenter: UpdatesPresenter
 
     companion object {
         /** Use this factory method to create a new instance of this fragment */
@@ -95,45 +96,33 @@ class UpdatesFragment : Fragment(), UpdatesContract.View, UpdatesAdapter.onItemC
     override fun showNoBooks() {
     }
 
-    override fun showError(message: String) {
+    override fun showMessage(message: String, error: Boolean) {
+        updatesFragmentContainer.showSnackbar(message)
     }
 
     override fun showShelves(shelves: List<Shelve>) {
-        shelvesBottomSheet.addShelvesToShow(shelves, {
-//            TODO("implement add to shelve call")
-        })
+        shelvesBottomSheet.addShelvesToShow(shelves,
+                { shelveName, bookId ->
+                    // On shelve clicked
+                    presenter.addToShelve(shelveName, bookId)
+                })
     }
 
-    // Updates adapter listeners
-    override fun onUserNameOrImageClicked() {
+    override fun clicked(listeners: Listeners) {
+        when (listeners) {
+            is Listeners.AddToShelve -> {
+                // Request shelves and present a bottom sheet with a circular progress
+                presenter.getShelves()
+                shelvesBottomSheet.bookId = listeners.bookId
+                shelvesBottomSheet.show(activity.supportFragmentManager, "bottom_sheet")
+            }
+            is Listeners.WantToRead -> {
+
+                presenter.addToShelve(getString(R.string.shelve_to_read), listeners.bookId)
+            }
+        }
     }
 
-    override fun onBookTitleOrImageClicked() {
-    }
-
-    override fun onAuthorNameClicked() {
-    }
-
-    override fun onLikeBtnClicked() {
-    }
-
-    override fun onCommentBtnClicked() {
-    }
-
-    override fun onWantToReadClicked() {
-    }
-
-    override fun onAddToShelvesClicked() {
-        presenter.getShelves()
-        shelvesBottomSheet.show(activity.supportFragmentManager, "bottom_sheet")
-    }
-
-    override fun onCommentClicked() {
-    }
-
-    override fun onFriendNameOrImageClicked() {
-    }
-    // end of updates aadapter listeners
 
     /**
      * This interface must be implemented by activities that contain this

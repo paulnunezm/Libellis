@@ -10,7 +10,7 @@ interface UpdatesContract {
         fun showUpdates(updates: List<Update>)
         fun showFakeUpdates()
         fun showNoBooks()
-        fun showError(message: String)
+        fun showMessage(message: String, error:Boolean = false)
         fun showShelves(shelves: List<Shelve>)
     }
 
@@ -19,10 +19,12 @@ interface UpdatesContract {
         fun sendUpdates(updates: List<Update>)
         fun showError(message: String)
         fun getShelves()
+        fun addToShelve(shelve: String, bookId: String)
     }
 
     interface Interactor {
         fun requestUpdates(): Observable<List<Update>>
         fun requestUserShelves(): Observable<List<Shelve>>
+        fun addToShelve(shelve: String, bookId: String) : Observable<Unit>
     }
 }

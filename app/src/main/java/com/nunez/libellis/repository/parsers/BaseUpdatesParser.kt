@@ -68,7 +68,8 @@ open class BaseUpdatesParser : BaseParser() {
     fun parseDataSection(dataSectionNode: Node): String {
         var text = ""
         iterateInChildNotes(dataSectionNode.childNodes, {
-            if (it.nodeName.contains("data-section")) {
+            val nodeName = it.nodeName
+            if (nodeName.contains("data-section") || nodeName.contains("text")) {
                 text = it.textContent
             }
         })

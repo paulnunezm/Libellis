@@ -36,4 +36,5 @@
 
     <!--Shelve bottom sheet-->
     <string name="shelve_bottom_sheet_add_to_shelve">Add to shelve:</string>
+    <string name="shelve_to_read">to-read</string>
 </resources>

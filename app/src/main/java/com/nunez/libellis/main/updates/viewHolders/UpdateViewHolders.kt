@@ -13,75 +13,103 @@ import kotlinx.android.synthetic.main.update_friend.view.*
 import kotlinx.android.synthetic.main.update_user.view.*
 import kotlinx.android.synthetic.main.update_userstatus.view.*
 
-/**
- * Contains all the update view holders.
- */
-interface UpdateViewHolder {
-    fun bindViews(update: Update)
+
+abstract class UpdateViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+
+    /** NOTE: This variables can be null depending of the update type */
+
+    // book layout vars
+    val bookTitle = itemView.bookTitle
+    val bookImage = itemView.bookImage
+    val authorName = itemView.authorName
+    val addToShelve = itemView.addToShelveBtn
+    val wantToRead = itemView.wantToReadBtn
+
+    // user layout vars
+    val userName = itemView.userName
+    val userImage = itemView.userImage
+    val userStatus = itemView.userStatus
+    val updateTime = itemView.updatedTime
+
+    abstract fun bindViews(update: Update)
 }
 
-private fun bindBook(itemView: View, book: Book, imageUrl: String, listener: UpdatesAdapter.onItemClickListener) {
-    with(itemView) {
+private fun bindBook(
+        viewHolder: UpdateViewHolder,
+        book: Book,
+        posterUrl: String,
+        listener: UpdatesAdapter.onItemClickListener) {
+
+    with(viewHolder) {
         bookTitle.text = book.title
-        authorName.text = book.authors[0].name
+        authorName.text = book.authors[0].name // TODO: add the others author names
+        bookImage.loadImage(posterUrl)
 
-        if(imageUrl.isNotEmpty() )bookImage.loadImage(imageUrl)
-
-        bookTitle.setOnClickListener { listener.onBookTitleOrImageClicked() }
-        bookImage.setOnClickListener { listener.onBookTitleOrImageClicked() }
-        authorName.setOnClickListener { listener.onAuthorNameClicked() }
-        likeBtn.setOnClickListener { listener.onLikeBtnClicked() }
-        commentBtn.setOnClickListener { listener.onCommentBtnClicked() }
-//        comment.setOnClickListener { listener.onCommentClicked() }
-        wanToReadBtn.setOnClickListener { listener.onWantToReadClicked() }
-        addToShelveBtn.setOnClickListener { listener.onAddToShelvesClicked() }
+        addToShelve.setOnClickListener {
+            listener.clicked(UpdatesAdapter.Listeners.AddToShelve(bookId = book.id))
+        }
+        wantToRead.setOnClickListener {
+            listener.clicked(UpdatesAdapter.Listeners.WantToRead(bookId = book.id))
+        }
     }
 }
 
-private fun bindUser(itemView: View, user: User, updatedAt: String, status: String, listener: UpdatesAdapter.onItemClickListener) {
+private fun bindUser(
+        viewHolder: UpdateViewHolder,
+        user: User,
+        updatedAt: String,
+        status: String,
+        listener: UpdatesAdapter.onItemClickListener) {
 
-    itemView.userName.text = user.name
-    if(user.imageUrl.isNotEmpty()) itemView.userImage.loadImage(user.imageUrl)
-    itemView.updatedTime.text = updatedAt
+    with(viewHolder) {
+        userName.text = user.name
+        updateTime.text = updatedAt
 
-    if (status.isEmpty())
-        itemView.userStatus.visibility = View.GONE
-    else
-        itemView.userStatus.text = status
+        if (user.imageUrl.isNotEmpty()) userImage.loadImage(user.imageUrl)
+        if (status.isEmpty())
+            userStatus.visibility = View.GONE
+        else
+            userStatus.text = status
+    }
 
-    itemView.userName.setOnClickListener { listener.onUserNameOrImageClicked() }
-    itemView.userImage.setOnClickListener { listener.onUserNameOrImageClicked() }
+
+//    itemView.userName.setOnClickListener { listener.onUserNameOrImageClicked() }
+//    itemView.userImage.setOnClickListener { listener.onUserNameOrImageClicked() }
 }
 
 class ReviewViewHolder(itemView: View, val listener: UpdatesAdapter.onItemClickListener)
-    : RecyclerView.ViewHolder(itemView), UpdateViewHolder {
+    : UpdateViewHolder(itemView) {
 
     override fun bindViews(update: Update) {
         val mUpdate = update as ReviewUpdate
 
         with(mUpdate) {
             itemView.ratingBar.rating = rating.toFloat()
-            bindUser(itemView, user, updatedAt, "", listener)
-            bindBook(itemView, book, bookImageUrl, listener)
+            bindUser(this@ReviewViewHolder, user, updatedAt, "", listener) // Todo: add status
+            bindBook(viewHolder = this@ReviewViewHolder,
+                    book = book,
+                    posterUrl = bookImageUrl,
+                    listener = listener)
         }
     }
 }
 
 class CommentViewHolder(itemView: View, val listener: UpdatesAdapter.onItemClickListener)
-    : RecyclerView.ViewHolder(itemView), UpdateViewHolder {
+    : UpdateViewHolder(itemView) {
 
     override fun bindViews(update: Update) {
         val commentUpdate = update as CommentUpdate
 
-        with(commentUpdate){
-            bindUser(itemView,user, updatedAt, status, listener)
+        with(commentUpdate) {
+            bindUser(this@CommentViewHolder, user, updatedAt, status, listener)
             itemView.comment.text = commentUpdate.comment
         }
     }
 }
 
 class FriendUpdateViewHolder(itemView: View, val listener: UpdatesAdapter.onItemClickListener)
-    : RecyclerView.ViewHolder(itemView), UpdateViewHolder {
+    : UpdateViewHolder(itemView) {
+
     override fun bindViews(update: Update) {
         val friendUpdate = update as FriendUpdate
 
@@ -90,34 +118,39 @@ class FriendUpdateViewHolder(itemView: View, val listener: UpdatesAdapter.onItem
         with(friendUpdate) {
             itemView.friendImage.loadImage(friendImageUrl)
             itemView.friendName.text = friendName
-            itemView.friendImage.setOnClickListener { listener.onFriendNameOrImageClicked() }
-            itemView.friendName.setOnClickListener { listener.onFriendNameOrImageClicked() }
-            bindUser(itemView, user, updatedAt, status, listener)
+            bindUser(this@FriendUpdateViewHolder, user, updatedAt, status, listener)
         }
     }
 }
 
 class ReadStatusUpdateViewHolder(itemView: View, val listener: UpdatesAdapter.onItemClickListener)
-    : RecyclerView.ViewHolder(itemView), UpdateViewHolder {
+    : UpdateViewHolder(itemView) {
 
     override fun bindViews(update: Update) {
         val readStatus = update as ReadStatusUpdate
-        bindUser(itemView, update.user, update.updatedAt, update.status, listener)
-        bindBook(itemView, update.review.book, "", listener)
+        bindUser(this, update.user, update.updatedAt, update.status, listener)
+        bindBook(viewHolder = this,
+                book = readStatus.review.book,
+                posterUrl = "",
+                listener = listener)
 
-        // TODO: implement book cover Image here
+        // TODO: implement book cover Image here, right now is not parsed
     }
 }
 
 class UserStatusViewHolder(itemView: View, val listener: UpdatesAdapter.onItemClickListener)
-    : RecyclerView.ViewHolder(itemView), UpdateViewHolder {
+    : UpdateViewHolder(itemView) {
+
     override fun bindViews(update: Update) {
         val userStatus = update as UserStatusUpdate
 
         itemView.progressBar.progress = update.status.percent.toInt()
-        bindUser(itemView, update.user, update.updateAt, userStatus.status.page, listener)
-        bindBook(itemView, update.status.book, "", listener)
-        // TODO: implement book cover image here
+        bindUser(this, update.user, update.updateAt, userStatus.status.page, listener)
+        bindBook(viewHolder = this,
+                book = userStatus.status.book,
+                posterUrl = "",
+                listener = listener)
+        // TODO: implement book cover image here, right now is not parsed
     }
 }
 

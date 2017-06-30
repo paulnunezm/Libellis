@@ -11,6 +11,7 @@ import com.nunez.libellis.repository.parsers.UserIdParser
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
+import okhttp3.HttpUrl
 import okhttp3.Request
 
 class LoginInteractor(val context: Context) : LoginContract.Interactor {
@@ -35,14 +36,14 @@ class LoginInteractor(val context: Context) : LoginContract.Interactor {
 
         val client = SignedHttpClient(context).instance
         val request = Request.Builder()
-                .url(GoodreadsService.BASE_URL + GoodreadsService.USER_ID_ENDPOINT)
+                .url(HttpUrl.parse(GoodreadsService.BASE_URL + GoodreadsService.USER_ID_ENDPOINT))
                 .build()
 
         return Observable.create<Unit>({
             subscriber ->
 
             val response = client.newCall(request).execute()
-            val userId = UserIdParser(response.body().string()).parse()
+            val userId = UserIdParser(response.body()?.string() as String).parse()
 
             saveUserId(userId, {
                 subscriber.onComplete()

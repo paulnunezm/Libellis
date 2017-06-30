@@ -17,7 +17,6 @@ import com.nunez.libellis.di.UpdatesModule
 import com.nunez.libellis.entities.Shelve
 import com.nunez.libellis.entities.Update
 import com.nunez.libellis.shelves.ModalShelvesBottomSheet
-import com.nunez.libellis.showSnackbar
 import kotlinx.android.synthetic.main.updates_fragment.*
 import javax.inject.Inject
 
@@ -102,8 +101,8 @@ class UpdatesFragment : Fragment(), UpdatesContract.View, UpdatesAdapter.onItemC
     override fun showShelves(shelves: List<Shelve>) {
         shelvesBottomSheet.addShelvesToShow(shelves,
                 { shelveName, bookId ->
-                    updatesRecycler.showSnackbar("$shelveName, $bookId")
-                    // TODO("implement add to shelve call")
+                    // On shelve clicked
+                    presenter.addToShelve(shelveName, bookId)
                 })
     }
 

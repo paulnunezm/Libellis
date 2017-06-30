@@ -2,11 +2,9 @@ package com.nunez.libellis.repository
 
 import com.nunez.libellis.entities.GoodreadsResponse
 import io.reactivex.Observable
+import okhttp3.ResponseBody
 import retrofit2.Call
-import retrofit2.http.GET
-import retrofit2.http.POST
-import retrofit2.http.Path
-import retrofit2.http.Query
+import retrofit2.http.*
 
 interface GoodreadsService {
     companion object{
@@ -19,6 +17,7 @@ interface GoodreadsService {
         // endpoints for non retrofit calls
         const val UPDATES_ENDPOINT = "/updates/friends.xml"
         const val USER_ID_ENDPOINT = "/api/auth_user"  // Unsighed
+        const val ADD_TO_SHELVE_ENDPOINT =  "/shelf/add_to_shelf.xml" // Signed
     }
 
     @GET("api/auth_user")
@@ -31,13 +30,14 @@ interface GoodreadsService {
             @Query("key") apiKey: String
     ): Call<GoodreadsResponse> // Unsigned request
 
+    @FormUrlEncoded
     @POST("shelf/add_to_shelf.xml")
     fun addToShelve(
-            @Path("name") shelveName: String,
-            @Path("book_id") bookId: String,
+            @Field("name") shelveName: String,
+            @Field("book_id") bookId: String,
 
             // Leave this blank unless you're removing from a shelf.
             // If removing, set this to 'remove'. (optional)
-            @Path("a") removeTag: String = ""
-    ) // Signed request
+            @Field("a") removeTag: String = ""
+    ) : Call<ResponseBody>// Signed request
 }

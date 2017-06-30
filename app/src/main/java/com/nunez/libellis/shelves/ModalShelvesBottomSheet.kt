@@ -29,7 +29,7 @@ class ModalShelvesBottomSheet : BottomSheetDialogFragment() {
     fun addShelvesToShow(shelves: List<Shelve>, listener: (String, String) -> (Unit)) {
         val adapter = ShelvesAdapter(shelves, true, {
             shelveName ->
-            listener(bookId, shelveName)
+            listener(shelveName, bookId)
             this.dismiss()
         })
         shelvesRecycler.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)

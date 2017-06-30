@@ -44,7 +44,11 @@ class UpdatesPresenter
     }
 
     override fun addToShelve(shelve: String, bookId: String) {
-
+        interactor.addToShelve(shelve, bookId).subscribe({
+            // show successful message
+        }, {
+            // show unsuccessful message
+        })
     }
 
 }

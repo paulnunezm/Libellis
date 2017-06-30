@@ -46,6 +46,7 @@ private fun bindBook(
 
         addToShelve.setOnClickListener {
             listener.onUpdateClick(UpdatesAdapter.ListenerType.ADD_TO_SHELVES, book.id)
+            listener.clicked(UpdatesAdapter.Listener.AddToShelve(bookId = book.id))
         }
 
         // TODO: set other listeners

@@ -24,10 +24,8 @@ class UpdatesAdapter(val context: Context,
         const val TYPE_USER_STATUS = 4
     }
 
-    enum class ListenerType {
-        USERNAME_OR_IMAGE, BOOK_TITLE_OR_IMAGE, ADD_TO_SHELVES,
-        AUTHOR_NAME, COMMENT_BUTTON, WANT_TO_READ, LIKE, COMMENT,
-        FRIEND_NAME_OR_IMAGE
+    sealed class Listener {
+        class AddToShelve(val bookId: String): Listener()
     }
 
     var updatesList = Collections.emptyList<Update>()
@@ -77,11 +75,8 @@ class UpdatesAdapter(val context: Context,
          * Sends the type of listener, this says which view
          * was click so the function that it listening knows
          * how to react.
-         *
-         * The "id" is the one needed to send to the Goodreads
-         * api in order to perform the selected operation
          * */
-        fun onUpdateClick(view: ListenerType, id: String)
+        fun clicked(listenerType: Listener)
     }
 
 }

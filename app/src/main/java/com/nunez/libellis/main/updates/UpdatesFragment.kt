@@ -27,6 +27,7 @@ import javax.inject.Inject
 class UpdatesFragment : Fragment(), UpdatesContract.View, UpdatesAdapter.onItemClickListener {
 
 
+
     lateinit var adapter: UpdatesAdapter
 
     val shelvesBottomSheet: ModalShelvesBottomSheet by lazy { ModalShelvesBottomSheet() }
@@ -106,21 +107,17 @@ class UpdatesFragment : Fragment(), UpdatesContract.View, UpdatesAdapter.onItemC
                 })
     }
 
-    // Updates adapter listeners
-    override fun onUpdateClick(view: UpdatesAdapter.ListenerType, id: String) {
-        when (view) {
-            UpdatesAdapter.ListenerType.USERNAME_OR_IMAGE -> {
-            }
-            UpdatesAdapter.ListenerType.BOOK_TITLE_OR_IMAGE -> {
-            }
-            UpdatesAdapter.ListenerType.ADD_TO_SHELVES -> {
-                // Request shelves and present a bottom sheet with a circular progress
+    override fun clicked(listenerType: UpdatesAdapter.Listener) {
+        when(listenerType){
+            is UpdatesAdapter.Listener.AddToShelve -> {
+                 // Request shelves and present a bottom sheet with a circular progress
                 presenter.getShelves()
-                shelvesBottomSheet.bookId = id
+                shelvesBottomSheet.bookId = listenerType.bookId
                 shelvesBottomSheet.show(activity.supportFragmentManager, "bottom_sheet")
             }
         }
     }
+
 
     /**
      * This interface must be implemented by activities that contain this

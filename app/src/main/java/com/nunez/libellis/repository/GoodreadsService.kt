@@ -42,7 +42,7 @@ interface GoodreadsService {
     ): Call<ResponseBody>// Signed request
 
     @GET("review/list?v=2")
-    fun getBooksOnShelve(
+    fun getBooksOnShelf(
             @Query("v") version: String = "2",
             @Query("id") userId: String,
             @Query("shelf") shelfName: String, // This is optional, if not specified returns books for every shelf
@@ -52,5 +52,5 @@ interface GoodreadsService {
             @Query("page") page: String = "1",
             @Query("per_page") perPage: String = "",
             @Query("key") developerKey: String
-    )
+    ): Call<GoodreadsResponse>
 }

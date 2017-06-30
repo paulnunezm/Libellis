@@ -33,7 +33,7 @@ class UpdatesPresenter
 
     override fun showError(message: String) {
         if (message.isNotEmpty())
-            view.showError(message)
+            view.showMessage(message, true)
     }
 
     override fun getShelves() {
@@ -44,10 +44,14 @@ class UpdatesPresenter
     }
 
     override fun addToShelve(shelve: String, bookId: String) {
+        view.showMessage("Adding...")
+
         interactor.addToShelve(shelve, bookId).subscribe({
             // show successful message
+            view.showMessage("Book added")
         }, {
             // show unsuccessful message
+            view.showMessage("Book couldn't be added :/")
         })
     }
 

@@ -23,6 +23,7 @@ abstract class UpdateViewHolder(itemView: View) : RecyclerView.ViewHolder(itemVi
     val bookImage = itemView.bookImage
     val authorName = itemView.authorName
     val addToShelve = itemView.addToShelveBtn
+    val wantToRead = itemView.wantToReadBtn
 
     // user layout vars
     val userName = itemView.userName
@@ -45,12 +46,11 @@ private fun bindBook(
         bookImage.loadImage(posterUrl)
 
         addToShelve.setOnClickListener {
-            listener.onUpdateClick(UpdatesAdapter.ListenerType.ADD_TO_SHELVES, book.id)
-            listener.clicked(UpdatesAdapter.Listener.AddToShelve(bookId = book.id))
+            listener.clicked(UpdatesAdapter.Listeners.AddToShelve(bookId = book.id))
         }
-
-        // TODO: set other listeners
-
+        wantToRead.setOnClickListener {
+            listener.clicked(UpdatesAdapter.Listeners.WantToRead(bookId = book.id))
+        }
     }
 }
 

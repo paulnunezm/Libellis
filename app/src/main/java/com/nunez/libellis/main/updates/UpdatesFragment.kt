@@ -16,7 +16,9 @@ import com.nunez.libellis.di.DaggerUpdatesComponent
 import com.nunez.libellis.di.UpdatesModule
 import com.nunez.libellis.entities.Shelve
 import com.nunez.libellis.entities.Update
+import com.nunez.libellis.main.updates.UpdatesAdapter.Listeners
 import com.nunez.libellis.shelves.ModalShelvesBottomSheet
+import com.nunez.libellis.showSnackbar
 import kotlinx.android.synthetic.main.updates_fragment.*
 import javax.inject.Inject
 
@@ -25,8 +27,6 @@ import javax.inject.Inject
  * create an instance of this fragment.
  */
 class UpdatesFragment : Fragment(), UpdatesContract.View, UpdatesAdapter.onItemClickListener {
-
-
 
     lateinit var adapter: UpdatesAdapter
 
@@ -96,7 +96,8 @@ class UpdatesFragment : Fragment(), UpdatesContract.View, UpdatesAdapter.onItemC
     override fun showNoBooks() {
     }
 
-    override fun showError(message: String) {
+    override fun showMessage(message: String, error: Boolean) {
+        updatesFragmentContainer.showSnackbar(message)
     }
 
     override fun showShelves(shelves: List<Shelve>) {
@@ -107,13 +108,17 @@ class UpdatesFragment : Fragment(), UpdatesContract.View, UpdatesAdapter.onItemC
                 })
     }
 
-    override fun clicked(listenerType: UpdatesAdapter.Listener) {
-        when(listenerType){
-            is UpdatesAdapter.Listener.AddToShelve -> {
-                 // Request shelves and present a bottom sheet with a circular progress
+    override fun clicked(listeners: Listeners) {
+        when (listeners) {
+            is Listeners.AddToShelve -> {
+                // Request shelves and present a bottom sheet with a circular progress
                 presenter.getShelves()
-                shelvesBottomSheet.bookId = listenerType.bookId
+                shelvesBottomSheet.bookId = listeners.bookId
                 shelvesBottomSheet.show(activity.supportFragmentManager, "bottom_sheet")
+            }
+            is Listeners.WantToRead -> {
+
+                presenter.addToShelve(getString(R.string.shelve_to_read), listeners.bookId)
             }
         }
     }

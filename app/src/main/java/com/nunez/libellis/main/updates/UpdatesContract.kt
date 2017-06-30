@@ -10,7 +10,7 @@ interface UpdatesContract {
         fun showUpdates(updates: List<Update>)
         fun showFakeUpdates()
         fun showNoBooks()
-        fun showError(message: String)
+        fun showMessage(message: String, error:Boolean = false)
         fun showShelves(shelves: List<Shelve>)
     }
 

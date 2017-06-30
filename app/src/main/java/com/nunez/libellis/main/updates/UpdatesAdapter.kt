@@ -24,8 +24,9 @@ class UpdatesAdapter(val context: Context,
         const val TYPE_USER_STATUS = 4
     }
 
-    sealed class Listener {
-        class AddToShelve(val bookId: String): Listener()
+    sealed class Listeners {
+        class AddToShelve(val bookId: String): Listeners()
+        class WantToRead(val bookId: String): Listeners()
     }
 
     var updatesList = Collections.emptyList<Update>()
@@ -72,11 +73,11 @@ class UpdatesAdapter(val context: Context,
         /** Manages the click listeners for all the views
          * of each UpdateViewHolder.
          *
-         * Sends the type of listener, this says which view
+         * Sends the type of listeners, this says which view
          * was click so the function that it listening knows
          * how to react.
          * */
-        fun clicked(listenerType: Listener)
+        fun clicked(listeners: Listeners)
     }
 
 }

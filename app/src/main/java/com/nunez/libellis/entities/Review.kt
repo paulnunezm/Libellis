@@ -18,7 +18,8 @@ class Reviews(
         @field:Attribute var start:Int = 0,
         @field:Attribute var end:Int = 0,
         @field:Attribute var total:Int = 0,
-        @field:ElementList var review:Review? = null)
+        @field:ElementList(name = "review") var review:List<Review>
+)
 
 
 @Root(name = "review", strict = false)
@@ -31,16 +32,11 @@ class Review(
 data class ReviewBook(
          @field:Element var id: String = "",
          @field:Element var title: String = "",
-         @field:Element var averageRating: String = "",
-         @field:Element var ratingsCount: String = "",
-         @field:Element var reviewsCount: String = "",
-         @field:ElementList var authors: ArrayList<ReviewAuthor> = ArrayList()
+         @field:ElementList var authors: ArrayList<ReviewAuthor>? = null
 )
 
 @Root(name = "author", strict = false)
 data class ReviewAuthor(
          @field:Element var id: String = "",
-         @field:Element var name: String = "",
-         @field:Element var imageUrl: String = "",
-         @field:Element var link: String = ""
+         @field:Element var name: String = ""
 )

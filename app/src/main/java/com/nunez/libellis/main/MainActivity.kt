@@ -13,6 +13,7 @@ import android.support.v7.widget.Toolbar
 import android.view.Menu
 import android.view.MenuItem
 import com.nunez.libellis.R
+import com.nunez.libellis.main.currentlyReading.CurrentlyReadingFragment
 import com.nunez.libellis.main.updates.UpdatesFragment
 import kotlinx.android.synthetic.main.app_bar_main_activity.*
 

@@ -1,4 +1,4 @@
-package com.nunez.libellis.main.currentlyReading
+package com.nunez.libellis.main.reading
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -9,7 +9,7 @@ import com.nunez.libellis.R
 import com.nunez.libellis.entities.Review
 
 
-class CurrentlyReadingFragment : Fragment(), CurrentlyReadingContract.View {
+class ReadingFragment : Fragment(), ReadingContract.View {
 
     companion object {
         val TAG = "CurrentlyReading"

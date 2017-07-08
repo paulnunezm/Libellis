@@ -1,4 +1,4 @@
-package com.nunez.libellis.main.currentlyReading
+package com.nunez.libellis.main.reading
 
 import android.content.Context
 import com.nunez.libellis.entities.Review
@@ -6,11 +6,11 @@ import com.nunez.libellis.repository.SignedRetrofit
 import io.reactivex.Observable
 import javax.inject.Inject
 
-class CurrentlyReadingInteractor
+class ReadingInteractor
 @Inject constructor(
         val context: Context,
         val signedRetrofit: SignedRetrofit
-) : CurrentlyReadingContract.Interactor {
+) : ReadingContract.Interactor {
 
     override fun requestBooks(): Observable<List<Review>> {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.

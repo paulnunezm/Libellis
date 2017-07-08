@@ -1,10 +1,10 @@
-package com.nunez.libellis.main.currentlyReading
+package com.nunez.libellis.main.reading
 
 import com.nunez.libellis.entities.Review
 import com.nunez.libellis.entities.Update
 import io.reactivex.Observable
 
-interface CurrentlyReadingContract {
+interface ReadingContract {
 
     interface View {
         fun showBooks(books: List<Review>)

@@ -1,13 +1,13 @@
-package com.nunez.libellis.main.currentlyReading
+package com.nunez.libellis.main.reading
 
 import com.nunez.libellis.entities.Update
 import javax.inject.Inject
 
-class CurrentlyReadingPrensenter
+class ReadingPrensenter
 @Inject constructor(
-        val view: CurrentlyReadingContract.View,
-        val interactor: CurrentlyReadingContract.Interactor
-) : CurrentlyReadingContract.Presenter {
+        val view: ReadingContract.View,
+        val interactor: ReadingContract.Interactor
+) : ReadingContract.Presenter {
 
     override fun getBooks() {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.

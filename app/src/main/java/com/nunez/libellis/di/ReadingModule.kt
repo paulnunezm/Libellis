@@ -15,12 +15,6 @@ class ReadingModule(val view: ReadingContract.View) {
 
     @Provides
     @Singleton
-    fun provideView(): ReadingContract.View {
-        return view
-    }
-
-    @Provides
-    @Singleton
     fun providesInteractor(context: Context, retrofit: SignedRetrofit): ReadingInteractor {
         interactor = ReadingInteractor(context, retrofit)
         return interactor
@@ -28,7 +22,13 @@ class ReadingModule(val view: ReadingContract.View) {
 
     @Provides
     @Singleton
-    fun providePresenter(): ReadingPrensenter {
+    fun providesReadingView(): ReadingContract.View {
+        return view
+    }
+
+    @Provides
+    @Singleton
+    fun providesReadingPresenter(): ReadingPrensenter {
         return ReadingPrensenter(view, interactor)
     }
 }

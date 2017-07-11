@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <com.nunez.libellis.views.CustomFontTextView
+        android:id="@+id/percent"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/shelve_bottom_sheet_title"
+        android:gravity="start|center"
+        android:text="25%"
+        android:textSize="40sp"
+        app:fontFile="Raleway-Medium.ttf"/>
+
+    <com.nunez.libellis.views.CustomFontTextView
+        android:id="@+id/pages"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/shelve_bottom_sheet_title"
+        android:gravity="start|center"
+        android:text="127"
+        android:textSize="40sp"
+        app:fontFile="Raleway-Medium.ttf"/>
+
+    <SeekBar
+        android:id="@+id/seekBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:progress="25"
+        />
+
+</LinearLayout>

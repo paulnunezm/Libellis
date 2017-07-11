@@ -1,7 +1,6 @@
 package com.nunez.libellis.main.reading
 
 import com.nunez.libellis.entities.Review
-import com.nunez.libellis.entities.Update
 import io.reactivex.Observable
 
 interface ReadingContract {
@@ -15,8 +14,7 @@ interface ReadingContract {
 
     interface Presenter {
         fun getBooks()
-        fun sendUpdates(updates: List<Update>)
-        fun showError(message: String)
+        fun sendReadingBooks(readingBooks: List<Review>)
     }
 
     interface Interactor {

@@ -16,7 +16,7 @@
     <string name="update_progress_cancel_button_txt">CANCEL</string>
     <string name="update_progress_update_button_txt">UPDATE</string>
     <string name="update_progress_last_update_txt">Last update:</string>
-    <string name="title_activity_main_activity">MainActivityActivity</string>
+    <string name="title_activity_main_activity">Libellis</string>
 
     <!-- Content description -->
     <string name="navigation_drawer_open">Open navigation drawer</string>

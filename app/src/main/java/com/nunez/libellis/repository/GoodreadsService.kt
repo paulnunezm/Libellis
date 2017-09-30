@@ -53,4 +53,12 @@ interface GoodreadsService {
             @Query("per_page") perPage: String = "",
             @Query("key") developerKey: String
     ): Call<GoodreadsResponse>
+
+
+    /** Gets a user review. This also retrieves the currently reading information about a book.*/
+    @GET("review/show.xml")
+    fun getReview(
+            @Query("key") developerKey: String,
+            @Query("id") reviewId: String
+    ): Call<GoodreadsResponse>
 }

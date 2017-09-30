@@ -41,19 +41,22 @@ class ReadingInteractor
                     search = "",
                     developerKey = BuildConfig.GOODREADS_API_KEY)
 
-            response.enqueue({
-                response ->
-                if (response.isSuccessful) {
-                    val r = response.body()?.reviews as List<Review>
-                    subscriber.onNext(r)
-                    subscriber.onComplete()
-                } else {
-                    subscriber.onError(Throwable("Response unsuccessful"))
-                }
-            }, {
-                Throwable(it)
-                subscriber.onError(it)
-            })
+            try{
+                response.enqueue({
+                    response ->
+                    if (response.isSuccessful) {
+                        val r = response.body()?.reviews as List<Review>
+                        subscriber.onNext(r)
+                        subscriber.onComplete()
+                    } else {
+                        subscriber.onError(Throwable("Response unsuccessful"))
+                    }
+                }, {
+                    subscriber.onError(it)
+                })
+            }catch (e:Exception){
+                subscriber.onError(e)
+            }
         }).subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
 

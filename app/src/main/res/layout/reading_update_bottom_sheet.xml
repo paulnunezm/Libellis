@@ -7,20 +7,20 @@
     android:layout_height="wrap_content">
 
     <com.nunez.libellis.views.CustomFontTextView
-        android:id="@+id/msgUpdateProgress"
+        android:id="@+id/bookTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="Murder on Orient Express"
+        tools:text="Murder on Orient Express"
         android:textSize="@dimen/small_text_size"
         app:fontFile="Raleway-Medium.ttf"
         app:layout_constraintHorizontal_bias="0.473"
-        app:layout_constraintLeft_toLeftOf="@+id/bookTitle"
-        app:layout_constraintRight_toRightOf="@+id/bookTitle"
-        app:layout_constraintTop_toBottomOf="@+id/bookTitle"/>
+        app:layout_constraintLeft_toLeftOf="@+id/msgUpdateProgress"
+        app:layout_constraintRight_toRightOf="@+id/msgUpdateProgress"
+        app:layout_constraintTop_toBottomOf="@+id/msgUpdateProgress"/>
 
     <com.nunez.libellis.views.CustomFontTextView
-        android:id="@+id/bookTitle"
+        android:id="@+id/msgUpdateProgress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -29,7 +29,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="0dp"
         android:gravity="center"
-        android:text="Update progress on"
+        tools:text="Update progress on"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="@dimen/big_text_size"
         app:fontFile="Raleway-Medium.ttf"
@@ -43,13 +43,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="Agatha Christie"
+        tools:text="Agatha Christie"
         android:textSize="@dimen/small_text_size"
         app:fontFile="Raleway-Medium.ttf"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="@+id/msgUpdateProgress"
-        app:layout_constraintRight_toRightOf="@+id/msgUpdateProgress"
-        app:layout_constraintTop_toBottomOf="@+id/msgUpdateProgress"
+        app:layout_constraintLeft_toLeftOf="@+id/bookTitle"
+        app:layout_constraintRight_toRightOf="@+id/bookTitle"
+        app:layout_constraintTop_toBottomOf="@+id/bookTitle"
         app:layout_constraintVertical_bias="0.0"/>
 
 
@@ -76,7 +76,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginTop="0dp"
         android:gravity="bottom"
-        android:text="25"
+        tools:text="25"
         android:textSize="60sp"
         app:fontFile="Lato-Light.ttf"
         app:layout_constraintHorizontal_chainStyle="packed"
@@ -103,7 +103,7 @@
         android:layout_marginLeft="8dp"
         android:layout_marginTop="20dp"
         android:gravity="bottom"
-        android:text="127"
+        tools:text="127"
         android:textSize="30sp"
         app:fontFile="Lato-Light.ttf"
         app:layout_constraintBottom_toBottomOf="@+id/percent"
@@ -147,28 +147,28 @@
         />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/updateButton"
         style="@style/DialogButton"
         android:layout_width="wrap_content"
         android:layout_height="36dp"
         android:text="@string/reading_sheet_update_btn"
         android:textColor="@color/colorPrimary"
-        app:layout_constraintBottom_toBottomOf="@+id/button3"
+        app:layout_constraintBottom_toBottomOf="@+id/cancelButton"
         app:layout_constraintRight_toLeftOf="@+id/guideline2"
-        app:layout_constraintTop_toTopOf="@+id/button3"
+        app:layout_constraintTop_toTopOf="@+id/cancelButton"
         app:layout_constraintVertical_bias="0.0"
         android:layout_marginBottom="8dp"/>
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/cancelButton"
         style="@style/DialogButton"
         android:layout_width="wrap_content"
         android:layout_height="36dp"
         android:layout_marginRight="4dp"
         android:layout_marginTop="33dp"
         android:text="@string/reading_sheet_cancel_btn"
-        android:textColor="@color/colorPrimary"
-        app:layout_constraintRight_toLeftOf="@+id/button2"
+        android:textColor="@color/blue_translucent"
+        app:layout_constraintRight_toLeftOf="@+id/updateButton"
         app:layout_constraintTop_toBottomOf="@+id/seekBar"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginBottom="8dp"

@@ -25,18 +25,28 @@ class Reviews(
 @Root(name = "review", strict = false)
 class Review(
         @field:Element var id:Int = 0,
-        @field:Element var book: ReviewBook? = null
+        @field:Element var book: ReviewBook? = null,
+        @field:ElementList(name = "user_statuses", required = false) var userStatuses: List<ReviewUserStatus>? = null
 )
 
 @Root(name = "book", strict = false)
 data class ReviewBook(
          @field:Element var id: String = "",
          @field:Element var title: String = "",
-         @field:ElementList var authors: ArrayList<ReviewAuthor>? = null
+         @field:ElementList var authors: ArrayList<ReviewAuthor>? = null,
+         @field:Element(name = "num_pages", required = false) var numberOfPages: Int = 0
+
 )
 
 @Root(name = "author", strict = false)
 data class ReviewAuthor(
          @field:Element var id: String = "",
          @field:Element var name: String = ""
+)
+
+@Root(name= "user_status", strict = false)
+data class ReviewUserStatus(
+        @field:Element var id: String = "",
+        @field:Element(required = false) var page:Int = 0,
+        @field:Element(required = false) var percent: Int = 0
 )

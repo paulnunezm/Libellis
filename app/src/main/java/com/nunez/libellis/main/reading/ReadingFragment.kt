@@ -12,6 +12,7 @@ import com.nunez.libellis.di.AppModule
 import com.nunez.libellis.di.DaggerReadingComponent
 import com.nunez.libellis.di.ReadingModule
 import com.nunez.libellis.entities.Review
+import com.nunez.libellis.main.reading.updateProgress.UpdateProgressSheet
 import com.nunez.libellis.showSnackbar
 import kotlinx.android.synthetic.main.fragment_currently_reading.*
 import javax.inject.Inject
@@ -54,7 +55,7 @@ class ReadingFragment : Fragment(), ReadingContract.View {
         readingRecycler.setHasFixedSize(true)
         readingRecycler.adapter = ReadingAdapter(books, {
             id ->
-            readingRecycler.showSnackbar("Id $id")
+            UpdateProgressSheet(id.toString()).show(fragmentManager, "progress_sheet")
         })
     }
 

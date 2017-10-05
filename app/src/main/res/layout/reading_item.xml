@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/readingContainer"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="12dp">
+
+    <com.nunez.libellis.views.CustomFontTextView
+        android:id="@+id/bookTitle"
+        style="@style/UpdateBookTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxLines="2"
+        android:maxWidth="@dimen/update_user_text_max_width"
+        android:textSize="@dimen/update_book_name_text_size"
+        app:fontFile="Raleway-Medium.ttf"
+        tools:text="The Kite Runner and the long long long long waaaay to run"/>
+
+    <com.nunez.libellis.views.CustomFontTextView
+        android:id="@+id/authorName"
+        style="@style/UpdateBookTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxWidth="@dimen/update_user_text_max_width"
+        android:paddingBottom="4dp"
+        android:paddingTop="4dp"
+        android:textSize="@dimen/update_book_author_text_size"
+        app:fontFile="Raleway-Light.ttf"
+        tools:text="by Author Name 1, Author Name 2, Author Name 3"/>
+
+</LinearLayout>

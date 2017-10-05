@@ -30,8 +30,8 @@ fun ImageView.loadImage(url: String){
 
 
 // Retrofit callback
-fun <T> Call<T>.enqueue(success: (response: Response<T>) -> Unit,
-                        failure: (t: Throwable) -> Unit) {
+inline fun <T> Call<T>.enqueue(crossinline success: (response: Response<T>) -> Unit,
+                               crossinline failure: (t: Throwable) -> Unit) {
     enqueue(object : Callback<T> {
         override fun onResponse(call: Call<T>, response: Response<T>) {
             success(response)

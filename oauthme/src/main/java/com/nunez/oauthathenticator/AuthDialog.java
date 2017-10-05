@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
 import android.view.LayoutInflater;
@@ -16,7 +17,6 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ImageButton;
 
-import javax.annotation.Nonnull;
 
 /**
  * Created by paulnunez on 2/14/17.
@@ -118,7 +118,7 @@ class DialogWebClient extends WebViewClient {
     void onFailure();
   }
 
-  DialogWebClient(@Nonnull DialogWebClient.onAuthenticadedListener listener, String callbackUrl) {
+  DialogWebClient(@NonNull DialogWebClient.onAuthenticadedListener listener, String callbackUrl) {
     this.listener = listener;
     this.callbackUrl = callbackUrl;
   }

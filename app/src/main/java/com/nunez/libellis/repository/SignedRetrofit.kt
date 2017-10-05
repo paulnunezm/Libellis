@@ -3,12 +3,14 @@ package com.nunez.libellis.repository
 import android.content.Context
 import retrofit2.Retrofit
 import retrofit2.converter.simplexml.SimpleXmlConverterFactory
+import javax.inject.Inject
 
 /**
  * Handles the retrofit signing process.
  */
 
-class SignedRetrofit(val context: Context) {
+class SignedRetrofit
+@Inject constructor(val context: Context) {
 
     val instance: Retrofit
         get() {

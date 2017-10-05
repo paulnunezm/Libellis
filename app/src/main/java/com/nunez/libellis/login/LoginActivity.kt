@@ -31,8 +31,8 @@ class LoginActivity : AppCompatActivity(), LoginContract.View {
 
     lateinit var presenter: LoginContract.Presenter
     lateinit var interactor: LoginContract.Interactor
-    val loginButton by lazy { findViewById(R.id.loginButton) as Button }
-    val progress by lazy { findViewById(R.id.progressBar) as ProgressBar }
+    val loginButton by lazy { findViewById<Button>(R.id.loginButton)  }
+    val progress by lazy { findViewById<ProgressBar>(R.id.progressBar)  }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

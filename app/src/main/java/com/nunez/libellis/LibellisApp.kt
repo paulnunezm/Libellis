@@ -20,27 +20,27 @@ class LibellisApp : Application() {
         super.onCreate()
 
         component.inject(this)
-        initializeStetho()
+//        initializeStetho()
     }
 
-    private fun initializeStetho() {
-        // Create an InitializerBuilder
-        val initializerBuilder = Stetho.newInitializerBuilder(this)
-
-        // Enable Chrome DevTools
-        initializerBuilder.enableWebKitInspector(
-                Stetho.defaultInspectorModulesProvider(this)
-        )
-
-        //// Enable command line interface
-        //    initializerBuilder.enableDumpapp(
-        //        Stetho.defaultDumperPluginsProvider(context)
-        //    );
-
-        // Use the InitializerBuilder to generate an Initializer
-        val initializer = initializerBuilder.build()
-
-        // Initialize Stetho with the Initializer
-        Stetho.initialize(initializer)
-    }
+//    private fun initializeStetho() {
+//        // Create an InitializerBuilder
+//        val initializerBuilder = Stetho.newInitializerBuilder(this)
+//
+//        // Enable Chrome DevTools
+//        initializerBuilder.enableWebKitInspector(
+//                Stetho.defaultInspectorModulesProvider(this)
+//        )
+//
+//        //// Enable command line interface
+//        //    initializerBuilder.enableDumpapp(
+//        //        Stetho.defaultDumperPluginsProvider(context)
+//        //    );
+//
+//        // Use the InitializerBuilder to generate an Initializer
+//        val initializer = initializerBuilder.build()
+//
+//        // Initialize Stetho with the Initializer
+//        Stetho.initialize(initializer)
+//    }
 }

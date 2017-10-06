@@ -7,7 +7,7 @@ android {
     buildToolsVersion '26.0.2'
     defaultConfig {
         applicationId "com.nunez.libellis"
-        minSdkVersion 14
+        minSdkVersion 21
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
@@ -85,7 +85,7 @@ dependencies {
 
     // Dagger 2
     compile "com.google.dagger:dagger:$daggerVersion"
-    compile ("com.google.dagger:dagger-android-support:$daggerVersion") {
+    compile("com.google.dagger:dagger-android-support:$daggerVersion") {
         exclude group: 'com.google.code.findbugs', module: 'jsr305'
     }
     kapt "com.google.dagger:dagger-compiler:$daggerVersion"
@@ -98,14 +98,12 @@ dependencies {
     // explicitly depend on RxJava's latest version for bug fixes and new features.
     compile 'io.reactivex.rxjava2:rxjava:2.1.0'
 
-
     // Tests
+    androidTestCompile 'com.android.support.test.espresso:espresso-core:3.0.1'
+    androidTestCompile 'com.android.support.test:runner:1.0.1'
     testCompile "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
     testCompile 'junit:junit:4.12'
     testCompile 'com.nhaarman:mockito-kotlin:1.4.0'
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
 
     // Debugging
     debugCompile 'com.facebook.stetho:stetho:1.5.0'

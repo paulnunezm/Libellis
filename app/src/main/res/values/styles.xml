@@ -74,7 +74,8 @@
         <item name="colorControlActivated">@color/colorPrimary</item>
     </style>
 
-    <style name="UpdateProgressEditText" parent="AppTheme">
+    <style name="ProgressInputEditText" parent="AppTheme">
+        <item name="android:textColorHighlight">@color/colorPrimary</item>
     </style>
 
     <style name="RatingViewStars">

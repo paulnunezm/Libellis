@@ -43,6 +43,11 @@
     <string name="update_progress_cancel">CANCEL</string>
     <string name="update_progress_message">Update progress on</string>
 
+    <!-- ProgressInput view-->
+    <string name="progress_input_type_msg">Input type</string>
+    <string name="progress_input_percent_symbol">%</string>
+    <string name="progress_input_page_symbol">#</string>
+
     <!-- Rating View -->
     <string name="rating_view_one_star">I hated it</string>
     <string name="rating_view_two_star">Disliked it</string>

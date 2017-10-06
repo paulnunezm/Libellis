@@ -4,4 +4,9 @@
         <attr name="fontFile" format="string">
         </attr>
     </declare-styleable>
+
+    <declare-styleable name="CustomFontEditText">
+        <attr name="editTextFontFile" format="string">
+        </attr>
+    </declare-styleable>
 </resources>

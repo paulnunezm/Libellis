@@ -1,24 +1,24 @@
 package com.nunez.libellis.main.reading.updateProgress
 
+//import com.nunez.libellis.R.id.seekBar
 import android.os.Bundle
 import android.support.design.widget.BottomSheetDialogFragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.SeekBar
 import com.nunez.libellis.R
 import kotlinx.android.synthetic.main.reading_update_bottom_sheet.*
 
 
-class UpdateProgressSheet(
-        var reviewId: String = "") : BottomSheetDialogFragment(), UpdateProgressSheetContract.View {
+class UpdateProgressSheet() : BottomSheetDialogFragment(), UpdateProgressSheetContract.View {
+        var reviewId: String = ""
 
     lateinit var presenter : UpdateProgressPresenter
     val interactor : UpdateProgressSheetInteractor by lazy { UpdateProgressSheetInteractor() }
 
     companion object {
         fun newInstance(reviewId: String): UpdateProgressSheet{
-            return UpdateProgressSheet(reviewId)
+            return UpdateProgressSheet()
         }
     }
 
@@ -37,32 +37,20 @@ class UpdateProgressSheet(
 
 
     override fun setAuthorName(name: String) {
-        bookAuthor.text = name
     }
 
     override fun setBookTitle(title: String) {
-        bookTitle.text = title
     }
 
     override fun setMaxValue(value: Int) {
-        seekBar.max = value
     }
 
     override fun setPercentage(percentage: Int) {
-        percent.text = percentage.toString()
     }
 
     override fun setPage(page: Int) {
-        pages.text = page.toString()
     }
     override fun enableSeekBarListener() {
-        seekBar.setOnSeekBarChangeListener(object: SeekBar.OnSeekBarChangeListener{
-            override fun onStartTrackingTouch(seekBar: SeekBar?) {}
-            override fun onStopTrackingTouch(seekBar: SeekBar?) {}
-            override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-                presenter.calculateValuesFromPages(progress)
-            }
-        })
     }
     override fun showLoading() {}
 

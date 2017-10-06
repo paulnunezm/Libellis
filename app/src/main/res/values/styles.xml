@@ -74,10 +74,6 @@
         <item name="colorControlActivated">@color/colorPrimary</item>
     </style>
 
-    <style name="ProgressInputEditText" parent="AppTheme">
-        <item name="android:textColorHighlight">@color/colorPrimary</item>
-    </style>
-
     <style name="RatingViewStars">
         <item name="android:max">5</item>
         <item name="android:stepSize">1</item>
@@ -90,6 +86,31 @@
         <item name="android:gravity">center</item>
         <item name="android:paddingEnd">16dp</item>
         <item name="android:paddingStart">16dp</item>
+        <item name="android:textSize">@dimen/medium_text_size</item>
+    </style>
+
+    <style name="UpdateProgressEditText" parent="AppTheme">
+        <item name="android:textColorHighlight">@color/colorPrimary</item>
+        <item name="android:layout_marginStart">16dp</item>
+        <item name="android:layout_marginTop">-8dp</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:inputType">number</item>
+        <item name="android:minWidth">104sp</item>
+        <item name="android:padding">0dp</item>
+        <item name="android:textAlignment">textEnd</item>
+        <item name="android:textSize">@dimen/enormous_text_size</item>
+    </style>
+
+    <style name="ProgressInputSymbol">
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/grey_dark</item>
+        <item name="android:textSize">@dimen/bigger_text_size</item>
+    </style>
+
+    <style name="ProgressInputMessage">
+        <item name="android:layout_gravity">center</item>
+        <item name="android:text">@string/progress_input_type_msg</item>
+        <item name="android:textColor">@color/grey_light</item>
         <item name="android:textSize">@dimen/medium_text_size</item>
     </style>
 </resources>

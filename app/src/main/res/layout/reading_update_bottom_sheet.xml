@@ -1,108 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:animateLayoutChanges="true">
 
-    <com.nunez.libellis.views.CustomFontTextView
-        android:id="@+id/msgUpdateProgress"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:gravity="center"
-        android:textColor="@color/colorPrimaryDark"
-        android:textSize="@dimen/big_text_size"
-        app:fontFile="Raleway-Medium.ttf"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="Update progress on"/>
-
-    <com.nunez.libellis.views.CustomFontTextView
-        android:id="@+id/bookTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:textSize="@dimen/small_text_size"
-        app:fontFile="Raleway-Medium.ttf"
-        app:layout_constraintEnd_toEndOf="@+id/msgUpdateProgress"
-        app:layout_constraintHorizontal_bias="0.454"
-        app:layout_constraintStart_toStartOf="@+id/msgUpdateProgress"
-        app:layout_constraintTop_toBottomOf="@+id/msgUpdateProgress"
-        tools:text="Murder on the Orient Express"
-        />
-
-    <com.nunez.libellis.views.CustomFontTextView
-        android:id="@+id/bookAuthor"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:textSize="@dimen/small_text_size"
-        app:fontFile="Raleway-Medium.ttf"
-        app:layout_constraintEnd_toEndOf="@+id/bookTitle"
-        app:layout_constraintStart_toStartOf="@+id/bookTitle"
-        app:layout_constraintTop_toBottomOf="@+id/bookTitle"
-        tools:text="Agatha Christie"/>
+    <include layout="@layout/update_progress_sheet_book_info"/>
 
     <com.nunez.libellis.views.RatingView
-        android:id="@+id/ratingView2"
+        android:id="@+id/ratingView"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bookAuthor"/>
+        android:layout_height="69dp"
+        android:layout_marginTop="24dp"/>
 
-    <android.support.constraint.Guideline
-        android:id="@+id/guideline2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_end="16dp"
-        tools:layout_editor_absoluteX="395dp"
-        tools:layout_editor_absoluteY="0dp"/>
-
-    <android.support.constraint.Guideline
-        android:id="@+id/guideline3"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="16dp"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="16dp"/>
+        android:layout_marginTop="34dp"
+        android:layout_gravity="end">
 
-    <Button
-        android:id="@+id/updateButton"
-        style="@style/DialogButton"
-        android:layout_width="wrap_content"
-        android:layout_height="36dp"
-        android:layout_marginBottom="8dp"
-        android:text="@string/reading_sheet_update_btn"
-        android:textColor="@color/colorPrimary"
-        app:layout_constraintBottom_toBottomOf="@+id/cancelButton"
-        app:layout_constraintRight_toLeftOf="@+id/guideline2"
-        app:layout_constraintTop_toTopOf="@+id/cancelButton"
-        app:layout_constraintVertical_bias="0.0"/>
+        <Button
+            android:id="@+id/cancelButton"
+            style="@style/DialogButton"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:text="@string/reading_sheet_cancel_btn"
+            android:textColor="@color/blue_translucent"/>
 
-    <Button
-        android:id="@+id/cancelButton"
-        style="@style/DialogButton"
-        android:layout_width="wrap_content"
-        android:layout_height="36dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginRight="4dp"
-        android:layout_marginTop="33dp"
-        android:text="@string/reading_sheet_cancel_btn"
-        android:textColor="@color/blue_translucent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toLeftOf="@+id/updateButton"
-        app:layout_constraintTop_toBottomOf="@+id/seekBar"
-        app:layout_constraintVertical_bias="0.0"
-        tools:visibility="gone"/>
-
-</android.support.constraint.ConstraintLayout>
+        <Button
+            android:id="@+id/updateButton"
+            style="@style/DialogButton"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:text="@string/reading_sheet_update_btn"
+            android:textColor="@color/colorPrimary"/>
+    </LinearLayout>
+</LinearLayout>

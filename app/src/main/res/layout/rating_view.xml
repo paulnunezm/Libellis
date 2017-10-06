@@ -9,6 +9,7 @@
     android:orientation="vertical">
 
     <RatingBar
+        android:theme="@style/RatingViewStarsTheme"
         android:id="@+id/ratingBar"
         style="@style/RatingViewStars"
         android:layout_width="wrap_content"

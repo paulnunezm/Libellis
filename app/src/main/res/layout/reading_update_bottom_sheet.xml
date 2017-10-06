@@ -27,7 +27,7 @@
             style="@style/DialogButton"
             android:layout_width="wrap_content"
             android:layout_height="36dp"
-            android:text="@string/reading_sheet_cancel_btn"
+            android:text="@string/update_progress_cancel"
             android:textColor="@color/blue_translucent"/>
 
         <Button
@@ -35,7 +35,7 @@
             style="@style/DialogButton"
             android:layout_width="wrap_content"
             android:layout_height="36dp"
-            android:text="@string/reading_sheet_update_btn"
+            android:text="@string/update_progress_update"
             android:textColor="@color/colorPrimary"/>
     </LinearLayout>
 </LinearLayout>

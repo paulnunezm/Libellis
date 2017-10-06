@@ -39,9 +39,9 @@
     <string name="shelve_to_read">to-read</string>
 
     <!-- Update reading bottom sheet -->
-    <string name="reading_sheet_update_btn">UPDATE</string>
-    <string name="reading_sheet_cancel_btn">CANCEL</string>
-    <string name="update_progress_bottom_sheet_txt_update_progress">Update progress on</string>
+    <string name="update_progress_update">UPDATE</string>
+    <string name="update_progress_cancel">CANCEL</string>
+    <string name="update_progress_message">Update progress on</string>
 
     <!-- Rating View -->
     <string name="rating_view_one_star">I hated it</string>

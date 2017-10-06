@@ -20,7 +20,11 @@
         android:visibility="gone"
         tools:visibility="visible"/>
 
-    <include layout="@layout/update_progress_input"/>
+    <com.nunez.libellis.views.ProgressInput
+        android:id="@+id/progressInputLayout"
+        android:layout_marginTop="12dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
 
     <FrameLayout
         android:layout_width="match_parent"

@@ -3,6 +3,10 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="horizontal_inset">16dp</dimen>
     <dimen name="vertical_inset">16dp</dimen>
+
+    <!--Text sizes-->
+    <dimen name="enormous_text_size">72sp</dimen>
+    <dimen name="bigger_text_size">32sp</dimen>
     <dimen name="big_text_size">22sp</dimen>
     <dimen name="medium_text_size">18sp</dimen>
     <dimen name="small_text_size">14sp</dimen>

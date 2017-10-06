@@ -17,9 +17,7 @@ class UpdateProgressSheet() : BottomSheetDialogFragment(), UpdateProgressSheetCo
     val interactor : UpdateProgressSheetInteractor by lazy { UpdateProgressSheetInteractor() }
 
     companion object {
-        fun newInstance(reviewId: String): UpdateProgressSheet{
-            return UpdateProgressSheet()
-        }
+        const val EXTRA_ID = "id"
     }
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {

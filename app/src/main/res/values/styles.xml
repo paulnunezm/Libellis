@@ -77,4 +77,14 @@
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
+
+    <style name="RatingViewStars">
+        <item name="android:clickable">false</item>
+        <item name="android:focusable">false</item>
+        <item name="android:isIndicator">true</item>
+        <item name="android:max">5</item>
+        <item name="android:numStars">5</item>
+        <item name="android:scaleX">0.8</item>
+        <item name="android:scaleY">0.8</item>
+    </style>
 </resources>

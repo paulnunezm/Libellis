@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/ratingView"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <RatingBar
+        android:id="@+id/ratingBar"
+        style="@style/RatingViewStars"
+        android:layout_width="wrap_content"
+        android:layout_height="57dp"
+        tools:progress="4"/>
+
+    <com.nunez.libellis.views.CustomFontTextView
+        android:id="@+id/ratingText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="-10dp"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:fontFile="Raleway-Regular.ttf"
+        tools:text="@string/rating_view_three_star"/>
+</LinearLayout>

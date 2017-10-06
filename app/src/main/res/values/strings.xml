@@ -41,4 +41,11 @@
     <!-- Update reading bottom sheet -->
     <string name="reading_sheet_update_btn">UPDATE</string>
     <string name="reading_sheet_cancel_btn">CANCEL</string>
+
+    <!-- Rating View -->
+    <string name="rating_view_one_star">I hated it</string>
+    <string name="rating_view_two_star">Disliked it</string>
+    <string name="rating_view_three_star">It\'s ok</string>
+    <string name="rating_view_four_star">I liked it</string>
+    <string name="rating_view_five_star">I loved it</string>
 </resources>

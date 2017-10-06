@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:parentTag="android.widget.LinearLayout">
+
+    <com.nunez.libellis.views.CustomFontTextView
+        android:id="@+id/msgUpdateProgress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:text="@string/update_progress_message"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="@dimen/big_text_size"
+        app:fontFile="Raleway-Medium.ttf"/>
+
+    <com.nunez.libellis.views.CustomFontTextView
+        android:id="@+id/bookTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="@dimen/small_text_size"
+        app:fontFile="Raleway-Regular.ttf"
+        tools:text="Murder on the Orient Express"/>
+
+    <com.nunez.libellis.views.CustomFontTextView
+        android:id="@+id/bookAuthor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="@dimen/small_text_size"
+        app:fontFile="Raleway-Regular.ttf"
+        tools:text="Agatha Christie"/>
+
+</merge>

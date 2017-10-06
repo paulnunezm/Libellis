@@ -46,14 +46,6 @@
         <item name="android:textColor">@color/grey_dark</item>
     </style>
 
-    <style name="UpdateProgressButton" parent="UpdateBookTextView">
-        <item name="android:minWidth">64dp</item>
-        <item name="android:minHeight">48dp</item>
-        <item name="android:paddingLeft">12dp</item>
-        <item name="android:paddingRight">12dp</item>
-        <item name="android:textSize">@dimen/progress_update_button_text_size</item>
-        <!--<item name="gravity">center</item>-->
-    </style>
 
     <style name="SeekBar" parent="Theme.AppCompat">
         <item name="android:progressTint">@color/colorPrimaryDark</item>
@@ -82,11 +74,21 @@
         <item name="colorControlActivated">@color/colorPrimary</item>
     </style>
 
+    <style name="UpdateProgressEditText" parent="AppTheme">
+    </style>
+
     <style name="RatingViewStars">
         <item name="android:max">5</item>
         <item name="android:stepSize">1</item>
         <item name="android:numStars">5</item>
         <item name="android:scaleX">0.8</item>
         <item name="android:scaleY">0.8</item>
+    </style>
+
+    <style name="UpdateProgressButton">
+        <item name="android:gravity">center</item>
+        <item name="android:paddingEnd">16dp</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:textSize">@dimen/medium_text_size</item>
     </style>
 </resources>

@@ -5,6 +5,7 @@ import com.facebook.stetho.okhttp3.StethoInterceptor
 import com.nunez.libellis.entities.GoodreadsResponse
 import com.nunez.libellis.entities.Review
 import com.nunez.libellis.repository.GoodreadsService
+import io.reactivex.Completable
 import io.reactivex.Observable
 import okhttp3.OkHttpClient
 import retrofit2.Call
@@ -71,7 +72,7 @@ class UpdateProgressSheetInteractor : UpdateProgressSheetContract.Interactor {
         })
     }
 
-    override fun updateBookReadingLocation(): Observable<Unit> {
+    override fun updateBookReadingLocation(): Completable {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 

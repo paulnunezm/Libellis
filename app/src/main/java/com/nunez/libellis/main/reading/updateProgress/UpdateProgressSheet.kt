@@ -11,10 +11,11 @@ import kotlinx.android.synthetic.main.reading_update_bottom_sheet.*
 
 
 class UpdateProgressSheet() : BottomSheetDialogFragment(), UpdateProgressSheetContract.View {
-        var reviewId: String = ""
 
-    lateinit var presenter : UpdateProgressPresenter
-    val interactor : UpdateProgressSheetInteractor by lazy { UpdateProgressSheetInteractor() }
+    var reviewId: String = ""
+
+    lateinit var presenter: UpdateProgressPresenter
+    val interactor: UpdateProgressSheetInteractor by lazy { UpdateProgressSheetInteractor() }
 
     companion object {
         const val EXTRA_ID = "id"
@@ -29,7 +30,9 @@ class UpdateProgressSheet() : BottomSheetDialogFragment(), UpdateProgressSheetCo
 
         presenter = UpdateProgressPresenter(reviewId, this, interactor)
 
-        updateButton.setOnClickListener { presenter.onUpdateClicked() }
+        updateButton.setOnClickListener {
+            //presenter.onUpdateClicked()
+        }
         cancelButton.setOnClickListener { presenter.onCancelClicked() }
     }
 
@@ -40,16 +43,14 @@ class UpdateProgressSheet() : BottomSheetDialogFragment(), UpdateProgressSheetCo
     override fun setBookTitle(title: String) {
     }
 
-    override fun setMaxValue(value: Int) {
+    override fun showCommentInput() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    override fun setPercentage(percentage: Int) {
+    override fun showRatingStars() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    override fun setPage(page: Int) {
-    }
-    override fun enableSeekBarListener() {
-    }
     override fun showLoading() {}
 
     override fun dismissSheet() {

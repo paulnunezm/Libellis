@@ -6,8 +6,13 @@ import android.support.design.widget.BottomSheetDialogFragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.facebook.stetho.okhttp3.StethoInterceptor
 import com.nunez.libellis.R
+import com.nunez.libellis.repository.GoodreadsService
 import kotlinx.android.synthetic.main.reading_update_bottom_sheet.*
+import okhttp3.OkHttpClient
+import retrofit2.Retrofit
+import retrofit2.converter.simplexml.SimpleXmlConverterFactory
 
 
 class UpdateProgressSheet() : BottomSheetDialogFragment(), UpdateProgressSheetContract.View {
@@ -15,7 +20,7 @@ class UpdateProgressSheet() : BottomSheetDialogFragment(), UpdateProgressSheetCo
     var reviewId: String = ""
 
     lateinit var presenter: UpdateProgressPresenter
-    val interactor: UpdateProgressSheetInteractor by lazy { UpdateProgressSheetInteractor() }
+    lateinit var interactor: UpdateProgressSheetInteractor
 
     companion object {
         const val EXTRA_ID = "id"
@@ -27,15 +32,9 @@ class UpdateProgressSheet() : BottomSheetDialogFragment(), UpdateProgressSheetCo
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        presenter = UpdateProgressPresenter(reviewId, this, interactor)
-
-        updateButton.setOnClickListener {
-            //presenter.onUpdateClicked()
-        }
-        cancelButton.setOnClickListener { presenter.onCancelClicked() }
+        instantiateDependencies()
+        setListeners()
     }
-
 
     override fun setAuthorName(name: String) {
     }
@@ -59,5 +58,29 @@ class UpdateProgressSheet() : BottomSheetDialogFragment(), UpdateProgressSheetCo
 
     override fun showError() {
         // TODO: show error
+    }
+
+    private fun instantiateDependencies() {
+        interactor = UpdateProgressSheetInteractor(getGoodreadService())
+        presenter = UpdateProgressPresenter(reviewId, this, interactor)
+    }
+
+    private fun getGoodreadService(): GoodreadsService{
+        val client = OkHttpClient().newBuilder()
+                .addNetworkInterceptor(StethoInterceptor())
+                .build()
+        val retrofit = Retrofit.Builder()
+                .baseUrl(GoodreadsService.BASE_URL)
+                .addConverterFactory(SimpleXmlConverterFactory.create())
+                .client(client)
+                .build()
+        return retrofit.create(GoodreadsService::class.java)
+    }
+
+    private fun setListeners(){
+        updateButton.setOnClickListener {
+            //presenter.onUpdateClicked()
+        }
+        cancelButton.setOnClickListener { presenter.onCancelClicked() }
     }
 }

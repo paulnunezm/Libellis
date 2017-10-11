@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:gravity="center"
-        android:text="@string/update_progress_message"
+        android:text="@string/update_progress_view_message"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="@dimen/big_text_size"
         app:fontFile="Raleway-Medium.ttf"/>

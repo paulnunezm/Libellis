@@ -1,11 +1,11 @@
 package com.nunez.libellis.entities
 
-/**
- * Created by paulnunez on 10/10/17.
- */
+import com.nunez.libellis.views.UpdateProgressView
+
 data class UpdateProgress(
-        val id: Int,
-        val type: String,
+        val id: Int = 0,
+        val type: Int = UpdateProgressView.TYPE_PERCENT,
+        val value: String = "",
         val comment: String = "",
         val isFinished: Boolean = true,
         val rating: Int = 0

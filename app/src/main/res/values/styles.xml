@@ -101,6 +101,16 @@
         <item name="android:textSize">@dimen/enormous_text_size</item>
     </style>
 
+    <style name="UpdateProgressComment" parent="AppTheme">
+        <item name="android:textColorHighlight">@color/colorPrimary</item>
+        <item name="android:inputType">textAutoComplete|textLongMessage|textMultiLine</item>
+        <item name="android:textAlignment">textStart</item>
+        <item name="android:maxLines">6</item>
+        <item name="android:scrollbars">vertical</item>
+        <item name="android:nestedScrollingEnabled">true</item>
+        <item name="android:textSize">@dimen/medium_text_size</item>
+    </style>
+
     <style name="ProgressInputSymbol">
         <item name="android:gravity">center</item>
         <item name="android:textColor">@color/grey_dark</item>

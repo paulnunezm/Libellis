@@ -79,7 +79,6 @@ class UpdateProgressViewTest {
         assertFalse(progressView.isFinished)
     }
 
-
     @Test
     fun whenTotalBookPagesReachedShouldShowRatingStarsAndHideInput() {
         inputView.totalPages = 200
@@ -105,7 +104,6 @@ class UpdateProgressViewTest {
         assertFalse(progressView.isFinished)
     }
 
-
     @Test
     fun whenIveFinishedIsClickedShowRatingStarsAndHideFinishedButton() {
         val finished = progressView.findViewById<View>(R.id.finishedButton)
@@ -113,7 +111,17 @@ class UpdateProgressViewTest {
         finished.performClick()
 
         assertViewIsGone(finished)
-        assertViewIsVisible(ratingLayout)
+        assertViewIsGone(ratingLayout)
+    }
+
+    @Test
+    fun whenIveFinishedIsClickedShouldHideInput() {
+        val finished = progressView.findViewById<View>(R.id.finishedButton)
+
+        finished.performClick()
+
+        assertViewIsGone(finished)
+        assertViewIsGone(inputView)
     }
 
     @Test
@@ -159,7 +167,7 @@ class UpdateProgressViewTest {
         val comment = "It was awesome"
         val page = 70
         val tPages = 100
-        prepareViewWithProperties(comment, 0, page,tPages,ProgressInput.INPUT_PAGE)
+        prepareViewWithProperties(comment, 0, page, tPages, ProgressInput.INPUT_PAGE)
 
         val values = progressView.values
 
@@ -174,7 +182,7 @@ class UpdateProgressViewTest {
         val comment = "It was awesome"
         val page = 100
         val tPages = 100
-        prepareViewWithProperties(comment,0,page,tPages,ProgressInput.INPUT_PAGE)
+        prepareViewWithProperties(comment, 0, page, tPages, ProgressInput.INPUT_PAGE)
 
         val values = progressView.values
 
@@ -192,8 +200,8 @@ class UpdateProgressViewTest {
         assertEquals(View.VISIBLE, view.visibility)
     }
 
-    private fun prepareViewWithProperties(comment: String = "",   atPercent: Int = 0,  atPage: Int= 0,
-                                          bookTotalPages: Int= 0,  inputType: String = ProgressInput.INPUT_PERCENT) {
+    private fun prepareViewWithProperties(comment: String = "", atPercent: Int = 0, atPage: Int = 0,
+                                          bookTotalPages: Int = 0, inputType: String = ProgressInput.INPUT_PERCENT) {
         with(inputView) {
             currentInputType = inputType
             totalPages = bookTotalPages

@@ -79,6 +79,7 @@ class UpdateProgressView @JvmOverloads constructor(
         }
         finishedButton.setOnClickListener {
             it.visibility = View.GONE
+            progressInput.visibility = View.GONE
             showRating()
         }
         commentButton.setOnClickListener {

@@ -1,6 +1,8 @@
 package com.nunez.libellis.views
 
 import android.content.Context
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.LinearLayout
@@ -29,7 +31,7 @@ class ProgressInput @JvmOverloads constructor(
     var currentPage = 0
         set(value) {
             field = value
-            invokeListenerIfTotalPagesIsReached()
+            invokeListenerIfTotalPagesIsReached(value)
         }
     var currentPercent = 0
         set(value) {
@@ -42,6 +44,7 @@ class ProgressInput @JvmOverloads constructor(
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         inflater.inflate(R.layout.update_progress_input, this)
 
+        setInputListener()
         setSelectorListeners()
     }
 
@@ -52,6 +55,24 @@ class ProgressInput @JvmOverloads constructor(
             else -> throw Exception("Invalid selector")
         }
         changeSelectorsColorState()
+    }
+
+    private fun setInputListener() {
+        input.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {}
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                val textInString = s.toString()
+                val value = textInString.toInt()
+                if (currentInputType == INPUT_PERCENT) {
+                    currentPercent = value
+                } else {
+                    currentPage = value
+                }
+            }
+        })
     }
 
     private fun setSelectorListeners() {
@@ -98,8 +119,8 @@ class ProgressInput @JvmOverloads constructor(
         input.setText(value, TextView.BufferType.EDITABLE)
     }
 
-    private fun invokeListenerIfTotalPagesIsReached() {
-        if (totalPages != 0 && currentPage == totalPages) {
+    private fun invokeListenerIfTotalPagesIsReached(value: Int) {
+        if (totalPages != 0 && value == totalPages) {
             onTotalPagesListener?.apply {
                 invoke()
             }

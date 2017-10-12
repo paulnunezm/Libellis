@@ -3,6 +3,7 @@ package com.nunez.libellis.views
 import android.support.test.rule.ActivityTestRule
 import android.support.test.runner.AndroidJUnit4
 import android.view.LayoutInflater
+import android.widget.EditText
 import android.widget.LinearLayout
 import android.widget.TextView
 import com.nunez.libellis.R
@@ -25,52 +26,64 @@ class ProgressInputTest {
     lateinit var progressInput: ProgressInput
     lateinit var percentSelector: TextView
     lateinit var pageSelector: TextView
-    lateinit var input: TextView
+    lateinit var input: EditText
+
+    lateinit var percentHint: String
+    lateinit var pageHint: String
 
     @Before
     fun setUp() {
         val view = LayoutInflater.from(mActivityRule.activity).inflate(R.layout.test_layout, null) as LinearLayout
         progressInput = ProgressInput(mActivityRule.activity)
         view.addView(progressInput)
+
         percentSelector = progressInput.findViewById(R.id.percentSelector)
         pageSelector = progressInput.findViewById(R.id.pageSelector)
         input = progressInput.findViewById(R.id.input)
+
+        percentHint = mActivityRule.activity.resources.getString(R.string.progress_input_percent_symbol)
+        pageHint = mActivityRule.activity.resources.getString(R.string.progress_input_page_symbol)
     }
 
     @Test
-    fun shouldShowPercentSelectorWhenSetAsDefault(){
+    fun shouldStartwithPercentSelectorAsDefault(){
+        assertSelectorHasCorrectColors(percentSelector, pageSelector)
+    }
+
+    @Test
+    fun shouldStartwithPercentHintAsDefault(){
+        assertCorrectHintIsSet(percentHint)
+    }
+
+    @Test
+    fun shouldShowPercentSelectorAndHintWhenSetAsDefault(){
         progressInput.setDefaultSelector(ProgressInput.INPUT_PERCENT)
         assertSelectorHasCorrectColors(percentSelector, pageSelector)
+        assertCorrectHintIsSet(percentHint)
     }
 
     @Test
-    fun shouldShowPageSelectorWhenSetAsDefault(){
+    fun shouldShowPageSelectorAndHintWhenSetAsDefault(){
         progressInput.setDefaultSelector(ProgressInput.INPUT_PAGE)
         assertSelectorHasCorrectColors(pageSelector, percentSelector)
+        assertCorrectHintIsSet(pageHint)
     }
 
     @Test
-    fun selectingPageShouldChangeSelectorColors() {
+    fun selectingPageShouldChangeSelectorColorsAndHint() {
         pageSelector.performClick()
         assertSelectorHasCorrectColors(pageSelector, percentSelector)
+        assertCorrectHintIsSet(pageHint)
     }
 
     @Test
-    fun selectingPercentShouldChangeSelectorColors() {
+    fun selectingPercentShouldChangeSelectorColorsAndHint() {
         percentSelector.performClick()
+        pageSelector.performClick()
+        percentSelector.performClick()
+
         assertSelectorHasCorrectColors(percentSelector, pageSelector)
-    }
-
-    @Test
-    fun shouldShowCorrectPercentWhenSelected() {
-        // given
-        progressInput.currentPercent = 50
-
-        // when
-        percentSelector.performClick()
-
-        //then
-        assertEquals(50, input.text.toString().toInt())
+        assertCorrectHintIsSet(percentHint)
     }
 
     @Test
@@ -142,9 +155,8 @@ class ProgressInputTest {
         assertFalse(listenerInvoked)
     }
 
-
     @Test
-    fun shouldShowCorrectPageWhenSelected() {
+    fun shouldShowEraseInputWhenPageWhenSelected() {
         // given
         progressInput.currentPercent = 27
         progressInput.currentPage = 25
@@ -154,12 +166,30 @@ class ProgressInputTest {
         pageSelector.performClick()
 
         //then
-        assertEquals(25, input.text.toString().toInt())
+        assertTrue (input.text.toString().isEmpty())
     }
+
+
+    @Test
+    fun shouldShowEraseInputPercentWhenSelected() {
+        // given
+        progressInput.currentPercent = 50
+
+        // when
+        percentSelector.performClick()
+
+        //then
+        assertTrue (input.text.toString().isEmpty())
+    }
+
 
     private fun assertSelectorHasCorrectColors(selectedSelector: TextView, nonSelectedSelector: TextView) {
         val resources = mActivityRule.activity.resources
         assertEquals(selectedSelector.currentTextColor, resources.getColor(R.color.grey_dark))
         assertEquals(nonSelectedSelector.currentTextColor, resources.getColor(R.color.grey_lighter))
+    }
+
+    private fun assertCorrectHintIsSet(hint: String){
+        assertEquals(hint, input.hint.toString())
     }
 }

@@ -44,14 +44,21 @@ class ProgressInput @JvmOverloads constructor(
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         inflater.inflate(R.layout.update_progress_input, this)
 
+        setDefaultSelector(INPUT_PERCENT)
         setInputListener()
         setSelectorListeners()
     }
 
     fun setDefaultSelector(selector: String) {
         currentInputType = when (selector) {
-            INPUT_PERCENT -> INPUT_PERCENT
-            INPUT_PAGE -> INPUT_PAGE
+            INPUT_PERCENT -> {
+                setPercentHint()
+                INPUT_PERCENT
+            }
+            INPUT_PAGE -> {
+                setPageHint()
+                INPUT_PAGE
+            }
             else -> throw Exception("Invalid selector")
         }
         changeSelectorsColorState()
@@ -65,11 +72,13 @@ class ProgressInput @JvmOverloads constructor(
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 val textInString = s.toString()
-                val value = textInString.toInt()
-                if (currentInputType == INPUT_PERCENT) {
-                    currentPercent = value
-                } else {
-                    currentPage = value
+                if(textInString.isNotEmpty()){
+                    val value = textInString.toInt()
+                    if (currentInputType == INPUT_PERCENT) {
+                        currentPercent = value
+                    } else {
+                        currentPage = value
+                    }
                 }
             }
         })
@@ -78,14 +87,20 @@ class ProgressInput @JvmOverloads constructor(
     private fun setSelectorListeners() {
         pageSelector.setOnClickListener {
             currentInputType = INPUT_PAGE
+            setPageHint()
+            clearInput()
             changeSelectorsColorState()
-            setCorrectValueInField()
         }
         percentSelector.setOnClickListener {
             currentInputType = INPUT_PERCENT
+            setPercentHint()
+            clearInput()
             changeSelectorsColorState()
-            setCorrectValueInField()
         }
+    }
+
+    fun clearInput(){
+        input.setText("",TextView.BufferType.EDITABLE)
     }
 
     private fun changeSelectorsColorState() {
@@ -106,19 +121,6 @@ class ProgressInput @JvmOverloads constructor(
         percentSelector.setTextColor(resources.getColor(R.color.grey_lighter))
     }
 
-    private fun setCorrectValueInField() {
-        val value = if (currentInputType == INPUT_PERCENT) {
-            currentPercent.toString()
-        } else {
-            currentPage.toString()
-        }
-        setValueInField(value)
-    }
-
-    private fun setValueInField(value: String) {
-        input.setText(value, TextView.BufferType.EDITABLE)
-    }
-
     private fun invokeListenerIfTotalPagesIsReached(value: Int) {
         if (totalPages != 0 && value == totalPages) {
             onTotalPagesListener?.apply {
@@ -132,5 +134,22 @@ class ProgressInput @JvmOverloads constructor(
             on100PercentListener?.apply {
                 invoke()
             }
+    }
+
+    private fun setPercentHint() {
+        setHint(INPUT_PERCENT)
+    }
+
+    private fun setPageHint() {
+        setHint(INPUT_PAGE)
+    }
+
+    private fun setHint(inputType: String) {
+        val hintResource: Int = if (inputType == INPUT_PERCENT) {
+            R.string.progress_input_percent_symbol
+        } else {
+            R.string.progress_input_page_symbol
+        }
+        input.hint = resources.getString(hintResource)
     }
 }

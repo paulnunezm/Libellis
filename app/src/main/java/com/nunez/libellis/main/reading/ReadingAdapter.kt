@@ -9,7 +9,7 @@ import com.nunez.libellis.inflate
 import kotlinx.android.synthetic.main.reading_item.view.*
 
 class ReadingAdapter(var currentlyReading: List<Review>,
-                     val listener: (Int) -> Unit
+                     val listener: (String) -> Unit
 ) : RecyclerView.Adapter<ReadingAdapter.ReadingViewHolder>() {
 
     override fun onBindViewHolder(holder: ReadingViewHolder?, position: Int) {
@@ -25,7 +25,7 @@ class ReadingAdapter(var currentlyReading: List<Review>,
 
     class ReadingViewHolder(
             itemView: View,
-            val listener: (Int) -> Unit
+            val listener: (String) -> Unit
     ) : RecyclerView.ViewHolder(itemView) {
 
         val container = itemView.readingContainer

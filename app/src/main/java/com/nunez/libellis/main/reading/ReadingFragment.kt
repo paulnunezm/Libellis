@@ -56,7 +56,7 @@ class ReadingFragment : Fragment(), ReadingContract.View {
         readingRecycler.adapter = ReadingAdapter(books, { id ->
             val updateProgressSheet = UpdateProgressSheet()
             val bundle = Bundle()
-            bundle.putInt(UpdateProgressSheet.EXTRA_ID, id)
+            bundle.putString(UpdateProgressSheet.EXTRA_ID, id)
             updateProgressSheet.arguments = bundle
             updateProgressSheet.show(fragmentManager, "progress_sheet")
         })

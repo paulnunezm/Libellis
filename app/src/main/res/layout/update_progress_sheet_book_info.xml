@@ -26,7 +26,7 @@
         android:gravity="center"
         android:textSize="@dimen/small_text_size"
         app:fontFile="Raleway-Regular.ttf"
-        android:text="Murder on the Orient Express"/>
+        tools:text="Murder on the Orient Express"/>
 
     <com.nunez.libellis.views.CustomFontTextView
         android:id="@+id/bookAuthor"
@@ -35,6 +35,6 @@
         android:gravity="center"
         android:textSize="@dimen/small_text_size"
         app:fontFile="Raleway-Regular.ttf"
-        android:text="Agatha Christie"/>
+        tools:text="Agatha Christie"/>
 
 </merge>

@@ -47,10 +47,10 @@ class UpdateProgressSheetInteractor(
     }
 
     override fun updateBookReadingLocation(update: UpdateProgress): Completable {
-        if (update.type == UpdateProgressView.TYPE_PERCENT) {
-            return updateBookWithPercent(update)
+        return if (update.type == UpdateProgressView.TYPE_PERCENT) {
+            updateBookWithPercent(update)
         } else {
-           return updateBookWithPages(update)
+            updateBookWithPages(update)
         }
     }
 

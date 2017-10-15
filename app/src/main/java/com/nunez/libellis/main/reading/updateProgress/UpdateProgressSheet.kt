@@ -6,16 +6,13 @@ import android.support.design.widget.BottomSheetDialogFragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.facebook.stetho.okhttp3.StethoInterceptor
 import com.nunez.libellis.R
 import com.nunez.libellis.repository.GoodreadsService
+import com.nunez.libellis.repository.SignedRetrofit
 import kotlinx.android.synthetic.main.reading_update_bottom_sheet.*
-import okhttp3.OkHttpClient
-import retrofit2.Retrofit
-import retrofit2.converter.simplexml.SimpleXmlConverterFactory
 
 
-class UpdateProgressSheet() : BottomSheetDialogFragment(), UpdateProgressSheetContract.View {
+class UpdateProgressSheet : BottomSheetDialogFragment(), UpdateProgressSheetContract.View {
 
     var reviewId: String = ""
 
@@ -24,6 +21,8 @@ class UpdateProgressSheet() : BottomSheetDialogFragment(), UpdateProgressSheetCo
 
     companion object {
         const val EXTRA_ID = "id"
+        const val EXTRA_TITLE = "title"
+        const val EXTRA_AUTHOR = "author"
     }
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -32,22 +31,22 @@ class UpdateProgressSheet() : BottomSheetDialogFragment(), UpdateProgressSheetCo
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        instantiateDependencies()
+
+        val id = arguments.getString(EXTRA_ID) ?: ""
+        val title = arguments.getString(EXTRA_TITLE) ?: ""
+        val author = arguments.getString(EXTRA_AUTHOR) ?: ""
+        updateProgressLayout.bookId = id
+
+        instantiateDependencies(id, title, author)
         setListeners()
     }
 
     override fun setAuthorName(name: String) {
+        updateProgressLayout.authorName = name
     }
 
     override fun setBookTitle(title: String) {
-    }
-
-    override fun showCommentInput() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
-    override fun showRatingStars() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        updateProgressLayout.title = title
     }
 
     override fun showLoading() {}
@@ -57,29 +56,19 @@ class UpdateProgressSheet() : BottomSheetDialogFragment(), UpdateProgressSheetCo
     }
 
     override fun showError() {
-        // TODO: show error
     }
 
-    private fun instantiateDependencies() {
+    private fun instantiateDependencies(id: String, title: String, author: String) {
         interactor = UpdateProgressSheetInteractor(getGoodreadService())
-        presenter = UpdateProgressPresenter(reviewId, this, interactor)
+        presenter = UpdateProgressPresenter(id, title, author, this, interactor)
     }
 
-    private fun getGoodreadService(): GoodreadsService{
-        val client = OkHttpClient().newBuilder()
-                .addNetworkInterceptor(StethoInterceptor())
-                .build()
-        val retrofit = Retrofit.Builder()
-                .baseUrl(GoodreadsService.BASE_URL)
-                .addConverterFactory(SimpleXmlConverterFactory.create())
-                .client(client)
-                .build()
-        return retrofit.create(GoodreadsService::class.java)
-    }
+    private fun getGoodreadService(): GoodreadsService =
+            SignedRetrofit(context).instance.create(GoodreadsService::class.java)
 
-    private fun setListeners(){
+    private fun setListeners() {
         updateButton.setOnClickListener {
-            //presenter.onUpdateClicked()
+            presenter.onUpdateClicked(updateProgressLayout.values)
         }
         cancelButton.setOnClickListener { presenter.onCancelClicked() }
     }

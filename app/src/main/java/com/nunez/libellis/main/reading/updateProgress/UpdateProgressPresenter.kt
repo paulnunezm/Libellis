@@ -1,46 +1,20 @@
 package com.nunez.libellis.main.reading.updateProgress
 
-import android.util.Log
-import com.nunez.libellis.entities.ReviewUserStatus
 import com.nunez.libellis.entities.UpdateProgress
 
 class UpdateProgressPresenter(
         val reviewId: String,
+        val title: String,
+        val author: String,
         val view: UpdateProgressSheetContract.View,
         val interactor: UpdateProgressSheetContract.Interactor
-
 ) : UpdateProgressSheetContract.Presenter {
 
-    var totalPages: Int = 0
-
     init {
-        Log.d("presenter", "requested")
-
-        interactor.getBookReadingInfo(reviewId).subscribe({
-            review ->
-
-            with(review){
-                totalPages = book?.numberOfPages as Int
-                Log.d("presenter", "on->with === $totalPages")
-                userStatuses.let { setReadingStatus(it as List<ReviewUserStatus>) }
-            }
-
-            Log.d("presenter", "after")
-
-        }, {
-            view.showError()
-        }, {})
-    }
-
-    override fun setReadingStatus(statuses: List<ReviewUserStatus>) {
-
-        if (statuses.isNotEmpty()) {
-            val status = statuses[0]
-            val page = status.page
-            val percent = status.percent
-
+        if (!checkIfWeHaveAllDataNeeded()) {
+            view.dismissSheet()
         } else {
-
+            setBookInfo()
         }
     }
 
@@ -49,18 +23,39 @@ class UpdateProgressPresenter(
     }
 
     override fun onUpdateClicked(update: UpdateProgress) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        view.showLoading()
+        if(update.isFinished){
+            sendBookFinished(update)
+        }else{
+            sendBookUpdate(update)
+        }
     }
 
-    override fun onCommentClicked() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun setBookInfo() {
+        view.setBookTitle(title)
+        view.setAuthorName(author)
     }
 
-    override fun onFinishClicked() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    private fun checkIfWeHaveAllDataNeeded(): Boolean {
+        if (reviewId.isEmpty() || title.isEmpty() || author.isEmpty())
+            return false
+        return true
     }
 
-    override fun setBookInfo(title: String, author: String) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    private fun sendBookFinished(update: UpdateProgress){
+        interactor.bookFinished(update).subscribe({
+            view.dismissSheet()
+        },{
+            view.showError()
+        })
+    }
+
+    private fun sendBookUpdate(update: UpdateProgress){
+        interactor.updateBookReadingLocation(update).subscribe({
+            view.dismissSheet()
+        }, {
+            it.printStackTrace()
+            view.showError()
+        })
     }
 }

@@ -22,13 +22,13 @@ class UpdateProgressView @JvmOverloads constructor(
 
     companion object {
         const val TYPE_PERCENT = 0
-        const val TYPE_PAGE = 0
+        const val TYPE_PAGE = 1
     }
 
     var progressInput: ProgressInput
     private var currentProgressValue = ""
 
-    var bookId = 0
+    var bookId = ""
     var title = ""
         set(value) {
             field = value
@@ -55,7 +55,7 @@ class UpdateProgressView @JvmOverloads constructor(
             }
 
             return UpdateProgress(
-                    id,
+                    bookId,
                     currentType,
                     currentProgressValue,
                     commentEditText.text.toString(),
@@ -85,7 +85,6 @@ class UpdateProgressView @JvmOverloads constructor(
         commentButton.setOnClickListener {
             commentEditText.visibility = View.VISIBLE
         }
-
     }
 
     private fun onEndOfTheBookReached() {

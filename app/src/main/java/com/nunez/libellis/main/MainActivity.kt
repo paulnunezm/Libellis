@@ -14,7 +14,6 @@ import android.view.Menu
 import android.view.MenuItem
 import com.nunez.libellis.R
 import com.nunez.libellis.main.reading.ReadingFragment
-import com.nunez.libellis.main.updates.UpdatesFragment
 import kotlinx.android.synthetic.main.app_bar_main_activity.*
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
@@ -94,7 +93,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     private fun setupViewPager(){
         val pagerAdapter = ViewPagerAdapter(supportFragmentManager)
-        pagerAdapter.addFragment(UpdatesFragment.newInstance(), "Updates")
+//        pagerAdapter.addFragment(UpdatesFragment.newInstance(), "Updates")
         pagerAdapter.addFragment(ReadingFragment(), "Currently-Reading")
 
         viewpager.adapter = pagerAdapter

@@ -4,14 +4,13 @@ import android.content.Context
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.simplexml.SimpleXmlConverterFactory
-import javax.inject.Inject
 
 /**
  * Handles the retrofit signing process.
  */
 
 class SignedRetrofit
-@Inject constructor(val context: Context) {
+constructor(val context: Context) {
 
     val instance: Retrofit
         get() {

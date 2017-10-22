@@ -12,10 +12,9 @@ import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import retrofit2.Call
-import javax.inject.Inject
 
 class ReadingInteractor
-@Inject constructor(
+constructor(
         val context: Context,
         val signedRetrofit: SignedRetrofit
 ) : ReadingContract.Interactor {
@@ -27,8 +26,7 @@ class ReadingInteractor
     override fun requestBooks(): Observable<List<Review>> {
         val retrofit = signedRetrofit.instance
 
-        return Observable.create<List<Review>>({
-            subscriber ->
+        return Observable.create<List<Review>>({ subscriber ->
 
             val goodreads = retrofit.create(GoodreadsService::class.java)
 
@@ -41,9 +39,8 @@ class ReadingInteractor
                     search = "",
                     developerKey = BuildConfig.GOODREADS_API_KEY)
 
-            try{
-                response.enqueue({
-                    response ->
+            try {
+                response.enqueue({ response ->
                     if (response.isSuccessful) {
                         val r = response.body()?.reviews as List<Review>
                         subscriber.onNext(r)
@@ -54,7 +51,7 @@ class ReadingInteractor
                 }, {
                     subscriber.onError(it)
                 })
-            }catch (e:Exception){
+            } catch (e: Exception) {
                 subscriber.onError(e)
             }
         }).subscribeOn(Schedulers.io())

@@ -1,19 +1,17 @@
 package com.nunez.libellis.repository
 
 import android.content.Context
-import com.facebook.stetho.okhttp3.StethoInterceptor
 import com.nunez.libellis.BuildConfig
 import com.nunez.libellis.R
 import okhttp3.OkHttpClient
 import se.akerfeldt.okhttp.signpost.OkHttpOAuthConsumer
 import se.akerfeldt.okhttp.signpost.SigningInterceptor
-import javax.inject.Inject
 
 /**
  * Provides a signed okHttp client
  */
 class SignedHttpClient
-@Inject constructor(val context: Context) {
+constructor(val context: Context) {
 
     val instance: OkHttpClient
         get() {
@@ -29,10 +27,8 @@ class SignedHttpClient
 
             consumer.setTokenWithSecret(userKey, userSecret)
 
-            val stethoInterceptor = StethoInterceptor()
             val client = OkHttpClient.Builder()
                     .addInterceptor(SigningInterceptor(consumer))
-                    .addNetworkInterceptor(stethoInterceptor)
                     .build()
 
             return client

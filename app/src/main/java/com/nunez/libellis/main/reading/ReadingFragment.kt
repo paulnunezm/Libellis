@@ -16,6 +16,7 @@ import kotlinx.android.synthetic.main.fragment_currently_reading.*
 
 class ReadingFragment : Fragment(), ReadingContract.View {
 
+
     lateinit var interactor: ReadingInteractor
     lateinit var presenter: ReadingPrensenter
 
@@ -42,6 +43,11 @@ class ReadingFragment : Fragment(), ReadingContract.View {
         return view
     }
 
+    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        loadingView.startShimmerAnimation()
+    }
+
     override fun showBooks(books: List<Review>) {
         readingRecycler.layoutManager = LinearLayoutManager(activity)
         readingRecycler.setHasFixedSize(true)
@@ -57,6 +63,10 @@ class ReadingFragment : Fragment(), ReadingContract.View {
     }
 
     override fun showLoading() {
+    }
+
+    override fun hideLoading() {
+        loadingView.visibility = View.GONE
     }
 
     override fun showNoBooks() {

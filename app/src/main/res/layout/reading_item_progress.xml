@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="12dp"
+    android:orientation="vertical">
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/grey_lighter"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:background="@color/grey_lighter"
+        android:layout_marginBottom="4dp"
+        android:layout_marginTop="4dp"/>
+</LinearLayout>

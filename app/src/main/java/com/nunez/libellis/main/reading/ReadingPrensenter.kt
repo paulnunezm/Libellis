@@ -10,6 +10,7 @@ class ReadingPrensenter
 
     override fun getBooks() {
         interactor.requestBooks().subscribe({
+            view.hideLoading()
             sendReadingBooks(it)
         },{
             view.showMessage("Ups! Something seems wrong", true)

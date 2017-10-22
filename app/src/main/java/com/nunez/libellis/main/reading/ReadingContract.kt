@@ -8,6 +8,7 @@ interface ReadingContract {
     interface View {
         fun showBooks(books: List<Review>)
         fun showLoading()
+        fun hideLoading()
         fun showNoBooks()
         fun showMessage(message: String, error: Boolean = false)
     }

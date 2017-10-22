@@ -9,7 +9,7 @@ import com.nunez.libellis.inflate
 import kotlinx.android.synthetic.main.reading_item.view.*
 
 class ReadingAdapter(var currentlyReading: List<Review>,
-                     val listener: (Int) -> Unit
+                     val listener: (String, String, String) -> Unit
 ) : RecyclerView.Adapter<ReadingAdapter.ReadingViewHolder>() {
 
     override fun onBindViewHolder(holder: ReadingViewHolder?, position: Int) {
@@ -25,7 +25,7 @@ class ReadingAdapter(var currentlyReading: List<Review>,
 
     class ReadingViewHolder(
             itemView: View,
-            val listener: (Int) -> Unit
+            val listener:(String, String, String) -> Unit
     ) : RecyclerView.ViewHolder(itemView) {
 
         val container = itemView.readingContainer
@@ -33,12 +33,14 @@ class ReadingAdapter(var currentlyReading: List<Review>,
         val authorName = itemView.authorName
         fun bindViews(reading: Review) {
             with(reading) {
-                bookTitle.text = book?.title
-                authorName.text = book?.authors?.get(0)?.name
-
-                bookTitle.setOnClickListener { listener(id) }
-                authorName.setOnClickListener { listener(id) }
-                container.setOnClickListener { listener(id) }
+                val title = book?.title as String
+                val authorNames = book?.authors?.get(0)?.name as String
+                val bookId = book?.id as String
+                bookTitle.text = title
+                authorName.text = authorNames
+                bookTitle.setOnClickListener { listener(bookId, title, authorNames) }
+                authorName.setOnClickListener { listener(bookId, title, authorNames) }
+                container.setOnClickListener { listener(bookId, title, authorNames) }
             }
         }
     }

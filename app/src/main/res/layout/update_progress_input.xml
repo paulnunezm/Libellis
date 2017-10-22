@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    tools:parentTag="android.widget.LinearLayout">
+
+    <LinearLayout
+        android:id="@+id/progressLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.nunez.libellis.views.CustomFontTextView
+                style="@style/ProgressInputMessage"
+                android:id="@+id/customFontTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:fontFile="Raleway-Regular.ttf"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <com.nunez.libellis.views.CustomFontTextView
+                    android:id="@+id/percentSelector"
+                    style="@style/ProgressInputSymbol"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:text="@string/progress_input_percent_symbol"
+                    app:fontFile="Raleway-Regular.ttf"/>
+
+                <View
+                    android:id="@+id/view"
+                    android:layout_width="2dp"
+                    android:layout_height="32dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="@color/blue"/>
+
+                <com.nunez.libellis.views.CustomFontTextView
+                    android:id="@+id/pageSelector"
+                    style="@style/ProgressInputSymbol"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:text="@string/progress_input_page_symbol"
+                    app:fontFile="Raleway-Regular.ttf"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <com.nunez.libellis.views.CustomFontEditText
+            android:id="@+id/input"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:theme="@style/UpdateProgressEditText"
+            app:editTextFontFile="Lato-Light.ttf"
+            tools:text="0"/>
+    </LinearLayout>
+</merge>

@@ -3,24 +3,21 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
+    android:animateLayoutChanges="true"
     android:gravity="center"
-    android:animateLayoutChanges="true">
+    android:orientation="vertical">
 
-    <include layout="@layout/update_progress_sheet_book_info"/>
-
-    <com.nunez.libellis.views.RatingView
-        android:id="@+id/ratingView"
-        android:layout_width="wrap_content"
-        android:layout_height="69dp"
-        android:layout_marginTop="24dp"/>
+    <com.nunez.libellis.views.UpdateProgressView
+        android:id="@+id/updateProgressLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="34dp"
-        android:layout_gravity="end">
+        android:layout_gravity="end"
+        android:layout_marginTop="12dp"
+        android:orientation="horizontal">
 
         <Button
             android:id="@+id/cancelButton"

@@ -7,19 +7,22 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.nunez.libellis.R
+import com.nunez.libellis.repository.GoodreadsService
+import com.nunez.libellis.repository.SignedRetrofit
 import kotlinx.android.synthetic.main.reading_update_bottom_sheet.*
 
 
-class UpdateProgressSheet() : BottomSheetDialogFragment(), UpdateProgressSheetContract.View {
-        var reviewId: String = ""
+class UpdateProgressSheet : BottomSheetDialogFragment(), UpdateProgressSheetContract.View {
 
-    lateinit var presenter : UpdateProgressPresenter
-    val interactor : UpdateProgressSheetInteractor by lazy { UpdateProgressSheetInteractor() }
+    var reviewId: String = ""
+
+    lateinit var presenter: UpdateProgressPresenter
+    lateinit var interactor: UpdateProgressSheetInteractor
 
     companion object {
-        fun newInstance(reviewId: String): UpdateProgressSheet{
-            return UpdateProgressSheet()
-        }
+        const val EXTRA_ID = "id"
+        const val EXTRA_TITLE = "title"
+        const val EXTRA_AUTHOR = "author"
     }
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -29,29 +32,23 @@ class UpdateProgressSheet() : BottomSheetDialogFragment(), UpdateProgressSheetCo
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        presenter = UpdateProgressPresenter(reviewId, this, interactor)
+        val id = arguments.getString(EXTRA_ID) ?: ""
+        val title = arguments.getString(EXTRA_TITLE) ?: ""
+        val author = arguments.getString(EXTRA_AUTHOR) ?: ""
+        updateProgressLayout.bookId = id
 
-        updateButton.setOnClickListener { presenter.onUpdateClicked() }
-        cancelButton.setOnClickListener { presenter.onCancelClicked() }
+        instantiateDependencies(id, title, author)
+        setListeners()
     }
 
-
     override fun setAuthorName(name: String) {
+        updateProgressLayout.authorName = name
     }
 
     override fun setBookTitle(title: String) {
+        updateProgressLayout.title = title
     }
 
-    override fun setMaxValue(value: Int) {
-    }
-
-    override fun setPercentage(percentage: Int) {
-    }
-
-    override fun setPage(page: Int) {
-    }
-    override fun enableSeekBarListener() {
-    }
     override fun showLoading() {}
 
     override fun dismissSheet() {
@@ -59,6 +56,20 @@ class UpdateProgressSheet() : BottomSheetDialogFragment(), UpdateProgressSheetCo
     }
 
     override fun showError() {
-        // TODO: show error
+    }
+
+    private fun instantiateDependencies(id: String, title: String, author: String) {
+        interactor = UpdateProgressSheetInteractor(getGoodreadService())
+        presenter = UpdateProgressPresenter(id, title, author, this, interactor)
+    }
+
+    private fun getGoodreadService(): GoodreadsService =
+            SignedRetrofit(context).instance.create(GoodreadsService::class.java)
+
+    private fun setListeners() {
+        updateButton.setOnClickListener {
+            presenter.onUpdateClicked(updateProgressLayout.values)
+        }
+        cancelButton.setOnClickListener { presenter.onCancelClicked() }
     }
 }

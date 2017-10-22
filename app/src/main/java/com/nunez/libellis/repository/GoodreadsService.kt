@@ -1,6 +1,7 @@
 package com.nunez.libellis.repository
 
 import com.nunez.libellis.entities.GoodreadsResponse
+import io.reactivex.Completable
 import io.reactivex.Observable
 import okhttp3.ResponseBody
 import retrofit2.Call
@@ -61,4 +62,23 @@ interface GoodreadsService {
             @Query("key") developerKey: String,
             @Query("id") reviewId: String
     ): Call<GoodreadsResponse>
+
+    @FormUrlEncoded
+    @POST("user_status.xml")
+    fun sendBookUpdate(
+            @Field("user_status[book_id]") id: String,
+            @Field("user_status[page]") page: String = "",
+            @Field("user_status[percent]") percent: String = "",
+            @Field("user_status[body]") comment: String = ""//: status update (required, unless page or percent is present, then it is optional)
+    ): Completable // Signed request
+
+    @FormUrlEncoded
+    @POST("review.xml")
+    fun sendBookFinished(
+            @Field("book_id") id: String,
+            @Field("review[review]") comment: String = "", //Text of the review (optional)
+            @Field("review[rating]") rating: Int = 0, //(0-5) (optional, default is 0 (No rating))
+            @Field("shelf") shelf: String = "read" //read|currently-reading|to-read|<USER SHELF NAME> (optional, must exist, see: shelves.list)
+            //@Field("review[read_at]") //: Date (YYYY-MM-DD format, e.g. 2008-02-01) (optional)
+    ): Completable// Signed request
 }

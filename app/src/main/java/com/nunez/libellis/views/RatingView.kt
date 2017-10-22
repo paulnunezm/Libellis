@@ -17,14 +17,14 @@ class RatingView @JvmOverloads constructor(
         defStyleAttr: Int = 0
 ) : LinearLayout(context, attrs, defStyleAttr) {
 
-    private var rating = 3
+    private var mRating = 3
 
     init {
         val inflater = context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         inflater.inflate(R.layout.rating_view, this)
 
-        setRatingAndMessage(rating)
+        setRatingAndMessage(mRating)
         ratingBar.onRatingBarChangeListener = RatingBar.OnRatingBarChangeListener { _, rating, fromUser ->
           if(rating > 1){
                 setMessage(rating.toInt())
@@ -35,10 +35,12 @@ class RatingView @JvmOverloads constructor(
     }
 
      fun setRatingAndMessage(rating: Int) {
-        this.rating = 3
+        this.mRating = 3
         ratingBar.rating = rating.toFloat()
         setMessage(rating)
     }
+
+    fun getRating() = mRating
 
     private fun setMessage(rating: Int) {
         val message = when (rating) {

@@ -41,7 +41,16 @@
     <!-- Update reading bottom sheet -->
     <string name="update_progress_update">UPDATE</string>
     <string name="update_progress_cancel">CANCEL</string>
-    <string name="update_progress_message">Update progress on</string>
+
+    <!--Update progress view-->
+    <string name="update_progress_view_message">Update progress on</string>
+    <string name="update_progress_view_comment_msg">Comment</string>
+    <string name="update_progress_view_finished_msg">I\'ve finished!</string>
+
+    <!-- ProgressInput view-->
+    <string name="progress_input_type_msg">Input type</string>
+    <string name="progress_input_percent_symbol">%</string>
+    <string name="progress_input_page_symbol">#</string>
 
     <!-- Rating View -->
     <string name="rating_view_one_star">I hated it</string>
@@ -49,4 +58,6 @@
     <string name="rating_view_three_star">It\'s ok</string>
     <string name="rating_view_four_star">I liked it</string>
     <string name="rating_view_five_star">I loved it</string>
+
+    <!--New-->
 </resources>

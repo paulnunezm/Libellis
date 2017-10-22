@@ -53,9 +53,14 @@ class ReadingFragment : Fragment(), ReadingContract.View {
     override fun showBooks(books: List<Review>) {
         readingRecycler.layoutManager = LinearLayoutManager(activity)
         readingRecycler.setHasFixedSize(true)
-        readingRecycler.adapter = ReadingAdapter(books, {
-            id ->
-            UpdateProgressSheet(id.toString()).show(fragmentManager, "progress_sheet")
+        readingRecycler.adapter = ReadingAdapter(books, { id, title, authorName ->
+            val updateProgressSheet = UpdateProgressSheet()
+            val bundle = Bundle()
+            bundle.putString(UpdateProgressSheet.EXTRA_ID, id)
+            bundle.putString(UpdateProgressSheet.EXTRA_TITLE, title)
+            bundle.putString(UpdateProgressSheet.EXTRA_AUTHOR, authorName)
+            updateProgressSheet.arguments = bundle
+            updateProgressSheet.show(fragmentManager, "progress_sheet")
         })
     }
 

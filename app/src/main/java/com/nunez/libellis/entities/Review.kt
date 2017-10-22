@@ -24,7 +24,7 @@ class Reviews(
 
 @Root(name = "review", strict = false)
 class Review(
-        @field:Element var id:Int = 0,
+        @field:Element var id:String = "",
         @field:Element var book: ReviewBook? = null,
         @field:ElementList(name = "user_statuses", required = false) var userStatuses: List<ReviewUserStatus>? = null
 )

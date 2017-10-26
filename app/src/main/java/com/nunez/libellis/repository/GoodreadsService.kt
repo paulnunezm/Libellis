@@ -1,5 +1,6 @@
 package com.nunez.libellis.repository
 
+import com.nunez.libellis.BuildConfig
 import com.nunez.libellis.entities.GoodreadsResponse
 import io.reactivex.Completable
 import io.reactivex.Observable
@@ -42,6 +43,7 @@ interface GoodreadsService {
             @Field("a") removeTag: String = ""
     ): Call<ResponseBody>// Signed request
 
+    @Deprecated("Use the Rx call instead", ReplaceWith("getBooksOnShelfRX"))
     @GET("review/list?v=2")
     fun getBooksOnShelf(
             @Query("v") version: String = "2",
@@ -54,6 +56,19 @@ interface GoodreadsService {
             @Query("per_page") perPage: String = "",
             @Query("key") developerKey: String
     ): Call<GoodreadsResponse>
+
+    @GET("review/list?v=2")
+    fun getBooksOnShelfRX(
+            @Query("v") version: String = "2",
+            @Query("id") userId: String,
+            @Query("shelf") shelfName: String, // This is optional, if not specified returns books for every shelf
+            @Query("sort") sort: String = "desc",
+            @Query("search") search: String = "", // Query text to match against member's books (optional)
+            @Query("order") order: String = "a", // or d
+            @Query("page") page: String = "1",
+            @Query("per_page") perPage: String = "",
+            @Query("key") developerKey: String = BuildConfig.GOODREADS_API_KEY
+    ): Observable<GoodreadsResponse>
 
 
     /** Gets a user review. This also retrieves the currently reading information about a book.*/

@@ -23,9 +23,6 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="action_settings">Settings</string>
 
-    <!--Error-->
-    <string name="error_msg_implicit_error">An error just occurred :/</string>
-
     <!--Login Activity-->
     <string name="login_activity_log_in_button">Log in</string>
 
@@ -59,5 +56,9 @@
     <string name="rating_view_four_star">I liked it</string>
     <string name="rating_view_five_star">I loved it</string>
 
-    <!--New-->
+    <!-- Messages -->
+    <string name="msg_no_books">¡Hey, you have read them all!\nGo add a few more :D</string>
+    <string name="msg_error_implicit_error">An unexpected error just occurred :/</string>
+    <string name="msg_error_no_internet">Sorry, but it seems we don\'t have\ninternet connection!</string>
+
 </resources>

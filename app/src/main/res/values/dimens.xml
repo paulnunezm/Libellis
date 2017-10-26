@@ -59,4 +59,6 @@
     <dimen name="shelve_bottom_sheet_title">56dp</dimen>
     <!--/Updates-->
 
+    <dimen name="message_screen_text_size">16sp</dimen>
+
 </resources>

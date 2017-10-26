@@ -1,27 +1,37 @@
 package com.nunez.libellis.main.reading
 
+import com.nunez.libellis.NoConnectivityException
 import com.nunez.libellis.entities.Review
+import io.reactivex.android.schedulers.AndroidSchedulers
 
-class ReadingPrensenter
- constructor(
+class ReadingPrensenter(
         val view: ReadingContract.View,
         val interactor: ReadingContract.Interactor
 ) : ReadingContract.Presenter {
 
     override fun getBooks() {
-        interactor.requestBooks().subscribe({
-            view.hideLoading()
-            sendReadingBooks(it)
-        },{
-            view.showMessage("Ups! Something seems wrong", true)
-        })
+        interactor.requestBooks()
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({
+                    view.hideLoading()
+                    if (it.isEmpty())
+                        view.showNoBooksMessage()
+                    else
+                        sendReadingBooks(it)
+                }, { error ->
+                    view.hideLoading()
+                    if (error is NoConnectivityException)
+                        view.showErrorMessage()
+                    else
+                        view.showMessage("Ups! Something seems wrong", true)
+                })
     }
 
     override fun sendReadingBooks(readingBooks: List<Review>) {
-        if(readingBooks.isNotEmpty()){
+        if (readingBooks.isNotEmpty()) {
             view.showBooks(readingBooks)
-        }else{
-            view.showNoBooks()
+        } else {
+            view.showNoBooksMessage()
         }
     }
 }

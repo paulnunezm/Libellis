@@ -59,7 +59,7 @@ class UpdateProgressSheet : BottomSheetDialogFragment(), UpdateProgressSheetCont
     }
 
     private fun instantiateDependencies(id: String, title: String, author: String) {
-        interactor = UpdateProgressSheetInteractor(getGoodreadService())
+        interactor = UpdateProgressSheetInteractor(context,getGoodreadService())
         presenter = UpdateProgressPresenter(id, title, author, this, interactor)
     }
 

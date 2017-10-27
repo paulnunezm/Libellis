@@ -43,19 +43,12 @@ class UpdateProgressPresenter(
     }
 
     private fun sendBookFinished(update: UpdateProgress){
-        interactor.bookFinished(update).subscribe({
-            view.dismissSheet()
-        },{
-            view.showError()
-        })
+        view.dismissSheet()
+        interactor.bookFinished(update)
     }
 
     private fun sendBookUpdate(update: UpdateProgress){
-        interactor.updateBookReadingLocation(update).subscribe({
-            view.dismissSheet()
-        }, {
-            it.printStackTrace()
-            view.showError()
-        })
+        view.dismissSheet()
+        interactor.updateBookReadingLocation(update)
     }
 }

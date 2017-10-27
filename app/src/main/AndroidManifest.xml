@@ -30,6 +30,11 @@
             android:theme="@style/AppTheme"/>
         <activity android:name=".TestActivity">
         </activity>
+
+        <service
+            android:name=".main.reading.updateProgress.jobServices.UpdateProgressJobService"
+            android:exported="false"
+            android:permission="android.permission.BIND_JOB_SERVICE"/>
     </application>
 
 </manifest>

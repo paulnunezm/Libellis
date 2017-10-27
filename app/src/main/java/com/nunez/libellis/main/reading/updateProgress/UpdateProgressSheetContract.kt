@@ -2,7 +2,6 @@ package com.nunez.libellis.main.reading.updateProgress
 
 import com.nunez.libellis.entities.Review
 import com.nunez.libellis.entities.UpdateProgress
-import io.reactivex.Completable
 import io.reactivex.Observable
 
 interface UpdateProgressSheetContract {
@@ -22,7 +21,7 @@ interface UpdateProgressSheetContract {
 
     interface Interactor {
         fun getBookReadingInfo(reviewId: String): Observable<Review>
-        fun updateBookReadingLocation(update: UpdateProgress): Completable
-        fun bookFinished(update: UpdateProgress): Completable
+        fun updateBookReadingLocation(update: UpdateProgress)
+        fun bookFinished(update: UpdateProgress)
     }
 }

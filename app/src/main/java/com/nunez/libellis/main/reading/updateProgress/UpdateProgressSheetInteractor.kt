@@ -1,52 +1,27 @@
 package com.nunez.libellis.main.reading.updateProgress
 
-import com.nunez.libellis.entities.GoodreadsResponse
+import android.app.job.JobInfo
+import android.app.job.JobScheduler
+import android.content.ComponentName
+import android.content.Context
 import com.nunez.libellis.entities.Review
 import com.nunez.libellis.entities.UpdateProgress
+import com.nunez.libellis.main.reading.updateProgress.jobServices.UpdateProgressJobService
 import com.nunez.libellis.repository.GoodreadsService
 import com.nunez.libellis.views.UpdateProgressView
-import io.reactivex.Completable
 import io.reactivex.Observable
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.schedulers.Schedulers
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 
 class UpdateProgressSheetInteractor(
+        private val context: Context,
         private val goodreadsService: GoodreadsService
 ) : UpdateProgressSheetContract.Interactor {
 
     override fun getBookReadingInfo(reviewId: String): Observable<Review> {
-        // TODO: check internet connection
-
-        return Observable.create<Review>({ subscriber ->
-            try {
-                val response = goodreadsService.getReview(com.nunez.libellis.BuildConfig.GOODREADS_API_KEY, reviewId)
-                response.enqueue(object : Callback<GoodreadsResponse> {
-                    override fun onResponse(call: Call<GoodreadsResponse>?, response: Response<GoodreadsResponse>?) {
-                        val review = response?.body()?.review
-                        if (review != null) {
-                            subscriber.onNext(review)
-                            subscriber.onComplete()
-                        } else {
-                            subscriber.onError(Throwable("No review founded"))
-                        }
-                    }
-                    override fun onFailure(call: Call<GoodreadsResponse>?, t: Throwable?) {
-                        t?.printStackTrace()
-                        subscriber.onError(Throwable("No review founded"))
-                    }
-                })
-            } catch (e: Throwable) {
-                e.printStackTrace()
-                subscriber.onError(e)
-            }
-        })
+        return Observable.just(Review())
     }
 
-    override fun updateBookReadingLocation(update: UpdateProgress): Completable {
+    override fun updateBookReadingLocation(update: UpdateProgress) {
         return if (update.type == UpdateProgressView.TYPE_PERCENT) {
             updateBookWithPercent(update)
         } else {
@@ -54,30 +29,27 @@ class UpdateProgressSheetInteractor(
         }
     }
 
-    override fun bookFinished(update: UpdateProgress): Completable {
-        return goodreadsService.sendBookFinished(
-                update.id,
-                update.comment,
-                update.rating)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
+    override fun bookFinished(update: UpdateProgress) {
+        startUpdateProgressJob(update)
     }
 
-    private fun updateBookWithPages(update: UpdateProgress): Completable {
-        return goodreadsService.sendBookUpdate(
-                id = update.id,
-                page = update.value,
-                comment = update.comment)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
+    private fun updateBookWithPages(update: UpdateProgress) {
+        startUpdateProgressJob(update)
     }
 
-    private fun updateBookWithPercent(update: UpdateProgress): Completable {
-        return goodreadsService.sendBookUpdate(
-                id = update.id,
-                percent = update.value,
-                comment = update.comment)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
+    private fun updateBookWithPercent(update: UpdateProgress) {
+        startUpdateProgressJob(update)
+    }
+
+    private fun startUpdateProgressJob(update:UpdateProgress) {
+        val serviceName = ComponentName(context, UpdateProgressJobService::class.java)
+        val scheduler =  context.getSystemService(Context.JOB_SCHEDULER_SERVICE) as JobScheduler
+        val bundle = update.toPersistableBundle()
+        val id = scheduler.allPendingJobs.size + 1
+        val jobInfo = JobInfo.Builder(id, serviceName)
+                .setRequiredNetworkType(JobInfo.NETWORK_TYPE_ANY)
+                .setExtras(bundle)
+                .build()
+        scheduler.schedule(jobInfo)
     }
 }

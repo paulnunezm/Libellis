@@ -1,5 +1,6 @@
 package com.nunez.libellis.main
 
+import android.content.IntentFilter
 import android.os.Bundle
 import android.support.design.widget.NavigationView
 import android.support.v4.app.Fragment
@@ -10,13 +11,20 @@ import android.support.v4.widget.DrawerLayout
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import com.nunez.libellis.R
 import com.nunez.libellis.main.reading.ReadingFragment
+import com.nunez.libellis.main.reading.updateProgress.jobServices.UpdateStatusReceiver
+import com.nunez.libellis.showSnackbar
 import kotlinx.android.synthetic.main.app_bar_main_activity.*
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+
+    lateinit var updateStatusReceiver: UpdateStatusReceiver
+    lateinit var containerLayout: View
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,12 +39,16 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         drawer.setDrawerListener(toggle)
         toggle.syncState()
 
+        containerLayout = drawer
+
         val navigationView = findViewById<NavigationView>(R.id.nav_view)
         navigationView.setNavigationItemSelectedListener(this)
 
         // Setup view pager and tabs
         setupViewPager()
         tabs.setupWithViewPager(viewpager)
+
+        setUpBroadcastReceiverToStopThisJobWhenUpdateFinish()
     }
 
     override fun onBackPressed() {
@@ -91,13 +103,43 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         return true
     }
 
-    private fun setupViewPager(){
+    override fun onDestroy() {
+        unregisterReceiver(updateStatusReceiver)
+        super.onDestroy()
+    }
+
+    private fun setupViewPager() {
         val pagerAdapter = ViewPagerAdapter(supportFragmentManager)
 //        pagerAdapter.addFragment(UpdatesFragment.newInstance(), "Updates")
         pagerAdapter.addFragment(ReadingFragment(), "Currently-Reading")
 
         viewpager.adapter = pagerAdapter
     }
+
+    private fun setUpBroadcastReceiverToStopThisJobWhenUpdateFinish() {
+        // The filter's action is BROADCAST_ACTION
+        val statusIntentFilter = IntentFilter(UpdateStatusReceiver.UPDATE_STATUS_ACTION)
+
+        updateStatusReceiver = UpdateStatusReceiver({ status ->
+            when (status) {
+                is UpdateStatusReceiver.Status.Started ->{
+                    Log.d("Main",getString(R.string.msg_updating))
+                    showMessage(getString(R.string.msg_updating))
+                }
+                is UpdateStatusReceiver.Status.Completed -> {
+                    Log.d("Main",getString(R.string.msg_updated))
+                    showMessage(getString(R.string.msg_updated))
+                }
+                else -> showMessage(getString(R.string.msg_error_implicit_error))
+            }
+        })
+
+        // Registers the receiver and its intent filters
+        registerReceiver(
+                updateStatusReceiver,
+                statusIntentFilter)
+    }
+
 
     internal inner class ViewPagerAdapter(manager: FragmentManager) : FragmentPagerAdapter(manager) {
         private val mFragmentList = ArrayList<Fragment>()
@@ -117,5 +159,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         override fun getPageTitle(position: Int): CharSequence {
             return mFragmentTitleList.get(position)
         }
+    }
+
+    fun showMessage(message: String){
+        containerLayout.showSnackbar(message)
     }
 }

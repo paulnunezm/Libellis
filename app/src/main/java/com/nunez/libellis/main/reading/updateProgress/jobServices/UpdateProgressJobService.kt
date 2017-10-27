@@ -4,6 +4,7 @@ import android.app.job.JobParameters
 import android.app.job.JobService
 import android.content.Intent
 import android.content.IntentFilter
+import android.util.Log
 import com.nunez.libellis.entities.UpdateProgress
 import com.nunez.libellis.repository.GoodreadsService
 import com.nunez.libellis.repository.SignedRetrofit
@@ -25,6 +26,8 @@ class UpdateProgressJobService : JobService() {
     }
 
     override fun onStartJob(params: JobParameters?): Boolean {
+            Log.d(TAG, "on start Job")
+            Log.d(TAG, "${params?.jobId}")
         if (params != null) {
             this.jobParams = params
             update = UpdateProgress.fromPersistableBundle(params.extras)
@@ -93,8 +96,8 @@ class UpdateProgressJobService : JobService() {
 
         receiver = UpdateStatusReceiver({ status ->
             when (status) {
-                is UpdateStatusReceiver.Status.Started ->
-                    sendUpdateStatusStartBroadcast()
+                is UpdateStatusReceiver.Status.Started ->{
+                }
                 is UpdateStatusReceiver.Status.Completed -> {
                     unRegisterReceiver()
                     jobFinished(jobParams, false)

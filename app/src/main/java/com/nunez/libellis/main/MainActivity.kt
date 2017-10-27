@@ -10,7 +10,6 @@ import android.support.v4.view.GravityCompat
 import android.support.v4.widget.DrawerLayout
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -122,11 +121,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         updateStatusReceiver = UpdateStatusReceiver({ status ->
             when (status) {
                 is UpdateStatusReceiver.Status.Started ->{
-                    Log.d("Main",getString(R.string.msg_updating))
                     showMessage(getString(R.string.msg_updating))
                 }
                 is UpdateStatusReceiver.Status.Completed -> {
-                    Log.d("Main",getString(R.string.msg_updated))
                     showMessage(getString(R.string.msg_updated))
                 }
                 else -> showMessage(getString(R.string.msg_error_implicit_error))
@@ -162,6 +159,4 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             return mFragmentTitleList.get(position)
         }
     }
-
-
 }

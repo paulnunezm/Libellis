@@ -6,7 +6,7 @@ def versionMajor = 0
 def versionMinor = 2
 def versionPatch = 0
 
-// Everytime a new branch is added to the dev brach or a build uploaded to the beta or alpha we sum +1 to this
+// Every time a new branch is added to the dev branch or a build uploaded to the beta or alpha we sum +1 to this
 def versionBuild = 0
 
 android {

@@ -2,6 +2,13 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
+def versionMajor = 0
+def versionMinor = 2
+def versionPatch = 0
+
+// Everytime a new branch is added to the dev brach or a build uploaded to the beta or alpha we sum +1 to this
+def versionBuild = 0
+
 android {
     compileSdkVersion 26
     buildToolsVersion '26.0.2'
@@ -9,8 +16,8 @@ android {
         applicationId "com.nunez.libellis"
         minSdkVersion 21
         targetSdkVersion 26
-        versionCode 1
-        versionName "1.0"
+        versionCode versionMajor * 10000 + versionMinor * 1000 + versionPatch * 100 + versionBuild
+        versionName "${versionMajor}.${versionMinor}.${versionPatch}"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {

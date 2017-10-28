@@ -27,6 +27,8 @@ class ReadingFragment : Fragment(), ReadingContract.View {
         val TAG = "CurrentlyReading"
     }
 
+    var isResuming = false
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         if (arguments != null) {
@@ -49,7 +51,13 @@ class ReadingFragment : Fragment(), ReadingContract.View {
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        loadingView.intensity = 0.01f
         loadingView.startShimmerAnimation()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        isResuming = true
     }
 
     override fun showBooks(books: List<Review>) {
@@ -64,6 +72,8 @@ class ReadingFragment : Fragment(), ReadingContract.View {
             updateProgressSheet.arguments = bundle
             updateProgressSheet.show(fragmentManager, "progress_sheet")
         })
+
+        readingRecycler.scheduleLayoutAnimation()
     }
 
     override fun showLoading() {

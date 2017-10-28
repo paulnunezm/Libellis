@@ -13,7 +13,7 @@ android {
     compileSdkVersion 26
     buildToolsVersion '26.0.2'
     defaultConfig {
-        applicationId "com.nunez.libellis"
+        applicationId "com.nunez.libellis.ni"
         minSdkVersion 21
         targetSdkVersion 26
         versionCode versionMajor * 10000 + versionMinor * 1000 + versionPatch * 100 + versionBuild

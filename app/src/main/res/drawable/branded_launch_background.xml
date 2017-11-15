@@ -4,6 +4,6 @@
         <color android:color="@color/white"/>
     </item>
     <item
-        android:drawable="@drawable/libellis_logo"
+        android:drawable="@drawable/libelis_logo"
         android:gravity="center" />
 </layer-list>

@@ -1,58 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/loginContainer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
     tools:context="com.nunez.libellis.login.LoginActivity">
 
-    <android.support.v7.widget.CardView
-        android:id="@+id/loginCard"
-        android:layout_width="0dp"
-        android:layout_height="150dp"
-        android:layout_margin="0dp"
-        android:layout_marginBottom="2dp"
-        android:padding="0dp"
-        android:visibility="gone"
-        app:cardBackgroundColor="@color/grey_light"
-        app:cardElevation="@dimen/card_elevation"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        tools:visibility="visible">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/ic_launcher_background" />
 
-        <Button
-            android:id="@+id/loginButton"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical" >
+
+        <ImageView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="190dp"
             android:layout_gravity="center"
-            android:alpha="0"
-            android:background="@drawable/login_btn"
-            android:gravity="center"
-            android:paddingBottom="15dp"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp"
-            android:paddingTop="15dp"
-            android:text="@string/login_activity_log_in_button"
-            android:textColor="@color/white"
-            android:textSize="@dimen/medium_text_size"
-            tools:alpha="1"/>
+            android:scaleType="center"
+            android:scrollY="10dp"
+            android:src="@drawable/libelis_logo" />
 
-        <ProgressBar
-            android:id="@+id/progressBar"
-            style="@style/LoginProgress"
-            android:layout_width="wrap_content"
+        <ImageView
+            android:id="@+id/message"
+            android:layout_width="250dp"
+            android:layout_height="100dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_libellis_message"
+            android:layout_gravity="center"/>
+
+        <FrameLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:indeterminate="true"
-            android:visibility="gone"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            android:layout_gravity="bottom"
+            android:animateLayoutChanges="true">
 
-    </android.support.v7.widget.CardView>
-</android.support.constraint.ConstraintLayout>
+            <Button
+                android:id="@+id/loginButton"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:paddingBottom="15dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:paddingTop="15dp"
+                android:text="@string/login_activity_log_in_button"
+                android:textSize="@dimen/medium_text_size"
+                android:visibility="gone"
+                tools:visibility="visible" />
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                style="@style/Widget.AppCompat.ProgressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:indeterminate="true"
+                android:visibility="gone"
+                tools:layout_marginTop="40dp"
+                tools:visibility="visible"/>
+        </FrameLayout>
+
+    </LinearLayout>
+
+
+</FrameLayout>

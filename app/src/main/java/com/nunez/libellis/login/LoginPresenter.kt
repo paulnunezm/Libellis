@@ -1,7 +1,7 @@
 package com.nunez.libellis.login
 
 import android.net.Uri
-import android.util.Log
+import com.nunez.libellis.NoConnectivityException
 import com.nunez.oauthathenticator.AuthDialog
 import com.nunez.oauthathenticator.Authenticator
 import java.util.concurrent.ExecutionException
@@ -21,13 +21,16 @@ class LoginPresenter(
     }
 
     override fun loginButtonClicked() {
-        view.showProgress()
-
-        try {
-            authenticator.getRequestToken()
-        } catch (e: Exception) {
-            view.showError()
-        }
+       if(interactor.hasConnection()){
+           view.showProgress()
+           try {
+               authenticator.getRequestToken()
+           } catch (e: Exception) {
+               view.showUnexpectedErrorMessage()
+           }
+       }else{
+           view.showConnectivityErrorMessage()
+       }
     }
 
     override fun onRequestTokenReceived(authorizationUrl: String?, requestToken: String?, requestTokenSecret: String?) {
@@ -38,21 +41,20 @@ class LoginPresenter(
         try {
             authenticator.getUserSecretKeys(authToken)
         } catch (e: ExecutionException) {
-            view.showError()
+            view.showUnexpectedErrorMessage()
         }
     }
 
     override fun onUserSecretRecieved(userKey: String?, userSecret: String?) {
         interactor.saveUserKeys(userKey, userSecret)
         interactor.requestUserId()
-                .subscribe({},
-                        { t ->
-                            Log.e("loginPresenter", "onError: ${t.toString()}")
-                            // TODO: HANDLE ERROR
-                        },
-                        {
-                            view.goToUpdatesActivity()
-                        })
+                .subscribe(view::goToUpdatesActivity, { error ->
+                    if (error is NoConnectivityException) {
+                        view.showConnectivityErrorMessage()
+                    } else {
+                        view.showUnexpectedErrorMessage()
+                    }
+                })
     }
 
     override fun setLoginInteractor(interactor: LoginContract.Interactor) {

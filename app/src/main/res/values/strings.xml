@@ -58,7 +58,7 @@
 
     <!-- Messages -->
     <string name="msg_no_books">¡Hey, you have read them all!\nGo add a few more :D</string>
-    <string name="msg_error_implicit_error">An unexpected error just occurred :/</string>
+    <string name="msg_error_implicit_error">Snap! something was wrong…\nTry again later</string>
     <string name="msg_error_no_internet">Sorry, but it seems we don\'t have\ninternet connection!</string>
     <string name="msg_updating">Updating…</string>
     <string name="msg_updated">¡Updated!</string>

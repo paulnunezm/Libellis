@@ -1,5 +1,6 @@
 package com.nunez.oauthathenticator;
 
+import android.content.DialogInterface;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -103,6 +104,12 @@ public class AuthDialog extends DialogFragment implements DialogWebClient.onAuth
   @Override
   public void onFailure() {
     // Notifiy de previous activity that an error has happened.
+  }
+
+  @Override
+  public void onDismiss(DialogInterface dialog) {
+    listener.onDialogCloseByUser();
+    super.onDismiss(dialog);
   }
 }
 

@@ -1,16 +1,17 @@
 package com.nunez.libellis.login
 
-import android.animation.ObjectAnimator
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.PorterDuff
 import android.os.Bundle
+import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.widget.Button
 import android.widget.ProgressBar
 import com.nunez.libellis.BuildConfig
+import com.nunez.libellis.ConnectivityCheckerImpl
 import com.nunez.libellis.R
 import com.nunez.libellis.main.MainActivity
 import com.nunez.libellis.repository.GoodreadsService
@@ -34,7 +35,7 @@ class LoginActivity : AppCompatActivity(), LoginContract.View {
         setContentView(R.layout.login_activity)
 
         presenter = LoginPresenter(this)
-        interactor = LoginInteractor(this)
+        interactor = LoginInteractor(this, ConnectivityCheckerImpl(this))
 
         val authenticator = Authenticator.Builder()
                 .consumerKey(BuildConfig.GOODREADS_API_KEY)
@@ -78,11 +79,9 @@ class LoginActivity : AppCompatActivity(), LoginContract.View {
         loginButton.visibility = GONE
     }
 
-    override fun showError() {
+    override fun showLoginButton() {
         loginButton.visibility = VISIBLE
         progress.visibility = GONE
-
-        loginContainer.showSnackbar("Snap! something was wrong...")
     }
 
     override fun goToUpdatesActivity() {
@@ -91,16 +90,16 @@ class LoginActivity : AppCompatActivity(), LoginContract.View {
         startActivity(intent)
     }
 
-    override fun showLoginButton() {
-
-        val animator = ObjectAnimator.ofFloat(loginButton, "alpha", 1f)
-        animator.duration = 500
-        animator.startDelay = 1000
-        animator.start()
-    }
-
     override fun onAuthDialogClose() {
         loginButton.visibility = VISIBLE
         progress.visibility = GONE
+    }
+
+    override fun showUnexpectedErrorMessage() {
+        loginContainer.showSnackbar(getString(R.string.msg_error_implicit_error), Snackbar.LENGTH_LONG)
+    }
+
+    override fun showConnectivityErrorMessage() {
+        loginContainer.showSnackbar(getString(R.string.msg_error_no_internet), Snackbar.LENGTH_LONG)
     }
 }

@@ -1,5 +1,6 @@
 package com.nunez.libellis.main
 
+import android.content.Intent
 import android.content.IntentFilter
 import android.os.Bundle
 import android.support.design.widget.NavigationView
@@ -8,12 +9,14 @@ import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
 import android.support.v4.view.GravityCompat
 import android.support.v4.widget.DrawerLayout
+import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import com.nunez.libellis.R
+import com.nunez.libellis.login.LoginActivity
 import com.nunez.libellis.main.reading.ReadingFragment
 import com.nunez.libellis.main.reading.updateProgress.jobServices.UpdateStatusReceiver
 import com.nunez.libellis.showSnackbar
@@ -32,10 +35,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
 
         val drawer = findViewById<DrawerLayout>(R.id.drawer_layout)
-//        val toggle = ActionBarDrawerToggle(
-//                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
-//        drawer.setDrawerListener(toggle)
-//        toggle.syncState()
+        val toggle = ActionBarDrawerToggle(
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
+        drawer.setDrawerListener(toggle)
+        toggle.syncState()
 
         containerLayout = drawer
 
@@ -82,18 +85,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         // Handle navigation view item clicks here.
         val id = item.itemId
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
+        if (id == R.id.logout) {
+            logout()
         }
 
         val drawer = findViewById<DrawerLayout>(R.id.drawer_layout)
@@ -104,6 +97,21 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     override fun onDestroy() {
         unregisterReceiver(updateStatusReceiver)
         super.onDestroy()
+    }
+
+    private fun logout() {
+        val prefs = getSharedPreferences(this.getString(R.string.user_prefs), 0)
+        val editor = prefs.edit()
+
+        editor.putBoolean(getString(R.string.user_prefs_logged_in), false)
+        editor.putString(getString(R.string.user_prefs_user_id),"")
+        editor.putString(getString(R.string.user_prefs_user_key),"")
+        editor.putString(getString(R.string.user_prefs_user_secret),"")
+        editor.apply()
+
+        val loginActivity = Intent(this, LoginActivity::class.java)
+        loginActivity.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        startActivity(loginActivity)
     }
 
     private fun setupViewPager() {
@@ -120,7 +128,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         updateStatusReceiver = UpdateStatusReceiver({ status ->
             when (status) {
-                is UpdateStatusReceiver.Status.Started ->{
+                is UpdateStatusReceiver.Status.Started -> {
                     showMessage(getString(R.string.msg_updating))
                 }
                 is UpdateStatusReceiver.Status.Completed -> {
@@ -136,7 +144,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 statusIntentFilter)
     }
 
-    private fun showMessage(message: String){
+    private fun showMessage(message: String) {
         containerLayout.showSnackbar(message)
     }
 

@@ -25,9 +25,9 @@
 
         <activity
             android:name=".login.LoginActivity"
-            android:theme="@style/AppTheme.BrandedLaunch"
             android:configChanges="orientation"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"/>
 
         <activity
             android:name=".main.MainActivity"

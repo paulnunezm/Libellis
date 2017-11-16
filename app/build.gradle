@@ -3,11 +3,11 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 def versionMajor = 0
-def versionMinor = 2
+def versionMinor = 3
 def versionPatch = 0
 
 // Every time a new branch is added to the dev branch or a build uploaded to the beta or alpha we sum +1 to this
-def versionBuild = 0
+def versionBuild = 1
 
 android {
     compileSdkVersion 26

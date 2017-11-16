@@ -90,6 +90,7 @@ public class AuthDialog extends DialogFragment implements DialogWebClient.onAuth
 
     // Force links and redirects to open in the WebView instead of in a browser
     webView.setWebViewClient(new DialogWebClient(this, getArguments().getString("callbackUrl")));
+
   }
 
   @Override
@@ -129,5 +130,11 @@ class DialogWebClient extends WebViewClient {
       Uri urlUri = Uri.parse(url);
       listener.onSuccess(urlUri);
     }
+  }
+
+  @Override
+  public void onPageFinished(WebView view, String url) {
+    super.onPageFinished(view, url);
+      view.scrollTo(0, view.getContentHeight());
   }
 }

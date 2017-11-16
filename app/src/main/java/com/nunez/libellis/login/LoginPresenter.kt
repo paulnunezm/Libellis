@@ -21,16 +21,16 @@ class LoginPresenter(
     }
 
     override fun loginButtonClicked() {
-       if(interactor.hasConnection()){
-           view.showProgress()
-           try {
-               authenticator.getRequestToken()
-           } catch (e: Exception) {
-               view.showUnexpectedErrorMessage()
-           }
-       }else{
-           view.showConnectivityErrorMessage()
-       }
+        if (interactor.hasConnection()) {
+            view.showProgress()
+            try {
+                authenticator.getRequestToken()
+            } catch (e: Exception) {
+                view.showUnexpectedErrorMessage()
+            }
+        } else {
+            view.showConnectivityErrorMessage()
+        }
     }
 
     override fun onRequestTokenReceived(authorizationUrl: String?, requestToken: String?, requestTokenSecret: String?) {
@@ -48,13 +48,9 @@ class LoginPresenter(
     override fun onUserSecretRecieved(userKey: String?, userSecret: String?) {
         interactor.saveUserKeys(userKey, userSecret)
         interactor.requestUserId()
-                .subscribe(view::goToUpdatesActivity, { error ->
-                    if (error is NoConnectivityException) {
-                        view.showConnectivityErrorMessage()
-                    } else {
-                        view.showUnexpectedErrorMessage()
-                    }
-                })
+                .subscribe(
+                        this::onLoginSuccess,
+                        { onLoginError(it) })
     }
 
     override fun setLoginInteractor(interactor: LoginContract.Interactor) {
@@ -63,5 +59,18 @@ class LoginPresenter(
 
     override fun onDialogCloseByUser() {
         view.onAuthDialogClose()
+    }
+
+    private fun onLoginSuccess() {
+        view.showProgress()
+        view.goToUpdatesActivity()
+    }
+
+    private fun onLoginError(e: Throwable) {
+        if (e is NoConnectivityException) {
+            view.showConnectivityErrorMessage()
+        } else {
+            view.showUnexpectedErrorMessage()
+        }
     }
 }

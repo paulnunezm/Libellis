@@ -7,38 +7,69 @@
     android:animateLayoutChanges="true"
     tools:context="com.nunez.libellis.login.LoginActivity">
 
-    <FrameLayout
-        android:id="@+id/loginCard"
+    <ImageView
         android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:layout_gravity="bottom"
-        android:background="@color/grey_light"
-        android:visibility="gone"
-        tools:visibility="visible">
-        <Button
-            android:id="@+id/loginButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:alpha="0"
-            android:background="@drawable/login_btn"
-            android:gravity="center"
-            android:paddingBottom="15dp"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp"
-            android:paddingTop="15dp"
-            android:text="@string/login_activity_log_in_button"
-            android:textColor="@color/white"
-            android:textSize="@dimen/medium_text_size"
-            tools:alpha="1" />
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/ic_launcher_background" />
 
-        <ProgressBar
-            android:id="@+id/progressBar"
-            style="@style/LoginProgress"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical" >
+
+        <ImageView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="190dp"
             android:layout_gravity="center"
-            android:indeterminate="true"
-            android:visibility="gone" />
-    </FrameLayout>
+            android:scaleType="center"
+            android:scrollY="10dp"
+            android:src="@drawable/libelis_logo" />
+
+        <ImageView
+            android:id="@+id/message"
+            android:layout_width="250dp"
+            android:layout_height="100dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_libellis_message"
+            android:layout_gravity="center"/>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:animateLayoutChanges="true">
+
+            <Button
+                android:id="@+id/loginButton"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:paddingBottom="15dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:paddingTop="15dp"
+                android:text="@string/login_activity_log_in_button"
+                android:textSize="@dimen/medium_text_size"
+                android:visibility="gone"
+                tools:visibility="visible" />
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                style="@style/Widget.AppCompat.ProgressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:indeterminate="true"
+                android:visibility="gone"
+                tools:layout_marginTop="40dp"
+                tools:visibility="visible"/>
+        </FrameLayout>
+
+    </LinearLayout>
+
+
 </FrameLayout>

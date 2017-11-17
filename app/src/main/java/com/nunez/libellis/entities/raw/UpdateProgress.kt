@@ -1,4 +1,4 @@
-package com.nunez.libellis.entities
+package com.nunez.libellis.entities.raw
 
 import android.os.PersistableBundle
 import com.nunez.libellis.views.UpdateProgressView

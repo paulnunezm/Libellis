@@ -1,4 +1,4 @@
-package com.nunez.libellis.entities
+package com.nunez.libellis.entities.raw
 
 import com.nunez.libellis.entities.ReadStatusUpdate.Review
 
@@ -12,7 +12,7 @@ data class ReadStatusUpdate(
         var review: Review = Review(),
         var updatedAt: String = ""
 
-): Update(Update.TYPE.READ_STATUS, user, updatedAt){
+): Update(TYPE.READ_STATUS, user, updatedAt){
     data class Review(
             var id: String = "",
             var rating: String ="",

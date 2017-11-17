@@ -1,8 +1,8 @@
 package com.nunez.libellis.repository.parsers
 
-import com.nunez.libellis.entities.Author
-import com.nunez.libellis.entities.Book
-import com.nunez.libellis.entities.User
+import com.nunez.libellis.entities.raw.Author
+import com.nunez.libellis.entities.raw.Book
+import com.nunez.libellis.entities.raw.User
 import org.w3c.dom.Node
 import org.w3c.dom.NodeList
 

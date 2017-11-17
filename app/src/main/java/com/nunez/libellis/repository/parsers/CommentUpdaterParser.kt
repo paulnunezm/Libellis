@@ -1,7 +1,7 @@
 package com.nunez.libellis.repository.parsers
 
-import com.nunez.libellis.entities.CommentUpdate
-import com.nunez.libellis.entities.User
+import com.nunez.libellis.entities.raw.CommentUpdate
+import com.nunez.libellis.entities.raw.User
 import org.w3c.dom.Node
 
 /**

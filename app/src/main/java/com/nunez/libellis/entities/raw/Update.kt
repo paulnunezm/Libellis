@@ -1,4 +1,4 @@
-package com.nunez.libellis.entities
+package com.nunez.libellis.entities.raw
 
 /**
  * Created by paulnunez on 4/25/17.

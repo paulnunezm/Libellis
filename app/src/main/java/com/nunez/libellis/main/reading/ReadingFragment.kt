@@ -7,7 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.nunez.libellis.R
-import com.nunez.libellis.entities.Review
+import com.nunez.libellis.entities.raw.Review
 import com.nunez.libellis.gone
 import com.nunez.libellis.main.reading.updateProgress.UpdateProgressSheet
 import com.nunez.libellis.repository.SignedRetrofit

@@ -1,6 +1,6 @@
 package com.nunez.libellis.repository
 
-import com.nunez.libellis.entities.GoodreadsResponse
+import com.nunez.libellis.entities.raw.GoodreadsResponse
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNotNull
 import org.junit.Before

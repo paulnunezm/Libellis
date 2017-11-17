@@ -1,6 +1,6 @@
 package com.nunez.libellis.repository.parsers
 
-import com.nunez.libellis.entities.*
+import com.nunez.libellis.entities.raw.*
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertTrue
 import org.junit.Test

@@ -4,8 +4,8 @@ import android.app.job.JobInfo
 import android.app.job.JobScheduler
 import android.content.ComponentName
 import android.content.Context
-import com.nunez.libellis.entities.Review
-import com.nunez.libellis.entities.UpdateProgress
+import com.nunez.libellis.entities.raw.Review
+import com.nunez.libellis.entities.raw.UpdateProgress
 import com.nunez.libellis.main.reading.updateProgress.jobServices.UpdateProgressJobService
 import com.nunez.libellis.repository.GoodreadsService
 import com.nunez.libellis.views.UpdateProgressView
@@ -41,7 +41,7 @@ class UpdateProgressSheetInteractor(
         startUpdateProgressJob(update)
     }
 
-    private fun startUpdateProgressJob(update:UpdateProgress) {
+    private fun startUpdateProgressJob(update: UpdateProgress) {
         val serviceName = ComponentName(context, UpdateProgressJobService::class.java)
         val scheduler =  context.getSystemService(Context.JOB_SCHEDULER_SERVICE) as JobScheduler
         val bundle = update.toPersistableBundle()

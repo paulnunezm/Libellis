@@ -7,7 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.nunez.libellis.R
-import com.nunez.libellis.entities.Shelve
+import com.nunez.libellis.entities.raw.Shelve
 import kotlinx.android.synthetic.main.shelve_bottom_sheet.*
 
 

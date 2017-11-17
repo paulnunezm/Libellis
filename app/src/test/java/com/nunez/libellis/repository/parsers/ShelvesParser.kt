@@ -1,6 +1,6 @@
 package com.nunez.libellis.repository.parsers
 
-import com.nunez.libellis.entities.GoodreadsResponse
+import com.nunez.libellis.entities.raw.GoodreadsResponse
 import junit.framework.Assert
 import org.junit.Test
 import org.simpleframework.xml.core.Persister

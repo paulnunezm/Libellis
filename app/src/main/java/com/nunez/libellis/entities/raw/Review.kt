@@ -1,4 +1,4 @@
-package com.nunez.libellis.entities
+package com.nunez.libellis.entities.raw
 
 import org.simpleframework.xml.Attribute
 import org.simpleframework.xml.Element
@@ -31,10 +31,10 @@ class Review(
 
 @Root(name = "book", strict = false)
 data class ReviewBook(
-         @field:Element var id: String = "",
-         @field:Element var title: String = "",
-         @field:ElementList var authors: ArrayList<ReviewAuthor>? = null,
-         @field:Element(name = "num_pages", required = false) var numberOfPages: Int = 0
+        @field:Element var id: String = "",
+        @field:Element var title: String = "",
+        @field:ElementList var authors: ArrayList<ReviewAuthor>? = null,
+        @field:Element(name = "num_pages", required = false) var numberOfPages: Int = 0
 
 )
 

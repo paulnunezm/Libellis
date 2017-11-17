@@ -4,7 +4,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
 import com.nunez.libellis.R
-import com.nunez.libellis.entities.Review
+import com.nunez.libellis.entities.raw.Review
 import com.nunez.libellis.inflate
 import kotlinx.android.synthetic.main.reading_item.view.*
 

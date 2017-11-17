@@ -1,8 +1,8 @@
 package com.nunez.libellis.repository.parsers
 
-import com.nunez.libellis.entities.FriendUpdate
-import com.nunez.libellis.entities.Update
-import com.nunez.libellis.entities.User
+import com.nunez.libellis.entities.raw.FriendUpdate
+import com.nunez.libellis.entities.raw.Update
+import com.nunez.libellis.entities.raw.User
 import org.w3c.dom.Node
 
 /**

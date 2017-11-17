@@ -1,7 +1,7 @@
 package com.nunez.libellis.main.reading
 
 import com.nunez.libellis.NoConnectivityException
-import com.nunez.libellis.entities.Review
+import com.nunez.libellis.entities.raw.Review
 import io.reactivex.android.schedulers.AndroidSchedulers
 
 class ReadingPrensenter(

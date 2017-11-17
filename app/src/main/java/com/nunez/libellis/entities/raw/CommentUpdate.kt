@@ -1,4 +1,4 @@
-package com.nunez.libellis.entities
+package com.nunez.libellis.entities.raw
 
 /**
  * Created by paulnunez on 4/29/17.
@@ -10,4 +10,4 @@ data class CommentUpdate (
         val reviewLink: String,
         val updatedAt: String
 
-): Update(Update.TYPE.COMMENT, user, updatedAt)
+): Update(TYPE.COMMENT, user, updatedAt)

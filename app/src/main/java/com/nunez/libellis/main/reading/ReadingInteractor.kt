@@ -2,7 +2,7 @@ package com.nunez.libellis.main.reading
 
 import android.content.Context
 import com.nunez.libellis.NoConnectivityException
-import com.nunez.libellis.entities.Review
+import com.nunez.libellis.entities.raw.Review
 import com.nunez.libellis.getUserId
 import com.nunez.libellis.isConnectedToTheInternet
 import com.nunez.libellis.repository.GoodreadsService

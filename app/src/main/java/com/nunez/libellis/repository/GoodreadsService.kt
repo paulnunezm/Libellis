@@ -1,7 +1,7 @@
 package com.nunez.libellis.repository
 
 import com.nunez.libellis.BuildConfig
-import com.nunez.libellis.entities.GoodreadsResponse
+import com.nunez.libellis.entities.raw.GoodreadsResponse
 import io.reactivex.Completable
 import io.reactivex.Observable
 import okhttp3.ResponseBody

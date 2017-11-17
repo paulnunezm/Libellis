@@ -1,4 +1,4 @@
-package com.nunez.libellis.entities
+package com.nunez.libellis.entities.raw
 
 import org.simpleframework.xml.Element
 import org.simpleframework.xml.ElementList

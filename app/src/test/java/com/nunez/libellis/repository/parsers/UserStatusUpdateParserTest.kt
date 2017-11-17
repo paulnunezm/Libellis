@@ -1,6 +1,6 @@
 package com.nunez.libellis.repository.parsers
 
-import com.nunez.libellis.entities.UserStatusUpdate
+import com.nunez.libellis.entities.raw.UserStatusUpdate
 import junit.framework.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test

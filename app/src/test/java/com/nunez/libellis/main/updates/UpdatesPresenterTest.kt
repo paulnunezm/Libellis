@@ -2,7 +2,7 @@ package com.nunez.libellis.main.updates
 
 import com.nhaarman.mockito_kotlin.mock
 import com.nhaarman.mockito_kotlin.verify
-import com.nunez.libellis.entities.*
+import com.nunez.libellis.entities.raw.*
 import org.junit.Test
 /**
  * Created by paulnunez on 5/9/17.
@@ -28,7 +28,7 @@ class UpdatesPresenterTest {
     fun sendUpdatesToViewShouldPass() {
         // given
         val list = ArrayList<Update>()
-        list.add(FriendUpdate("", User(),"", "", "", ""))
+        list.add(FriendUpdate("", User(), "", "", "", ""))
         list.add(ReviewUpdate(User(), "", "", "", "", Book()))
 
         //when

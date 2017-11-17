@@ -1,6 +1,6 @@
 package com.nunez.libellis.repository.parsers
 
-import com.nunez.libellis.entities.raw.Book
+import com.nunez.libellis.entities.raw.BookRaw
 import com.nunez.libellis.entities.raw.ReviewUpdate
 import com.nunez.libellis.entities.raw.User
 import org.w3c.dom.Node
@@ -17,7 +17,7 @@ class ReviewsUpdateParser(val reviewNode: Node) : BaseUpdatesParser() {
         var bookImageUrl = ""
         var updatedAt = ""
         var rating = ""
-        var book = Book()
+        var book = BookRaw()
 
         iterateInChildNotes(reviewNode.childNodes, {
             when (it.nodeName) {

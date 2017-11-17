@@ -49,8 +49,8 @@ class ReadStatusUpdateParserTest : BaseParserTest() {
         assertEquals("review id", "1982119542", readstatus.review.id)
         assertEquals("review", "", readstatus.review.review)
         assertEquals("review comments count", "0", readstatus.review.commentsCount)
-        assertEquals("Book id", "22469811", readstatus.review.book.id)
-        assertEquals("Book title","The Arrangement 15: The Ferro Family (The Arrangement, #15)",
+        assertEquals("BookRaw id", "22469811", readstatus.review.book.id)
+        assertEquals("BookRaw title","The Arrangement 15: The Ferro Family (The Arrangement, #15)",
                 readstatus.review.book.title)
         assertEquals("book author", "4330590", readstatus.review.book.authors[0].id)
         assertEquals("book author", "H.M. Ward", readstatus.review.book.authors[0].name)

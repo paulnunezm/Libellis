@@ -29,7 +29,7 @@ class UpdatesPresenterTest {
         // given
         val list = ArrayList<Update>()
         list.add(FriendUpdate("", User(), "", "", "", ""))
-        list.add(ReviewUpdate(User(), "", "", "", "", Book()))
+        list.add(ReviewUpdate(User(), "", "", "", "", BookRaw()))
 
         //when
         presenter.sendUpdates(list)

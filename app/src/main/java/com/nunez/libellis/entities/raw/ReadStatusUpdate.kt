@@ -1,7 +1,5 @@
 package com.nunez.libellis.entities.raw
 
-import com.nunez.libellis.entities.ReadStatusUpdate.Review
-
 /**
  * Created by paulnunez on 4/30/17
  */
@@ -19,6 +17,6 @@ data class ReadStatusUpdate(
             var review: String = "", // Can be empty
             var commentsCount: String = "",
             var spoiler: String = "",
-            var book: Book = Book()
+            var book: BookRaw = BookRaw()
     )
 }

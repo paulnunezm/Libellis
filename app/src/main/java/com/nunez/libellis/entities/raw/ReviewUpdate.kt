@@ -9,6 +9,6 @@ data class ReviewUpdate(
         val bookImageUrl: String,
         val updatedAt: String,
         val rating: String,
-        val book: Book
+        val book: BookRaw
 
 ) : Update(TYPE.REVIEW, user, updatedAt)

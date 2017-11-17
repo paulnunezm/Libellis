@@ -16,6 +16,6 @@ data class UserStatusUpdate(
             var percent: String = "",
             var commentsCount: String = "",
             var reviewId: String = "",
-            var book: Book = Book()
+            var book: BookRaw = BookRaw()
     )
 }

@@ -1,7 +1,7 @@
 package com.nunez.libellis.repository.parsers
 
-import com.nunez.libellis.entities.ReadStatusUpdate
-import com.nunez.libellis.entities.User
+import com.nunez.libellis.entities.raw.ReadStatusUpdate
+import com.nunez.libellis.entities.raw.User
 import org.w3c.dom.Node
 
 /**

@@ -5,7 +5,7 @@ import android.app.job.JobService
 import android.content.Intent
 import android.content.IntentFilter
 import android.util.Log
-import com.nunez.libellis.entities.UpdateProgress
+import com.nunez.libellis.entities.raw.UpdateProgress
 import com.nunez.libellis.repository.GoodreadsService
 import com.nunez.libellis.repository.SignedRetrofit
 import com.nunez.libellis.views.UpdateProgressView

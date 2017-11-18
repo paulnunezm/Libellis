@@ -1,18 +1,18 @@
-package com.nunez.libellis.entities
+package com.nunez.libellis.entities.raw
 
 /**
  * Created by paulnunez on 4/29/17
  */
-data class Book(
+data class BookRaw(
         var id: String = "",
         var title: String = "",
         var averageRating: String = "",
         var ratingsCount: String = "",
         var reviewsCount: String = "",
-        var authors: ArrayList<Author> = ArrayList()
+        var authors: ArrayList<AuthorRaw> = ArrayList()
 )
 
-data class Author(
+data class AuthorRaw(
         var id: String = "",
         var name: String = "",
         var imageUrl: String = "",

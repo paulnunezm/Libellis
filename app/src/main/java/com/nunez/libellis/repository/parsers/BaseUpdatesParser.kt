@@ -1,8 +1,8 @@
 package com.nunez.libellis.repository.parsers
 
-import com.nunez.libellis.entities.Author
-import com.nunez.libellis.entities.Book
-import com.nunez.libellis.entities.User
+import com.nunez.libellis.entities.raw.AuthorRaw
+import com.nunez.libellis.entities.raw.BookRaw
+import com.nunez.libellis.entities.raw.User
 import org.w3c.dom.Node
 import org.w3c.dom.NodeList
 
@@ -26,8 +26,8 @@ open class BaseUpdatesParser : BaseParser() {
         return user
     }
 
-    fun parseBook(bookNode: Node): Book {
-        var book = Book()
+    fun parseBook(bookNode: Node): BookRaw {
+        var book = BookRaw()
 
         iterateInChildNotes(bookNode.childNodes, {
             when (it.nodeName) {
@@ -49,8 +49,8 @@ open class BaseUpdatesParser : BaseParser() {
                     }
                 }
                 "author" -> {
-                    var authors = ArrayList<Author>()
-                    val tempBook = Book()
+                    var authors = ArrayList<AuthorRaw>()
+                    val tempBook = BookRaw()
                     authors.add(parseAuthor(it, tempBook))
 
                     with(tempBook) {
@@ -76,9 +76,9 @@ open class BaseUpdatesParser : BaseParser() {
         return text
     }
 
-    private fun parseAuthors(authorsNode: NodeList): Book {
-        var book = Book()
-        var authors = ArrayList<Author>()
+    private fun parseAuthors(authorsNode: NodeList): BookRaw {
+        var book = BookRaw()
+        var authors = ArrayList<AuthorRaw>()
 
         iterateInChildNotes(authorsNode, {
             if (it.nodeName == "author") {
@@ -91,8 +91,8 @@ open class BaseUpdatesParser : BaseParser() {
         return book
     }
 
-    private fun parseAuthor(node: Node, book: Book): Author {
-        val author = Author()
+    private fun parseAuthor(node: Node, book: BookRaw): AuthorRaw {
+        val author = AuthorRaw()
         iterateInChildNotes(node.childNodes, {
             when (it.nodeName) {
                 "id" -> author.id = getNodeValue(it)

@@ -1,6 +1,6 @@
 package com.nunez.libellis.main.reading.updateProgress
 
-import com.nunez.libellis.entities.UpdateProgress
+import com.nunez.libellis.entities.raw.UpdateProgress
 
 class UpdateProgressPresenter(
         val reviewId: String,

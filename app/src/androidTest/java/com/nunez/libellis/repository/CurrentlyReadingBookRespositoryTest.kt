@@ -39,7 +39,7 @@ class CurrentlyReadingBookRespositoryTest {
     @Test
     fun shouldRefreshAllObserverWhenStoringAll() {
         // Given
-        val list = listOf(CurrentlyReadingBook(),CurrentlyReadingBook(), CurrentlyReadingBook())
+        val list = listOf(CurrentlyReadingBook(), CurrentlyReadingBook(), CurrentlyReadingBook())
         var canAssert = false
 
         //when
@@ -49,7 +49,7 @@ class CurrentlyReadingBookRespositoryTest {
                         assertEquals("ListWith same length", list.size, it.size)
                     } else {
                     }
-                },{
+                }, {
                     fail("On error")
                 })
 
@@ -57,18 +57,18 @@ class CurrentlyReadingBookRespositoryTest {
         repository.storeAll(list)
                 .subscribe({
                     canAssert = true
-                },{})
+                }, {})
     }
 
 
     @Test
-    fun shouldReplaceOldListWithNew(){
+    fun shouldReplaceOldListWithNew() {
         // Given
         val list_1 = listOf(CurrentlyReadingBook(), CurrentlyReadingBook(), CurrentlyReadingBook())
         val list_2 = listOf(CurrentlyReadingBook(), CurrentlyReadingBook())
 
         repository.storeAll(list_1)
-                .subscribe({},{
+                .subscribe({}, {
                     fail("On error $it")
                 })
 
@@ -78,8 +78,33 @@ class CurrentlyReadingBookRespositoryTest {
                     //Then
                     val retrievedBooks = CurrentlyReadingBook().queryAll()
                     assertEquals("List should be the same size", list_2.size, retrievedBooks.size)
-                },{
+                }, {
                     fail("On error $it")
                 })
+    }
+
+
+    @Test
+    fun shouldReturnDataWhenSubscribedInFirstTime() {
+        // Given
+        val list_1 = listOf(CurrentlyReadingBook(), CurrentlyReadingBook(), CurrentlyReadingBook())
+
+
+        realm.beginTransaction()
+        realm.delete(CurrentlyReadingBook::class.java)
+        realm.commitTransaction()
+
+        repository.storeAll(list_1)
+                .subscribe({}, {
+                    fail("On error $it")
+                })
+
+        repository.all.subscribe({
+            t: List<CurrentlyReadingBook>? ->
+            assertEquals("List should be the same size", list_1.size, t?.size)
+        }, {
+            fail("On error $it")
+        },{
+        })
     }
 }

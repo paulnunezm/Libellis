@@ -4,9 +4,11 @@
     <!-- Preferences-->
     <string name="user_prefs" translatable="false">user_prefs</string>
     <string name="user_prefs_logged_in" translatable="false">logged_in</string>
+    <string name="user_prefs_currently_reading_cached" translatable="false">are_currently_books_cached</string>
     <string name="user_prefs_user_key" translatable="false">user_key</string>
     <string name="user_prefs_user_secret" translatable="false">user_secret</string>
     <string name="user_prefs_user_id" translatable="false">user_id</string>
+    <string name="user_prefs_user_image_url" translatable="false">user_image_url</string>
 
     <!-- Update book -->
     <string name="like_button">Like</string>

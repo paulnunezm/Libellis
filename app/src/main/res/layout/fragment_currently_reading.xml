@@ -12,11 +12,10 @@
         android:layout_height="match_parent"
         android:layout="@layout/error_no_connectivity"/>
 
-    <ViewStub
+    <include
         android:id="@+id/noBooksMessage"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout="@layout/message_no_books"/>
+        layout="@layout/message_no_books"
+        android:visibility="invisible"/>
 
     <com.facebook.shimmer.ShimmerFrameLayout
         android:id="@+id/loadingView"

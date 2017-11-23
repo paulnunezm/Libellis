@@ -4,11 +4,14 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.LinearLayout
 import com.nunez.libellis.R
 import com.nunez.libellis.entities.raw.UpdateProgress
 import kotlinx.android.synthetic.main.update_progress_layout.view.*
 import kotlinx.android.synthetic.main.update_progress_sheet_book_info.view.*
+
+
 
 /**
  * Created by paulnunez on 10/11/17.
@@ -84,6 +87,9 @@ class UpdateProgressView @JvmOverloads constructor(
         }
         commentButton.setOnClickListener {
             commentEditText.visibility = View.VISIBLE
+            commentEditText.requestFocus()
+            val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.showSoftInput(commentEditText, InputMethodManager.SHOW_IMPLICIT)
         }
     }
 

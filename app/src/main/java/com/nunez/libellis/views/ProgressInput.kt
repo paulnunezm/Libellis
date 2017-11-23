@@ -5,10 +5,13 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.util.AttributeSet
 import android.view.LayoutInflater
+import android.view.inputmethod.InputMethodManager
 import android.widget.LinearLayout
 import android.widget.TextView
 import com.nunez.libellis.R
 import kotlinx.android.synthetic.main.update_progress_input.view.*
+
+
 
 /**
  * Created by paulnunez on 10/6/17.
@@ -90,16 +93,18 @@ class ProgressInput @JvmOverloads constructor(
             setPageHint()
             clearInput()
             changeSelectorsColorState()
+            showKeyboard()
         }
         percentSelector.setOnClickListener {
             currentInputType = INPUT_PERCENT
             setPercentHint()
             clearInput()
             changeSelectorsColorState()
+            showKeyboard()
         }
     }
 
-    fun clearInput(){
+    private fun clearInput(){
         input.setText("",TextView.BufferType.EDITABLE)
     }
 
@@ -151,5 +156,11 @@ class ProgressInput @JvmOverloads constructor(
             R.string.progress_input_page_symbol
         }
         input.hint = resources.getString(hintResource)
+    }
+
+    private fun showKeyboard( ){
+        input.requestFocus()
+        val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.showSoftInput(input, InputMethodManager.SHOW_IMPLICIT)
     }
 }

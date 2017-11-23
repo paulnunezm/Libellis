@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:animateLayoutChanges="true"
-    android:gravity="center"
+    android:paddingBottom="12dp"
     android:orientation="vertical">
 
     <com.nunez.libellis.views.UpdateProgressView
@@ -16,14 +16,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end"
-        android:layout_marginTop="12dp"
         android:orientation="horizontal">
 
         <Button
             android:id="@+id/cancelButton"
             style="@style/DialogButton"
             android:layout_width="wrap_content"
-            android:layout_height="36dp"
+            android:layout_height="42dp"
             android:text="@string/update_progress_cancel"
             android:textColor="@color/blue_translucent"/>
 
@@ -31,7 +30,7 @@
             android:id="@+id/updateButton"
             style="@style/DialogButton"
             android:layout_width="wrap_content"
-            android:layout_height="36dp"
+            android:layout_height="42dp"
             android:text="@string/update_progress_update"
             android:textColor="@color/colorPrimary"/>
     </LinearLayout>

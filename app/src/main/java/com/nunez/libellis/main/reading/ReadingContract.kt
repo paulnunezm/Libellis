@@ -1,7 +1,6 @@
 package com.nunez.libellis.main.reading
 
 import com.nunez.libellis.entities.CurrentlyReadingBook
-import com.nunez.libellis.entities.raw.Review
 import io.reactivex.Completable
 import io.reactivex.Flowable
 
@@ -14,6 +13,8 @@ interface ReadingContract {
         fun showMessage(message: String, error: Boolean = false)
         fun showNoBooksMessage()
         fun showErrorMessage()
+        fun showRefreshing()
+        fun hideRefreshing()
     }
 
     interface Presenter {
@@ -22,7 +23,7 @@ interface ReadingContract {
     }
 
     interface Interactor {
-        fun requestBooks(): Flowable<List<CurrentlyReadingBook>>
+        fun requestBooksObservable(): Flowable<List<CurrentlyReadingBook>>
         fun fetchBooks(): Completable
     }
 

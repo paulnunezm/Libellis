@@ -32,6 +32,10 @@ class ReadingPrensenter(
         })
     }
 
+    override fun onBookClicked(id: String, title: String, author: String) {
+        view.showUpdateProgress(id, title, author)
+    }
+
     private fun fetchBooksFromNetwork() {
         interactor.fetchBooks().subscribe({
         }, {

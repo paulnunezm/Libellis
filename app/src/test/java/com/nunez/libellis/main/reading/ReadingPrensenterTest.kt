@@ -113,6 +113,21 @@ class ReadingPrensenterTest {
         verify(view).showRefreshing()
     }
 
+    @Test
+    fun onBookClicked_showUpdateProgress(){
+        // Given
+        val id = "103"
+        val title = "Dracula"
+        val author = "Bram Stoker"
+
+        // when
+        presenter.onBookClicked(id, title, author)
+
+        // Then
+        verify(view).showUpdateProgress(id, title, author)
+    }
+
+
 
     /*
     **********

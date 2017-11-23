@@ -4,9 +4,11 @@
     <!-- Preferences-->
     <string name="user_prefs" translatable="false">user_prefs</string>
     <string name="user_prefs_logged_in" translatable="false">logged_in</string>
+    <string name="user_prefs_currently_reading_cached" translatable="false">are_currently_books_cached</string>
     <string name="user_prefs_user_key" translatable="false">user_key</string>
     <string name="user_prefs_user_secret" translatable="false">user_secret</string>
     <string name="user_prefs_user_id" translatable="false">user_id</string>
+    <string name="user_prefs_user_image_url" translatable="false">user_image_url</string>
 
     <!-- Update book -->
     <string name="like_button">Like</string>
@@ -16,15 +18,12 @@
     <string name="update_progress_cancel_button_txt">CANCEL</string>
     <string name="update_progress_update_button_txt">UPDATE</string>
     <string name="update_progress_last_update_txt">Last update:</string>
-    <string name="title_activity_main_activity">MainActivityActivity</string>
+    <string name="title_activity_main_activity">Libellis</string>
 
     <!-- Content description -->
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="action_settings">Settings</string>
-
-    <!--Error-->
-    <string name="error_msg_implicit_error">An error just occurred :/</string>
 
     <!--Login Activity-->
     <string name="login_activity_log_in_button">Log in</string>
@@ -36,4 +35,35 @@
 
     <!--Shelve bottom sheet-->
     <string name="shelve_bottom_sheet_add_to_shelve">Add to shelve:</string>
+    <string name="shelve_to_read">to-read</string>
+
+    <!-- Update reading bottom sheet -->
+    <string name="update_progress_update">UPDATE</string>
+    <string name="update_progress_cancel">CANCEL</string>
+
+    <!--Update progress view-->
+    <string name="update_progress_view_message">Update progress on</string>
+    <string name="update_progress_view_comment_msg">Comment</string>
+    <string name="update_progress_view_finished_msg">I\'ve finished!</string>
+
+    <!-- ProgressInput view-->
+    <string name="progress_input_type_msg">Input type</string>
+    <string name="progress_input_percent_symbol">%</string>
+    <string name="progress_input_page_symbol">#</string>
+
+    <!-- Rating View -->
+    <string name="rating_view_one_star">I hated it</string>
+    <string name="rating_view_two_star">Disliked it</string>
+    <string name="rating_view_three_star">It\'s ok</string>
+    <string name="rating_view_four_star">I liked it</string>
+    <string name="rating_view_five_star">I loved it</string>
+
+    <!-- Messages -->
+    <string name="msg_no_books">¡Hey, you have read them all!\nGo add a few more :D</string>
+    <string name="msg_error_implicit_error">Snap! something was wrong…\nTry again later</string>
+    <string name="msg_error_no_internet">Sorry, but it seems we don\'t have\ninternet connection!</string>
+    <string name="msg_updating">Updating…</string>
+    <string name="msg_updated">¡Updated!</string>
+    <string name="msg_updated_fail_will_retry">Updated failed, ¡but we will retry later!</string>
+
 </resources>

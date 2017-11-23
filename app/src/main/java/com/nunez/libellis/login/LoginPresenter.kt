@@ -1,7 +1,7 @@
 package com.nunez.libellis.login
 
 import android.net.Uri
-import android.util.Log
+import com.nunez.libellis.NoConnectivityException
 import com.nunez.oauthathenticator.AuthDialog
 import com.nunez.oauthathenticator.Authenticator
 import java.util.concurrent.ExecutionException
@@ -21,12 +21,15 @@ class LoginPresenter(
     }
 
     override fun loginButtonClicked() {
-        view.showProgress()
-
-        try {
-            authenticator.getRequestToken()
-        } catch (e: Exception) {
-            view.showError()
+        if (interactor.hasConnection()) {
+            view.showProgress()
+            try {
+                authenticator.getRequestToken()
+            } catch (e: Exception) {
+                view.showUnexpectedErrorMessage()
+            }
+        } else {
+            view.showConnectivityErrorMessage()
         }
     }
 
@@ -38,21 +41,16 @@ class LoginPresenter(
         try {
             authenticator.getUserSecretKeys(authToken)
         } catch (e: ExecutionException) {
-            view.showError()
+            view.showUnexpectedErrorMessage()
         }
     }
 
     override fun onUserSecretRecieved(userKey: String?, userSecret: String?) {
         interactor.saveUserKeys(userKey, userSecret)
         interactor.requestUserId()
-                .subscribe({},
-                        { t ->
-                            Log.e("loginPresenter", "onError: ${t.toString()}")
-                            // TODO: HANDLE ERROR
-                        },
-                        {
-                            view.goToUpdatesActivity()
-                        })
+                .subscribe(
+                        this::onLoginSuccess,
+                        { onLoginError(it) })
     }
 
     override fun setLoginInteractor(interactor: LoginContract.Interactor) {
@@ -61,5 +59,18 @@ class LoginPresenter(
 
     override fun onDialogCloseByUser() {
         view.onAuthDialogClose()
+    }
+
+    private fun onLoginSuccess() {
+        view.showProgress()
+        view.goToUpdatesActivity()
+    }
+
+    private fun onLoginError(e: Throwable) {
+        if (e is NoConnectivityException) {
+            view.showConnectivityErrorMessage()
+        } else {
+            view.showUnexpectedErrorMessage()
+        }
     }
 }

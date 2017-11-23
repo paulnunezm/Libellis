@@ -1,6 +1,6 @@
 package com.nunez.libellis.repository.parsers
 
-import com.nunez.libellis.entities.Update
+import com.nunez.libellis.entities.raw.Update
 import org.w3c.dom.NodeList
 import org.xml.sax.InputSource
 import java.io.StringReader

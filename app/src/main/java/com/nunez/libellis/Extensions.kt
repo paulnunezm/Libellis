@@ -1,5 +1,7 @@
 package com.nunez.libellis
 
+import android.content.Context
+import android.net.ConnectivityManager
 import android.support.design.widget.Snackbar
 import android.view.LayoutInflater
 import android.view.View
@@ -14,8 +16,15 @@ import retrofit2.Response
  * Useful extensions
  */
 
-fun View.showSnackbar(message: String, duration: Int = Snackbar.LENGTH_SHORT){
-    Snackbar.make(this, message, duration).show()
+fun Context.isConnectedToTheInternet(): Boolean {
+    val cm = this.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+    val activeNetwork = cm.activeNetworkInfo
+    return activeNetwork != null &&
+            activeNetwork.isConnectedOrConnecting
+}
+
+fun View.showSnackbar(message: String, duration: Int = Snackbar.LENGTH_SHORT) {
+    Snackbar.make(this, message, Snackbar.LENGTH_SHORT).show()
 }
 
 fun ViewGroup.inflate(resource: Int): View {
@@ -23,15 +32,21 @@ fun ViewGroup.inflate(resource: Int): View {
 }
 
 
-fun ImageView.loadImage(url: String){
-    Picasso.with(this.context).load(url).fit().into(this)
+fun ImageView.loadImage(url: String) {
+    if (url.isNotEmpty()) Picasso.with(this.context).load(url).fit().into(this)
 }
 
+fun View.gone() {
+    this.visibility = View.GONE
+}
 
+fun View.visible() {
+    this.visibility = View.VISIBLE
+}
 
 // Retrofit callback
-fun <T> Call<T>.enqueue(success: (response: Response<T>) -> Unit,
-                        failure: (t: Throwable) -> Unit) {
+inline fun <T> Call<T>.enqueue(crossinline success: (response: Response<T>) -> Unit,
+                               crossinline failure: (t: Throwable) -> Unit) {
     enqueue(object : Callback<T> {
         override fun onResponse(call: Call<T>, response: Response<T>) {
             success(response)

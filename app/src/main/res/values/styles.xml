@@ -6,6 +6,7 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:seekBarStyle">@style/SeekBar</item>
     </style>
 
     <style name="AppTheme.BrandedLaunch" parent="AppTheme">
@@ -45,13 +46,16 @@
         <item name="android:textColor">@color/grey_dark</item>
     </style>
 
-    <style name="UpdateProgressButton" parent="UpdateBookTextView">
-        <item name="android:minWidth">64dp</item>
-        <item name="android:minHeight">48dp</item>
-        <item name="android:paddingLeft">12dp</item>
-        <item name="android:paddingRight">12dp</item>
-        <item name="android:textSize">@dimen/progress_update_button_text_size</item>
-        <!--<item name="gravity">center</item>-->
+
+    <style name="SeekBar" parent="Theme.AppCompat">
+        <item name="android:progressTint">@color/colorPrimaryDark</item>
+        <item name="android:thumbTint">@color/colorAccent</item>
+    </style>
+
+    <style name="DialogButton" parent="Theme.AppCompat">
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:padding">12dp</item>
+        <item name="android:textStyle">bold</item>
     </style>
 
     <style name="UpdateProgressDateMessageText">
@@ -65,4 +69,58 @@
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
+
+    <style name="RatingViewStarsTheme" parent="AppTheme">
+        <item name="colorControlActivated">@color/colorPrimary</item>
+    </style>
+
+    <style name="RatingViewStars">
+        <item name="android:max">5</item>
+        <item name="android:stepSize">1</item>
+        <item name="android:numStars">5</item>
+        <item name="android:scaleX">0.8</item>
+        <item name="android:scaleY">0.8</item>
+    </style>
+
+    <style name="UpdateProgressButton">
+        <item name="android:gravity">center</item>
+        <item name="android:paddingEnd">16dp</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:textSize">@dimen/medium_text_size</item>
+    </style>
+
+    <style name="UpdateProgressEditText" parent="AppTheme">
+        <item name="android:textColorHighlight">@color/colorPrimary</item>
+        <item name="android:layout_marginStart">16dp</item>
+        <item name="android:layout_marginTop">-8dp</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:inputType">number</item>
+        <item name="android:minWidth">104sp</item>
+        <item name="android:padding">0dp</item>
+        <item name="android:textAlignment">textEnd</item>
+        <item name="android:textSize">@dimen/enormous_text_size</item>
+    </style>
+
+    <style name="UpdateProgressComment" parent="AppTheme">
+        <item name="android:textColorHighlight">@color/colorPrimary</item>
+        <item name="android:inputType">textAutoComplete|textLongMessage|textMultiLine</item>
+        <item name="android:textAlignment">textStart</item>
+        <item name="android:maxLines">6</item>
+        <item name="android:scrollbars">vertical</item>
+        <item name="android:nestedScrollingEnabled">true</item>
+        <item name="android:textSize">@dimen/medium_text_size</item>
+    </style>
+
+    <style name="ProgressInputSymbol">
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/grey_dark</item>
+        <item name="android:textSize">@dimen/bigger_text_size</item>
+    </style>
+
+    <style name="ProgressInputMessage">
+        <item name="android:layout_gravity">center</item>
+        <item name="android:text">@string/progress_input_type_msg</item>
+        <item name="android:textColor">@color/grey_light</item>
+        <item name="android:textSize">@dimen/medium_text_size</item>
+    </style>
 </resources>

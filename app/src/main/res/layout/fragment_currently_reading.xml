@@ -1,15 +1,47 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             xmlns:tools="http://schemas.android.com/tools"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent"
-             tools:context=".CurrentlyReadingFragment">
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/readingParent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".main.MainActivity">
 
-    <com.google.android.gms.plus.PlusOneButton
-        xmlns:plus="http://schemas.android.com/apk/lib/com.google.android.gms.plus"
-        android:id="@+id/plus_one_button"
-        android:layout_width="wrap_content"
+    <ViewStub
+        android:id="@+id/errorMessage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout="@layout/error_no_connectivity"/>
+
+    <include
+        android:id="@+id/noBooksMessage"
+        layout="@layout/message_no_books"
+        android:visibility="invisible"/>
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/loadingView"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        plus:annotation="inline"
-        plus:size="standard"/>
+        tools:visibility="gone">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <include layout="@layout/reading_item_progress"/>
+
+            <include layout="@layout/reading_item_progress"/>
+
+            <include layout="@layout/reading_item_progress"/>
+
+        </LinearLayout>
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/readingRecycler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layoutAnimation="@anim/recycler_animation"
+        tools:listitem="@layout/reading_item"/>
 </FrameLayout>

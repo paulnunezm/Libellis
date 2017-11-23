@@ -1,22 +1,33 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'realm-android'
+
+def versionMajor = 0
+def versionMinor = 4
+def versionPatch = 0
+
+// Every time a new branch is added to the dev branch or a build uploaded to the beta or alpha we sum +1 to this
+def versionBuild = 0
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.2"
+    compileSdkVersion 26
+    buildToolsVersion '26.0.2'
     defaultConfig {
-        applicationId "com.nunez.libellis"
-        minSdkVersion 14
-        targetSdkVersion 25
-        versionCode 1
-        versionName "1.0"
+        applicationId "com.nunez.libellis.ni"
+        minSdkVersion 21
+        targetSdkVersion 26
+        versionCode versionMajor * 10000 + versionMinor * 1000 + versionPatch * 100 + versionBuild
+        versionName "${versionMajor}.${versionMinor}.${versionPatch}"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            applicationIdSuffix ".debug"
         }
     }
     buildTypes.each {
@@ -49,7 +60,7 @@ kapt {
 }
 
 
-ext.supportVersion = "25.3.1"
+ext.supportVersion = "26.1.0"
 ext.daggerVersion = "2.11-rc2"
 
 dependencies {
@@ -64,11 +75,13 @@ dependencies {
     compile "com.android.support:appcompat-v7:$supportVersion"
     compile "com.android.support:design:$supportVersion"
     compile "com.android.support:support-v4:$supportVersion"
+    compile "com.android.support:cardview-v7:$supportVersion"
 
     // Square
+    compile 'com.squareup.okhttp3:okhttp:3.8.1'
     compile 'com.squareup.picasso:picasso:2.5.2'
-    compile 'com.squareup.retrofit2:retrofit:2.2.0'
-    compile 'com.squareup.retrofit2:adapter-rxjava2:2.2.0'
+    compile 'com.squareup.retrofit2:retrofit:2.3.0'
+    compile 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
     compile('com.squareup.retrofit2:converter-simplexml:2.1.0') {
         exclude group: 'xpp3', module: 'xpp3'
         exclude group: 'stax', module: 'stax-api'
@@ -79,31 +92,27 @@ dependencies {
     compile 'se.akerfeldt:okhttp-signpost:1.1.0'
 
     // Play services
-    compile 'com.google.android.gms:play-services-plus:10.2.1'
+    compile 'com.google.android.gms:play-services-plus:11.4.2'
 
-    // Dagger 2
-    compile "com.google.dagger:dagger:$daggerVersion"
-    compile ("com.google.dagger:dagger-android-support:$daggerVersion") {
-        exclude group: 'com.google.code.findbugs', module: 'jsr305'
-    }
-    kapt "com.google.dagger:dagger-compiler:$daggerVersion"
-    annotationProcessor "com.google.dagger:dagger-android-processor:$daggerVersion"
-    provided 'org.glassfish:javax.annotation:10.0-b28'
+    // Realm extensions
+    compile "com.github.vicpinm:krealmextensions:2.0.0-beta2"
 
     // RxJava & RxAndroid
     compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
     // Because RxAndroid releases are few and far between, it is recommended you also
     // explicitly depend on RxJava's latest version for bug fixes and new features.
-    compile 'io.reactivex.rxjava2:rxjava:2.1.0'
+    compile 'io.reactivex.rxjava2:rxjava:2.1.5'
 
+    // Shimmer
+    compile 'com.facebook.shimmer:shimmer:0.1.0@aar'
 
     // Tests
+    androidTestCompile 'com.android.support.test.espresso:espresso-core:3.0.1'
+    androidTestCompile 'com.android.support.test:runner:1.0.1'
+    androidTestCompile 'com.android.support:support-annotations:26.1.0'
     testCompile "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
     testCompile 'junit:junit:4.12'
-    testCompile 'com.nhaarman:mockito-kotlin:1.4.0'
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
+    testCompile 'com.nhaarman:mockito-kotlin:1.5.0'
 
     // Debugging
     debugCompile 'com.facebook.stetho:stetho:1.5.0'
@@ -111,4 +120,5 @@ dependencies {
 }
 repositories {
     mavenCentral()
+    google()
 }

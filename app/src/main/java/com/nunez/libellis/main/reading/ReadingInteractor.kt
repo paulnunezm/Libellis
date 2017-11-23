@@ -22,7 +22,7 @@ class ReadingInteractor(
         const val TAG = "ReadingInteractor"
     }
 
-    override fun requestBooks(): Flowable<List<CurrentlyReadingBook>> =
+    override fun requestBooksObservable(): Flowable<List<CurrentlyReadingBook>> =
             repository.all
 
     override fun fetchBooks(): Completable {
@@ -30,7 +30,8 @@ class ReadingInteractor(
             goodreadsService.getBooksOnShelfRX(userId = userId, shelfName = "currently-reading")
                     .map { mapper.mapReviewListToCurrentlyReading(it.reviews) }
                     .subscribe({
-                        repository.replaceAll(it)
+                        repository.replaceAll(it).subscribe {
+                        }
                         emmiter.onComplete()
                     }, {
                         emmiter.onError(it)

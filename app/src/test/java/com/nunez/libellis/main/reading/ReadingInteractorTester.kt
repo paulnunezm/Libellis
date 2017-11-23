@@ -38,7 +38,7 @@ class ReadingInteractorTester {
         whenever(repository.all).thenReturn(booksFlowable)
 
         // when
-        val returnedFlowable = interactor.requestBooks()
+        val returnedFlowable = interactor.requestBooksObservable()
 
         // then
         val assertMessage = "Expected to return a flowable from the repository"

@@ -1,49 +1,42 @@
 package com.nunez.libellis.main.reading
 
-import android.content.Context
-import com.nunez.libellis.NoConnectivityException
-import com.nunez.libellis.entities.raw.Review
-import com.nunez.libellis.getUserId
-import com.nunez.libellis.isConnectedToTheInternet
+import com.nunez.libellis.ConnectivityChecker
+import com.nunez.libellis.EntityMapperBehavior
+import com.nunez.libellis.entities.CurrentlyReadingBook
 import com.nunez.libellis.repository.GoodreadsService
-import com.nunez.libellis.repository.SignedRetrofit
-import io.reactivex.Observable
+import com.nunez.libellis.repository.ReactiveStore
+import io.reactivex.Completable
+import io.reactivex.Flowable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 
-class ReadingInteractor
-constructor(
-        val context: Context,
-        private val signedRetrofit: SignedRetrofit
+class ReadingInteractor(
+        private val userId: String,
+        private val repository: ReactiveStore<String, CurrentlyReadingBook>,
+        private val mapper: EntityMapperBehavior,
+        private val connectivityChecker: ConnectivityChecker,
+        private val goodreadsService: GoodreadsService
 ) : ReadingContract.Interactor {
 
     companion object {
         const val TAG = "ReadingInteractor"
     }
 
-    override fun requestBooks(): Observable<List<Review>> {
-        return Observable.defer {
-           try{
-               if (context.isConnectedToTheInternet()) {
-                   requestBooksFromApi()
-               } else {
-                  throw NoConnectivityException()
-               }
-           }catch (e: NoConnectivityException){
-                Observable.error<List<Review>> { e }
-           }
-        }
-    }
+    override fun requestBooksObservable(): Flowable<List<CurrentlyReadingBook>> =
+            repository.all
 
-    private fun requestBooksFromApi(): Observable<List<Review>> {
-        val retrofit = signedRetrofit.instance
-        val goodreads = retrofit.create(GoodreadsService::class.java)
-        return goodreads.getBooksOnShelfRX(
-                userId = context.getUserId(),
-                shelfName = "currently-reading")
-                .map {
-                    it.reviews ?: emptyList()
-                }
+    override fun fetchBooks(): Completable {
+        return Completable.create({ emmiter ->
+            goodreadsService.getBooksOnShelfRX(userId = userId, shelfName = "currently-reading")
+                    .map { mapper.mapReviewListToCurrentlyReading(it.reviews) }
+                    .subscribe({
+                        repository.replaceAll(it).subscribe {
+                        }
+                        emmiter.onComplete()
+                    }, {
+                        emmiter.onError(it)
+                    })
+        })
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
     }

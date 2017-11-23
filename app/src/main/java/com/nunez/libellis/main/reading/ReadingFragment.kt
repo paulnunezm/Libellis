@@ -6,13 +6,13 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.nunez.libellis.R
-import com.nunez.libellis.entities.raw.Review
-import com.nunez.libellis.gone
+import com.nunez.libellis.*
+import com.nunez.libellis.entities.CurrentlyReadingBook
 import com.nunez.libellis.main.reading.updateProgress.UpdateProgressSheet
+import com.nunez.libellis.repository.CurrentlyReadingBookRespository
+import com.nunez.libellis.repository.GoodreadsService
 import com.nunez.libellis.repository.SignedRetrofit
-import com.nunez.libellis.showSnackbar
-import com.nunez.libellis.visible
+import io.realm.Realm
 import kotlinx.android.synthetic.main.fragment_currently_reading.*
 
 
@@ -27,8 +27,6 @@ class ReadingFragment : Fragment(), ReadingContract.View {
         val TAG = "CurrentlyReading"
     }
 
-    var isResuming = false
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         if (arguments != null) {
@@ -41,45 +39,48 @@ class ReadingFragment : Fragment(), ReadingContract.View {
         val view = inflater!!.inflate(R.layout.fragment_currently_reading, container, false)
         parentView = view.findViewById(R.id.readingParent)
 
-        val context = this.context
-        interactor = ReadingInteractor(context, SignedRetrofit(context))
-        presenter = ReadingPrensenter(this, interactor)
-        presenter.getBooks()
+        initializeDependencies()
 
         return view
     }
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        loadingView.intensity = 0.01f
-        loadingView.startShimmerAnimation()
-    }
-
-    override fun onResume() {
-        super.onResume()
-        isResuming = true
-    }
-
-    override fun showBooks(books: List<Review>) {
         readingRecycler.layoutManager = LinearLayoutManager(activity)
         readingRecycler.setHasFixedSize(true)
-        readingRecycler.adapter = ReadingAdapter(books, { id, title, authorName ->
-            val updateProgressSheet = UpdateProgressSheet()
-            val bundle = Bundle()
-            bundle.putString(UpdateProgressSheet.EXTRA_ID, id)
-            bundle.putString(UpdateProgressSheet.EXTRA_TITLE, title)
-            bundle.putString(UpdateProgressSheet.EXTRA_AUTHOR, authorName)
-            updateProgressSheet.arguments = bundle
-            updateProgressSheet.show(fragmentManager, "progress_sheet")
-        })
 
+        presenter.getBooks()
+    }
+
+    override fun showBooks(books: List<CurrentlyReadingBook>) {
+        readingRecycler.scheduleLayoutAnimation()
+        readingRecycler.adapter = ReadingAdapter(books, { id, title, authorName ->
+            presenter.onBookClicked(id, title, authorName)
+        })
+    }
+
+    override fun animateBooks() {
         readingRecycler.scheduleLayoutAnimation()
     }
 
+    override fun showUpdateProgress(id: String, title: String, author: String) {
+        val updateProgressSheet = UpdateProgressSheet()
+        val bundle = Bundle().apply {
+            putString(UpdateProgressSheet.EXTRA_ID, id)
+            putString(UpdateProgressSheet.EXTRA_TITLE, title)
+            putString(UpdateProgressSheet.EXTRA_AUTHOR, author)
+        }
+        updateProgressSheet.arguments = bundle
+        updateProgressSheet.show(fragmentManager, "progress_sheet")
+    }
+
     override fun showLoading() {
+        loadingView?.intensity = 0.01f
+        loadingView?.startShimmerAnimation()
     }
 
     override fun hideLoading() {
+        loadingView.stopShimmerAnimation()
         loadingView.gone()
     }
 
@@ -91,9 +92,32 @@ class ReadingFragment : Fragment(), ReadingContract.View {
         noBooksMessage.visible()
     }
 
+    override fun hideNoBooksMessage() {
+        noBooksMessage.gone()
+    }
+
     override fun showMessage(message: String, error: Boolean) {
         loadingView.stopShimmerAnimation()
         parentView.showSnackbar(message)
     }
 
+    override fun showRefreshing() {
+    }
+
+    override fun hideRefreshing() {
+    }
+
+    private fun initializeDependencies(){
+        val context = this.context
+        val userPrefManager = UserPrefsManager(context)
+        val realm = Realm.getDefaultInstance()
+        val repository = CurrentlyReadingBookRespository(realm, userPrefManager)
+        val mapper = EntityMapper()
+        val connectivityChecker = ConnectivityCheckerImpl(context)
+        val retrofit = SignedRetrofit(context).instance
+        val GoodreadsService = retrofit.create(GoodreadsService::class.java)
+
+        interactor = ReadingInteractor(userPrefManager.userId, repository, mapper, connectivityChecker, GoodreadsService)
+        presenter = ReadingPrensenter(this, interactor, userPrefManager)
+    }
 }

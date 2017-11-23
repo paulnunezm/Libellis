@@ -4,11 +4,13 @@ import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
 import com.nunez.libellis.R
-import com.nunez.libellis.entities.raw.Review
+import com.nunez.libellis.entities.Author
+import com.nunez.libellis.entities.CurrentlyReadingBook
 import com.nunez.libellis.inflate
+import io.realm.RealmList
 import kotlinx.android.synthetic.main.reading_item.view.*
 
-class ReadingAdapter(var currentlyReading: List<Review>,
+class ReadingAdapter(var currentlyReading: List<CurrentlyReadingBook>,
                      val listener: (String, String, String) -> Unit
 ) : RecyclerView.Adapter<ReadingAdapter.ReadingViewHolder>() {
 
@@ -25,23 +27,47 @@ class ReadingAdapter(var currentlyReading: List<Review>,
 
     class ReadingViewHolder(
             itemView: View,
-            val listener:(String, String, String) -> Unit
-    ) : RecyclerView.ViewHolder(itemView) {
+            val listener: (String, String, String) -> Unit
+    ) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
 
-        val container = itemView.readingContainer
-        val bookTitle = itemView.bookTitle
-        val authorName = itemView.authorName
-        fun bindViews(reading: Review) {
-            with(reading) {
-                val title = book?.title as String
-                val authorNames = book?.authors?.get(0)?.name as String
-                val bookId = book?.id as String
-                bookTitle.text = title
-                authorName.text = authorNames
-                bookTitle.setOnClickListener { listener(bookId, title, authorNames) }
-                authorName.setOnClickListener { listener(bookId, title, authorNames) }
-                container.setOnClickListener { listener(bookId, title, authorNames) }
+        var id = ""
+        var title = ""
+        var authors = ""
+
+        init {
+            with(itemView){
+                readingContainer.setOnClickListener(this@ReadingViewHolder)
+                bookTitle.setOnClickListener(this@ReadingViewHolder)
+                authorName.setOnClickListener(this@ReadingViewHolder)
             }
+        }
+
+        override fun onClick(v: View?) {
+            listener(id, title, authors)
+        }
+
+        fun bindViews(book: CurrentlyReadingBook) {
+            id = book.id
+            title = book.title
+            authors = getAuthorNames(book.author)
+            with(itemView) {
+                bookTitle.text = title
+                authorName.text = authors
+            }
+        }
+
+        private fun getAuthorNames(authorList: RealmList<Author>):String {
+            var authors = ""
+            val listLength= authorList.size - 1
+
+            for (i in 0..listLength){
+                if(i > 0){
+                    authors +=", "
+                }
+                authors += authorList[i]?.name
+            }
+
+            return authors
         }
     }
 }

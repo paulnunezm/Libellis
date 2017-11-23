@@ -1,13 +1,16 @@
 package com.nunez.libellis.repository
 
+import android.support.test.InstrumentationRegistry
 import android.support.test.rule.ActivityTestRule
 import android.support.test.runner.AndroidJUnit4
 import com.nunez.libellis.TestActivity
+import com.nunez.libellis.UserPrefsManager
 import com.nunez.libellis.entities.CurrentlyReadingBook
 import com.vicpin.krealmextensions.queryAll
 import io.realm.Realm
 import io.realm.RealmConfiguration
 import junit.framework.Assert.fail
+import org.junit.Assert
 import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Rule
@@ -23,6 +26,7 @@ class CurrentlyReadingBookRespositoryTest {
 
     lateinit var realm: Realm
     lateinit var repository: CurrentlyReadingBookRespository
+    lateinit var userPreference: UserPrefsManager
 
     @Before
     fun setup() {
@@ -33,13 +37,14 @@ class CurrentlyReadingBookRespositoryTest {
 
         Realm.setDefaultConfiguration(testConfig)
         realm = Realm.getInstance(testConfig)
-        repository = CurrentlyReadingBookRespository(realm)
+        userPreference = UserPrefsManager(InstrumentationRegistry.getContext())
+        repository = CurrentlyReadingBookRespository(realm, userPreference)
     }
 
     @Test
-    fun shouldRefreshAllObserverWhenStoringAll() {
+    fun shouldRefreshAllObserverWhenStoringAllAndSetCurrentlyReadingIsCached() {
         // Given
-        val list = listOf(CurrentlyReadingBook(),CurrentlyReadingBook(), CurrentlyReadingBook())
+        val list = listOf(CurrentlyReadingBook(), CurrentlyReadingBook(), CurrentlyReadingBook())
         var canAssert = false
 
         //when
@@ -49,7 +54,7 @@ class CurrentlyReadingBookRespositoryTest {
                         assertEquals("ListWith same length", list.size, it.size)
                     } else {
                     }
-                },{
+                }, {
                     fail("On error")
                 })
 
@@ -57,18 +62,19 @@ class CurrentlyReadingBookRespositoryTest {
         repository.storeAll(list)
                 .subscribe({
                     canAssert = true
-                },{})
+                    Assert.assertEquals(userPreference.isCurrentlyReadingBooksSavedInCache(), true)
+                }, {})
     }
 
 
     @Test
-    fun shouldReplaceOldListWithNew(){
+    fun shouldReplaceOldListWithNew() {
         // Given
         val list_1 = listOf(CurrentlyReadingBook(), CurrentlyReadingBook(), CurrentlyReadingBook())
         val list_2 = listOf(CurrentlyReadingBook(), CurrentlyReadingBook())
 
         repository.storeAll(list_1)
-                .subscribe({},{
+                .subscribe({}, {
                     fail("On error $it")
                 })
 
@@ -78,8 +84,32 @@ class CurrentlyReadingBookRespositoryTest {
                     //Then
                     val retrievedBooks = CurrentlyReadingBook().queryAll()
                     assertEquals("List should be the same size", list_2.size, retrievedBooks.size)
-                },{
+                }, {
                     fail("On error $it")
                 })
+    }
+
+
+    @Test
+    fun shouldReturnDataWhenSubscribedInFirstTime() {
+        // Given
+        val list_1 = listOf(CurrentlyReadingBook(), CurrentlyReadingBook(), CurrentlyReadingBook())
+
+
+        realm.beginTransaction()
+        realm.delete(CurrentlyReadingBook::class.java)
+        realm.commitTransaction()
+
+        repository.storeAll(list_1)
+                .subscribe({}, {
+                    fail("On error $it")
+                })
+
+        repository.all.subscribe({ t: List<CurrentlyReadingBook>? ->
+            assertEquals("List should be the same size", list_1.size, t?.size)
+        }, {
+            fail("On error $it")
+        }, {
+        })
     }
 }

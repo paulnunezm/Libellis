@@ -48,6 +48,7 @@ class UpdateProgressSheetInteractor(
         val id = scheduler.allPendingJobs.size + 1
         val jobInfo = JobInfo.Builder(id, serviceName)
                 .setRequiredNetworkType(JobInfo.NETWORK_TYPE_ANY)
+                .setPersisted(true)
                 .setExtras(bundle)
                 .build()
         scheduler.schedule(jobInfo)

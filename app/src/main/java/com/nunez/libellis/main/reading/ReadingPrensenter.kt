@@ -56,6 +56,7 @@ class ReadingPrensenter(
         if (list.isEmpty()) {
             view.showNoBooksMessage()
         }else{
+            view.hideNoBooksMessage()
             view.showBooks(list)
         }
     }

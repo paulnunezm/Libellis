@@ -40,7 +40,7 @@ class ReadingPrensenterTest {
     }
 
     @Test
-    fun getBooks_emptyList_showEmptyScreenAndHidesBothLoading() {//onRequestBooksReturnedEmptyShouldShowEmptyScreen() {
+    fun getBooks_emptyList_showEmptyScreenAndHideOtherViews() {//onRequestBooksReturnedEmptyShouldShowEmptyScreen() {
         // when
         setMockInteractor_requestBooksObservable_emptyList_fetchBooks_Complete()
 
@@ -66,7 +66,7 @@ class ReadingPrensenterTest {
     }
 
     @Test
-    fun getBooks_filledList_showBooksAndHideLoadingAndRefresh() {
+    fun getBooks_filledList_showBooksAndAllOtherViews() {
         //given
         setMockInteractor_requestBooksObservable_filledList_fetchBooks_Complete()
 
@@ -75,6 +75,7 @@ class ReadingPrensenterTest {
 
         // then
         verify(view).hideLoading()
+        verify(view).hideNoBooksMessage()
         verify(view).hideRefreshing()
         verify(view).showBooks(list)
     }
@@ -108,6 +109,7 @@ class ReadingPrensenterTest {
         verify(interactor).fetchBooks()
         verify(interactor).requestBooksObservable()
         verify(view, never()).showLoading()
+        verify(view, never()).showNoBooksMessage()
         verify(view).showRefreshing()
     }
 

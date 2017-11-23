@@ -6,13 +6,14 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.nunez.libellis.R
+import com.nunez.libellis.*
+import com.nunez.libellis.entities.CurrentlyReadingBook
 import com.nunez.libellis.entities.raw.Review
-import com.nunez.libellis.gone
 import com.nunez.libellis.main.reading.updateProgress.UpdateProgressSheet
+import com.nunez.libellis.repository.CurrentlyReadingBookRespository
+import com.nunez.libellis.repository.GoodreadsService
 import com.nunez.libellis.repository.SignedRetrofit
-import com.nunez.libellis.showSnackbar
-import com.nunez.libellis.visible
+import io.realm.Realm
 import kotlinx.android.synthetic.main.fragment_currently_reading.*
 
 
@@ -42,8 +43,16 @@ class ReadingFragment : Fragment(), ReadingContract.View {
         parentView = view.findViewById(R.id.readingParent)
 
         val context = this.context
-        interactor = ReadingInteractor(context, SignedRetrofit(context))
-        presenter = ReadingPrensenter(this, interactor)
+        val userPrefManager = UserPrefsManager(context)
+        val realm = Realm.getDefaultInstance()
+        val repository = CurrentlyReadingBookRespository(realm, userPrefManager)
+        val mapper = EntityMapper()
+        val connectivityChecker = ConnectivityCheckerImpl(context)
+        val retrofit = SignedRetrofit(context).instance
+        val GoodreadsService = retrofit.create(GoodreadsService::class.java)
+
+        interactor = ReadingInteractor(userPrefManager.userId, repository, mapper, connectivityChecker, GoodreadsService)
+        presenter = ReadingPrensenter(this, interactor, userPrefManager)
         presenter.getBooks()
 
         return view
@@ -60,7 +69,12 @@ class ReadingFragment : Fragment(), ReadingContract.View {
         isResuming = true
     }
 
-    override fun showBooks(books: List<Review>) {
+    override fun showBooks(books: List<CurrentlyReadingBook>) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    @Deprecated("use showBooks")
+    fun OLDshowBooks(books: List<Review>) {
         readingRecycler.layoutManager = LinearLayoutManager(activity)
         readingRecycler.setHasFixedSize(true)
         readingRecycler.adapter = ReadingAdapter(books, { id, title, authorName ->
@@ -80,6 +94,7 @@ class ReadingFragment : Fragment(), ReadingContract.View {
     }
 
     override fun hideLoading() {
+        loadingView.stopShimmerAnimation()
         loadingView.gone()
     }
 
@@ -96,4 +111,9 @@ class ReadingFragment : Fragment(), ReadingContract.View {
         parentView.showSnackbar(message)
     }
 
+    override fun showRefreshing() {
+    }
+
+    override fun hideRefreshing() {
+    }
 }

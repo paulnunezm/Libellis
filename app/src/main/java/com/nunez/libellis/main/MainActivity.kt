@@ -30,9 +30,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity)
+        supportActionBar?.setDisplayShowTitleEnabled(false)
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
+        toolbar.title= ""
         setSupportActionBar(toolbar)
-
 
         val drawer = findViewById<DrawerLayout>(R.id.drawer_layout)
         val toggle = ActionBarDrawerToggle(

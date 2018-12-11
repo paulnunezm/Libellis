@@ -2,7 +2,7 @@ package com.nunez.libellis
 
 import android.content.Context
 import android.net.ConnectivityManager
-import android.support.design.widget.Snackbar
+import com.google.android.material.snackbar.Snackbar
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup

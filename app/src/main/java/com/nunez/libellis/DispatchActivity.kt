@@ -2,7 +2,7 @@ package com.nunez.libellis
 
 import android.content.Intent
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import com.nunez.libellis.login.LoginActivity
 import com.nunez.libellis.main.MainActivity
 

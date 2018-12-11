@@ -1,8 +1,9 @@
 package com.nunez.libellis.main.reading.updateProgress
 
 //import com.nunez.libellis.R.id.seekBar
+import android.content.Context
 import android.os.Bundle
-import android.support.design.widget.BottomSheetDialogFragment
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -25,16 +26,16 @@ class UpdateProgressSheet : BottomSheetDialogFragment(), UpdateProgressSheetCont
         const val EXTRA_AUTHOR = "author"
     }
 
-    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater?.inflate(R.layout.reading_update_bottom_sheet, container, false)
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        return inflater.inflate(R.layout.reading_update_bottom_sheet, container, false)
     }
 
-    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val id = arguments.getString(EXTRA_ID) ?: ""
-        val title = arguments.getString(EXTRA_TITLE) ?: ""
-        val author = arguments.getString(EXTRA_AUTHOR) ?: ""
+        val id = arguments?.getString(EXTRA_ID) ?: ""
+        val title = arguments?.getString(EXTRA_TITLE) ?: ""
+        val author = arguments?.getString(EXTRA_AUTHOR) ?: ""
         updateProgressLayout.bookId = id
 
         instantiateDependencies(id, title, author)
@@ -59,12 +60,15 @@ class UpdateProgressSheet : BottomSheetDialogFragment(), UpdateProgressSheetCont
     }
 
     private fun instantiateDependencies(id: String, title: String, author: String) {
-        interactor = UpdateProgressSheetInteractor(context,getGoodreadService())
-        presenter = UpdateProgressPresenter(id, title, author, this, interactor)
+        context?.let {
+            interactor = UpdateProgressSheetInteractor(it, getGoodreadService(it))
+            presenter = UpdateProgressPresenter(id, title, author, this, interactor)
+        }
     }
 
-    private fun getGoodreadService(): GoodreadsService =
-            SignedRetrofit(context).instance.create(GoodreadsService::class.java)
+    private fun getGoodreadService(context: Context): GoodreadsService {
+           return SignedRetrofit(context).instance.create(GoodreadsService::class.java)
+    }
 
     private fun setListeners() {
         updateButton.setOnClickListener {

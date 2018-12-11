@@ -1,6 +1,6 @@
 package com.nunez.libellis.shelves
 
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
 import com.nunez.libellis.R
@@ -21,11 +21,10 @@ class ShelvesAdapter(
         return ShelveViewHolder(parent.inflate(layout))
     }
 
-    override fun onBindViewHolder(holder: ShelveViewHolder?, position: Int) {
-        holder?.bindView(shelves[position], {
-            shelveName ->
+    override fun onBindViewHolder(holder: ShelveViewHolder, position: Int) {
+        holder.bindView(shelves[position]) { shelveName ->
             shelveListener(shelveName)
-        })
+        }
     }
 
     class ShelveViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

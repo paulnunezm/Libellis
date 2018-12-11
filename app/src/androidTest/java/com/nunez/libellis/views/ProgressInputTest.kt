@@ -1,7 +1,7 @@
 package com.nunez.libellis.views
 
-import android.support.test.rule.ActivityTestRule
-import android.support.test.runner.AndroidJUnit4
+import androidx.test.rule.ActivityTestRule
+import androidx.test.runner.AndroidJUnit4
 import android.view.LayoutInflater
 import android.widget.EditText
 import android.widget.LinearLayout

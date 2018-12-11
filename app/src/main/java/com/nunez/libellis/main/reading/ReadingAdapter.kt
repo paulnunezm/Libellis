@@ -1,6 +1,6 @@
 package com.nunez.libellis.main.reading
 
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
 import com.nunez.libellis.R
@@ -14,16 +14,15 @@ class ReadingAdapter(var currentlyReading: List<CurrentlyReadingBook>,
                      val listener: (String, String, String) -> Unit
 ) : RecyclerView.Adapter<ReadingAdapter.ReadingViewHolder>() {
 
-    override fun onBindViewHolder(holder: ReadingViewHolder?, position: Int) {
-        holder?.bindViews(currentlyReading[position])
+    override fun onBindViewHolder(holder: ReadingViewHolder, position: Int) {
+        holder.bindViews(currentlyReading[position])
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ReadingViewHolder {
+        return ReadingViewHolder(parent.inflate(R.layout.reading_item), listener)
     }
 
     override fun getItemCount(): Int = currentlyReading.size
-
-    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ReadingViewHolder {
-        return ReadingViewHolder(parent?.inflate(R.layout.reading_item) as View, listener)
-    }
-
 
     class ReadingViewHolder(
             itemView: View,

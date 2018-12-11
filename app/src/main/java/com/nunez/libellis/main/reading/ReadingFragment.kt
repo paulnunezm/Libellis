@@ -1,8 +1,8 @@
 package com.nunez.libellis.main.reading
 
 import android.os.Bundle
-import android.support.v4.app.Fragment
-import android.support.v7.widget.LinearLayoutManager
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -33,10 +33,9 @@ class ReadingFragment : Fragment(), ReadingContract.View {
         }
     }
 
-    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
-        val view = inflater!!.inflate(R.layout.fragment_currently_reading, container, false)
+        val view = inflater.inflate(R.layout.fragment_currently_reading, container, false)
         parentView = view.findViewById(R.id.readingParent)
 
         initializeDependencies()
@@ -44,7 +43,7 @@ class ReadingFragment : Fragment(), ReadingContract.View {
         return view
     }
 
-    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         readingRecycler.layoutManager = LinearLayoutManager(activity)
         readingRecycler.setHasFixedSize(true)
@@ -54,9 +53,9 @@ class ReadingFragment : Fragment(), ReadingContract.View {
 
     override fun showBooks(books: List<CurrentlyReadingBook>) {
         readingRecycler.scheduleLayoutAnimation()
-        readingRecycler.adapter = ReadingAdapter(books, { id, title, authorName ->
+        readingRecycler.adapter = ReadingAdapter(books) { id, title, authorName ->
             presenter.onBookClicked(id, title, authorName)
-        })
+        }
     }
 
     override fun animateBooks() {
@@ -70,8 +69,11 @@ class ReadingFragment : Fragment(), ReadingContract.View {
             putString(UpdateProgressSheet.EXTRA_TITLE, title)
             putString(UpdateProgressSheet.EXTRA_AUTHOR, author)
         }
-        updateProgressSheet.arguments = bundle
-        updateProgressSheet.show(fragmentManager, "progress_sheet")
+
+        fragmentManager?.let {
+            updateProgressSheet.arguments = bundle
+            updateProgressSheet.show(it, "progress_sheet")
+        }
     }
 
     override fun showLoading() {
@@ -107,8 +109,9 @@ class ReadingFragment : Fragment(), ReadingContract.View {
     override fun hideRefreshing() {
     }
 
-    private fun initializeDependencies(){
-        val context = this.context
+    private fun initializeDependencies() {
+
+        val context = this.context ?: return
         val userPrefManager = UserPrefsManager(context)
         val realm = Realm.getDefaultInstance()
         val repository = CurrentlyReadingBookRespository(realm, userPrefManager)
@@ -119,5 +122,6 @@ class ReadingFragment : Fragment(), ReadingContract.View {
 
         interactor = ReadingInteractor(userPrefManager.userId, repository, mapper, connectivityChecker, GoodreadsService)
         presenter = ReadingPrensenter(this, interactor, userPrefManager)
+
     }
 }

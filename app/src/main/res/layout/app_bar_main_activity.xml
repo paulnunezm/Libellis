@@ -27,24 +27,10 @@
                 android:textColor="@color/white"
                 app:fontFile="Raleway-Light.ttf"/>
         </androidx.appcompat.widget.Toolbar>
-
-        <com.google.android.material.tabs.TabLayout
-            android:id="@+id/tabs"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:tabIndicatorColor="@color/white"
-            app:tabMode="fixed"
-            app:tabGravity="fill"/>
-
     </com.google.android.material.appbar.AppBarLayout>
 
-    <!--<include layout="@layout/content_main_activity"/>-->
-
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/viewpager"
+    <FrameLayout
+        android:id="@+id/fragmentContainer"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"  />
-
-
+        android:layout_height="match_parent"/>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         setContentView(R.layout.main_activity)
         supportActionBar?.setDisplayShowTitleEnabled(false)
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
-        toolbar.title= ""
+        toolbar.title = ""
         setSupportActionBar(toolbar)
 
         val drawer = findViewById<DrawerLayout>(R.id.drawer_layout)
@@ -46,10 +46,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         val navigationView = findViewById<NavigationView>(R.id.nav_view)
         navigationView.setNavigationItemSelectedListener(this)
 
-        // Setup view pager and tabs
-        setupViewPager()
-        tabs.setupWithViewPager(viewpager)
-
+        setReadingFragment()
         setUpBroadcastReceiverToStopThisJobWhenUpdateFinish()
     }
 
@@ -100,14 +97,21 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         super.onDestroy()
     }
 
+    private fun setReadingFragment() {
+        val f = ReadingFragment()
+        supportFragmentManager.beginTransaction()
+                .replace(fragmentContainer.id, f)
+                .commit()
+    }
+
     private fun logout() {
         val prefs = getSharedPreferences(this.getString(R.string.user_prefs), 0)
         val editor = prefs.edit()
 
         editor.putBoolean(getString(R.string.user_prefs_logged_in), false)
-        editor.putString(getString(R.string.user_prefs_user_id),"")
-        editor.putString(getString(R.string.user_prefs_user_key),"")
-        editor.putString(getString(R.string.user_prefs_user_secret),"")
+        editor.putString(getString(R.string.user_prefs_user_id), "")
+        editor.putString(getString(R.string.user_prefs_user_key), "")
+        editor.putString(getString(R.string.user_prefs_user_secret), "")
         editor.apply()
 
         val loginActivity = Intent(this, LoginActivity::class.java)
@@ -120,7 +124,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 //        pagerAdapter.addFragment(UpdatesFragment.newInstance(), "Updates")
         pagerAdapter.addFragment(ReadingFragment(), "Currently-Reading")
 
-        viewpager.adapter = pagerAdapter
+//        viewpager.adapter = pagerAdapter
     }
 
     private fun setUpBroadcastReceiverToStopThisJobWhenUpdateFinish() {

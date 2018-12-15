@@ -30,22 +30,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity)
-        supportActionBar?.setDisplayShowTitleEnabled(false)
-        val toolbar = findViewById<Toolbar>(R.id.toolbar)
-        toolbar.title = ""
-        setSupportActionBar(toolbar)
 
-        val drawer = findViewById<DrawerLayout>(R.id.drawer_layout)
-        val toggle = ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
-        drawer.setDrawerListener(toggle)
-        toggle.syncState()
-
-        containerLayout = drawer
-
-        val navigationView = findViewById<NavigationView>(R.id.nav_view)
-        navigationView.setNavigationItemSelectedListener(this)
-
+        setupToolbar()
+        setupDrawer()
         setReadingFragment()
         setUpBroadcastReceiverToStopThisJobWhenUpdateFinish()
     }
@@ -104,6 +91,19 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 .commit()
     }
 
+    private fun setupDrawer() {
+        val drawer = findViewById<DrawerLayout>(R.id.drawer_layout)
+        val toggle = ActionBarDrawerToggle(
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
+        drawer.setDrawerListener(toggle)
+        toggle.syncState()
+
+        containerLayout = drawer
+
+        val navigationView = findViewById<NavigationView>(R.id.nav_view)
+        navigationView.setNavigationItemSelectedListener(this)
+    }
+
     private fun logout() {
         val prefs = getSharedPreferences(this.getString(R.string.user_prefs), 0)
         val editor = prefs.edit()
@@ -119,19 +119,17 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         startActivity(loginActivity)
     }
 
-    private fun setupViewPager() {
-        val pagerAdapter = ViewPagerAdapter(supportFragmentManager)
-//        pagerAdapter.addFragment(UpdatesFragment.newInstance(), "Updates")
-        pagerAdapter.addFragment(ReadingFragment(), "Currently-Reading")
-
-//        viewpager.adapter = pagerAdapter
+    private fun setupToolbar(){
+        supportActionBar?.setDisplayShowTitleEnabled(false)
+        val toolbar = findViewById<Toolbar>(R.id.toolbar)
+        toolbar.title = ""
+        setSupportActionBar(toolbar)
     }
 
     private fun setUpBroadcastReceiverToStopThisJobWhenUpdateFinish() {
         // The filter's action is BROADCAST_ACTION
         val statusIntentFilter = IntentFilter(UpdateStatusReceiver.UPDATE_STATUS_ACTION)
-
-        updateStatusReceiver = UpdateStatusReceiver({ status ->
+        updateStatusReceiver = UpdateStatusReceiver { status ->
             when (status) {
                 is UpdateStatusReceiver.Status.Started -> {
                     showMessage(getString(R.string.msg_updating))
@@ -141,35 +139,13 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 }
                 else -> showMessage(getString(R.string.msg_error_implicit_error))
             }
-        })
+        }
 
         // Registers the receiver and its intent filters
-        registerReceiver(
-                updateStatusReceiver,
-                statusIntentFilter)
+        registerReceiver(updateStatusReceiver, statusIntentFilter)
     }
 
     private fun showMessage(message: String) {
         containerLayout.showSnackbar(message)
-    }
-
-    internal inner class ViewPagerAdapter(manager: FragmentManager) : FragmentPagerAdapter(manager) {
-        private val mFragmentList = ArrayList<Fragment>()
-        private val mFragmentTitleList = ArrayList<String>()
-
-        override fun getItem(position: Int): Fragment {
-            return mFragmentList.get(position)
-        }
-
-        override fun getCount() = mFragmentList.size
-
-        fun addFragment(fragment: Fragment, title: String) {
-            mFragmentList.add(fragment)
-            mFragmentTitleList.add(title)
-        }
-
-        override fun getPageTitle(position: Int): CharSequence {
-            return mFragmentTitleList.get(position)
-        }
     }
 }

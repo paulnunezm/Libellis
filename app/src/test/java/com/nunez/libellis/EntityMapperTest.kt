@@ -1,8 +1,8 @@
 package com.nunez.libellis
 
-import com.nunez.libellis.entities.raw.Review
-import com.nunez.libellis.entities.raw.ReviewAuthor
-import com.nunez.libellis.entities.raw.ReviewBook
+import com.nunez.libellis.domain.entities.raw.Review
+import com.nunez.libellis.domain.entities.raw.ReviewAuthor
+import com.nunez.libellis.domain.entities.raw.ReviewBook
 import org.junit.Assert
 import org.junit.Test
 import java.util.*

@@ -5,10 +5,12 @@ import android.content.SharedPreferences
 import com.nunez.libellis.ConnectivityChecker
 import com.nunez.libellis.NoConnectivityException
 import com.nunez.libellis.R
-import com.nunez.libellis.repository.GoodreadsService
-import com.nunez.libellis.repository.SignedHttpClient
-import com.nunez.libellis.repository.SignedRetrofit
-import com.nunez.libellis.repository.parsers.UserIdParser
+import com.nunez.libellis.data.network.GoodreadsService
+import com.nunez.libellis.data.network.SignedHttpClient
+import com.nunez.libellis.data.network.SignedRetrofit
+import com.nunez.libellis.data.network.parsers.UserIdParser
+import com.nunez.libellis.data.repository.UserIdRepositoryImpl
+import com.nunez.libellis.domain.userId.UserIdUseCase
 import io.reactivex.Completable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
@@ -37,23 +39,13 @@ class LoginInteractor(
     }
 
     override fun requestUserId(): Completable {
-        val goodreadsService = SignedRetrofit(context).instance
-                .create(GoodreadsService::class.java)
-
-        val client = SignedHttpClient(context).instance
-        val request = Request.Builder()
-                .url(HttpUrl.parse(GoodreadsService.BASE_URL + GoodreadsService.USER_ID_ENDPOINT))
-                .build()
-
-        return Completable.create { emitter ->
-            if (connectivityChecker.isConected()) {
-                val response = client.newCall(request).execute()
-                val userId = UserIdParser(response.body()?.string() as String).parse()
-
-                saveUserId(userId, { emitter.onComplete() })
-            } else {
-                emitter.onError(NoConnectivityException())
-            }
+        return Completable.fromAction {
+            val repository = UserIdRepositoryImpl(context)
+            UserIdUseCase(repository)
+                    .getUserId().subscribe({
+                        saveUserId(it, {})
+                    },{
+                    })
         }.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
     }
@@ -64,8 +56,8 @@ class LoginInteractor(
         editor.apply {
             putString(context.getString(R.string.user_prefs_user_id), userId)
             putBoolean(context.getString(R.string.user_prefs_logged_in), true)
+            apply()
         }
-        editor.apply()
         completed.invoke()
     }
 

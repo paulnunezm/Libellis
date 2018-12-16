@@ -4,10 +4,10 @@ import android.app.job.JobInfo
 import android.app.job.JobScheduler
 import android.content.ComponentName
 import android.content.Context
-import com.nunez.libellis.entities.raw.Review
-import com.nunez.libellis.entities.raw.UpdateProgress
+import com.nunez.libellis.domain.entities.raw.Review
+import com.nunez.libellis.domain.entities.raw.UpdateProgress
 import com.nunez.libellis.ui.screens.main.reading.updateProgress.jobServices.UpdateProgressJobService
-import com.nunez.libellis.repository.GoodreadsService
+import com.nunez.libellis.data.network.GoodreadsService
 import com.nunez.libellis.ui.views.UpdateProgressView
 import io.reactivex.Observable
 

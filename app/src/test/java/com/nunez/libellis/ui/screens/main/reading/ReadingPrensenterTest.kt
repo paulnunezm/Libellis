@@ -2,7 +2,7 @@ package com.nunez.libellis.ui.screens.main.reading
 
 import com.nhaarman.mockito_kotlin.*
 import com.nunez.libellis.UserPreferenceManager
-import com.nunez.libellis.entities.CurrentlyReadingBook
+import com.nunez.libellis.domain.entities.CurrentlyReadingBook
 import io.reactivex.Completable
 import io.reactivex.Flowable
 import org.junit.Before

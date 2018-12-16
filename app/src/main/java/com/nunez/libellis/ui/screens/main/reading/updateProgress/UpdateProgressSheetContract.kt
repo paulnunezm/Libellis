@@ -1,7 +1,7 @@
 package com.nunez.libellis.ui.screens.main.reading.updateProgress
 
-import com.nunez.libellis.entities.raw.Review
-import com.nunez.libellis.entities.raw.UpdateProgress
+import com.nunez.libellis.domain.entities.raw.Review
+import com.nunez.libellis.domain.entities.raw.UpdateProgress
 import io.reactivex.Observable
 
 interface UpdateProgressSheetContract {

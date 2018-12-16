@@ -4,7 +4,7 @@ import androidx.recyclerview.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
 import com.nunez.libellis.R
-import com.nunez.libellis.entities.raw.Shelve
+import com.nunez.libellis.domain.entities.raw.Shelve
 import com.nunez.libellis.inflate
 import kotlinx.android.synthetic.main.shelve_item.view.*
 

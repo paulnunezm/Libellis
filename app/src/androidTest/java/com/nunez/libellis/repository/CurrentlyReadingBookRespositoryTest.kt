@@ -5,7 +5,7 @@ import androidx.test.rule.ActivityTestRule
 import androidx.test.runner.AndroidJUnit4
 import com.nunez.libellis.TestActivity
 import com.nunez.libellis.UserPrefsManager
-import com.nunez.libellis.entities.CurrentlyReadingBook
+import com.nunez.libellis.domain.entities.CurrentlyReadingBook
 import com.vicpin.krealmextensions.queryAll
 import io.realm.Realm
 import io.realm.RealmConfiguration

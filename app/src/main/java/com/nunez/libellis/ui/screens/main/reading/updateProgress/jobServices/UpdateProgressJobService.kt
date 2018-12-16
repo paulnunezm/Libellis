@@ -5,9 +5,9 @@ import android.app.job.JobService
 import android.content.Intent
 import android.content.IntentFilter
 import android.util.Log
-import com.nunez.libellis.entities.raw.UpdateProgress
-import com.nunez.libellis.repository.GoodreadsService
-import com.nunez.libellis.repository.SignedRetrofit
+import com.nunez.libellis.domain.entities.raw.UpdateProgress
+import com.nunez.libellis.data.network.GoodreadsService
+import com.nunez.libellis.data.network.SignedRetrofit
 import com.nunez.libellis.ui.views.UpdateProgressView
 import io.reactivex.schedulers.Schedulers
 

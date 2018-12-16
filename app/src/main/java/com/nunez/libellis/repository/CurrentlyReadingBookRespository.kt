@@ -1,7 +1,7 @@
 package com.nunez.libellis.repository
 
 import com.nunez.libellis.UserPreferenceManager
-import com.nunez.libellis.entities.CurrentlyReadingBook
+import com.nunez.libellis.domain.entities.CurrentlyReadingBook
 import com.vicpin.krealmextensions.deleteAll
 import com.vicpin.krealmextensions.queryAllAsFlowable
 import com.vicpin.krealmextensions.saveAll

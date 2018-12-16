@@ -4,8 +4,8 @@ import androidx.recyclerview.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
 import com.nunez.libellis.R
-import com.nunez.libellis.entities.Author
-import com.nunez.libellis.entities.CurrentlyReadingBook
+import com.nunez.libellis.domain.entities.Author
+import com.nunez.libellis.domain.entities.CurrentlyReadingBook
 import com.nunez.libellis.inflate
 import io.realm.RealmList
 import kotlinx.android.synthetic.main.reading_item.view.*

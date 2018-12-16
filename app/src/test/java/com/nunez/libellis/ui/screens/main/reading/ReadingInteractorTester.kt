@@ -4,8 +4,8 @@ import com.nhaarman.mockito_kotlin.mock
 import com.nhaarman.mockito_kotlin.whenever
 import com.nunez.libellis.ConnectivityChecker
 import com.nunez.libellis.EntityMapperBehavior
-import com.nunez.libellis.entities.CurrentlyReadingBook
-import com.nunez.libellis.repository.GoodreadsService
+import com.nunez.libellis.domain.entities.CurrentlyReadingBook
+import com.nunez.libellis.data.network.GoodreadsService
 import com.nunez.libellis.repository.ReactiveStore
 import io.reactivex.BackpressureStrategy
 import io.reactivex.Flowable

@@ -7,11 +7,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.nunez.libellis.*
-import com.nunez.libellis.entities.CurrentlyReadingBook
+import com.nunez.libellis.domain.entities.CurrentlyReadingBook
 import com.nunez.libellis.ui.screens.main.reading.updateProgress.UpdateProgressSheet
 import com.nunez.libellis.repository.CurrentlyReadingBookRespository
-import com.nunez.libellis.repository.GoodreadsService
-import com.nunez.libellis.repository.SignedRetrofit
+import com.nunez.libellis.data.network.GoodreadsService
+import com.nunez.libellis.data.network.SignedRetrofit
 import io.realm.Realm
 import kotlinx.android.synthetic.main.fragment_currently_reading.*
 

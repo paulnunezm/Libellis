@@ -14,7 +14,7 @@ import com.nunez.libellis.BuildConfig
 import com.nunez.libellis.ConnectivityCheckerImpl
 import com.nunez.libellis.R
 import com.nunez.libellis.ui.screens.main.MainActivity
-import com.nunez.libellis.repository.GoodreadsService
+import com.nunez.libellis.data.network.GoodreadsService
 import com.nunez.libellis.showSnackbar
 import com.nunez.oauthathenticator.AuthDialog
 import com.nunez.oauthathenticator.Authenticator

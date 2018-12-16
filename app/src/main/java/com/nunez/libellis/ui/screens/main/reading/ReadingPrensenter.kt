@@ -1,7 +1,7 @@
 package com.nunez.libellis.ui.screens.main.reading
 
 import com.nunez.libellis.UserPreferenceManager
-import com.nunez.libellis.entities.CurrentlyReadingBook
+import com.nunez.libellis.domain.entities.CurrentlyReadingBook
 
 class ReadingPrensenter(
         private val view: ReadingContract.View,

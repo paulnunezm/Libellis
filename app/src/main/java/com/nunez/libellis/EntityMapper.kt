@@ -1,10 +1,10 @@
 package com.nunez.libellis
 
-import com.nunez.libellis.entities.Author
-import com.nunez.libellis.entities.CurrentlyReadingBook
-import com.nunez.libellis.entities.raw.Review
-import com.nunez.libellis.entities.raw.ReviewAuthor
-import com.nunez.libellis.entities.raw.ReviewBook
+import com.nunez.libellis.domain.entities.Author
+import com.nunez.libellis.domain.entities.CurrentlyReadingBook
+import com.nunez.libellis.domain.entities.raw.Review
+import com.nunez.libellis.domain.entities.raw.ReviewAuthor
+import com.nunez.libellis.domain.entities.raw.ReviewBook
 import io.realm.RealmList
 
 interface EntityMapperBehavior {

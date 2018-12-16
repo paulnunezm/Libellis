@@ -7,7 +7,7 @@ import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.LinearLayout
 import com.nunez.libellis.R
-import com.nunez.libellis.entities.raw.UpdateProgress
+import com.nunez.libellis.domain.entities.raw.UpdateProgress
 import kotlinx.android.synthetic.main.update_progress_layout.view.*
 import kotlinx.android.synthetic.main.update_progress_sheet_book_info.view.*
 

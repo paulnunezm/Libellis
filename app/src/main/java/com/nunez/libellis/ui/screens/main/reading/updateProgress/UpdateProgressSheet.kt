@@ -8,8 +8,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.nunez.libellis.R
-import com.nunez.libellis.repository.GoodreadsService
-import com.nunez.libellis.repository.SignedRetrofit
+import com.nunez.libellis.data.network.GoodreadsService
+import com.nunez.libellis.data.network.SignedRetrofit
 import kotlinx.android.synthetic.main.reading_update_bottom_sheet.*
 
 

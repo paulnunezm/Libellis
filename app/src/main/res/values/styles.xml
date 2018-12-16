@@ -123,4 +123,13 @@
         <item name="android:textColor">@color/grey_light</item>
         <item name="android:textSize">@dimen/medium_text_size</item>
     </style>
+
+    <style name="ReadingRecycler">
+        <item name="android:layout_marginStart">@dimen/books_recycler_margin</item>
+        <item name="android:layout_marginEnd">@dimen/books_recycler_margin</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingStart">8dp</item>
+        <item name="android:paddingEnd">8dp</item>
+        <item name="android:elevation">6dp</item>
+    </style>
 </resources>

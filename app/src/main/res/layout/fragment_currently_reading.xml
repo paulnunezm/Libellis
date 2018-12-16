@@ -1,21 +1,22 @@
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/readingParent"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".main.MainActivity">
+    tools:context=".main.MainActivity"
+    tools:background="@color/blue_light">
 
     <ViewStub
         android:id="@+id/errorMessage"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout="@layout/error_no_connectivity"/>
+        android:layout="@layout/error_no_connectivity" />
 
     <include
         android:id="@+id/noBooksMessage"
         layout="@layout/message_no_books"
-        android:visibility="invisible"/>
+        android:visibility="invisible" />
 
     <com.facebook.shimmer.ShimmerFrameLayout
         android:id="@+id/loadingView"
@@ -28,20 +29,41 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <include layout="@layout/reading_item_progress"/>
+            <include layout="@layout/reading_item_progress" />
 
-            <include layout="@layout/reading_item_progress"/>
+            <include layout="@layout/reading_item_progress" />
 
-            <include layout="@layout/reading_item_progress"/>
+            <include layout="@layout/reading_item_progress" />
 
         </LinearLayout>
 
     </com.facebook.shimmer.ShimmerFrameLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/readingRecycler"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layoutAnimation="@anim/recycler_animation"
-        tools:listitem="@layout/reading_item"/>
+        android:orientation="vertical">
+
+        <com.nunez.libellis.views.CustomFontTextView
+            android:id="@+id/authorName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:textColor="@color/blue_light"
+            android:layout_marginBottom="16dp"
+            android:text="currently reading"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textSize="@dimen/normal_text_size"
+            app:fontFile="Lato-Bold.ttf" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/readingRecycler"
+            style="@style/ReadingRecycler"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/recycler_background"
+            android:layoutAnimation="@anim/recycler_animation"
+            tools:listitem="@layout/reading_item" />
+    </LinearLayout>
 </FrameLayout>

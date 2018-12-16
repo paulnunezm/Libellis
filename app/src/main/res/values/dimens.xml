@@ -9,6 +9,7 @@
     <dimen name="bigger_text_size">32sp</dimen>
     <dimen name="big_text_size">22sp</dimen>
     <dimen name="medium_text_size">18sp</dimen>
+    <dimen name="normal_text_size">16sp</dimen>
     <dimen name="small_text_size">14sp</dimen>
     <dimen name="micro_text_size">12sp</dimen>
     <dimen name="book_image_border_radius">6dp</dimen>
@@ -60,5 +61,7 @@
     <!--/Updates-->
 
     <dimen name="message_screen_text_size">16sp</dimen>
+
+    <dimen name="books_recycler_margin">16dp</dimen>
 
 </resources>

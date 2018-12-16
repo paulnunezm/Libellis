@@ -22,7 +22,7 @@
             android:layout_height="24dp"
             tools:background="@color/blue_light"/>
 
-        <com.nunez.libellis.views.CustomFontTextView
+        <com.nunez.libellis.ui.views.CustomFontTextView
             android:id="@+id/shelveName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

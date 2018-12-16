@@ -17,7 +17,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
-    <com.nunez.libellis.views.CustomFontTextView
+    <com.nunez.libellis.ui.views.CustomFontTextView
         android:id="@+id/bookTitle"
         style="@style/UpdateBookTextView"
         android:layout_width="wrap_content"
@@ -31,7 +31,7 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Loooong Book Loooon to way too looong pretty awesome book name"/>
 
-    <com.nunez.libellis.views.CustomFontTextView
+    <com.nunez.libellis.ui.views.CustomFontTextView
         android:id="@+id/authorName"
         style="@style/UpdateBookTextView"
         android:layout_width="wrap_content"
@@ -43,7 +43,7 @@
         app:layout_constraintTop_toBottomOf="@+id/bookTitle"
         tools:text="by Author Name 1, Author Name 2, Author Name 3"/>
 
-    <com.nunez.libellis.views.CustomFontTextView
+    <com.nunez.libellis.ui.views.CustomFontTextView
         android:id="@+id/lastUpdateLabel"
         style="@style/UpdateProgressDateMessageText"
         android:layout_width="wrap_content"
@@ -54,7 +54,7 @@
         app:layout_constraintLeft_toLeftOf="@+id/authorName"
         app:layout_constraintTop_toBottomOf="@+id/authorName"/>
 
-    <com.nunez.libellis.views.CustomFontTextView
+    <com.nunez.libellis.ui.views.CustomFontTextView
         android:id="@+id/lastUpdateTime"
         style="@style/UpdateProgressDateMessageText"
         android:layout_width="wrap_content"

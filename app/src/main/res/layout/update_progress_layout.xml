@@ -10,7 +10,7 @@
 
     <include layout="@layout/update_progress_sheet_book_info"/>
 
-    <com.nunez.libellis.views.RatingView
+    <com.nunez.libellis.ui.views.RatingView
         android:id="@+id/ratingView"
         android:layout_width="wrap_content"
         android:layout_height="69dp"
@@ -19,7 +19,7 @@
         android:visibility="gone"
         tools:visibility="visible"/>
 
-    <com.nunez.libellis.views.ProgressInput
+    <com.nunez.libellis.ui.views.ProgressInput
         android:id="@+id/progressInputLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -29,7 +29,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <com.nunez.libellis.views.CustomFontTextView
+        <com.nunez.libellis.ui.views.CustomFontTextView
             android:id="@+id/commentButton"
             style="@style/UpdateProgressButton"
             android:layout_width="wrap_content"
@@ -37,7 +37,7 @@
             android:text="@string/update_progress_view_comment_msg"
             app:fontFile="Raleway-Regular.ttf"/>
 
-        <com.nunez.libellis.views.CustomFontTextView
+        <com.nunez.libellis.ui.views.CustomFontTextView
             android:id="@+id/finishedButton"
             style="@style/UpdateProgressButton"
             android:layout_width="wrap_content"

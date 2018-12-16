@@ -5,12 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/blue_light"
-    tools:context=".main.updates.UpdatesFragment">
+    tools:context="com.nunez.libellis.ui.screens.main.updates.UpdatesFragment">
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".main.MainActivity">
+        tools:context="com.nunez.libellis.ui.screens.main.MainActivity">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/updatesRecycler"

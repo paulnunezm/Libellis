@@ -17,7 +17,7 @@
         android:layout_marginLeft="@dimen/shelve_bottom_sheet_item_margin"
         android:background="@color/blue_light"/>
 
-    <com.nunez.libellis.views.CustomFontTextView
+    <com.nunez.libellis.ui.views.CustomFontTextView
         android:id="@+id/shelveName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -37,7 +37,7 @@
             app:layout_constraintTop_toBottomOf="@+id/updateUserLayout"
             app:layout_constraintVertical_bias="0.126"/>
 
-        <com.nunez.libellis.views.CustomFontTextView
+        <com.nunez.libellis.ui.views.CustomFontTextView
             android:id="@+id/friendName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

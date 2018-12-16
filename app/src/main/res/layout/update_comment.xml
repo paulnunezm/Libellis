@@ -45,7 +45,7 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@id/bookLayout">
 
-            <com.nunez.libellis.views.CustomFontTextView
+            <com.nunez.libellis.ui.views.CustomFontTextView
                 android:id="@+id/commentLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -54,7 +54,7 @@
                 android:textSize="@dimen/update_book_author_text_size"
                 app:fontFile="Raleway-Light.ttf"/>
 
-            <com.nunez.libellis.views.CustomFontTextView
+            <com.nunez.libellis.ui.views.CustomFontTextView
                 android:id="@+id/comment"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

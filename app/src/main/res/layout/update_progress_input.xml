@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <com.nunez.libellis.views.CustomFontTextView
+            <com.nunez.libellis.ui.views.CustomFontTextView
                 style="@style/ProgressInputMessage"
                 android:id="@+id/customFontTextView"
                 android:layout_width="wrap_content"
@@ -31,7 +31,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-                <com.nunez.libellis.views.CustomFontTextView
+                <com.nunez.libellis.ui.views.CustomFontTextView
                     android:id="@+id/percentSelector"
                     style="@style/ProgressInputSymbol"
                     android:layout_width="48dp"
@@ -46,7 +46,7 @@
                     android:layout_gravity="center_vertical"
                     android:background="@color/blue"/>
 
-                <com.nunez.libellis.views.CustomFontTextView
+                <com.nunez.libellis.ui.views.CustomFontTextView
                     android:id="@+id/pageSelector"
                     style="@style/ProgressInputSymbol"
                     android:layout_width="48dp"
@@ -56,7 +56,7 @@
             </LinearLayout>
         </LinearLayout>
 
-        <com.nunez.libellis.views.CustomFontEditText
+        <com.nunez.libellis.ui.views.CustomFontEditText
             android:id="@+id/input"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

@@ -1,7 +1,7 @@
 package com.nunez.libellis.entities.raw
 
 import android.os.PersistableBundle
-import com.nunez.libellis.views.UpdateProgressView
+import com.nunez.libellis.ui.views.UpdateProgressView
 
 data class UpdateProgress(
         val id: String = "",

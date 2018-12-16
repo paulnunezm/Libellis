@@ -4,7 +4,7 @@
     android:id="@+id/readingParent"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".main.MainActivity"
+    tools:context="com.nunez.libellis.ui.screens.main.MainActivity"
     tools:background="@color/blue_light">
 
     <ViewStub
@@ -23,7 +23,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <com.nunez.libellis.views.CustomFontTextView
+        <com.nunez.libellis.ui.views.CustomFontTextView
             android:id="@+id/title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

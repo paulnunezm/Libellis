@@ -18,7 +18,7 @@
             android:tint="@color/blue_light"
             android:layout_gravity="center"/>
 
-        <com.nunez.libellis.views.CustomFontTextView
+        <com.nunez.libellis.ui.views.CustomFontTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/msg_error_no_internet"

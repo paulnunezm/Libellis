@@ -16,7 +16,7 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name=".DispatchActivity"
+            android:name=".ui.DispatchActivity"
             android:theme="@style/AppTheme.BrandedLaunch">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -26,13 +26,13 @@
         </activity>
 
         <activity
-            android:name=".login.LoginActivity"
+            android:name="com.nunez.libellis.ui.screens.login.LoginActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"/>
 
         <activity
-            android:name=".main.MainActivity"
+            android:name="com.nunez.libellis.ui.screens.main.MainActivity"
             android:label="@string/title_activity_main_activity"
             android:theme="@style/AppTheme"
             android:configChanges="orientation"
@@ -41,7 +41,7 @@
         <activity android:name=".TestActivity"/>
 
         <service
-            android:name=".main.reading.updateProgress.jobServices.UpdateProgressJobService"
+            android:name="com.nunez.libellis.ui.screens.main.reading.updateProgress.jobServices.UpdateProgressJobService"
             android:exported="false"
             android:permission="android.permission.BIND_JOB_SERVICE"/>
     </application>

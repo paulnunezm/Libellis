@@ -56,7 +56,7 @@
                 android:layout_marginLeft="8dp"
                 app:layout_constraintLeft_toLeftOf="parent"/>
 
-                <com.nunez.libellis.views.CustomFontTextView
+                <com.nunez.libellis.ui.views.CustomFontTextView
                     android:id="@+id/update_type_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -72,7 +72,7 @@
                     tools:layout_editor_absoluteY="144dp"
                     tools:layout_editor_absoluteX="288dp"/>
 
-                <com.nunez.libellis.views.CustomFontTextView
+                <com.nunez.libellis.ui.views.CustomFontTextView
                     android:id="@+id/per_page_update_indicator"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -105,7 +105,7 @@
                     tools:layout_editor_absoluteY="144dp"
                     tools:layout_editor_absoluteX="126dp"/>
 
-                <com.nunez.libellis.views.CustomFontTextView
+                <com.nunez.libellis.ui.views.CustomFontTextView
                     android:id="@+id/per_percentage_indicator"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -123,7 +123,7 @@
                     tools:layout_editor_absoluteY="144dp"
                     tools:layout_editor_absoluteX="351dp"/>
 
-                <com.nunez.libellis.views.CustomFontTextView
+                <com.nunez.libellis.ui.views.CustomFontTextView
                     android:id="@+id/update_ending_msg"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -175,7 +175,7 @@
             tools:visibility="gone">
 
             <!--android:background="@drawable/libellis_ripple"-->
-            <com.nunez.libellis.views.CustomFontTextView
+            <com.nunez.libellis.ui.views.CustomFontTextView
                 android:id="@+id/update_btn"
                 style="@style/UpdateProgressButton"
                 android:layout_width="wrap_content"
@@ -189,7 +189,7 @@
                 app:fontFile="Raleway-Bold.ttf"/>
 
             <!--android:background="@drawable/libellis_ripple"-->
-            <com.nunez.libellis.views.CustomFontTextView
+            <com.nunez.libellis.ui.views.CustomFontTextView
                 android:id="@+id/cancel_btn"
                 style="@style/UpdateProgressButton"
                 android:layout_width="wrap_content"

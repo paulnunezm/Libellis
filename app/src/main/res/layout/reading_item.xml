@@ -9,7 +9,7 @@
     android:orientation="vertical"
     android:padding="12dp">
 
-    <com.nunez.libellis.views.CustomFontTextView
+    <com.nunez.libellis.ui.views.CustomFontTextView
         android:id="@+id/bookTitle"
         style="@style/UpdateBookTextView"
         android:layout_width="match_parent"
@@ -20,7 +20,7 @@
         app:fontFile="Raleway-Medium.ttf"
         tools:text="The Kite Runner and the long long long long waaaay to run"/>
 
-    <com.nunez.libellis.views.CustomFontTextView
+    <com.nunez.libellis.ui.views.CustomFontTextView
         android:id="@+id/authorName"
         style="@style/UpdateBookTextView"
         android:layout_width="match_parent"

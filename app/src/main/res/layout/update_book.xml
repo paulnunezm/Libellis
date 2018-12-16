@@ -17,7 +17,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
-    <com.nunez.libellis.views.CustomFontTextView
+    <com.nunez.libellis.ui.views.CustomFontTextView
         android:id="@+id/bookTitle"
         style="@style/UpdateBookTextView"
         android:layout_width="wrap_content"
@@ -30,7 +30,7 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:text="The Kite Runner and the long long long long waaaay to run"/>
 
-    <com.nunez.libellis.views.CustomFontTextView
+    <com.nunez.libellis.ui.views.CustomFontTextView
         android:id="@+id/authorName"
         style="@style/UpdateBookTextView"
         android:layout_width="wrap_content"
@@ -46,7 +46,7 @@
 
 
     <!--android:background="@drawable/libellis_ripple"-->
-    <com.nunez.libellis.views.CustomFontTextView
+    <com.nunez.libellis.ui.views.CustomFontTextView
         android:id="@+id/likeBtn"
         style="@style/UpdateBookTextView"
         android:layout_width="wrap_content"
@@ -65,7 +65,7 @@
         app:layout_constraintLeft_toLeftOf="@+id/wantToReadBtn"
         app:layout_constraintTop_toBottomOf="@+id/wantToReadBtn"/>
 
-    <com.nunez.libellis.views.CustomFontTextView
+    <com.nunez.libellis.ui.views.CustomFontTextView
         android:id="@+id/separator"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -87,7 +87,7 @@
         app:layout_constraintTop_toTopOf="@+id/likeBtn"/>
 
     <!--android:background="@drawable/libellis_ripple"-->
-    <com.nunez.libellis.views.CustomFontTextView
+    <com.nunez.libellis.ui.views.CustomFontTextView
         android:id="@+id/commentBtn"
         style="@style/UpdateBookTextView"
         android:layout_width="wrap_content"
@@ -107,7 +107,7 @@
         app:layout_constraintLeft_toRightOf="@+id/separator"
         app:layout_constraintTop_toTopOf="@+id/separator"/>
 
-    <com.nunez.libellis.views.CustomFontTextView
+    <com.nunez.libellis.ui.views.CustomFontTextView
         android:id="@+id/wantToReadBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

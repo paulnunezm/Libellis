@@ -7,7 +7,7 @@
     android:paddingBottom="12dp"
     android:orientation="vertical">
 
-    <com.nunez.libellis.views.UpdateProgressView
+    <com.nunez.libellis.ui.views.UpdateProgressView
         android:id="@+id/updateProgressLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>

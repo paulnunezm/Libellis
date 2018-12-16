@@ -16,7 +16,7 @@
         android:layout_height="57dp"
         tools:progress="4"/>
 
-    <com.nunez.libellis.views.CustomFontTextView
+    <com.nunez.libellis.ui.views.CustomFontTextView
         android:id="@+id/ratingText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

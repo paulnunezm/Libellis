@@ -77,13 +77,9 @@ class ReadingFragment : Fragment(), ReadingContract.View {
     }
 
     override fun showLoading() {
-        loadingView?.intensity = 0.01f
-        loadingView?.startShimmerAnimation()
     }
 
     override fun hideLoading() {
-        loadingView.stopShimmerAnimation()
-        loadingView.gone()
     }
 
     override fun showErrorMessage() {
@@ -99,7 +95,6 @@ class ReadingFragment : Fragment(), ReadingContract.View {
     }
 
     override fun showMessage(message: String, error: Boolean) {
-        loadingView.stopShimmerAnimation()
         parentView.showSnackbar(message)
     }
 

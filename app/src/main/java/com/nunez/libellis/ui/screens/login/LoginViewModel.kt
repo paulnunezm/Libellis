@@ -23,6 +23,11 @@ class LoginViewModel(
     val loginState: LiveData<ScreenState<LoginState>>
         get() = _loginState
 
+    override fun onCleared() {
+        compositeDisposable.clear()
+        super.onCleared()
+    }
+
     fun onLoginClicked() {
         _loginState.value = ScreenState.Loading
         _loginState.value = ScreenState.Render(LoginState.GetRequestToken)
@@ -55,10 +60,10 @@ class LoginViewModel(
         _loginState.value = ScreenState.Render(LoginState.Error)
     }
 
-    override fun onCleared() {
-        compositeDisposable.clear()
-        super.onCleared()
+    fun onAuthDialogClosed(){
+        _loginState.value = ScreenState.Render(LoginState.ShowLoginButton)
     }
+
 }
 
 class LoginViewModelFactory(

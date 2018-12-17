@@ -83,6 +83,7 @@ class LoginActivity : AppCompatActivity(),
     }
 
     override fun onDialogCloseByUser() {
+        viewModel.onAuthDialogClosed()
     }
 
     private fun updateUI(screenState: ScreenState<LoginState>) {
@@ -105,6 +106,7 @@ class LoginActivity : AppCompatActivity(),
             }
             LoginState.Success -> goToUpdatesActivity()
             LoginState.Error -> showUnexpectedErrorMessage()
+            LoginState.ShowLoginButton -> showLoginButton()
         }
     }
 
@@ -139,11 +141,6 @@ class LoginActivity : AppCompatActivity(),
         val intent = Intent(this, MainActivity::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         startActivity(intent)
-    }
-
-    private fun onAuthDialogClose() {
-        loginButton.visibility = VISIBLE
-        progress.visibility = GONE
     }
 
     private fun showUnexpectedErrorMessage() {

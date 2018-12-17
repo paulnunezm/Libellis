@@ -5,6 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.nunez.libellis.ConnectivityChecker
 import com.nunez.libellis.data.db.PreferencesManager
 import com.nunez.libellis.domain.userId.UserIdRepository
 import com.nunez.libellis.ui.screens.ScreenState
@@ -13,8 +14,9 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 
 class LoginViewModel(
-        val repository: UserIdRepository,
-        val preferences: PreferencesManager
+        private val repository: UserIdRepository,
+        private val preferences: PreferencesManager,
+        private val connectivityChecker: ConnectivityChecker
 ) : ViewModel() {
 
     private val compositeDisposable = CompositeDisposable()
@@ -29,15 +31,19 @@ class LoginViewModel(
     }
 
     fun onLoginClicked() {
-        _loginState.value = ScreenState.Loading
-        _loginState.value = ScreenState.Render(LoginState.GetRequestToken)
+        if (connectivityChecker.isConected()) {
+            _loginState.value = ScreenState.Loading
+            _loginState.value = ScreenState.Render(LoginState.GetRequestToken)
+        } else {
+            _loginState.value = ScreenState.Render(LoginState.ConnectionError)
+        }
     }
 
     fun onRequestTokenReceived(authorizationUrl: String) {
         _loginState.value = ScreenState.Render(LoginState.ShowAuthenticationDialog(authorizationUrl))
     }
 
-    fun onAuthorizationTokenReceived(authToken: Uri){
+    fun onAuthorizationTokenReceived(authToken: Uri) {
         _loginState.value = ScreenState.Render(LoginState.GetUserSecretKeys(authToken))
     }
 
@@ -60,7 +66,7 @@ class LoginViewModel(
         _loginState.value = ScreenState.Render(LoginState.Error)
     }
 
-    fun onAuthDialogClosed(){
+    fun onAuthDialogClosed() {
         _loginState.value = ScreenState.Render(LoginState.ShowLoginButton)
     }
 
@@ -68,10 +74,11 @@ class LoginViewModel(
 
 class LoginViewModelFactory(
         val repository: UserIdRepository,
-        val preferencesManager: PreferencesManager
+        val preferencesManager: PreferencesManager,
+        val connectivityChecker: ConnectivityChecker
 ) : ViewModelProvider.NewInstanceFactory() {
 
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-        return LoginViewModel(repository, preferencesManager) as T
+        return LoginViewModel(repository, preferencesManager, connectivityChecker) as T
     }
 }

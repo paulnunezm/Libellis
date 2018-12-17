@@ -10,6 +10,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.google.android.material.snackbar.Snackbar
 import com.nunez.libellis.BuildConfig
+import com.nunez.libellis.ConnectivityCheckerImpl
 import com.nunez.libellis.R
 import com.nunez.libellis.data.db.LocalDataImpl
 import com.nunez.libellis.data.db.PreferencesManager
@@ -49,10 +50,11 @@ class LoginActivity : AppCompatActivity(),
         val preferencesManager = PreferencesManager(this)
         val localData = LocalDataImpl(preferencesManager)
         val userIdRepo = UserIdRepositoryImpl(this, localData)
+        val connectivityCheckerImpl = ConnectivityCheckerImpl(this)
 
         viewModel = ViewModelProviders.of(
                 this,
-                LoginViewModelFactory(userIdRepo, preferencesManager)
+                LoginViewModelFactory(userIdRepo, preferencesManager, connectivityCheckerImpl)
         )[LoginViewModel::class.java]
 
         viewModel.loginState.observe(this, Observer<ScreenState<LoginState>> {
@@ -96,6 +98,7 @@ class LoginActivity : AppCompatActivity(),
             is LoginState.GetUserSecretKeys -> getUserSecretKeys(renderState.authToken)
             LoginState.Success -> goToUpdatesActivity()
             LoginState.Error -> showUnexpectedErrorMessage()
+            LoginState.ConnectionError -> showConnectivityErrorMessage()
             LoginState.ShowLoginButton -> showLoginButton()
         }
     }

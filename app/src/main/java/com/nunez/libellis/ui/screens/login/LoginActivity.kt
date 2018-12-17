@@ -5,8 +5,6 @@ import android.net.Uri
 import android.os.Bundle
 import android.view.View.GONE
 import android.view.View.VISIBLE
-import android.widget.Button
-import android.widget.ProgressBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -33,8 +31,6 @@ class LoginActivity : AppCompatActivity(),
 
     private lateinit var viewModel: LoginViewModel
     private lateinit var authenticator: Authenticator
-    val loginButton by lazy { findViewById<Button>(R.id.loginButton) }
-    val progress by lazy { findViewById<ProgressBar>(R.id.progressBar) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -97,13 +93,7 @@ class LoginActivity : AppCompatActivity(),
         when (renderState) {
             LoginState.GetRequestToken -> authenticator.getRequestToken()
             is LoginState.ShowAuthenticationDialog -> showAuthDialog(renderState.authorizationUrl)
-            is LoginState.GetUserSecretKeys -> {
-                try {
-                    authenticator.getUserSecretKeys(renderState.authToken)
-                } catch (e: ExecutionException) {
-                    viewModel.onAuthorizationError()
-                }
-            }
+            is LoginState.GetUserSecretKeys -> getUserSecretKeys(renderState.authToken)
             LoginState.Success -> goToUpdatesActivity()
             LoginState.Error -> showUnexpectedErrorMessage()
             LoginState.ShowLoginButton -> showLoginButton()
@@ -124,12 +114,20 @@ class LoginActivity : AppCompatActivity(),
     }
 
     private fun showProgress() {
-        progress.visibility = VISIBLE
+        progressBar.visibility = VISIBLE
         loginButton.visibility = GONE
     }
 
+    private fun getUserSecretKeys(authToken: Uri?) {
+        try {
+            authenticator.getUserSecretKeys(authToken)
+        } catch (e: ExecutionException) {
+            viewModel.onAuthorizationError()
+        }
+    }
+
     fun showLoginButton() {
-        progress.visibility = GONE
+        progressBar.visibility = GONE
         Timer("ShowLoginButton").schedule(500) {
             runOnUiThread {
                 loginButton.visibility = VISIBLE

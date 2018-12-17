@@ -1,8 +1,6 @@
 package com.nunez.libellis.ui.screens.login
 
 import android.content.Intent
-import android.graphics.Color
-import android.graphics.PorterDuff
 import android.net.Uri
 import android.os.Bundle
 import android.view.View.GONE
@@ -68,8 +66,6 @@ class LoginActivity : AppCompatActivity(),
         loginButton.setOnClickListener {
             viewModel.onLoginClicked()
         }
-
-        progressBar.indeterminateDrawable.setColorFilter(Color.WHITE, PorterDuff.Mode.SRC_IN)
 
         showLoginButton()
     }

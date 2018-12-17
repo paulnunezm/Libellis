@@ -55,7 +55,7 @@
                 android:text="@string/login_activity_log_in_button"
                 android:textSize="@dimen/medium_text_size"
                 android:visibility="gone"
-                tools:visibility="visible" />
+                tools:visibility="gone" />
 
             <ProgressBar
                 android:id="@+id/progressBar"

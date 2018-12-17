@@ -3,19 +3,14 @@ package com.nunez.libellis.ui.screens.login
 import android.content.Context
 import android.content.SharedPreferences
 import com.nunez.libellis.ConnectivityChecker
-import com.nunez.libellis.NoConnectivityException
 import com.nunez.libellis.R
-import com.nunez.libellis.data.network.GoodreadsService
-import com.nunez.libellis.data.network.SignedHttpClient
-import com.nunez.libellis.data.network.SignedRetrofit
-import com.nunez.libellis.data.network.parsers.UserIdParser
+import com.nunez.libellis.data.db.LocalDataImpl
+import com.nunez.libellis.data.db.PreferencesManager
 import com.nunez.libellis.data.repository.UserIdRepositoryImpl
 import com.nunez.libellis.domain.userId.UserIdUseCase
 import io.reactivex.Completable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
-import okhttp3.HttpUrl
-import okhttp3.Request
 
 class LoginInteractor(
         private val context: Context,
@@ -40,11 +35,13 @@ class LoginInteractor(
 
     override fun requestUserId(): Completable {
         return Completable.fromAction {
-            val repository = UserIdRepositoryImpl(context)
+            val preferencesManager = PreferencesManager(context)
+            val localData = LocalDataImpl(preferencesManager)
+            val repository = UserIdRepositoryImpl(context, localData)
             UserIdUseCase(repository)
                     .getUserId().subscribe({
                         saveUserId(it, {})
-                    },{
+                    }, {
                     })
         }.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())

@@ -62,6 +62,6 @@
 
     <dimen name="message_screen_text_size">16sp</dimen>
 
-    <dimen name="books_recycler_margin">16dp</dimen>
+    <dimen name="books_recycler_margin">8dp</dimen>
 
 </resources>

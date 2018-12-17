@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.nunez.libellis.ui.screens.main.MainActivity"
-    tools:background="@color/blue_light">
+    tools:background="@color/blue">
 
     <ViewStub
         android:id="@+id/errorMessage"
@@ -32,6 +32,7 @@
             android:layout_marginBottom="16dp"
             android:text="currently reading"
             android:textAlignment="center"
+            android:letterSpacing="0.1"
             android:textAllCaps="true"
             android:textSize="@dimen/normal_text_size"
             app:fontFile="Lato-Bold.ttf" />
